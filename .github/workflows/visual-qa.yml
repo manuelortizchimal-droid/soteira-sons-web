@@ -1,0 +1,58 @@
+name: Visual and functional QA
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save playwright
+      - run: npx playwright install --with-deps chromium
+      - name: Check pages, images, mobile and desktop interactions
+        run: |
+          node <<'JS'
+          const { chromium } = require('playwright');
+          const fs=require('fs'), http=require('http'),path=require('path');
+          const server=http.createServer((req,res)=>{const name=decodeURIComponent(req.url.split('?')[0]);const file=path.join(process.cwd(),name==='/'?'index.html':name);if(!file.startsWith(process.cwd())||!fs.existsSync(file)){res.writeHead(404);return res.end('not found')}res.setHeader('Content-Type',file.endsWith('.html')?'text/html':'application/octet-stream');res.end(fs.readFileSync(file))});
+          server.listen(8765,async()=>{let browser;try{
+            browser=await chromium.launch({headless:true});
+            const errors=[];
+            for(const width of [390,1440]){
+              const page=await browser.newPage({viewport:{width,height:850},deviceScaleFactor:1});
+              page.on('pageerror',e=>errors.push('JS '+width+': '+e.message));
+              await page.goto('http://127.0.0.1:8765/',{waitUntil:'domcontentloaded'});
+              await page.locator('.path-choice[data-path="vinculos"]').click();
+              if(!await page.locator('#path-result.visible').count())errors.push('path choice broken '+width);
+              await page.locator('.path-choice[data-path="senales"]').click();
+              if(await page.locator('#path-link').getAttribute('href')!=='#servicio-consulta')errors.push('wrong path '+width);
+              await page.locator('.path-choice[data-path="ausencias"]').click();
+              if(await page.locator('#path-link').getAttribute('href')!=='#servicio-canalizacion')errors.push('wrong grief path '+width);
+              await page.locator('#draw').click();
+              if(!await page.locator('#card-title').innerText())errors.push('card reveal broken '+width);
+              const horizontal=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2);
+              if(horizontal)errors.push('horizontal overflow '+width);
+              await page.screenshot({path:'qa-'+width+'.png',fullPage:true});
+              const imageURLs=await page.evaluate(()=>[...document.querySelectorAll('img')].map(x=>x.currentSrc).concat([...document.querySelectorAll('.path-visual,.service-image,.feature-portrait')].map(x=>getComputedStyle(x).backgroundImage)));
+              fs.writeFileSync('images-'+width+'.json',JSON.stringify(imageURLs,null,2));
+              await page.close();
+            }
+            for(const file of ['guia.html','privacidad.html']){const page=await browser.newPage();const response=await page.goto('http://127.0.0.1:8765/'+file);if(response.status()!==200)errors.push(file+' unavailable');await page.close()}
+            const html=fs.readFileSync('index.html','utf8');const urls=[...new Set([...html.matchAll(/https:\/\/images\.pexels\.com\/photos\/\d+\/[^"')\s]+/g)].map(x=>x[0].replace(/&amp;/g,'&')))];
+            for(const url of urls){try{const response=await fetch(url,{method:'GET',signal:AbortSignal.timeout(10000)});if(!response.ok)errors.push('Image '+response.status+' '+url)}catch(e){errors.push('Image request failed '+url+' '+e.message)}}
+            if(errors.length){console.error(errors.join('\n'));process.exitCode=1}else console.log('QA PASS: pages, 2 viewports, choices, reveal, overflow, '+urls.length+' images');
+          }catch(e){console.error(e);process.exitCode=1}finally{if(browser)await browser.close();server.close()}})
+          JS
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: visual-qa-screenshots
+          path: |
+            qa-*.png
+            images-*.json
+          retention-days: 7
