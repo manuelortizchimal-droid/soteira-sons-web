@@ -27,18 +27,18 @@ jobs:
               const page=await browser.newPage({viewport:{width,height:850},deviceScaleFactor:1});
               page.on('pageerror',e=>errors.push('JS '+width+': '+e.message));
               await page.goto('http://127.0.0.1:8765/',{waitUntil:'domcontentloaded'});
-              await page.locator('.path-choice[data-path="vinculos"]').click();
-              if(!await page.locator('#path-result.visible').count())errors.push('path choice broken '+width);
-              await page.locator('.path-choice[data-path="senales"]').click();
-              if(await page.locator('#path-link').getAttribute('href')!=='#servicio-consulta')errors.push('wrong path '+width);
-              await page.locator('.path-choice[data-path="ausencias"]').click();
-              if(await page.locator('#path-link').getAttribute('href')!=='#servicio-canalizacion')errors.push('wrong grief path '+width);
+              await page.locator('[data-service="Tarot"]').click();
+              if(await page.locator('#servicio').inputValue()!=='Tarot')errors.push('tarot selection broken '+width);
+              await page.locator('[data-service="Canalizaciones"]').click();
+              if(await page.locator('#servicio').inputValue()!=='Canalizaciones')errors.push('channeling selection broken '+width);
               await page.locator('#draw').click();
-              if(!await page.locator('#card-title').innerText())errors.push('card reveal broken '+width);
+              if(await page.locator('#oracle-message').innerText()==='Tu pregunta es el comienzo.')errors.push('oracle reveal broken '+width);
+              if(await page.locator('form').count()!==1)errors.push('contact form missing '+width);
+              if(await page.locator('.service').count()!==2)errors.push('incorrect service count '+width);
               const horizontal=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2);
               if(horizontal)errors.push('horizontal overflow '+width);
               await page.screenshot({path:'qa-'+width+'.png',fullPage:true});
-              const imageURLs=await page.evaluate(()=>[...document.querySelectorAll('img')].map(x=>x.currentSrc).concat([...document.querySelectorAll('.path-visual,.service-image,.feature-portrait')].map(x=>getComputedStyle(x).backgroundImage)));
+              const imageURLs=await page.evaluate(()=>[...document.querySelectorAll('img')].map(x=>x.currentSrc).concat([...document.querySelectorAll('.visual')].map(x=>getComputedStyle(x).backgroundImage)));
               fs.writeFileSync('images-'+width+'.json',JSON.stringify(imageURLs,null,2));
               await page.close();
             }
