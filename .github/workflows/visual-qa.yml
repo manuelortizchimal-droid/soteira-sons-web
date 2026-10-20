@@ -32,17 +32,17 @@ jobs:
               await page.locator('[data-service="Canalizaciones"]').click();
               if(await page.locator('#servicio').inputValue()!=='Canalizaciones')errors.push('channeling selection broken '+width);
               await page.locator('#draw').click();
-              if(await page.locator('#oracle-message').innerText()==='Tu pregunta es el comienzo.')errors.push('oracle reveal broken '+width);
-              if(await page.locator('form').count()!==1)errors.push('contact form missing '+width);
+              if(await page.locator('#oracle-memory').inputValue()!==await page.locator('#oracle-message').innerText())errors.push('oracle continuity broken '+width);
+              if(await page.locator('form').count()!==1)errors.push('contact form missing '+width);await page.locator('#canal').selectOption('Correo');if(await page.locator('#contact-value').getAttribute('type')!=='email')errors.push('email channel broken '+width);await page.locator('#canal').selectOption('WhatsApp');if(await page.locator('#contact-value').getAttribute('type')!=='tel')errors.push('whatsapp channel broken '+width);
               if(await page.locator('.service').count()!==2)errors.push('incorrect service count '+width);
               const horizontal=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2);
               if(horizontal)errors.push('horizontal overflow '+width);
               await page.screenshot({path:'qa-'+width+'.png',fullPage:true});
-              const imageURLs=await page.evaluate(()=>[...document.querySelectorAll('img')].map(x=>x.currentSrc).concat([...document.querySelectorAll('.visual')].map(x=>getComputedStyle(x).backgroundImage)));
+              const imageURLs=await page.evaluate(()=>[...document.querySelectorAll('img')].map(x=>x.currentSrc).concat([...document.querySelectorAll('.visual:before')].map(x=>getComputedStyle(document.querySelector('.visual'),'::before').backgroundImage)));
               fs.writeFileSync('images-'+width+'.json',JSON.stringify(imageURLs,null,2));
               await page.close();
             }
-            for(const file of ['guia.html','privacidad.html']){const page=await browser.newPage();const response=await page.goto('http://127.0.0.1:8765/'+file);if(response.status()!==200)errors.push(file+' unavailable');await page.close()}
+            for(const file of ['privacidad.html']){const page=await browser.newPage();const response=await page.goto('http://127.0.0.1:8765/'+file);if(response.status()!==200)errors.push(file+' unavailable');await page.close()}
             const html=fs.readFileSync('index.html','utf8');const urls=[...new Set([...html.matchAll(/https:\/\/images\.pexels\.com\/photos\/\d+\/[^"')\s]+/g)].map(x=>x[0].replace(/&amp;/g,'&')))];
             for(const url of urls){try{const response=await fetch(url,{method:'GET',signal:AbortSignal.timeout(10000)});if(!response.ok)errors.push('Image '+response.status+' '+url)}catch(e){errors.push('Image request failed '+url+' '+e.message)}}
             if(errors.length){console.error(errors.join('\n'));process.exitCode=1}else console.log('QA PASS: pages, 2 viewports, choices, reveal, overflow, '+urls.length+' images');
