@@ -66,6 +66,7 @@ window.dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});
     var service=link.getAttribute('data-service')||'General';
     window.dataLayer=window.dataLayer||[];
     window.dataLayer.push({event:'whatsapp_click',service_name:service,link_url:link.href,link_text:(link.textContent||'').trim().slice(0,100)});
+    try{if(localStorage.getItem('soteira_cookie_choice_v1')==='yes'&&typeof window.gtag==='function')window.gtag('event','whatsapp_click',{service_name:service,link_url:link.href,transport_type:'beacon'});}catch(e){}
   });
 })();
 </script></body></html>
