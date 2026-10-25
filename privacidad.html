@@ -30,7 +30,7 @@ window.dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});
     window.gtag('consent','update',{analytics_storage:allowed?'granted':'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
   }
   function readChoice(){try{var v=localStorage.getItem(KEY);return v==='yes'?true:v==='no'?false:null}catch(e){return null}}
-  function saveChoice(v){try{localStorage.setItem(KEY,v?'yes':'no')}catch(e){}apply(v);document.getElementById('cookie-panel').hidden=true;if(!v)location.reload()}
+  function saveChoice(v){var prior=readChoice();try{localStorage.setItem(KEY,v?'yes':'no')}catch(e){}apply(v);document.getElementById('cookie-panel').hidden=true;if(prior!==v)location.reload()}
   function ready(){
     var panel=document.getElementById('cookie-panel'),choice=readChoice();
     if(choice===null)panel.hidden=false;else apply(choice);
