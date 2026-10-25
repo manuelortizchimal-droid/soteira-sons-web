@@ -16,6 +16,7 @@
 window.dataLayer=window.dataLayer||[];
 window.gtag=window.gtag||function(){window.dataLayer.push(arguments);};
 window.gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});
+try{if(localStorage.getItem('soteira_cookie_choice_v1')==='yes')window.gtag('consent','update',{analytics_storage:'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});}catch(e){}
 window.dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});
 (function(){var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=GTM-M8SWXN9J';document.head.appendChild(s)})();
 </script></head><body>
