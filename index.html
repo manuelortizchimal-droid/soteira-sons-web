@@ -58,4 +58,14 @@ window.dataLayer.push({'gtm.start':Date.now(),event:'gtm.js'});
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ready);else ready();
 })();
+</script><script id="soteira-whatsapp-events">
+(function(){
+  document.addEventListener('click',function(event){
+    var link=event.target.closest('a[href*="wa.me/"],a[href*="api.whatsapp.com/"],a[href*="whatsapp.com/send"]');
+    if(!link)return;
+    var service=link.getAttribute('data-service')||'General';
+    window.dataLayer=window.dataLayer||[];
+    window.dataLayer.push({event:'whatsapp_click',service_name:service,link_url:link.href,link_text:(link.textContent||'').trim().slice(0,100)});
+  });
+})();
 </script></body></html>
