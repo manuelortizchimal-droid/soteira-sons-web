@@ -5,7 +5,7 @@
   <link rel="shortcut icon" href="/favicon.svg">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090807">
+  <meta name="theme-color" content="#080D12">
   
   <!-- Título limpio para la pestaña del navegador -->
   <title>Soteira &amp; Sons | Casa Ritual</title>
@@ -31,12 +31,12 @@
   <style>
     :root {
       color-scheme: dark;
-      --bg: #090807;
-      --panel: #15110f;
-      --gold: #d9b47a;
-      --muted: #c4b8aa;
-      --line: #4d3c2d;
-      --text: #f7efe6;
+      --bg: #080D12;
+      --panel: #101923;
+      --gold: #C6A66B;
+      --muted: #C0C9D2;
+      --line: #202B38;
+      --text: #F3F5F7;
     }
     * { box-sizing: border-box; }
     html, body { overflow-x: hidden; width: 100%; margin: 0; }
@@ -50,23 +50,23 @@
     /* Ancho unificado homogéneo con sintaxis calc corregida */
     .wrap { width: min(1100px, calc(100% - 40px)); margin: auto; }
     
-    header { position: sticky; top: 0; z-index: 100; background: #090807ee; border-bottom: 1px solid #4b3926; backdrop-filter: blur(14px); width: 100%; }
+    header { position: sticky; top: 0; z-index: 100; background: #080D12EE; border-bottom: 1px solid #202B38; backdrop-filter: blur(14px); width: 100%; }
     nav { display: flex; align-items: center; justify-content: space-between; min-height: 70px; gap: 15px; position: relative; }
     
     .brand { font-family: Georgia, serif; letter-spacing: .16em; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; }
-    .brand-logo { width: 38px; height: 38px; object-fit: contain; flex-shrink: 0; display: inline-block; filter: drop-shadow(0px 0px 2px #d9b47a); }
-    .brand-mark { display: none; width: 38px; height: 38px; align-items: center; justify-content: center; border: 1px solid #b99160; border-radius: 50%; font-family: Georgia, serif; font-size: 18px; color: #e9c994; flex-shrink: 0; }
+    .brand-logo { width: 38px; height: 38px; object-fit: contain; flex-shrink: 0; display: inline-block; filter: drop-shadow(0px 0px 2px #C6A66B); }
+    .brand-mark { display: none; width: 38px; height: 38px; align-items: center; justify-content: center; border: 1px solid #C6A66B; border-radius: 50%; font-family: Georgia, serif; font-size: 18px; color: #D8BB86; flex-shrink: 0; }
 
     .navlinks { display: flex; gap: 20px; align-items: center; }
     .navlinks a { text-decoration: none; color: var(--muted); font-size: .9rem; }
     .navlinks a:hover { color: var(--gold); }
     
-    .btn { display: inline-flex; align-items: center; justify-content: center; text-align: center; background: var(--gold); color: #1a1009; border: 1px solid var(--gold); border-radius: 4px; padding: 13px 23px; text-decoration: none; font-weight: 700; cursor: pointer; transition: transform .2s, background .2s; }
-    .btn:hover { transform: translateY(-2px); background: #f0c991; }
-    .navlinks .btn, .navlinks .btn:link, .navlinks .btn:visited { color: #170f08 !important; background: #e8c28b !important; border-color: #e8c28b !important; text-shadow: none !important; }
-    .navlinks .btn:hover { background: #ffe0a5 !important; color: #170f08 !important; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; text-align: center; background: var(--gold); color: #101923; border: 1px solid var(--gold); border-radius: 4px; padding: 13px 23px; text-decoration: none; font-weight: 700; cursor: pointer; transition: transform .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); background: #D8BB86; }
+    .navlinks .btn, .navlinks .btn:link, .navlinks .btn:visited { color: #101923 !important; background: #D8BB86 !important; border-color: #D8BB86 !important; text-shadow: none !important; }
+    .navlinks .btn:hover { background: #E8D1A7 !important; color: #101923 !important; }
     .btn.ghost { background: transparent; color: var(--gold); }
-    .btn.ghost:hover { background: #281c13; }
+    .btn.ghost:hover { background: #18232F; }
 
     /* Botón de Hamburguesa */
     .menu-toggle { display: none; background: transparent; border: 1px solid var(--line); color: var(--gold); font-size: 1.4rem; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
@@ -79,9 +79,9 @@
     em { color: var(--gold); font-style: italic; }
     p { color: var(--muted); word-break: break-word; }
 
-    .hero { position: relative; min-height: 640px; display: flex; align-items: center; isolation: isolate; overflow: hidden; background: #080706; }
+    .hero { position: relative; min-height: 640px; display: flex; align-items: center; isolation: isolate; overflow: hidden; background: #080D12; }
     .hero:before { content: ""; position: absolute; inset: 0; z-index: -2; background: url("https://images.pexels.com/photos/6178715/pexels-photo-6178715.jpeg?auto=compress&cs=tinysrgb&w=1400") 75% 47%/cover no-repeat; filter: brightness(.53) saturate(.75); }
-    .hero:after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #090807 3%, #090807f2 32%, #09080766 75%, #09080755), linear-gradient(0deg, #090807 0%, transparent 35%); }
+    .hero:after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #080D12 3%, #080D12F2 32%, #080D1266 75%, #080D1255), linear-gradient(0deg, #080D12 0%, transparent 35%); }
     .hero-copy { max-width: 750px; padding: 90px 0; }
     .hero p { max-width: 570px; font-size: 1.16rem; }
     .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
@@ -92,9 +92,9 @@
     .services { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
     .review-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
     
-    .contact { background: #100d0b; }
+    .contact { background: #0E151D; }
     .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; align-items: start; }
-    .form { border: 1px solid #5a422a; background: #18120e; padding: 28px 20px; }
+    .form { border: 1px solid #202B38; background: #101923; padding: 28px 20px; }
 
     /* BANNER SUPERIOR NOCTURNO */
     #banner-nocturno-movil {
@@ -104,7 +104,7 @@
       left: 0;
       width: 100%;
       max-width: 100vw;
-      background: #18120e;
+      background: #101923;
       color: var(--text);
       padding: 16px 16px 14px 16px;
       box-sizing: border-box;
@@ -143,7 +143,7 @@
     #banner-nocturno-movil .btn-llamar-nocturno.activo {
       width: 100%;
       background: var(--gold);
-      color: #1a1009;
+      color: #101923;
       border: 1px solid var(--gold);
       border-radius: 4px;
       text-decoration: none;
@@ -160,7 +160,7 @@
 
     #banner-nocturno-movil .btn-llamar-nocturno.inactivo {
       width: 100%;
-      background: #090807;
+      background: #080D12;
       color: var(--gold);
       border: 1px solid var(--gold);
       border-radius: 4px;
@@ -221,7 +221,7 @@
         top: 100%;
         left: 0;
         width: 100%;
-        background: #14100dc9;
+        background: #101923E0;
         backdrop-filter: blur(16px);
         flex-direction: column;
         padding: 20px;
@@ -235,35 +235,35 @@
       .navlinks .btn { width: 100%; justify-content: center; }
     }
 
-    .service { border: 1px solid var(--line); background: linear-gradient(160deg, #21180f, #0e0b09); overflow: hidden; display: flex; flex-direction: column; }
-    .visual { height: 290px; position: relative; overflow: hidden; background-color: #211811; }
+    .service { border: 1px solid var(--line); background: linear-gradient(160deg, #101923, #080D12); overflow: hidden; display: flex; flex-direction: column; }
+    .visual { height: 290px; position: relative; overflow: hidden; background-color: #101923; }
     .visual:before { content: ""; position: absolute; inset: 0; background: url("https://images.pexels.com/photos/6178715/pexels-photo-6178715.jpeg?auto=compress&cs=tinysrgb&w=1400") center/cover no-repeat; transition: transform .4s; }
     .service:hover .visual:before { transform: scale(1.05); }
     .visual.tarot:before { background-position: 50% 75%; }
     .visual.consulta:before { background-image: url("https://images.pexels.com/photos/7221680/pexels-photo-7221680.jpeg?auto=compress&cs=tinysrgb&w=1200"); background-position: 50% 50%; filter: brightness(.7) contrast(1.12); }
     .visual.ritual:before { background-image: url("https://images.pexels.com/photos/5696720/pexels-photo-5696720.jpeg?auto=compress&cs=tinysrgb&w=1200"); background-position: 50% 38%; filter: contrast(1.1) brightness(.78); }
-    .visual:after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, #100b08 0%, transparent 65%); }
-    .visual span { position: absolute; bottom: 20px; left: 26px; z-index: 1; color: #fff4d8; font-family: Georgia, serif; font-size: 1.45rem; letter-spacing: .04em; }
+    .visual:after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, #080D12 0%, transparent 65%); }
+    .visual span { position: absolute; bottom: 20px; left: 26px; z-index: 1; color: #F3F5F7; font-family: Georgia, serif; font-size: 1.45rem; letter-spacing: .04em; }
     
     .service-body { padding: 26px; display: flex; flex-direction: column; align-items: flex-start; flex: 1; }
     .service-body p { flex: 1; }
-    .service-price { margin: 12px 0 16px; font-size: 1rem; font-weight: 600; letter-spacing: .02em; color: #e4bb80; }
+    .service-price { margin: 12px 0 16px; font-size: 1rem; font-weight: 600; letter-spacing: .02em; color: #C6A66B; }
 
-    .oraculo { background: radial-gradient(ellipse at 50% 30%, #302014, #0b0908 67%); text-align: center; border-block: 1px solid #33271e; }
-    .oracle-box { width: min(640px, 100%); margin: 35px auto 0; border: 1px solid #80623f; padding: 35px 20px; background: #0b0908bb; min-height: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+    .oraculo { background: radial-gradient(ellipse at 50% 30%, #18232F, #080D12 67%); text-align: center; border-block: 1px solid #202B38; }
+    .oracle-box { width: min(640px, 100%); margin: 35px auto 0; border: 1px solid #202B38; padding: 35px 20px; background: #080D12BB; min-height: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
     .oracle-mark { font-size: 2.4rem; color: var(--gold); line-height: 1; }
     .oracle-message { font: italic clamp(1.2rem, 3vw, 2rem)/1.45 Georgia, serif; color: var(--text); margin: 20px 0; }
     .oracle-actions { display: flex; justify-content: center; gap: 12px; flex-wrap:wrap; }
     .oracle-followup { font-family: Georgia, serif; color: var(--gold); font-size: 1.14rem; margin: 22px 0 0; }
     
-    .testimonials { background: radial-gradient(ellipse at 50% 0%, #211810, #0d0a08 72%); border-top: 1px solid #3c2e23; }
+    .testimonials { background: radial-gradient(ellipse at 50% 0%, #101923, #0E151D 72%); border-top: 1px solid #202B38; }
     .testimonials .section-head { margin-bottom: 24px; }
-    .review { padding: 27px 25px; border: 1px solid #51402f; background: #17120edb; display: flex; flex-direction: column; min-height: 235px; }
-    .review blockquote { margin: 0 0 24px; color: #eee3d4; font: 1.08rem/1.6 Georgia, serif; flex: 1; }
-    .review-person { display: flex; align-items: center; gap: 12px; border-top: 1px solid #3e3126; padding-top: 16px; }
-    .review-avatar { display: grid; place-items: center; flex-shrink: 0; width: 39px; height: 39px; border-radius: 50%; background: #37291b; color: #e9c58c; font: 1rem Georgia, serif; }
-    .review-person strong { display: block; font-size: .88rem; color: #e9d4b9; }
-    .review-person small { display: block; color: #b5a493; font-size: .77rem; }
+    .review { padding: 27px 25px; border: 1px solid #202B38; background: #101923DB; display: flex; flex-direction: column; min-height: 235px; }
+    .review blockquote { margin: 0 0 24px; color: #E8E6E1; font: 1.08rem/1.6 Georgia, serif; flex: 1; }
+    .review-person { display: flex; align-items: center; gap: 12px; border-top: 1px solid #202B38; padding-top: 16px; }
+    .review-avatar { display: grid; place-items: center; flex-shrink: 0; width: 39px; height: 39px; border-radius: 50%; background: #18232F; color: #D8BB86; font: 1rem Georgia, serif; }
+    .review-person strong { display: block; font-size: .88rem; color: #E8E6E1; }
+    .review-person small { display: block; color: #C0C9D2; font-size: .77rem; }
     .review[hidden] { display: none !important; }
     .review-toggle { margin-top: 23px; }
 
@@ -280,12 +280,12 @@
     footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
     footer a { color: var(--gold); }
 
-    .note { font-size: .85rem; color: #a99d8f; }
+    .note { font-size: .85rem; color: #C0C9D2; }
     .privacy { font-size: .8rem; }
-    .catalogue-hint { margin: 26px auto 0; max-width: 680px; text-align: center; padding: 22px; border-top: 1px solid #51402f; }
-    .catalogue-hint p { margin: 0 0 10px; color: #d8c9b5; }
-    .catalogue-hint a { color: #e4bb80; text-underline-offset: 4px; font-weight: 600; }
-    .catalogue-hint small { display: block; color: #b5a493; margin-top: 9px; }
+    .catalogue-hint { margin: 26px auto 0; max-width: 680px; text-align: center; padding: 22px; border-top: 1px solid #202B38; }
+    .catalogue-hint p { margin: 0 0 10px; color: #C0C9D2; }
+    .catalogue-hint a { color: #C6A66B; text-underline-offset: 4px; font-weight: 600; }
+    .catalogue-hint small { display: block; color: #C0C9D2; margin-top: 9px; }
   </style>
 
   <!-- Google Tag Manager Bootstrap (Etiqueta del socio) -->
@@ -367,6 +367,76 @@
       }
     }
   </script>
+
+  <style id="soteira-palette-black-match-tarot-v2">
+    :root {
+      color-scheme: dark !important;
+      --bg: #080808 !important;
+      --panel: #111110 !important;
+      --gold: #C6A66B !important;
+      --muted: #E8E6E1 !important;
+      --line: #292824 !important;
+      --text: #FFFFFF !important;
+    }
+    html, body { background: #080808 !important; color: #FFFFFF !important; }
+    body { background: linear-gradient(180deg, #080808 0%, #0C0C0B 52%, #080808 100%) !important; }
+    header { background: rgba(8,8,8,.97) !important; border-bottom-color: rgba(198,166,107,.20) !important; }
+    .brand { color: #FFFFFF !important; }
+    .hero { background: #080808 !important; }
+    .hero:before { filter: brightness(.48) saturate(.62) !important; }
+    .hero:after {
+      background: linear-gradient(90deg, rgba(8,8,8,.92) 3%, rgba(8,8,8,.80) 32%, rgba(8,8,8,.34) 75%, rgba(8,8,8,.18) 100%),
+                  linear-gradient(0deg, #080808 0%, rgba(8,8,8,.12) 42%, rgba(8,8,8,.25) 100%) !important;
+    }
+    h1, h2, h3, .brand, .visual span, .oracle-message, summary { color: #FFFFFF !important; }
+    p, .navlinks a, .review blockquote, .review-person strong, .note,
+    .catalogue-hint p, .catalogue-hint small, footer { color: #E8E6E1 !important; }
+    .eyebrow, em, .service-price, .oracle-mark, .oracle-followup,
+    footer a, .whatsapp-other, .catalogue-hint a { color: #C6A66B !important; }
+    .btn, .navlinks .btn, .navlinks .btn:link, .navlinks .btn:visited,
+    #banner-nocturno-movil .btn-llamar-nocturno.activo,
+    #cookie-panel button.cookie-primary {
+      background: #C6A66B !important; border-color: #C6A66B !important; color: #10100F !important;
+    }
+    .btn:hover, .navlinks .btn:hover { background: #D8BB86 !important; }
+    .btn.ghost, .ghost { background: transparent !important; color: #C6A66B !important; }
+    .btn.ghost:hover, .ghost:hover { background: rgba(198,166,107,.07) !important; }
+    .menu-toggle { background: #111110 !important; border-color: rgba(198,166,107,.24) !important; color: #C6A66B !important; }
+    .navlinks { background-color: rgba(17,17,16,.97) !important; }
+    .contact { background: #0C0C0B !important; }
+    .form, .service, .review, .oracle-box {
+      background: linear-gradient(145deg, #171715 0%, #10100F 56%, #0B0B0A 100%) !important;
+      border-color: rgba(198,166,107,.20) !important;
+      box-shadow: 0 12px 32px rgba(0,0,0,.20) !important;
+    }
+    .visual { background-color: #10100F !important; }
+    .visual:after { background: linear-gradient(0deg, #080808 0%, rgba(8,8,8,.18) 65%, transparent 100%) !important; }
+    .oraculo {
+      background: radial-gradient(ellipse at 50% 30%, #151512 0%, #0C0C0B 48%, #080808 78%) !important;
+      border-block-color: rgba(198,166,107,.14) !important;
+    }
+    .oracle-box { background: rgba(8,8,8,.82) !important; }
+    .testimonials {
+      background: radial-gradient(ellipse at 50% 0%, #141412 0%, #0C0C0B 56%, #080808 82%) !important;
+      border-top-color: rgba(198,166,107,.14) !important;
+    }
+    .review { background: rgba(17,17,16,.92) !important; }
+    .review-person { border-top-color: rgba(198,166,107,.16) !important; }
+    .review-avatar { background: #1A1A18 !important; color: #D8BB86 !important; }
+    .faq, details, footer, .catalogue-hint { border-color: rgba(198,166,107,.14) !important; }
+    #banner-nocturno-movil { background: #111110 !important; color: #FFFFFF !important; }
+    #banner-nocturno-movil .btn-llamar-nocturno.inactivo { background: #080808 !important; color: #C6A66B !important; }
+    #cookie-panel { background: #111110 !important; color: #FFFFFF !important; border-color: rgba(198,166,107,.30) !important; }
+    #cookie-panel p { color: #E8E6E1 !important; }
+    #cookie-panel button, .cookie-manage { background: #1A1A18 !important; color: #FFFFFF !important; border-color: rgba(198,166,107,.32) !important; }
+    @media (max-width: 768px) {
+      .hero:after {
+        background: linear-gradient(90deg, rgba(8,8,8,.78) 0%, rgba(8,8,8,.38) 100%),
+                    linear-gradient(180deg, rgba(8,8,8,.16) 0%, rgba(8,8,8,.28) 48%, #080808 100%) !important;
+      }
+    }
+  </style>
+
 </head>
 <body>
 
@@ -420,7 +490,7 @@
               <h3>Lecturas de tarot</h3>
               <p>Hay relaciones que confunden, silencios que pesan y caminos que parecen cerrarse. Una lectura de Tarot te invita a explorar lo que estás viviendo desde otra perspectiva.</p>
               <p class="service-price">Desde 25 €</p>
-              <p><a href="/tarot/" style="color:#e4bb80;text-underline-offset:4px">Conoce la lectura de tarot →</a></p>
+              <p><a href="/tarot/" style="color:#C6A66B;text-underline-offset:4px">Conoce la lectura de tarot →</a></p>
               <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20Tarot." target="_blank" rel="noopener noreferrer" data-service="Tarot">Quiero explorar mi pregunta</a>
             </div>
           </article>
@@ -432,7 +502,7 @@
               <h3>Rituales espirituales</h3>
               <p>Soltar lo que pesa. Proteger lo que valoras. Cerrar un ciclo. Darle intención a un nuevo comienzo. Descubre un ritual inspirado en tu intención, mediante símbolos y prácticas de tradición espiritual.</p>
               <p class="service-price">Desde 50 €</p>
-              <p><a href="/rituales/" style="color:#e4bb80;text-underline-offset:4px">Conoce los rituales espirituales →</a></p>
+              <p><a href="/rituales/" style="color:#C6A66B;text-underline-offset:4px">Conoce los rituales espirituales →</a></p>
               <a class="btn ritual-cta" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20Rituales." target="_blank" rel="noopener noreferrer" data-service="Rituales">Quiero descubrir mi ritual</a>
             </div>
           </article>
@@ -444,7 +514,7 @@
               <h3>Consultas espirituales</h3>
               <p>Sueños que se repiten. Coincidencias difíciles de ignorar. Sensaciones que despiertan preguntas. Explora su significado desde una perspectiva espiritual, en una consulta privada donde podrás compartir aquello que deseas comprender.</p>
               <p class="service-price">Desde 75 €</p>
-              <p><a href="/consultas-espirituales/" style="color:#e4bb80;text-underline-offset:4px">Conoce las consultas espirituales →</a></p>
+              <p><a href="/consultas-espirituales/" style="color:#C6A66B;text-underline-offset:4px">Conoce las consultas espirituales →</a></p>
               <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20Consulta%20Espiritual." target="_blank" rel="noopener noreferrer" data-service="Consulta Espiritual">Quiero descubrir qué significa</a>
             </div>
           </article>
