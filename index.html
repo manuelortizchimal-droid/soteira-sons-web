@@ -134,7 +134,7 @@
 
    /* Banner Nocturno Superior Responsive - Soteira & Sons */
   #banner-nocturno-movil {
-    display: none; /* Oculto inicialmente */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -158,7 +158,7 @@
     letter-spacing: 0.16em;
     color: var(--gold);
     font-weight: 700;
-    padding-right: 24px; /* Espacio para que no toque la X */
+    padding-right: 24px;
     line-height: 1.3;
   }
 
@@ -169,7 +169,7 @@
     color: var(--text);
     margin: 2px 0;
     font-weight: 400;
-    padding-right: 24px; /* Espacio para que no toque la X */
+    padding-right: 24px;
   }
 
   #banner-nocturno-movil .banner-titulo em {
@@ -185,10 +185,9 @@
     word-break: break-word;
   }
 
-  /* Distribución vertical de botones para pantallas estrechas */
   #banner-nocturno-movil .banner-acciones {
     display: flex;
-    flex-direction: column; /* Apilados verticalmente */
+    flex-direction: column;
     gap: 8px;
     width: 100%;
   }
@@ -232,7 +231,6 @@
     color: var(--gold);
   }
 
-  /* Estado ACTIVO (De 20:00 a 01:05 h) */
   #banner-nocturno-movil.activo {
     background: #18120e;
     border-bottom: 1px solid var(--gold);
@@ -488,7 +486,7 @@
       <div class="wrap">
         <div class="eyebrow">Antes de comenzar</div>
         <h2>Lo esencial, <em>sin complicaciones.</em></h2>
-        <details id="faq-linea-nocturna">
+        <details id="faq-linea-nocturna" style="display: none;">
           <summary>¿En qué consiste la Línea Nocturna de Tarot?</summary>
           <p>Es un servicio de atención telefónica inmediata activo todas las noches de 20:00 a 01:00 h en España, pensado para resolver inquietudes urgentes de madrugada sin necesidad de pedir cita previa.</p>
           <p style="margin-top: 10px;">Al pulsar el botón de llamada, se conecta con nuestra centralita virtual donde una breve locución de bienvenida te guiará mientras suena nuestra línea directa. Al contestar, Styxe realiza tu lectura de tarot en privado y al instante. Un espacio directo, sencillo y sin complicaciones cuando necesitas respuestas sin esperar a mañana.</p>
@@ -535,7 +533,7 @@
     <p class="banner-descripcion" id="texto-estado">Llama ahora para una lectura de tarot urgente con Styxe. Sin citas, sin esperas y con atención en directo.</p>
     
     <div class="banner-acciones">
-      <!-- Teléfono real de la centralita: 942 94 32 37 -->
+      <!-- Teléfono centralita: 942 94 32 37 -->
       <a id="enlace-llamada" href="tel:+34942943237" class="btn-llamar-nocturno">Fuera de Horario</a>
       <button type="button" class="btn-info-nocturno" onclick="irAMasInformacion()">Más información</button>
     </div>
@@ -543,32 +541,37 @@
 
   <script>
     function cerrarBannerMovil() {
-      document.getElementById('banner-nocturno-movil').style.display = 'none';
+      const banner = document.getElementById('banner-nocturno-movil');
+      if (banner) banner.style.display = 'none';
       sessionStorage.setItem('bannerNocturnoCerrado', 'true');
     }
 
     function irAMasInformacion() {
       const faqItem = document.getElementById('faq-linea-nocturna');
       if (faqItem) {
-        faqItem.open = true; // Despliega la respuesta
-        faqItem.scrollIntoView({ behavior: 'smooth' }); // Desplazamiento suave
+        faqItem.open = true;
+        faqItem.scrollIntoView({ behavior: 'smooth' });
       }
     }
 
-    // LÓGICA DEFINITIVA (Móvil + España + Horario 20:00 a 01:05)
     window.addEventListener('DOMContentLoaded', () => {
-      if (sessionStorage.getItem('bannerNocturnoCerrado')) return;
-
-      const esMovil = window.innerWidth <= 768;
-      if (!esMovil) return;
-
       fetch('https://ipapi.co/json/')
         .then(response => response.json())
         .then(data => {
           if (data.country_code === 'ES') {
-            const banner = document.getElementById('banner-nocturno-movil');
-            banner.style.display = 'flex';
-            evaluarHorarioYActivar();
+            // Mostrar FAQ de la línea nocturna en España
+            const faqItem = document.getElementById('faq-linea-nocturna');
+            if (faqItem) faqItem.style.display = 'block';
+
+            // Mostrar banner solo si es móvil y está en España
+            const esMovil = window.innerWidth <= 768;
+            if (esMovil && !sessionStorage.getItem('bannerNocturnoCerrado')) {
+              const banner = document.getElementById('banner-nocturno-movil');
+              if (banner) {
+                banner.style.display = 'flex';
+                evaluarHorarioYActivar();
+              }
+            }
           }
         })
         .catch(error => console.log('Error de geolocalización:', error));
@@ -590,12 +593,14 @@
       const banner = document.getElementById('banner-nocturno-movil');
       const enlaceLlamada = document.getElementById('enlace-llamada');
 
-      if (estaEnHorario) {
-        banner.classList.add('activo');
-        enlaceLlamada.textContent = '📞 Llamar Ahora';
-      } else {
-        banner.classList.remove('activo');
-        enlaceLlamada.textContent = 'Fuera de Horario';
+      if (banner && enlaceLlamada) {
+        if (estaEnHorario) {
+          banner.classList.add('activo');
+          enlaceLlamada.textContent = '📞 Llamar Ahora';
+        } else {
+          banner.classList.remove('activo');
+          enlaceLlamada.textContent = 'Fuera de Horario';
+        }
       }
     }
   </script>
