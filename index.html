@@ -46,7 +46,9 @@
     nav { display: flex; align-items: center; justify-content: space-between; min-height: 70px; gap: 15px; position: relative; }
     
     .brand { font-family: Georgia, serif; letter-spacing: .16em; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; }
-    .brand-logo { width: 38px; height: 38px; object-fit: contain; flex-shrink: 0; }
+    .brand-logo { width: 38px; height: 38px; object-fit: contain; flex-shrink: 0; display: inline-block; filter: drop-shadow(0px 0px 2px #d9b47a); }
+    .brand-mark { display: none; width: 38px; height: 38px; align-items: center; justify-content: center; border: 1px solid #b99160; border-radius: 50%; font-family: Georgia, serif; font-size: 18px; color: #e9c994; flex-shrink: 0; }
+    .brand-mark { display: none; width: 38px; height: 38px; align-items: center; justify-content: center; border: 1px solid #b99160; border-radius: 50%; font-family: Georgia, serif; font-size: 18px; color: #e9c994; flex-shrink: 0; }
 
     .navlinks { display: flex; gap: 20px; align-items: center; }
     .navlinks a { text-decoration: none; color: var(--muted); font-size: .9rem; }
@@ -59,7 +61,7 @@
     .btn.ghost { background: transparent; color: var(--gold); }
     .btn.ghost:hover { background: #281c13; }
 
-    /* Botón de Hamburguesa (Oculto por defecto en PC) */
+    /* Botón de Hamburguesa (Oculto por defecto en PC y Tablets) */
     .menu-toggle { display: none; background: transparent; border: 1px solid var(--line); color: var(--gold); font-size: 1.4rem; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
     
     .eyebrow { text-transform: uppercase; letter-spacing: .22em; font-size: .75rem; color: var(--gold); font-weight: 700; }
@@ -87,12 +89,146 @@
     .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; align-items: start; }
     .form { border: 1px solid #5a422a; background: #18120e; padding: 28px 20px; }
 
+    /* BANNER SUPERIOR NOCTURNO (Oculto por defecto en CSS, se despliega solo en móviles mediante JS) */
+    #banner-nocturno-movil {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      max-width: 100vw;
+      background: #18120e;
+      color: var(--text);
+      padding: 16px 16px 14px 16px;
+      box-sizing: border-box;
+      z-index: 99999;
+      border-bottom: 1px solid var(--gold);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+      flex-direction: column;
+      gap: 8px;
+      font-family: inherit;
+    }
+
+    #banner-nocturno-movil .banner-eyebrow {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gold);
+      font-weight: 700;
+      padding-right: 24px;
+      line-height: 1.3;
+    }
+
+    #banner-nocturno-movil .banner-titulo {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.1rem;
+      line-height: 1.25;
+      color: var(--text);
+      margin: 2px 0;
+      font-weight: 400;
+      padding-right: 24px;
+    }
+
+    #banner-nocturno-movil .banner-titulo em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    #banner-nocturno-movil .banner-descripcion {
+      font-size: 0.8rem;
+      line-height: 1.4;
+      color: var(--muted);
+      margin: 0 0 6px 0;
+      word-break: break-word;
+    }
+
+    #banner-nocturno-movil .banner-acciones {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+    }
+
+    #banner-nocturno-movil .btn-llamar-nocturno.activo {
+      width: 100%;
+      background: var(--gold);
+      color: #1a1009;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-align: center;
+      padding: 10px 12px;
+      box-sizing: border-box;
+      pointer-events: auto;
+      box-shadow: 0 4px 15px rgba(217, 180, 122, 0.25);
+    }
+
+    #banner-nocturno-movil .btn-llamar-nocturno.inactivo {
+      width: 100%;
+      background: #090807;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      text-align: center;
+      padding: 10px 12px;
+      box-sizing: border-box;
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    #banner-nocturno-movil .btn-info-nocturno {
+      width: 100%;
+      background: transparent;
+      color: var(--muted);
+      padding: 8px 10px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-size: 0.75rem;
+      font-weight: 400;
+      text-align: center;
+      box-sizing: border-box;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    #banner-nocturno-movil .btn-info-nocturno:hover {
+      color: var(--gold);
+    }
+
+    #banner-nocturno-movil .cerrar-banner {
+      position: absolute;
+      right: 12px;
+      top: 10px;
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-size: 22px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px;
+    }
+    
+    #banner-nocturno-movil .cerrar-banner:hover {
+      color: var(--gold);
+    }
+
     /* REGLA RESPONSIVE PARA MÓVILES (Menos de 768px) */
     @media (max-width: 768px) {
       .wrap { width: calc(100% - 24px); }
       nav { gap: 10px; min-height: 60px; }
       
-      .brand span { display: none; }
+      .brand span { display: none; } /* Oculta el texto en móviles angostos, manteniendo el icono del logo */
       
       .navlinks { gap: 12px; }
       .navlinks a { font-size: 0.82rem; }
@@ -187,136 +323,6 @@
     .catalogue-hint p { margin: 0 0 10px; color: #d8c9b5; }
     .catalogue-hint a { color: #e4bb80; text-underline-offset: 4px; font-weight: 600; }
     .catalogue-hint small { display: block; color: #b5a493; margin-top: 9px; }
-
-   /* Banner Nocturno Superior Responsive - Soteira & Sons */
-  #banner-nocturno-movil {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    max-width: 100vw;
-    background: #110d0a;
-    color: var(--text);
-    padding: 16px 16px 14px 16px;
-    box-sizing: border-box;
-    z-index: 99999;
-    border-bottom: 1px solid var(--line);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
-    flex-direction: column;
-    gap: 8px;
-    font-family: inherit;
-  }
-
-  #banner-nocturno-movil .banner-eyebrow {
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: var(--gold);
-    font-weight: 700;
-    padding-right: 24px;
-    line-height: 1.3;
-  }
-
-  #banner-nocturno-movil .banner-titulo {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 1.1rem;
-    line-height: 1.25;
-    color: var(--text);
-    margin: 2px 0;
-    font-weight: 400;
-    padding-right: 24px;
-  }
-
-  #banner-nocturno-movil .banner-titulo em {
-    color: var(--gold);
-    font-style: italic;
-  }
-
-  #banner-nocturno-movil .banner-descripcion {
-    font-size: 0.8rem;
-    line-height: 1.4;
-    color: var(--muted);
-    margin: 0 0 6px 0;
-    word-break: break-word;
-  }
-
-  #banner-nocturno-movil .banner-acciones {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
-  }
-
-  #banner-nocturno-movil .btn-llamar-nocturno {
-    width: 100%;
-    background: transparent;
-    color: var(--muted);
-    padding: 10px 12px;
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    text-align: center;
-    box-sizing: border-box;
-    pointer-events: none;
-    transition: all 0.2s ease;
-  }
-
-  #banner-nocturno-movil .btn-info-nocturno {
-    width: 100%;
-    background: transparent;
-    color: var(--muted);
-    padding: 8px 10px;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    font-size: 0.75rem;
-    font-weight: 400;
-    text-align: center;
-    box-sizing: border-box;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  #banner-nocturno-movil .btn-info-nocturno:hover {
-    color: var(--gold);
-  }
-
-  #banner-nocturno-movil.activo {
-    background: #18120e;
-    border-bottom: 1px solid var(--gold);
-  }
-
-  #banner-nocturno-movil.activo .btn-llamar-nocturno {
-    background: var(--gold);
-    color: #1a1009;
-    border-color: var(--gold);
-    pointer-events: auto;
-    box-shadow: 0 4px 15px rgba(217, 180, 122, 0.25);
-  }
-
-  #banner-nocturno-movil .cerrar-banner {
-    position: absolute;
-    right: 12px;
-    top: 10px;
-    background: transparent;
-    border: none;
-    color: var(--muted);
-    font-size: 22px;
-    cursor: pointer;
-    line-height: 1;
-    padding: 4px;
-  }
-  
-  #banner-nocturno-movil .cerrar-banner:hover {
-    color: var(--gold);
-  }
-  
   </style>
 
   <!-- Google Tag Manager Bootstrap -->
@@ -356,11 +362,12 @@
 </head>
 <body>
 
-  <!-- Header con enlace a /logo.svg -->
+  <!-- Header con Logo SVG y Respaldo CSS -->
   <header>
     <nav class="wrap" aria-label="Navegación principal">
       <a class="brand" href="#inicio">
-        <img class="brand-logo" alt="Emblema de Soteira &amp; Sons" width="38" height="38" src="/logo.svg">
+        <img class="brand-logo" alt="Emblema de Soteira &amp; Sons" width="38" height="38" src="./logo.svg" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+        <div class="brand-mark" style="display:none;">✧</div>
         <span>SOTEIRA &amp; SONS</span>
       </a>
       <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
@@ -545,13 +552,13 @@
       <div class="wrap">
         <div class="eyebrow">Antes de comenzar</div>
         <h2>Lo esencial, <em>sin complicaciones.</em></h2>
-        <!-- FAQ de Carmen (México) -->
+        <!-- FAQ de Carmen (México) - Exclusiva para móviles mediante JS -->
         <details id="faq-linea-nocturna-carmen" style="display: none;">
           <summary>¿En qué consiste la Línea de Canalización Nocturna con Carmen?</summary>
           <p>Es un servicio de canalización y mediumnidad en directo con Carmen, Suma Sacerdotisa Wicca, activo de lunes a viernes de 20:00 a 22:00 h (hora de México).</p>
           <p style="margin-top: 10px;">Al pulsar el botón de llamada, te conectarás directamente a su línea privada al <strong>+52 55 9816 4634</strong> para recibir guía espiritual y sintonía cuando más lo necesitas.</p>
         </details>
-        <!-- FAQ de España -->
+        <!-- FAQ de España - Exclusiva para móviles mediante JS -->
         <details id="faq-linea-nocturna" style="display: none;">
           <summary>¿En qué consiste la Línea Nocturna de Tarot?</summary>
           <p>Es un servicio de atención telefónica inmediata activo todas las noches de 20:00 a 01:00 h en España, pensado para resolver inquietudes urgentes de madrugada sin necesidad de pedir cita previa.</p>
@@ -591,21 +598,21 @@
     </div>
   </footer>
 
-  <!-- BANNER SUPERIOR NOCTURNO -->
+  <!-- BANNER SUPERIOR NOCTURNO (Exclusivo para móviles y control de sesión por la X) -->
   <div id="banner-nocturno-movil">
     <button class="cerrar-banner" onclick="cerrarBannerMovil()" aria-label="Cerrar banner">&times;</button>
-    <span class="banner-eyebrow" id="banner-eyebrow-text">🌙 Línea Nocturna Directa</span>
+    <span class="banner-eyebrow" id="banner-eyebrow-text">Línea Psíquica Nocturna • Atención directa | 20:00 - 01:00</span>
     <h3 class="banner-titulo" id="titulo-banner">¿Dudas que <em>no te dejan dormir?</em></h3>
-    <p class="banner-descripcion" id="texto-estado">Llama ahora para una lectura de tarot urgente con Styxe. Sin citas, sin esperas y con atención en directo.</p>
+    <p class="banner-descripcion" id="texto-estado">Llama ahora para una lectura de tarot urgente con Styxe. Sin citas, sin espera y con atención cercana.</p>
     
     <div class="banner-acciones">
-      <a id="enlace-llamada" href="tel:+34942943237" class="btn-llamar-nocturno">Fuera de Horario</a>
+      <a id="enlace-llamada" href="#" class="btn-llamar-nocturno">Llamar ahora</a>
       <button type="button" class="btn-info-nocturno" onclick="irAMasInformacion()">Más información</button>
     </div>
   </div>
 
   <script>
-    // Control del menú hamburguesa en móviles muy pequeños
+    // Control del menú hamburguesa en móviles
     document.getElementById('menu-toggle').addEventListener('click', () => {
       document.getElementById('navlinks').classList.toggle('active');
     });
@@ -638,37 +645,41 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
+      // Verificación estricta: Solo en dispositivos móviles (ancho <= 768px) y si no se cerró en esta sesión
+      const esMovil = window.innerWidth <= 768;
+      const bannerCerrado = sessionStorage.getItem('bannerNocturnoCerrado');
+
+      if (esMovil && !bannerCerrado) {
+        const banner = document.getElementById('banner-nocturno-movil');
+        if (banner) banner.style.display = 'flex';
+      }
+
       fetch('https://ipapi.co/json/')
         .then(response => response.json())
         .then(data => {
           paisDetectado = data.country_code;
-          const esMovil = window.innerWidth <= 768;
           
-          if (paisDetectado === 'ES') {
-            const faqItem = document.getElementById('faq-linea-nocturna');
-            if (faqItem) faqItem.style.display = 'block';
-
-            if (esMovil && !sessionStorage.getItem('bannerNocturnoCerrado')) {
-              const banner = document.getElementById('banner-nocturno-movil');
-              if (banner) {
-                banner.style.display = 'flex';
-                evaluarHorarioEspana();
-              }
-            }
-          } else if (paisDetectado === 'MX') {
-            const faqItem = document.getElementById('faq-linea-nocturna-carmen');
-            if (faqItem) faqItem.style.display = 'block';
-
-            if (esMovil && !sessionStorage.getItem('bannerNocturnoCerrado')) {
-              const banner = document.getElementById('banner-nocturno-movil');
-              if (banner) {
-                banner.style.display = 'flex';
-                evaluarHorarioMexico();
-              }
+          // Solo mostramos el FAQ específico de la línea nocturna si es dispositivo móvil
+          if (esMovil) {
+            if (paisDetectado === 'MX') {
+              const faqItem = document.getElementById('faq-linea-nocturna-carmen');
+              if (faqItem) faqItem.style.display = 'block';
+              evaluarHorarioMexico();
+            } else {
+              const faqItem = document.getElementById('faq-linea-nocturna');
+              if (faqItem) faqItem.style.display = 'block';
+              evaluarHorarioEspana();
             }
           }
         })
-        .catch(error => console.log('Error de geolocalización:', error));
+        .catch(error => {
+          console.log('Error de geolocalización, cargando España por defecto:', error);
+          if (esMovil) {
+            const faqItem = document.getElementById('faq-linea-nocturna');
+            if (faqItem) faqItem.style.display = 'block';
+            evaluarHorarioEspana();
+          }
+        });
     });
 
     function evaluarHorarioEspana() {
@@ -677,18 +688,24 @@
       const [hora, minuto] = formatter.format(new Date()).split(':').map(Number);
       const minutosTotales = hora * 60 + minuto;
 
-      const estaEnHorario = (minutosTotales >= 20 * 60) || (minutosTotales <= 1 * 60 + 5);
-      const banner = document.getElementById('banner-nocturno-movil');
+      // Horario España: 20:00 a 01:00 h
+      const estaEnHorario = (minutosTotales >= 20 * 60) || (minutosTotales <= 1 * 60);
       const enlaceLlamada = document.getElementById('enlace-llamada');
 
-      if (banner && enlaceLlamada) {
+      document.getElementById('banner-eyebrow-text').textContent = 'Línea Psíquica Nocturna • Atención directa | 20:00 - 01:00';
+      document.getElementById('titulo-banner').innerHTML = '¿Dudas que <em>no te dejan dormir?</em>';
+      document.getElementById('texto-estado').textContent = 'Llama ahora para una lectura de tarot urgente con Styxe. Sin citas, sin espera y con atención cercana.';
+
+      if (enlaceLlamada) {
         enlaceLlamada.setAttribute('href', 'tel:+34942943237');
         if (estaEnHorario) {
-          banner.classList.add('activo');
-          enlaceLlamada.textContent = '📞 Llamar Ahora';
+          enlaceLlamada.className = 'btn-llamar-nocturno activo';
+          enlaceLlamada.textContent = 'Llamar ahora';
+          enlaceLlamada.style.pointerEvents = 'auto';
         } else {
-          banner.classList.remove('activo');
-          enlaceLlamada.textContent = 'Fuera de Horario';
+          enlaceLlamada.className = 'btn-llamar-nocturno inactivo';
+          enlaceLlamada.textContent = 'Fuera de horario';
+          enlaceLlamada.style.pointerEvents = 'none';
         }
       }
     }
@@ -705,24 +722,26 @@
       const diaSemana = formatterDay.format(now);
       const minutosTotales = hora * 60 + minuto;
 
+      // Horario México: Lunes a Viernes de 20:00 a 22:00 h
       const esDiaLaboral = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].includes(diaSemana);
       const estaEnHorario = esDiaLaboral && (minutosTotales >= 20 * 60 && minutosTotales <= 22 * 60);
 
-      document.getElementById('banner-eyebrow-text').textContent = '🌙 Canalización Nocturna · Carmen (Lun-Vie 8-10 PM)';
-      document.getElementById('titulo-banner').innerHTML = '¿Mensajes que <em>necesitas canalizar?</em>';
-      document.getElementById('texto-estado').textContent = 'Llama ahora a Carmen, Suma Sacerdotisa Wicca. Canalizaciones y mediumnidad en directo.';
+      document.getElementById('banner-eyebrow-text').textContent = 'Línea Psíquica Nocturna • Atención directa | 20:00 - 22:00';
+      document.getElementById('titulo-banner').innerHTML = '¿Dudas que <em>no te dejan dormir?</em>';
+      document.getElementById('texto-estado').textContent = 'Llama ahora para una sesión urgente con Carmen. Sin citas, sin espera y con atención cercana.';
 
-      const banner = document.getElementById('banner-nocturno-movil');
       const enlaceLlamada = document.getElementById('enlace-llamada');
 
-      if (banner && enlaceLlamada) {
+      if (enlaceLlamada) {
         enlaceLlamada.setAttribute('href', 'tel:+525598164634');
         if (estaEnHorario) {
-          banner.classList.add('activo');
-          enlaceLlamada.textContent = '📞 Llamar a Carmen';
+          enlaceLlamada.className = 'btn-llamar-nocturno activo';
+          enlaceLlamada.textContent = 'Llamar ahora';
+          enlaceLlamada.style.pointerEvents = 'auto';
         } else {
-          banner.classList.remove('activo');
-          enlaceLlamada.textContent = 'Fuera de Horario (Lun-Vie 8-10 PM)';
+          enlaceLlamada.className = 'btn-llamar-nocturno inactivo';
+          enlaceLlamada.textContent = 'Fuera de horario';
+          enlaceLlamada.style.pointerEvents = 'none';
         }
       }
     }
