@@ -42,12 +42,11 @@
     /* Ancho unificado homogéneo */
     .wrap { width: min(1100px, calc(100% - 40px)); margin: auto; }
     
-    header { position: sticky; top: 0; z-index: 10; background: #090807ee; border-bottom: 1px solid #4b3926; backdrop-filter: blur(14px); width: 100%; }
-    nav { display: flex; align-items: center; justify-content: space-between; min-height: 70px; gap: 15px; }
-    .brand { font-family: Georgia, serif; letter-spacing: .16em; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    header { position: sticky; top: 0; z-index: 100; background: #090807ee; border-bottom: 1px solid #4b3926; backdrop-filter: blur(14px); width: 100%; }
+    nav { display: flex; align-items: center; justify-content: space-between; min-height: 70px; gap: 15px; position: relative; }
     
-    .brand-mark { display: inline-flex; width: 32px; height: 32px; align-items: center; justify-content: center; border: 1px solid #b99160; border-radius: 50%; font-family: Georgia, serif; font-size: 22px; color: #e9c994; }
-    .brand-logo { width: 44px; height: 44px; object-fit: contain; border: 0; border-radius: 50%; flex-shrink: 0; }
+    .brand { font-family: Georgia, serif; letter-spacing: .16em; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .brand-logo { width: 38px; height: 38px; object-fit: contain; flex-shrink: 0; }
 
     .navlinks { display: flex; gap: 20px; align-items: center; }
     .navlinks a { text-decoration: none; color: var(--muted); font-size: .9rem; }
@@ -59,6 +58,9 @@
     .navlinks .btn:hover { background: #ffe0a5 !important; color: #170f08 !important; }
     .btn.ghost { background: transparent; color: var(--gold); }
     .btn.ghost:hover { background: #281c13; }
+
+    /* Botón de Hamburguesa (Oculto por defecto en PC) */
+    .menu-toggle { display: none; background: transparent; border: 1px solid var(--line); color: var(--gold); font-size: 1.4rem; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
     
     .eyebrow { text-transform: uppercase; letter-spacing: .22em; font-size: .75rem; color: var(--gold); font-weight: 700; }
     h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; line-height: 1.13; word-break: break-word; }
@@ -78,24 +80,23 @@
     .section { padding: 80px 0; }
     .section-head { max-width: 690px; margin-bottom: 42px; }
     
-    /* Grids principales en PC */
     .services { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
     .review-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
     
-    /* Sección Contacto por defecto en Ordenador (PC): 2 columnas */
     .contact { background: #100d0b; }
     .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; align-items: start; }
     .form { border: 1px solid #5a422a; background: #18120e; padding: 28px 20px; }
 
     /* REGLA RESPONSIVE PARA MÓVILES (Menos de 768px) */
     @media (max-width: 768px) {
-      .wrap { width: min(1100px, calc(100% - 28px)); }
-      nav { gap: 8px; min-height: 60px; }
-      .brand span { font-size: 0.85rem; }
-      .brand-logo { width: 36px; height: 36px; }
-      .navlinks { gap: 10px; }
-      .navlinks a { font-size: 0.8rem; }
-      .navlinks .btn { padding: 8px 12px; font-size: 0.8rem; }
+      .wrap { width: calc(100% - 24px); }
+      nav { gap: 10px; min-height: 60px; }
+      
+      .brand span { display: none; }
+      
+      .navlinks { gap: 12px; }
+      .navlinks a { font-size: 0.82rem; }
+      .navlinks .btn { padding: 8px 14px; font-size: 0.8rem; }
       
       .hero-copy { padding: 60px 0; }
       .section { padding: 50px 0; }
@@ -104,12 +105,34 @@
         grid-template-columns: 1fr !important;
       }
 
-      /* En móvil el contacto pasa a formato vertical (una columna) */
       .contact-grid {
         grid-template-columns: 1fr !important;
         gap: 35px;
       }
       .form { padding: 24px 18px; }
+    }
+
+    /* REGLA PARA MÓVILES MUY CHICOS (Menos de 480px) */
+    @media (max-width: 480px) {
+      .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
+      .navlinks {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #14100dc9;
+        backdrop-filter: blur(16px);
+        flex-direction: column;
+        padding: 20px;
+        gap: 16px;
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.8);
+        text-align: center;
+      }
+      .navlinks.active { display: flex; }
+      .navlinks a { font-size: 1rem; }
+      .navlinks .btn { width: 100%; justify-content: center; }
     }
 
     .service { border: 1px solid var(--line); background: linear-gradient(160deg, #21180f, #0e0b09); overflow: hidden; display: flex; flex-direction: column; }
@@ -333,12 +356,15 @@
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Header con enlace a /logo.svg -->
   <header>
     <nav class="wrap" aria-label="Navegación principal">
       <a class="brand" href="#inicio">
-        <img class="brand-mark brand-logo" alt="Emblema de Soteira &amp; Sons" width="44" height="44" src="data:image/webp;base64,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"><span>SOTEIRA &amp; SONS</span></a>
-      <div class="navlinks">
+        <img class="brand-logo" alt="Emblema de Soteira &amp; Sons" width="38" height="38" src="/logo.svg">
+        <span>SOTEIRA &amp; SONS</span>
+      </a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+      <div class="navlinks" id="navlinks">
         <a href="#experiencias">Experiencias</a>
         <a href="#oraculo">Oráculo</a>
         <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20sus%20experiencias%20espirituales." target="_blank" rel="noopener noreferrer">Contáctanos</a>
@@ -519,10 +545,17 @@
       <div class="wrap">
         <div class="eyebrow">Antes de comenzar</div>
         <h2>Lo esencial, <em>sin complicaciones.</em></h2>
+        <!-- FAQ de Carmen (México) -->
+        <details id="faq-linea-nocturna-carmen" style="display: none;">
+          <summary>¿En qué consiste la Línea de Canalización Nocturna con Carmen?</summary>
+          <p>Es un servicio de canalización y mediumnidad en directo con Carmen, Suma Sacerdotisa Wicca, activo de lunes a viernes de 20:00 a 22:00 h (hora de México).</p>
+          <p style="margin-top: 10px;">Al pulsar el botón de llamada, te conectarás directamente a su línea privada al <strong>+52 55 9816 4634</strong> para recibir guía espiritual y sintonía cuando más lo necesitas.</p>
+        </details>
+        <!-- FAQ de España -->
         <details id="faq-linea-nocturna" style="display: none;">
           <summary>¿En qué consiste la Línea Nocturna de Tarot?</summary>
           <p>Es un servicio de atención telefónica inmediata activo todas las noches de 20:00 a 01:00 h en España, pensado para resolver inquietudes urgentes de madrugada sin necesidad de pedir cita previa.</p>
-          <p style="margin-top: 10px;">Al pulsar el botón de llamada, se conecta con nuestra centralita virtual donde una breve locución de bienvenida te guiará mientras suena nuestra línea directa. Al contestar, Styxe realiza tu lectura de tarot en privado y al instante. Un espacio directo, sencillo y sin complicaciones cuando necesitas respuestas sin esperar a mañana.</p>
+          <p style="margin-top: 10px;">Al pulsar el botón de llamada, se conecta con nuestra centralita virtual donde una breve locución de bienvenida te guiará mientras suena nuestra línea directa. Al contestar, Styxe realiza tu lectura de tarot en privado y al instante.</p>
         </details>
         <details>
           <summary>¿Necesito saber algo de tarot?</summary>
@@ -561,18 +594,30 @@
   <!-- BANNER SUPERIOR NOCTURNO -->
   <div id="banner-nocturno-movil">
     <button class="cerrar-banner" onclick="cerrarBannerMovil()" aria-label="Cerrar banner">&times;</button>
-    <span class="banner-eyebrow">🌙 Línea Nocturna Directa · España (20:00 a 01:00 h)</span>
+    <span class="banner-eyebrow" id="banner-eyebrow-text">🌙 Línea Nocturna Directa</span>
     <h3 class="banner-titulo" id="titulo-banner">¿Dudas que <em>no te dejan dormir?</em></h3>
     <p class="banner-descripcion" id="texto-estado">Llama ahora para una lectura de tarot urgente con Styxe. Sin citas, sin esperas y con atención en directo.</p>
     
     <div class="banner-acciones">
-      <!-- Teléfono centralita: 942 94 32 37 -->
       <a id="enlace-llamada" href="tel:+34942943237" class="btn-llamar-nocturno">Fuera de Horario</a>
       <button type="button" class="btn-info-nocturno" onclick="irAMasInformacion()">Más información</button>
     </div>
   </div>
 
   <script>
+    // Control del menú hamburguesa en móviles muy pequeños
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      document.getElementById('navlinks').classList.toggle('active');
+    });
+
+    document.querySelectorAll('.navlinks a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navlinks').classList.remove('active');
+      });
+    });
+
+    let paisDetectado = '';
+
     function cerrarBannerMovil() {
       const banner = document.getElementById('banner-nocturno-movil');
       if (banner) banner.style.display = 'none';
@@ -580,7 +625,12 @@
     }
 
     function irAMasInformacion() {
-      const faqItem = document.getElementById('faq-linea-nocturna');
+      let faqItem = null;
+      if (paisDetectado === 'MX') {
+        faqItem = document.getElementById('faq-linea-nocturna-carmen');
+      } else {
+        faqItem = document.getElementById('faq-linea-nocturna');
+      }
       if (faqItem) {
         faqItem.open = true;
         faqItem.scrollIntoView({ behavior: 'smooth' });
@@ -591,16 +641,29 @@
       fetch('https://ipapi.co/json/')
         .then(response => response.json())
         .then(data => {
-          if (data.country_code === 'ES') {
+          paisDetectado = data.country_code;
+          const esMovil = window.innerWidth <= 768;
+          
+          if (paisDetectado === 'ES') {
             const faqItem = document.getElementById('faq-linea-nocturna');
             if (faqItem) faqItem.style.display = 'block';
 
-            const esMovil = window.innerWidth <= 768;
             if (esMovil && !sessionStorage.getItem('bannerNocturnoCerrado')) {
               const banner = document.getElementById('banner-nocturno-movil');
               if (banner) {
                 banner.style.display = 'flex';
-                evaluarHorarioYActivar();
+                evaluarHorarioEspana();
+              }
+            }
+          } else if (paisDetectado === 'MX') {
+            const faqItem = document.getElementById('faq-linea-nocturna-carmen');
+            if (faqItem) faqItem.style.display = 'block';
+
+            if (esMovil && !sessionStorage.getItem('bannerNocturnoCerrado')) {
+              const banner = document.getElementById('banner-nocturno-movil');
+              if (banner) {
+                banner.style.display = 'flex';
+                evaluarHorarioMexico();
               }
             }
           }
@@ -608,29 +671,58 @@
         .catch(error => console.log('Error de geolocalización:', error));
     });
 
-    function evaluarHorarioYActivar() {
+    function evaluarHorarioEspana() {
       const options = { timeZone: 'Europe/Madrid', hour: 'numeric', minute: 'numeric', hour12: false };
       const formatter = new Intl.DateTimeFormat([], options);
-      const horaActualStr = formatter.format(new Date());
-      
-      const [hora, minuto] = horaActualStr.split(':').map(Number);
+      const [hora, minuto] = formatter.format(new Date()).split(':').map(Number);
       const minutosTotales = hora * 60 + minuto;
 
-      const inicioServicio = 20 * 60; // 20:00 h
-      const finServicio = 1 * 60 + 5;   // 01:05 h
-
-      const estaEnHorario = (minutosTotales >= inicioServicio) || (minutosTotales <= finServicio);
-
+      const estaEnHorario = (minutosTotales >= 20 * 60) || (minutosTotales <= 1 * 60 + 5);
       const banner = document.getElementById('banner-nocturno-movil');
       const enlaceLlamada = document.getElementById('enlace-llamada');
 
       if (banner && enlaceLlamada) {
+        enlaceLlamada.setAttribute('href', 'tel:+34942943237');
         if (estaEnHorario) {
           banner.classList.add('activo');
           enlaceLlamada.textContent = '📞 Llamar Ahora';
         } else {
           banner.classList.remove('activo');
           enlaceLlamada.textContent = 'Fuera de Horario';
+        }
+      }
+    }
+
+    function evaluarHorarioMexico() {
+      const now = new Date();
+      const optionsTime = { timeZone: 'America/Mexico_City', hour: 'numeric', minute: 'numeric', hour12: false };
+      const optionsDay = { timeZone: 'America/Mexico_City', weekday: 'short' };
+      
+      const formatterTime = new Intl.DateTimeFormat('en-US', optionsTime);
+      const formatterDay = new Intl.DateTimeFormat('en-US', optionsDay);
+
+      const [hora, minuto] = formatterTime.format(now).split(':').map(Number);
+      const diaSemana = formatterDay.format(now);
+      const minutosTotales = hora * 60 + minuto;
+
+      const esDiaLaboral = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].includes(diaSemana);
+      const estaEnHorario = esDiaLaboral && (minutosTotales >= 20 * 60 && minutosTotales <= 22 * 60);
+
+      document.getElementById('banner-eyebrow-text').textContent = '🌙 Canalización Nocturna · Carmen (Lun-Vie 8-10 PM)';
+      document.getElementById('titulo-banner').innerHTML = '¿Mensajes que <em>necesitas canalizar?</em>';
+      document.getElementById('texto-estado').textContent = 'Llama ahora a Carmen, Suma Sacerdotisa Wicca. Canalizaciones y mediumnidad en directo.';
+
+      const banner = document.getElementById('banner-nocturno-movil');
+      const enlaceLlamada = document.getElementById('enlace-llamada');
+
+      if (banner && enlaceLlamada) {
+        enlaceLlamada.setAttribute('href', 'tel:+525598164634');
+        if (estaEnHorario) {
+          banner.classList.add('activo');
+          enlaceLlamada.textContent = '📞 Llamar a Carmen';
+        } else {
+          banner.classList.remove('activo');
+          enlaceLlamada.textContent = 'Fuera de Horario (Lun-Vie 8-10 PM)';
         }
       }
     }
