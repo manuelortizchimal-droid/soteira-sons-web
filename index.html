@@ -6,18 +6,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#090807">
-  <meta name="description" content="Lecturas de tarot, rituales de intención y consultas espirituales privadas en Soteira & Sons. Conoce las experiencias y consulta disponibilidad por WhatsApp.">
-  <title>Lecturas de Tarot, Rituales y Consultas Espirituales | Soteira</title>
+  
+  <!-- Título limpio para la pestaña del navegador -->
+  <title>Soteira &amp; Sons | Casa Ritual</title>
+  
+  <!-- SEO Básico e Intención de Búsqueda (Google lee toda la fuerza aquí) -->
+  <meta name="description" content="Casa ritual de tarot online, telefónico 24h y nocturno urgente. Canalización espiritual con médium Carmen, rituales personalizados y tienda esotérica. Atención presencial en Santander y CDMX.">
   <link rel="canonical" href="https://casasoteira.com/">
+
+  <!-- Open Graph (WhatsApp, Facebook, Instagram) -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_MX">
   <meta property="og:site_name" content="Soteira &amp; Sons">
-  <meta property="og:title" content="Soteira &amp; Sons | Tarot y experiencias espirituales">
-  <meta property="og:description" content="Explora el tarot, los rituales y las experiencias espirituales de Soteira &amp; Sons. Encuentra un espacio para tus preguntas.">
+  <meta property="og:title" content="Soteira &amp; Sons | Casa Ritual">
+  <meta property="og:description" content="Tarot telefónico y online de atención urgente nocturna, canalización con la médium Carmen y rituales personalizados. Presencial en Santander y CDMX.">
   <meta property="og:url" content="https://casasoteira.com/">
+
+  <!-- Twitter Cards -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Soteira &amp; Sons | Tarot y experiencias espirituales">
-  <meta name="twitter:description" content="Explora el tarot, los rituales y las experiencias espirituales de Soteira &amp; Sons.">
+  <meta name="twitter:title" content="Soteira &amp; Sons | Casa Ritual">
+  <meta name="twitter:description" content="Lecturas de tarot urgente, videncia por teléfono, canalizaciones con médium y rituales espirituales.">
 
   <!-- Estilos Principales -->
   <style>
@@ -39,7 +47,7 @@
     button, a, input, textarea, select { outline-offset: 4px; }
     button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--gold); }
     
-    /* Ancho unificado homogéneo */
+    /* Ancho unificado homogéneo con sintaxis calc corregida */
     .wrap { width: min(1100px, calc(100% - 40px)); margin: auto; }
     
     header { position: sticky; top: 0; z-index: 100; background: #090807ee; border-bottom: 1px solid #4b3926; backdrop-filter: blur(14px); width: 100%; }
@@ -47,7 +55,6 @@
     
     .brand { font-family: Georgia, serif; letter-spacing: .16em; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; }
     .brand-logo { width: 38px; height: 38px; object-fit: contain; flex-shrink: 0; display: inline-block; filter: drop-shadow(0px 0px 2px #d9b47a); }
-    .brand-mark { display: none; width: 38px; height: 38px; align-items: center; justify-content: center; border: 1px solid #b99160; border-radius: 50%; font-family: Georgia, serif; font-size: 18px; color: #e9c994; flex-shrink: 0; }
     .brand-mark { display: none; width: 38px; height: 38px; align-items: center; justify-content: center; border: 1px solid #b99160; border-radius: 50%; font-family: Georgia, serif; font-size: 18px; color: #e9c994; flex-shrink: 0; }
 
     .navlinks { display: flex; gap: 20px; align-items: center; }
@@ -61,7 +68,7 @@
     .btn.ghost { background: transparent; color: var(--gold); }
     .btn.ghost:hover { background: #281c13; }
 
-    /* Botón de Hamburguesa (Oculto por defecto en PC y Tablets) */
+    /* Botón de Hamburguesa */
     .menu-toggle { display: none; background: transparent; border: 1px solid var(--line); color: var(--gold); font-size: 1.4rem; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
     
     .eyebrow { text-transform: uppercase; letter-spacing: .22em; font-size: .75rem; color: var(--gold); font-weight: 700; }
@@ -89,7 +96,7 @@
     .contact-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; align-items: start; }
     .form { border: 1px solid #5a422a; background: #18120e; padding: 28px 20px; }
 
-    /* BANNER SUPERIOR NOCTURNO (Oculto por defecto en CSS, se despliega solo en móviles mediante JS) */
+    /* BANNER SUPERIOR NOCTURNO */
     #banner-nocturno-movil {
       display: none;
       position: fixed;
@@ -129,25 +136,9 @@
       padding-right: 24px;
     }
 
-    #banner-nocturno-movil .banner-titulo em {
-      color: var(--gold);
-      font-style: italic;
-    }
-
-    #banner-nocturno-movil .banner-descripcion {
-      font-size: 0.8rem;
-      line-height: 1.4;
-      color: var(--muted);
-      margin: 0 0 6px 0;
-      word-break: break-word;
-    }
-
-    #banner-nocturno-movil .banner-acciones {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      width: 100%;
-    }
+    #banner-nocturno-movil .banner-titulo em { color: var(--gold); font-style: italic; }
+    #banner-nocturno-movil .banner-descripcion { font-size: 0.8rem; line-height: 1.4; color: var(--muted); margin: 0 0 6px 0; word-break: break-word; }
+    #banner-nocturno-movil .banner-acciones { display: flex; flex-direction: column; gap: 8px; width: 100%; }
 
     #banner-nocturno-movil .btn-llamar-nocturno.activo {
       width: 100%;
@@ -202,49 +193,22 @@
       transition: all 0.2s ease;
     }
 
-    #banner-nocturno-movil .btn-info-nocturno:hover {
-      color: var(--gold);
-    }
-
-    #banner-nocturno-movil .cerrar-banner {
-      position: absolute;
-      right: 12px;
-      top: 10px;
-      background: transparent;
-      border: none;
-      color: var(--muted);
-      font-size: 22px;
-      cursor: pointer;
-      line-height: 1;
-      padding: 4px;
-    }
-    
-    #banner-nocturno-movil .cerrar-banner:hover {
-      color: var(--gold);
-    }
+    #banner-nocturno-movil .btn-info-nocturno:hover { color: var(--gold); }
+    #banner-nocturno-movil .cerrar-banner { position: absolute; right: 12px; top: 10px; background: transparent; border: none; color: var(--muted); font-size: 22px; cursor: pointer; line-height: 1; padding: 4px; }
+    #banner-nocturno-movil .cerrar-banner:hover { color: var(--gold); }
 
     /* REGLA RESPONSIVE PARA MÓVILES (Menos de 768px) */
     @media (max-width: 768px) {
       .wrap { width: calc(100% - 24px); }
       nav { gap: 10px; min-height: 60px; }
-      
-      .brand span { display: none; } /* Oculta el texto en móviles angostos, manteniendo el icono del logo */
-      
+      .brand span { display: none; }
       .navlinks { gap: 12px; }
       .navlinks a { font-size: 0.82rem; }
       .navlinks .btn { padding: 8px 14px; font-size: 0.8rem; }
-      
       .hero-copy { padding: 60px 0; }
       .section { padding: 50px 0; }
-
-      .services, .review-grid {
-        grid-template-columns: 1fr !important;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr !important;
-        gap: 35px;
-      }
+      .services, .review-grid { grid-template-columns: 1fr !important; }
+      .contact-grid { grid-template-columns: 1fr !important; gap: 35px; }
       .form { padding: 24px 18px; }
     }
 
@@ -272,7 +236,6 @@
     }
 
     .service { border: 1px solid var(--line); background: linear-gradient(160deg, #21180f, #0e0b09); overflow: hidden; display: flex; flex-direction: column; }
-    
     .visual { height: 290px; position: relative; overflow: hidden; background-color: #211811; }
     .visual:before { content: ""; position: absolute; inset: 0; background: url("https://images.pexels.com/photos/6178715/pexels-photo-6178715.jpeg?auto=compress&cs=tinysrgb&w=1400") center/cover no-repeat; transition: transform .4s; }
     .service:hover .visual:before { transform: scale(1.05); }
@@ -325,7 +288,7 @@
     .catalogue-hint small { display: block; color: #b5a493; margin-top: 9px; }
   </style>
 
- <!-- Google Tag Manager Bootstrap -->
+  <!-- Google Tag Manager Bootstrap (Etiqueta del socio) -->
   <script id="soteira-gtm-bootstrap">
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
@@ -335,7 +298,7 @@
     (function() { var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-M8SWXN9J'; document.head.appendChild(s); })();
   </script>
 
-  <!-- Google Tag directo (Tu etiqueta: G-7929G6ND99) -->
+  <!-- Google Tag directo (Tu etiqueta Analytics: G-7929G6ND99) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7929G6ND99"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -344,26 +307,62 @@
     gtag('config', 'G-7929G6ND99');
   </script>
 
-  <!-- Schema JSON-LD -->
+  <!-- Schema JSON-LD Optimizado para Casa Ritual, Servicios y Tienda Esotérica -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "ProfessionalService",
       "name": "Soteira & Sons",
       "url": "https://casasoteira.com/",
-      "description": "Lecturas de tarot, rituales espirituales y consultas espirituales.",
+      "logo": "https://casasoteira.com/favicon.svg",
+      "image": "https://images.pexels.com/photos/6178715/pexels-photo-6178715.jpeg",
+      "description": "Casa ritual especializada en lecturas de tarot telefónico y online, atención nocturna urgente sin cita previa, canalización espiritual con médium Carmen, rituales de intención y productos esotéricos.",
       "email": "soteira.sons@gmail.com",
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Mundial / Online" },
+        { "@type": "City", "name": "Santander" },
+        { "@type": "City", "name": "Ciudad de México" }
+      ],
       "sameAs": [
         "https://www.instagram.com/casasoteira/",
         "https://www.facebook.com/SoteiraSons"
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Experiencias espirituales",
+        "name": "Catálogo Casa Ritual",
         "itemListElement": [
-          { "@type": "OfferCatalog", "name": "Lecturas de tarot" },
-          { "@type": "OfferCatalog", "name": "Rituales espirituales" },
-          { "@type": "OfferCatalog", "name": "Consultas espirituales" }
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Lecturas de Tarot y Tarot Nocturno Urgente",
+              "description": "Consultas de tarot telefónico y online. Atención continua, videncia por teléfono y servicio de tarot nocturno sin cita previa."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Canalizaciones Espirituales y Mediumnidad",
+              "description": "Sesiones de canalización espiritual directa con la médium Carmen para orientación, mensajes y conexión simbólica."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Rituales Espirituales Personalizados",
+              "description": "Rituales de intención para protección, apertura de caminos y trabajo energético personal."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tienda Esotérica y Productos Rituales",
+              "description": "Línea de productos artesanales: velas de intención, aceites esenciales, baños rituales y elementos espirituales."
+            }
+          }
         ]
       }
     }
