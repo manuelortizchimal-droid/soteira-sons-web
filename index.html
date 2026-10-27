@@ -569,7 +569,7 @@
         <!-- FAQ de España - Exclusiva para móviles mediante JS -->
         <details id="faq-linea-nocturna" style="display: none;">
           <summary>¿En qué consiste la Línea Psíquica Nocturna con Styxe?</summary>
-          <p>Es un servicio de tarot con atención telefónica inmediata activo todas las noches de 20:00 a 01:00 h en España, pensado para resolver inquietudes urgentes de madrugada sin necesidad de pedir cita previa.</p>
+          <p>Es un servicio de tarot con atención telefónica inmediata activo de lunes a viernes, de 20:00 a 01:00 h (hora de España), pensado para resolver inquietudes urgentes de madrugada sin necesidad de pedir cita previa.</p>
           <p style="margin-top: 10px;">Al pulsar el botón de llamada, se conecta con nuestra centralita virtual donde una breve locución de bienvenida te guiará mientras suena nuestra línea directa. Al contestar, Styxe realizará tu lectura de cartas en privado y al instante.</p>
         </details>
         <details>
@@ -614,7 +614,7 @@
     <p class="banner-descripcion" id="texto-estado">Llama ahora para una lectura de tarot urgente con Styxe. Sin citas, sin espera y con atención cercana.</p>
     
     <div class="banner-acciones">
-      <a id="enlace-llamada" href="#" class="btn-llamar-nocturno">Llamar ahora</a>
+      <a id="enlace-llamada" class="btn-llamar-nocturno inactivo" aria-disabled="true" tabindex="-1">Comprobando disponibilidad…</a>
       <button type="button" class="btn-info-nocturno" onclick="irAMasInformacion()">Más información</button>
     </div>
   </div>
@@ -636,123 +636,142 @@
     function cerrarBannerMovil() {
       const banner = document.getElementById('banner-nocturno-movil');
       if (banner) banner.style.display = 'none';
-      sessionStorage.setItem('bannerNocturnoCerrado', 'true');
+      try { sessionStorage.setItem('bannerNocturnoCerrado', 'true'); } catch (_) {}
     }
 
     function irAMasInformacion() {
       let faqItem = null;
       if (paisDetectado === 'MX') {
         faqItem = document.getElementById('faq-linea-nocturna-carmen');
-      } else {
+      } else if (paisDetectado === 'ES') {
         faqItem = document.getElementById('faq-linea-nocturna');
       }
       if (faqItem) {
         faqItem.open = true;
-        faqItem.scrollIntoView({ behavior: 'smooth' });
+        faqItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-      // Verificación estricta: Solo en dispositivos móviles (ancho <= 768px) y si no se cerró en esta sesión
-      const esMovil = window.innerWidth <= 768;
-      const bannerCerrado = sessionStorage.getItem('bannerNocturnoCerrado');
+    function obtenerMinutosLocales(timeZone) {
+      const formatter = new Intl.DateTimeFormat('en-GB', {
+        timeZone,
+        hour: '2-digit',
+        minute: '2-digit',
+        hourCycle: 'h23'
+      });
+      const partes = formatter.format(new Date()).split(':').map(Number);
+      return partes[0] * 60 + partes[1];
+    }
 
-      if (esMovil && !bannerCerrado) {
-        const banner = document.getElementById('banner-nocturno-movil');
-        if (banner) banner.style.display = 'flex';
+    function obtenerDiaLocal(timeZone) {
+      return new Intl.DateTimeFormat('en-US', {
+        timeZone,
+        weekday: 'short'
+      }).format(new Date());
+    }
+
+    function actualizarBotonLlamada(numero, estaEnHorario) {
+      const enlace = document.getElementById('enlace-llamada');
+      if (!enlace) return;
+
+      if (estaEnHorario) {
+        enlace.setAttribute('href', `tel:${numero}`);
+        enlace.setAttribute('aria-disabled', 'false');
+        enlace.removeAttribute('tabindex');
+        enlace.className = 'btn-llamar-nocturno activo';
+        enlace.textContent = 'Llamar ahora';
+      } else {
+        // Sin href no se puede iniciar una llamada accidentalmente fuera de horario.
+        enlace.removeAttribute('href');
+        enlace.setAttribute('aria-disabled', 'true');
+        enlace.setAttribute('tabindex', '-1');
+        enlace.className = 'btn-llamar-nocturno inactivo';
+        enlace.textContent = 'Fuera de horario';
       }
-
-      fetch('https://ipapi.co/json/')
-        .then(response => response.json())
-        .then(data => {
-          paisDetectado = data.country_code;
-          
-          // Solo mostramos el FAQ específico de la línea nocturna si es dispositivo móvil
-          if (esMovil) {
-            if (paisDetectado === 'MX') {
-              const faqItem = document.getElementById('faq-linea-nocturna-carmen');
-              if (faqItem) faqItem.style.display = 'block';
-              evaluarHorarioMexico();
-            } else {
-              const faqItem = document.getElementById('faq-linea-nocturna');
-              if (faqItem) faqItem.style.display = 'block';
-              evaluarHorarioEspana();
-            }
-          }
-        })
-        .catch(error => {
-          console.log('Error de geolocalización, cargando España por defecto:', error);
-          if (esMovil) {
-            const faqItem = document.getElementById('faq-linea-nocturna');
-            if (faqItem) faqItem.style.display = 'block';
-            evaluarHorarioEspana();
-          }
-        });
-    });
+    }
 
     function evaluarHorarioEspana() {
-      const options = { timeZone: 'Europe/Madrid', hour: 'numeric', minute: 'numeric', hour12: false };
-      const formatter = new Intl.DateTimeFormat([], options);
-      const [hora, minuto] = formatter.format(new Date()).split(':').map(Number);
-      const minutosTotales = hora * 60 + minuto;
+      const zona = 'Europe/Madrid';
+      const minutos = obtenerMinutosLocales(zona);
+      const dia = obtenerDiaLocal(zona);
+      // Todos los días, de 20:00 a 01:00, usando siempre la hora de España.
+      const estaEnHorario = minutos >= 20 * 60 || minutos < 60;
 
-      // Horario España: 20:00 a 01:00 h
-      const estaEnHorario = (minutosTotales >= 20 * 60) || (minutosTotales <= 1 * 60);
-      const enlaceLlamada = document.getElementById('enlace-llamada');
-
-      document.getElementById('banner-eyebrow-text').textContent = 'Línea Psíquica Nocturna • Atención directa | 20:00 - 01:00';
+      document.getElementById('banner-eyebrow-text').textContent = 'Línea Psíquica Nocturna • Atención directa | Todos los días, 20:00–01:00';
       document.getElementById('titulo-banner').innerHTML = '¿Dudas que <em>no te dejan dormir?</em>';
-      document.getElementById('texto-estado').textContent = 'Llama ahora para una lectura de tarot urgente con Styxe. Sin citas, sin espera y con atención cercana.';
+      document.getElementById('texto-estado').textContent = estaEnHorario
+        ? 'Llama ahora para una lectura de tarot con Styxe. Sin cita previa y con atención cercana.'
+        : 'La línea de tarot con Styxe atiende todos los días, de 20:00 a 01:00 (hora de España).';
 
-      if (enlaceLlamada) {
-        enlaceLlamada.setAttribute('href', 'tel:+34942943237');
-        if (estaEnHorario) {
-          enlaceLlamada.className = 'btn-llamar-nocturno activo';
-          enlaceLlamada.textContent = 'Llamar ahora';
-          enlaceLlamada.style.pointerEvents = 'auto';
-        } else {
-          enlaceLlamada.className = 'btn-llamar-nocturno inactivo';
-          enlaceLlamada.textContent = 'Fuera de horario';
-          enlaceLlamada.style.pointerEvents = 'none';
-        }
-      }
+      actualizarBotonLlamada('+34942943237', estaEnHorario);
     }
 
     function evaluarHorarioMexico() {
-      const now = new Date();
-      const optionsTime = { timeZone: 'America/Mexico_City', hour: 'numeric', minute: 'numeric', hour12: false };
-      const optionsDay = { timeZone: 'America/Mexico_City', weekday: 'short' };
-      
-      const formatterTime = new Intl.DateTimeFormat('en-US', optionsTime);
-      const formatterDay = new Intl.DateTimeFormat('en-US', optionsDay);
+      const zona = 'America/Mexico_City';
+      const minutos = obtenerMinutosLocales(zona);
+      const dia = obtenerDiaLocal(zona);
+      const diasLaborables = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
+      const estaEnHorario = diasLaborables.includes(dia) && minutos >= 20 * 60 && minutos < 22 * 60;
 
-      const [hora, minuto] = formatterTime.format(now).split(':').map(Number);
-      const diaSemana = formatterDay.format(now);
-      const minutosTotales = hora * 60 + minuto;
-
-      // Horario México: Lunes a Viernes de 20:00 a 22:00 h
-      const esDiaLaboral = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].includes(diaSemana);
-      const estaEnHorario = esDiaLaboral && (minutosTotales >= 20 * 60 && minutosTotales <= 22 * 60);
-
-      document.getElementById('banner-eyebrow-text').textContent = 'Línea Psíquica Nocturna • Atención directa | 20:00 - 22:00';
+      document.getElementById('banner-eyebrow-text').textContent = 'Línea Psíquica Nocturna • Atención directa | L–V, 20:00–22:00';
       document.getElementById('titulo-banner').innerHTML = '¿Dudas que <em>no te dejan dormir?</em>';
-      document.getElementById('texto-estado').textContent = 'Llama ahora para una sesión urgente con Carmen. Sin citas, sin espera y con atención cercana.';
+      document.getElementById('texto-estado').textContent = estaEnHorario
+        ? 'Llama ahora para una sesión de canalización y mediumnidad con Carmen. Sin cita previa y con atención cercana.'
+        : 'La línea de canalización y mediumnidad con Carmen atiende de lunes a viernes, de 20:00 a 22:00 (hora de Ciudad de México).';
 
+      actualizarBotonLlamada('+525598164634', estaEnHorario);
+    }
+
+    window.addEventListener('DOMContentLoaded', async () => {
+      const esMovil = window.matchMedia('(max-width: 768px)').matches;
+      const banner = document.getElementById('banner-nocturno-movil');
       const enlaceLlamada = document.getElementById('enlace-llamada');
 
+      // Estado seguro inicial: oculto y sin enlace telefónico hasta validar país y horario.
+      if (banner) banner.style.display = 'none';
       if (enlaceLlamada) {
-        enlaceLlamada.setAttribute('href', 'tel:+525598164634');
-        if (estaEnHorario) {
-          enlaceLlamada.className = 'btn-llamar-nocturno activo';
-          enlaceLlamada.textContent = 'Llamar ahora';
-          enlaceLlamada.style.pointerEvents = 'auto';
-        } else {
-          enlaceLlamada.className = 'btn-llamar-nocturno inactivo';
-          enlaceLlamada.textContent = 'Fuera de horario';
-          enlaceLlamada.style.pointerEvents = 'none';
-        }
+        enlaceLlamada.removeAttribute('href');
+        enlaceLlamada.setAttribute('aria-disabled', 'true');
+        enlaceLlamada.setAttribute('tabindex', '-1');
+        enlaceLlamada.className = 'btn-llamar-nocturno inactivo';
+        enlaceLlamada.textContent = 'Comprobando disponibilidad…';
       }
-    }
+
+      if (!esMovil) return;
+
+      let bannerCerrado = false;
+      try { bannerCerrado = sessionStorage.getItem('bannerNocturnoCerrado') === 'true'; } catch (_) {}
+
+      try {
+        const respuesta = await fetch('https://ipapi.co/json/', { cache: 'no-store' });
+        if (!respuesta.ok) throw new Error(`Geolocalización HTTP ${respuesta.status}`);
+        const datos = await respuesta.json();
+        const pais = typeof datos.country_code === 'string' ? datos.country_code.toUpperCase() : '';
+
+        // Solo España y México. País desconocido, distinto o error: banner y FAQ específicos ocultos.
+        if (pais !== 'ES' && pais !== 'MX') return;
+        paisDetectado = pais;
+
+        const faqEspana = document.getElementById('faq-linea-nocturna');
+        const faqMexico = document.getElementById('faq-linea-nocturna-carmen');
+        if (faqEspana) faqEspana.style.display = pais === 'ES' ? 'block' : 'none';
+        if (faqMexico) faqMexico.style.display = pais === 'MX' ? 'block' : 'none';
+
+        if (pais === 'MX') evaluarHorarioMexico();
+        else evaluarHorarioEspana();
+
+        if (banner && !bannerCerrado) banner.style.display = 'flex';
+
+        // Mantiene actualizado el estado si el visitante deja la página abierta al cambiar el horario.
+        window.setInterval(() => {
+          if (paisDetectado === 'MX') evaluarHorarioMexico();
+          else if (paisDetectado === 'ES') evaluarHorarioEspana();
+        }, 60 * 1000);
+      } catch (error) {
+        // No asumir España como alternativa: si no podemos detectar el país, no mostramos la línea.
+        console.warn('No se pudo verificar el país; la línea nocturna permanecerá oculta.', error);
+      }
+    });
   </script>
 
   <!-- Scripts originales de la web -->
