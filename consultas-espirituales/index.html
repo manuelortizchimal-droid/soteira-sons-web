@@ -150,7 +150,6 @@
       .panel ul { padding-left: 20px; margin: 20px 0; }
       .panel li { margin-bottom: 12px; color: #E8E6E1 !important; }
       
-      /* Color dorado del precio forzado con alta especificidad */
       .panel .price, .price {
         font-size: 1.25rem !important;
         color: #C6A66B !important;
@@ -178,11 +177,19 @@
       .other strong { color: #FFFFFF; font-size: 1.05rem; }
       .other span { color: #C6A66B; font-size: .88rem; }
       
+      /* Footer estructurado: izquierda blanca fija, derecha dividida en dos líneas alineadas a la derecha */
       footer { border-top: 1px solid rgba(198,166,107,.18); padding: 30px 0; color: #E8E6E1; font-size: .88rem; }
-      footer .wrap { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+      footer .wrap { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap; }
+      footer .footer-brand { color: #FFFFFF; white-space: nowrap; }
+      footer .footer-links { text-align: right; display: flex; flex-direction: column; gap: 6px; margin-left: auto; }
+      footer .footer-row { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px 14px; align-items: center; }
       footer a { color: #C6A66B; text-decoration: none; }
       footer a:hover { text-decoration: underline; }
 
+      @media(max-width: 900px) {
+        footer .footer-links { text-align: left; justify-content: flex-start; margin-left: 0; width: 100%; }
+        footer .footer-row { justify-content: flex-start; }
+      }
       @media(max-width: 800px) {
         .grid { grid-template-columns: 1fr; }
       }
@@ -350,14 +357,18 @@
 
     <footer>
         <div class="wrap">
-            <span>SOTEIRA &amp; SONS &middot; CASA RITUAL &middot; CONSULTAS ESPIRITUALES</span>
-            <span>
-                <a href="https://www.instagram.com/casasoteira/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Casa Soteira">Instagram &middot; @casasoteira</a> &middot; 
-                <a href="https://www.facebook.com/SoteiraSons" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Casa Soteira">Facebook &middot; Soteira &amp; Sons</a> &middot; 
-                <a href="mailto:contacto@casasoteira.com">contacto@casasoteira.com</a> &middot; 
-                <a href="privacidad.html">Aviso de privacidad</a> &middot; 
-                <button type="button" class="cookie-manage" data-cookie-manage>Cookies</button>
-            </span>
+            <span class="footer-brand">SOTEIRA &amp; SONS &middot; CASA RITUAL &middot; CONSULTAS ESPIRITUALES</span>
+            <div class="footer-links">
+                <div class="footer-row">
+                    <a href="https://www.instagram.com/casasoteira/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Casa Soteira">Instagram &middot; @casasoteira</a> &middot; 
+                    <a href="https://www.facebook.com/SoteiraSons" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Casa Soteira">Facebook &middot; Soteira &amp; Sons</a>
+                </div>
+                <div class="footer-row">
+                    <a href="mailto:contacto@casasoteira.com">contacto@casasoteira.com</a> &middot; 
+                    <a href="privacidad.html">Aviso de privacidad</a> &middot; 
+                    <button type="button" class="cookie-manage" data-cookie-manage>Cookies</button>
+                </div>
+            </div>
         </div>
     </footer>
 
