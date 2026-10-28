@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#0E151D">
     <title>Lecturas de tarot por teléfono y videollamada | Soteira &amp; Sons</title>
-    <meta name="description" content="Lecturas de tarot por teléfono, videollamada o presencial en Santander. Tres modalidades, precios claros y atención personal. Consulta disponibilidad.">
+    <meta name="description" content="Lecturas de tarot por teléfono, videollamada o presencial en Santander. Tres modalidades, precios claros y atención personal. Reserva por mensaje.">
     <link rel="canonical" href="https://casasoteira.com/tarot/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_ES">
     <meta property="og:site_name" content="Soteira &amp; Sons">
     <meta property="og:title" content="Lecturas de tarot por teléfono y videollamada | Soteira &amp; Sons">
-    <meta property="og:description" content="Lecturas de tarot por teléfono, videollamada o presencial en Santander. Tres modalidades, precios claros y atención personal. Consulta disponibilidad.">
+    <meta property="og:description" content="Lecturas de tarot por teléfono, videollamada o presencial en Santander. Tres modalidades, precios claros y atención personal. Reserva por mensaje.">
     <meta property="og:url" content="https://casasoteira.com/tarot/">
     <meta name="twitter:card" content="summary">
 
@@ -109,7 +109,7 @@
         .reading-card .btn { width: 100%; margin-top: auto; text-align: center; padding-inline: 14px; }
         .reading-card .eyebrow { margin-bottom: 13px; font-size: .7rem; }
         .small-note { font-size: .92rem; color: #cbbcaf !important; }
-        .mode-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+        .mode-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-bottom: 32px; }
         .mode-card { border-top: 1px solid #98749b; padding: 22px 20px 10px 0; }
         .mode-card h3 { color: #f3d6ab; font: 1.35rem Georgia, serif; margin: 0 0 10px; }
         .payment-panel { border: 1px solid #654b68; border-radius: 8px; background: #18232F; padding: 27px; }
@@ -119,10 +119,12 @@
         .cta-panel p { max-width: 760px; }
         .faq details { scroll-margin-top: 24px; }
         .anchor-target { scroll-margin-top: 24px; }
+        .subtle-anchor-link { display: inline-block; margin-top: 15px; color: #dfba83; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+        .subtle-anchor-link:hover { text-decoration: underline; }
+        .modes-cta-wrap { margin-top: 35px; text-align: left; }
         @media(max-width: 850px) { .readings { grid-template-columns: 1fr; } .reading-card { padding: 25px; } .reading-card .btn { width: auto; } .mode-grid { grid-template-columns: 1fr; gap: 8px; } .mode-card { padding: 18px 0; } }
         @media(max-width: 700px) { .hero { padding: 58px 0 48px; } .hero h1 { font-size: clamp(2.55rem, 11vw, 3.5rem); } .hero .lead { font-size: 1.05rem; } .cta-panel { padding: 23px; } .actions .btn { width: 100%; } }
     </style>
-
 
     <style id="tarot-visual-refinement">
         :root {
@@ -171,27 +173,12 @@
         .reading-card:hover { transform: translateY(-3px); border-color: rgba(226, 190, 137, .78); box-shadow: 0 18px 38px rgba(0, 0, 0, .22); }
         .reading-card.featured { background: linear-gradient(155deg, rgba(27, 40, 54, .98), rgba(20, 28, 38, .98) 75%); box-shadow: inset 0 3px 0 #d8b37e, 0 16px 38px rgba(0,0,0,.18); }
         .reading-card .price { color: #f0cf9a !important; }
-        .mode-grid { gap: 16px; }
-        .mode-card {
-            text-align: center;
-            min-width: 0;
-            padding: 26px 22px 20px;
-            border: 1px solid rgba(192, 201, 210, .24);
-            border-radius: 8px;
-            background: linear-gradient(155deg, rgba(27, 40, 54, .72), rgba(16, 25, 35, .82));
-            box-shadow: 0 10px 28px rgba(0,0,0,.1);
-        }
-        .mode-card::before { content: "✧"; display: block; color: #d9b77f; font-size: 1.25rem; line-height: 1; margin-bottom: 15px; }
-        .mode-card h3 { margin-bottom: 12px; }
-        .mode-card p { text-align: center; }
-        .mode-card p strong { color: #ead0a5; font-size: .95rem; }
-        .mode-card p:last-child { margin-bottom: 0; }
         .faq details { border-bottom-color: rgba(192, 201, 210, .22); }
         .faq summary { padding-right: 12px; }
         .faq summary::marker { color: #d9b77f; }
         .cta-panel {
             position: relative; overflow: hidden;
-            background: radial-gradient(ellipse at 100% 0%, rgba(80, 108, 135, .12), transparent 24rem), linear-gradient(140deg, #18232F, #101923 78%);
+            background: radial-gradient(ellipse at 100% 0%, rgba(80, 108, 135, .12), transparent 24rem), linear-gradient(140deg, #18232F, #101923);
             box-shadow: 0 16px 42px rgba(0,0,0,.16);
         }
         .cta-panel::after { content: "✧"; position: absolute; right: 26px; top: 13px; font-size: 2rem; color: rgba(226,190,137,.3); pointer-events: none; }
@@ -199,16 +186,6 @@
         .btn:hover { transform: translateY(-1px); }
         .other a { border-radius: 7px; background: linear-gradient(145deg, #1B2836, #101923); }
         @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reading-card, .btn { transition: none; } .reading-card:hover, .btn:hover { transform: none; } }
-        @media (max-width: 850px) {
-            .mode-card { padding: 23px 22px; }
-        }
-        @media (max-width: 700px) {
-            .hero::before { width: 250px; height: 250px; right: -135px; top: -65px; }
-            .hero::after { right: 7%; bottom: 22px; width: 100px; }
-            .mode-grid { grid-template-columns: 1fr; gap: 12px; }
-            .mode-card { padding: 22px 20px 18px; }
-            .reading-card:hover { transform: none; }
-        }
     </style>
 
     <style id="soteira-consent-style">
@@ -225,7 +202,7 @@
         @media(max-width: 580px) { #cookie-panel { bottom: 8px; left: 8px; right: 8px; padding: 15px; } }
     </style>
 
-    <!-- 1. Google Tag Manager (Etiqueta original del socio) -->
+    <!-- 1. Google Tag Manager -->
     <script id="soteira-gtm-bootstrap">
         window.dataLayer = window.dataLayer || [];
         window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
@@ -248,7 +225,7 @@
           "@type": "WebPage",
           "name": "Lecturas de tarot por teléfono y videollamada | Soteira & Sons",
           "url": "https://casasoteira.com/tarot/",
-          "description": "Lecturas de tarot por teléfono, videollamada o presencial en Santander. Tres modalidades, precios claros y atención personal. Consulta disponibilidad.",
+          "description": "Lecturas de tarot por teléfono, videollamada o presencial en Santander. Tres modalidades, precios claros y atención personal. Reserva por mensaje.",
           "inLanguage": "es-ES",
           "isPartOf": {"@type": "WebSite", "name": "Soteira & Sons", "url": "https://casasoteira.com/"}
         },
@@ -268,222 +245,6 @@
       ]
     }
     </script>
-    <style id="tarot-night-blue-palette">
-        :root {
-            --bg: #0E151D;
-            --panel: #18232F;
-            --gold: #C6A66B;
-            --text: #F3F5F7;
-            --muted: #C0C9D2;
-        }
-        body {
-            background: linear-gradient(180deg, #0E151D 0%, #101923 48%, #0E151D 100%);
-            color: #F3F5F7;
-        }
-        header { background: rgba(14, 21, 29, .94); border-bottom-color: rgba(192, 201, 210, .22); }
-        .hero {
-            background: linear-gradient(110deg, rgba(14, 21, 29, .98), rgba(20, 28, 38, .86) 68%, rgba(24, 35, 47, .82));
-            border-bottom-color: rgba(192, 201, 210, .24);
-        }
-        .hero::before {
-            border-color: rgba(192, 201, 210, .18);
-            box-shadow: 0 0 0 24px rgba(192, 201, 210, .025), 0 0 0 56px rgba(192, 201, 210, .018), inset 0 0 80px rgba(80, 108, 135, .08);
-        }
-        .hero::after { background: linear-gradient(90deg, transparent, rgba(192, 201, 210, .55), transparent); }
-        .eyebrow, .hero-note { color: #C6A66B; }
-        .hero p, .section p { color: #D1D8E0; }
-        .btn { border-color: #C6A66B; background: #C6A66B; color: #111820; }
-        .btn:hover { background: #D8BB86; }
-        .ghost { background: transparent; color: #D7C091; }
-        .ghost:hover { background: rgba(192, 201, 210, .09); }
-        .panel, .payment-panel { border-color: rgba(192, 201, 210, .24); background: #18232F; }
-        .panel h3, .payment-panel h3, .reading-card h3, .mode-card h3 { color: #D8BB86; }
-        .reading-card {
-            border-color: rgba(192, 201, 210, .24);
-            background: linear-gradient(150deg, #1B2836, #141C26 78%);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, .16);
-        }
-        .reading-card.featured { border-color: #C6A66B; box-shadow: inset 0 3px 0 #C6A66B, 0 12px 32px rgba(0,0,0,.16); }
-        .reading-card .price, .price { color: #D8BB86 !important; }
-        .duration, .small-note { color: #C0C9D2 !important; }
-        .mode-card { border-top-color: rgba(192, 201, 210, .45); padding: 22px 16px 10px; text-align: center; }
-        .mode-card p { margin-left: auto; margin-right: auto; max-width: 34rem; }
-        .mode-card strong { color: #C0C9D2; }
-        .faq details { border-bottom-color: rgba(192, 201, 210, .22); }
-        .cta-panel { border-color: rgba(198, 166, 107, .72); background: linear-gradient(140deg, #18232F, #101923); }
-        .other a { border-color: rgba(192, 201, 210, .24); background: #18232F; }
-        .other a:hover { border-color: #C6A66B; }
-        footer { border-top-color: rgba(192, 201, 210, .22); color: #C0C9D2; }
-        footer a { color: #D8BB86; }
-        #cookie-panel { background: #18232F; color: #F3F5F7; border-color: #66798A; }
-        #cookie-panel p { color: #D1D8E0; }
-        #cookie-panel a { color: #D8BB86; }
-        #cookie-panel button, .cookie-manage { border-color: #7E8D9D; background: #202B38; color: #F3F5F7; }
-        #cookie-panel button.cookie-primary { background: #C6A66B; color: #111820; border-color: #C6A66B; }
-        @media (max-width: 850px) { .mode-card { padding: 18px 8px; } }
-    </style>
-
-
-    <style id="tarot-hero-image-preview">
-        /* Temporary visual preview: reuse the tarot image already used on the homepage. */
-        .hero {
-            background-color: #0E151D;
-            background-image:
-                linear-gradient(90deg, rgba(14, 21, 29, .97) 0%, rgba(14, 21, 29, .91) 37%, rgba(14, 21, 29, .56) 68%, rgba(14, 21, 29, .38) 100%),
-                linear-gradient(0deg, rgba(14, 21, 29, .70) 0%, rgba(14, 21, 29, .04) 48%, rgba(14, 21, 29, .16) 100%),
-                url("https://images.pexels.com/photos/6178715/pexels-photo-6178715.jpeg?auto=compress&cs=tinysrgb&w=1400");
-            background-position: center, center, 68% 50%;
-            background-size: cover, cover, cover;
-            background-repeat: no-repeat;
-        }
-        @media (max-width: 700px) {
-            .hero {
-                background-image:
-                    linear-gradient(90deg, rgba(14, 21, 29, .91) 0%, rgba(14, 21, 29, .76) 100%),
-                    linear-gradient(0deg, rgba(14, 21, 29, .75) 0%, rgba(14, 21, 29, .10) 70%),
-                    url("https://images.pexels.com/photos/6178715/pexels-photo-6178715.jpeg?auto=compress&cs=tinysrgb&w=1400");
-                background-position: center, center, 64% center;
-            }
-        }
-    </style>
-
-
-    <style id="tarot-near-black-blue-and-brand-match">
-        :root {
-            --bg: #080D12;
-            --panel: #10171F;
-            --gold: #C6A66B;
-            --text: #F3F1EC;
-            --muted: #A7B0B8;
-        }
-        body {
-            background: linear-gradient(180deg, #080D12 0%, #0A1016 48%, #080D12 100%);
-            color: var(--text);
-        }
-        header {
-            background: rgba(8, 13, 18, .97) !important;
-            border-bottom-color: rgba(198, 166, 107, .18) !important;
-        }
-        .brand {
-            font-family: Georgia, serif !important;
-            letter-spacing: .16em !important;
-            font-size: 1rem !important;
-            font-weight: 400 !important;
-            display: inline-flex !important;
-            align-items: center !important;
-            gap: 12px !important;
-            flex-shrink: 0;
-            text-decoration: none;
-        }
-        .brand-logo {
-            width: 38px !important; height: 38px !important;
-            object-fit: contain; flex-shrink: 0; display: inline-block;
-            background: transparent !important; border: 0 !important; border-radius: 0 !important;
-            filter: drop-shadow(0px 0px 2px #d9b47a);
-        }
-        .brand img { background: transparent !important; }
-        .hero {
-            background-color: #080D12 !important;
-            background-image:
-                linear-gradient(90deg, rgba(8, 13, 18, .985) 0%, rgba(8, 13, 18, .94) 37%, rgba(8, 13, 18, .72) 68%, rgba(8, 13, 18, .58) 100%),
-                linear-gradient(0deg, rgba(8, 13, 18, .82) 0%, rgba(8, 13, 18, .10) 48%, rgba(8, 13, 18, .28) 100%),
-                url("https://images.pexels.com/photos/6178715/pexels-photo-6178715.jpeg?auto=compress&cs=tinysrgb&w=1400") !important;
-            background-position: center, center, 68% 50% !important;
-            background-size: cover, cover, cover !important;
-            background-repeat: no-repeat !important;
-            border-bottom-color: rgba(167, 176, 184, .13) !important;
-        }
-        .hero::before { border-color: rgba(167, 176, 184, .12) !important; }
-        @media (max-width: 700px) {
-            .hero { background-image:
-                linear-gradient(90deg, rgba(8, 13, 18, .96) 0%, rgba(8, 13, 18, .84) 100%),
-                linear-gradient(0deg, rgba(8, 13, 18, .86) 0%, rgba(8, 13, 18, .18) 70%),
-                url("https://images.pexels.com/photos/6178715/pexels-photo-6178715.jpeg?auto=compress&cs=tinysrgb&w=1400") !important;
-                background-position: center, center, 64% center !important;
-            }
-        }
-        .card, .reading-card, .cta-panel, .method-card, .modality-card, .experience-card, .faq-item {
-            background-color: #10171F !important;
-            border-color: rgba(167, 176, 184, .14) !important;
-        }
-        section:not(.hero) { border-color: rgba(167, 176, 184, .10); }
-        .btn-outline, .btn.secondary, a.btn-outline {
-            border-color: rgba(198, 166, 107, .55) !important;
-        }
-        @media (max-width: 700px) {
-            .hero { background: linear-gradient(180deg, rgba(8,13,18,.90), rgba(8,13,18,.96)) !important; }
-        }
-    </style>
-
-
-    <style id="tarot-palette-and-hero-refinement-v6">
-        :root {
-            --bg: #080D12;
-            --panel: #10171F;
-            --gold: #C6A66B;
-            --text: #F5F5F2;
-            --muted: #D2D2CE;
-        }
-        body {
-            background:
-                radial-gradient(ellipse at 50% 0%, #111B26 0%, #080D12 58rem),
-                #080D12 !important;
-            color: #F5F5F2 !important;
-        }
-        .hero {
-            background-color: #080D12 !important;
-            background-image:
-                linear-gradient(180deg, rgba(8,13,18,.34) 0%, rgba(8,13,18,.46) 55%, #080D12 100%),
-                linear-gradient(90deg, rgba(8,13,18,.985) 0%, rgba(8,13,18,.93) 36%, rgba(8,13,18,.66) 69%, rgba(8,13,18,.53) 100%),
-                url("https://images.pexels.com/photos/6178715/pexels-photo-6178715.jpeg?auto=compress&cs=tinysrgb&w=1400") !important;
-            background-position: center, center, 68% 50% !important;
-            background-size: cover, cover, cover !important;
-            background-repeat: no-repeat !important;
-            border-bottom: 0 !important;
-            box-shadow: none !important;
-        }
-        /* Remove the oversized circular ornament and the short decorative line. */
-        .hero::before, .hero::after { display: none !important; content: none !important; }
-        header { border-bottom-color: rgba(198,166,107,.18) !important; }
-        .brand { color: #F5F5F2 !important; }
-        .brand-logo { filter: drop-shadow(0 0 2px #d9b47a) !important; }
-        .hero p, .section p, .reading-card p, .panel li, .small-note,
-        .duration, footer, .faq p { color: #E7E7E2 !important; }
-        .section h2, .reading-card h3, .panel h3, .payment-panel h3,
-        .mode-card h3, .cta-panel h2, .faq summary { color: #F5F5F2 !important; }
-        .eyebrow, .hero-note, .price { color: #C6A66B !important; }
-        .hero-note { border-top-color: rgba(198,166,107,.30) !important; }
-        .reading-card, .payment-panel, .panel, .card, .cta-panel,
-        .other a, .method-card, .modality-card, .experience-card, .faq-item {
-            background: linear-gradient(145deg, #14202B 0%, #0D141C 82%) !important;
-            border-color: rgba(198,166,107,.24) !important;
-        }
-        .reading-card.featured {
-            background: linear-gradient(145deg, #182735 0%, #0D141C 82%) !important;
-            border-color: #C6A66B !important;
-            box-shadow: inset 0 3px 0 #C6A66B !important;
-        }
-        .cta-panel { background: linear-gradient(140deg, #172431 0%, #0D141C 82%) !important; }
-        .mode-card { border-top-color: rgba(198,166,107,.36) !important; }
-        section:not(.hero) { border-color: rgba(198,166,107,.12) !important; }
-        footer { border-top-color: rgba(198,166,107,.18) !important; }
-        .btn { border-color: #C6A66B !important; background: #C6A66B !important; color: #101010 !important; }
-        .btn:hover { background: #D8BB86 !important; }
-        .ghost { background: transparent !important; color: #C6A66B !important; }
-        .ghost:hover { background: rgba(198,166,107,.08) !important; }
-        @media (max-width: 700px) {
-            .hero {
-                background-image:
-                    linear-gradient(180deg, rgba(8,13,18,.50) 0%, rgba(8,13,18,.62) 55%, #080D12 100%),
-                    linear-gradient(90deg, rgba(8,13,18,.96) 0%, rgba(8,13,18,.80) 100%),
-                    url("https://images.pexels.com/photos/6178715/pexels-photo-6178715.jpeg?auto=compress&cs=tinysrgb&w=1400") !important;
-                background-position: center, center, 64% center !important;
-                background-size: cover, cover, cover !important;
-                border-bottom: 0 !important;
-            }
-        }
-    </style>
-
 
     <style id="tarot-palette-v7">
       :root {
@@ -494,13 +255,8 @@
         --muted: #E8E6E1 !important;
       }
       html, body { background: #080808 !important; color: #FFFFFF !important; }
-      body {
-        background: linear-gradient(180deg, #080808 0%, #0C0C0B 52%, #080808 100%) !important;
-      }
-      header {
-        background: rgba(8,8,8,.97) !important;
-        border-bottom-color: rgba(198,166,107,.20) !important;
-      }
+      body { background: linear-gradient(180deg, #080808 0%, #0C0C0B 52%, #080808 100%) !important; }
+      header { background: rgba(8,8,8,.97) !important; border-bottom-color: rgba(198,166,107,.20) !important; }
       .brand { color: #FFFFFF !important; }
       .brand-logo { background: transparent !important; border: 0 !important; filter: drop-shadow(0 0 2px #C6A66B) !important; }
       .hero {
@@ -534,7 +290,7 @@
         box-shadow: inset 0 3px 0 #C6A66B, 0 12px 32px rgba(0,0,0,.22) !important;
       }
       .cta-panel { background: linear-gradient(140deg, #191815 0%, #0B0B0A 88%) !important; }
-      .mode-card { border-top-color: rgba(198,166,107,.34) !important; }
+      .mode-card { border-top-color: rgba(198,166,107,.34) !important; background: linear-gradient(155deg, #121214 0%, #0C0C0D 100%) !important; padding: 22px 16px 10px; }
       section:not(.hero) { border-color: rgba(198,166,107,.10) !important; }
       footer { border-top-color: rgba(198,166,107,.18) !important; }
       .btn { border-color: #C6A66B !important; background: #C6A66B !important; color: #10100F !important; }
@@ -558,24 +314,6 @@
         }
       }
     </style>
-
-
-    <style id="tarot-mode-cards-v8">
-      /* Neutral black cards with only the faintest blue undertone. */
-      .mode-card {
-        background: linear-gradient(155deg, #121214 0%, #0C0C0D 100%) !important;
-        border-color: rgba(198,166,107,.22) !important;
-        box-shadow: 0 10px 28px rgba(0,0,0,.16) !important;
-      }
-      .mode-card:hover {
-        background: linear-gradient(155deg, #151517 0%, #0D0D0F 100%) !important;
-        border-color: rgba(198,166,107,.38) !important;
-      }
-      .mode-card h3 { color: #FFFFFF !important; }
-      .mode-card p { color: #E8E6E1 !important; }
-      .mode-card p strong { color: #C6A66B !important; }
-    </style>
-
 </head>
 <body>
     <header>
@@ -586,7 +324,7 @@
             <div class="navlinks">
                 <a class="desktop" href="../index.html#experiencias">Experiencias</a>
                 <a class="desktop" href="../index.html#oraculo">Oráculo</a>
-                <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20Tarot." data-service="Tarot" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20tarot." data-service="Tarot" target="_blank" rel="noopener noreferrer">Contáctanos</a>
             </div>
         </nav>
     </header>
@@ -600,7 +338,7 @@
                 <p class="lead">Trabajamos desde una práctica cercana y personal. Puedes realizar tu lectura por teléfono, videollamada o presencialmente en Santander, España.</p>
                 <div class="actions">
                     <a class="btn" href="#lecturas">Ver las lecturas</a>
-                    <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20disponibilidad%20para%20una%20lectura%20de%20tarot." data-service="Tarot" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+                    <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20por%20mensaje%20para%20una%20lectura%20de%20tarot." data-service="Tarot" target="_blank" rel="noopener noreferrer">Reservar por mensaje</a>
                 </div>
                 <p class="hero-note">Tres modalidades · Desde 25 € · Atención internacional</p>
             </div>
@@ -612,6 +350,9 @@
                     <div class="eyebrow">Elige tu lectura</div>
                     <h2>Tres formas de explorar tus preguntas</h2>
                     <p>En cualquiera de las modalidades puedes plantear tantas preguntas o temas como desees durante la sesión. La diferencia está en el tiempo disponible y en la profundidad con la que podemos explorar cada cuestión.</p>
+                    
+                    <!-- Enlace intermedio / ancla hacia las modalidades -->
+                    <a class="subtle-anchor-link" href="#modalidades">¿Tienes dudas sobre cómo nos conectamos? Conoce las modalidades de lectura ↓</a>
                 </div>
                 <div class="readings">
                     <article class="reading-card">
@@ -620,7 +361,7 @@
                         <p class="price">25 €</p>
                         <p class="duration">20 minutos de referencia</p>
                         <p>Para explorar una pregunta, una situación o un tema concreto sin necesidad de una sesión extensa. Puedes plantear tantas preguntas o temas como quieras dentro del tiempo disponible; esta modalidad funciona especialmente bien cuando deseas centrarte en algo específico.</p>
-                        <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20me%20interesa%20la%20Lectura%20breve%20de%20tarot%20(25%20%E2%82%AC).%20%C2%BFQu%C3%A9%20disponibilidad%20hay%3F" data-service="Tarot - Lectura breve" target="_blank" rel="noopener noreferrer">Consultar disponibilidad</a>
+                        <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20me%20interesa%20la%20Lectura%20breve%20de%20tarot%20(25%20%E2%82%AC).%20Quiero%20reservar." data-service="Tarot - Lectura breve" target="_blank" rel="noopener noreferrer">Reservar por mensaje</a>
                     </article>
                     <article class="reading-card featured">
                         <div class="eyebrow">Más tiempo para profundizar</div>
@@ -628,7 +369,7 @@
                         <p class="price">50 €</p>
                         <p class="duration">60 minutos de referencia</p>
                         <p>Una lectura para explorar una situación con mayor amplitud, examinar sus distintas dimensiones y profundizar en las preguntas que vayan surgiendo. Dispondrás de más tiempo para desarrollar cada tema y seguir sus matices.</p>
-                        <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20me%20interesa%20la%20Lectura%20est%C3%A1ndar%20de%20tarot%20(50%20%E2%82%AC).%20%C2%BFQu%C3%A9%20disponibilidad%20hay%3F" data-service="Tarot - Lectura estándar" target="_blank" rel="noopener noreferrer">Consultar disponibilidad</a>
+                        <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20me%20interesa%20la%20Lectura%20est%C3%A1ndar%20de%20tarot%20(50%20%E2%82%AC).%20Quiero%20reservar." data-service="Tarot - Lectura estándar" target="_blank" rel="noopener noreferrer">Reservar por mensaje</a>
                     </article>
                     <article class="reading-card">
                         <div class="eyebrow">Un proceso de reflexión</div>
@@ -637,14 +378,14 @@
                         <p class="duration">90 minutos de referencia · Incluye seguimiento</p>
                         <p>Una lectura de enfoque evolutivo y mayéutico en la que los arcanos se convierten en herramientas de reflexión. Más que limitarse a ofrecer respuestas, busca abrir preguntas, examinar patrones y profundizar en tu relación con aquello que deseas explorar.</p>
                         <p>Incluye una lectura breve de seguimiento, que podrás realizar en el momento que mejor te convenga dentro del mes posterior a la sesión inicial.</p>
-                        <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20me%20interesa%20la%20Lectura%20L%C3%A1mpade%20de%20tarot%20(100%20%E2%82%AC).%20%C2%BFQu%C3%A9%20disponibilidad%20hay%3F" data-service="Tarot - Lectura Lámpade" target="_blank" rel="noopener noreferrer">Consultar disponibilidad</a>
+                        <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20me%20interesa%20la%20Lectura%20L%C3%A1mpade%20de%20tarot%20(100%20%E2%82%AC).%20Quiero%20reservar." data-service="Tarot - Lectura Lámpade" target="_blank" rel="noopener noreferrer">Reservar por mensaje</a>
                     </article>
                 </div>
                 <p class="small-note">Las duraciones son orientativas. Las sesiones pueden prolongarse ligeramente cuando sea necesario para cerrar la lectura con naturalidad.</p>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section anchor-target" id="modalidades">
             <div class="wrap">
                 <div class="section-intro">
                     <div class="eyebrow">Cómo podemos encontrarnos</div>
@@ -667,6 +408,11 @@
                         <p><strong>Desde cualquier lugar</strong></p>
                         <p>Sigue la lectura en directo mientras las cartas van saliendo sobre el tablero. Podrás verlas durante la sesión y acompañar visualmente el desarrollo de la lectura, estés donde estés.</p>
                     </article>
+                </div>
+                
+                <!-- Botón final en la zona de modalidades -->
+                <div class="modes-cta-wrap">
+                    <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20ya%20he%20visto%20las%20modalidades%20y%20me%20gustar%C3%ADa%20elegir%20la%20m%C3%ADa%20y%20reservar%20por%20mensaje." data-service="Tarot - Modalidades" target="_blank" rel="noopener noreferrer">Elegir mi modalidad y reservar por mensaje</a>
                 </div>
             </div>
         </section>
@@ -715,9 +461,9 @@
                 <div class="cta-panel">
                     <div class="eyebrow">Da el primer paso</div>
                     <h2>¿Qué te gustaría explorar?</h2>
-                    <p>Si ya sabes qué lectura quieres, escríbenos para consultar disponibilidad. Si aún tienes dudas, puedes preguntarnos o solicitar una breve llamada informativa.</p>
+                    <p>Si ya sabes qué lectura quieres, escríbenos para reservar por mensaje. Si aún tienes dudas, puedes preguntarnos o solicitar una breve llamada informativa.</p>
                     <div class="actions">
-                        <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20disponibilidad%20para%20una%20lectura%20de%20tarot." data-service="Tarot" target="_blank" rel="noopener noreferrer">Consultar disponibilidad</a>
+                        <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20por%20mensaje%20para%20una%20lectura%20de%20tarot." data-service="Tarot" target="_blank" rel="noopener noreferrer">Reservar por mensaje</a>
                         <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20tengo%20algunas%20dudas%20sobre%20las%20lecturas%20de%20tarot%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n." data-service="Tarot - Información" target="_blank" rel="noopener noreferrer">Tengo dudas</a>
                     </div>
                 </div>
@@ -736,18 +482,18 @@
         </section>
     </main>
 
-   <footer>
-    <div class="wrap">
-      <span>SOTEIRA &amp; SONS &middot; CASA RITUAL &middot; TAROT</span>
-      <span>
-        <a href="https://www.instagram.com/casasoteira/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Casa Soteira">Instagram &middot; @casasoteira</a> &middot; 
-        <a href="https://www.facebook.com/SoteiraSons" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Casa Soteira">Facebook &middot; Soteira &amp; Sons</a> &middot; 
-        <a href="mailto:contacto@casasoteira.com">contacto@casasoteira.com</a> &middot; 
-        <a href="privacidad.html">Aviso de privacidad</a> &middot; 
-        <button type="button" class="cookie-manage" data-cookie-manage>Cookies</button>
-      </span>
-    </div>
-</footer>
+    <footer>
+        <div class="wrap">
+          <span>SOTEIRA &amp; SONS &middot; CASA RITUAL &middot; TAROT</span>
+          <span>
+            <a href="https://www.instagram.com/casasoteira/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Casa Soteira">Instagram &middot; @casasoteira</a> &middot; 
+            <a href="https://www.facebook.com/SoteiraSons" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Casa Soteira">Facebook &middot; Soteira &amp; Sons</a> &middot; 
+            <a href="mailto:contacto@casasoteira.com">contacto@casasoteira.com</a> &middot; 
+            <a href="privacidad.html">Aviso de privacidad</a> &middot; 
+            <button type="button" class="cookie-manage" data-cookie-manage>Cookies</button>
+          </span>
+        </div>
+    </footer>
 
     <aside id="cookie-panel" aria-label="Preferencias de cookies" role="dialog" aria-modal="false" hidden>
         <strong>Tu privacidad importa</strong>
