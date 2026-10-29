@@ -204,12 +204,32 @@
         @media(max-width: 580px) { #cookie-panel { bottom: 8px; left: 8px; right: 8px; padding: 15px; } }
     </style>
 
-    <!-- 1. Google Tag Manager -->
+    <!-- 1. Google Tag Manager / Modo de Consentimiento Corregido -->
     <script id="soteira-gtm-bootstrap">
         window.dataLayer = window.dataLayer || [];
         window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
-        window.gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', wait_for_update: 500 });
-        try { if (localStorage.getItem('soteira_cookie_choice_v1') === 'yes') window.gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' }); } catch(e) {}
+        
+        // Configuración inicial por defecto (denegado)
+        window.gtag('consent', 'default', { 
+            analytics_storage: 'denied', 
+            ad_storage: 'denied', 
+            ad_user_data: 'denied', 
+            ad_personalization: 'denied', 
+            wait_for_update: 500 
+        });
+
+        // Conexión automática con tu banner de cookies actual (soteira_cookie_choice_v1)
+        try { 
+            if (localStorage.getItem('soteira_cookie_choice_v1') === 'yes') {
+                window.gtag('consent', 'update', { 
+                    analytics_storage: 'granted', 
+                    ad_storage: 'denied', 
+                    ad_user_data: 'denied', 
+                    ad_personalization: 'denied' 
+                }); 
+            } 
+        } catch(e) {}
+
         window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
         (function() {
             var s = document.createElement('script');

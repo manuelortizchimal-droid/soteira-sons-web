@@ -311,14 +311,39 @@
     }
   </style>
 
-  <!-- Google Tag Manager -->
+  <!-- Google Tag Manager / Modo de Consentimiento Corregido -->
   <script id="soteira-gtm-bootstrap">
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
-    window.gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', wait_for_update: 500 });
-    try { if (localStorage.getItem('soteira_cookie_choice_v1') === 'yes') window.gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' }); } catch(e) {}
+    
+    // Configuración inicial por defecto (denegado)
+    window.gtag('consent', 'default', { 
+      analytics_storage: 'denied', 
+      ad_storage: 'denied', 
+      ad_user_data: 'denied', 
+      ad_personalization: 'denied', 
+      wait_for_update: 500 
+    });
+
+    // Conexión automática con tu banner de cookies actual (soteira_cookie_choice_v1)
+    try { 
+      if (localStorage.getItem('soteira_cookie_choice_v1') === 'yes') {
+        window.gtag('consent', 'update', { 
+          analytics_storage: 'granted', 
+          ad_storage: 'denied', 
+          ad_user_data: 'denied', 
+          ad_personalization: 'denied' 
+        }); 
+      } 
+    } catch(e) {}
+
     window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
-    (function() { var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N86DC88D'; document.head.appendChild(s); })();
+    (function() { 
+      var s = document.createElement('script'); 
+      s.async = true; 
+      s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N86DC88D'; 
+      document.head.appendChild(s); 
+    })();
   </script>
 
   <!-- Schema JSON-LD -->
@@ -338,8 +363,8 @@
         { "@type": "City", "name": "Ciudad de México" }
       ],
       "sameAs": [
-        "https://www.instagram.com/casasoteira/",
-        "https://www.facebook.com/SoteiraSons"
+        { "@type": "WebSite", "name": "Instagram", "url": "https://www.instagram.com/casasoteira/" },
+        { "@type": "WebSite", "name": "Facebook", "url": "https://www.facebook.com/SoteiraSons" }
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
