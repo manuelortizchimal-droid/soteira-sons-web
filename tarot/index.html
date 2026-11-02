@@ -529,7 +529,7 @@
                         <a class="btn" href="#lecturas">Ver las lecturas</a>
                         <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20por%20mensaje%20para%20una%20lectura%20de%20tarot." data-service="Tarot" target="_blank" rel="noopener noreferrer">Reservar por mensaje</a>
                     </div>
-                    <p class="hero-note">Tres modalidades · Desde 25 € · Atención internacional</p>
+                    <p class="hero-note">Tres modalidades · <span data-precio-eur="Desde 25 €" data-precio-mxn="Desde $400 MXN">Desde 25 €</span> · Atención internacional</p>
                 </div>
             </div>
         </section>
@@ -547,27 +547,27 @@
                     <article class="reading-card">
                         <div class="eyebrow">Para una cuestión concreta</div>
                         <h3>Lectura breve</h3>
-                        <p class="price">25 €</p>
+                        <p class="price" data-precio-eur="25 €" data-precio-mxn="$400 MXN">25 €</p>
                         <p class="duration">20 minutos de referencia</p>
                         <p>Para explorar una pregunta, una situación o un tema concreto sin necesidad de una sesión extensa. Puedes plantear tantas preguntas o temas como quieras dentro del tiempo disponible; esta modalidad funciona especialmente bien cuando deseas centrarte en algo específico.</p>
-                        <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20me%20interesa%20la%20Lectura%20breve%20de%20tarot%20(25%20%E2%82%AC).%20Quiero%20reservar." data-service="Tarot - Lectura breve" target="_blank" rel="noopener noreferrer">Reservar por mensaje</a>
+                        <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20me%20interesa%20la%20Lectura%20breve%20de%20tarot%20(25%20%E2%82%AC).%20Quiero%20reservar." data-mensaje-eur="Hola, me interesa la Lectura breve de tarot (25 €). Quiero reservar." data-mensaje-mxn="Hola, me interesa la Lectura breve de tarot ($400 MXN). Quiero reservar." data-service="Tarot - Lectura breve" target="_blank" rel="noopener noreferrer">Reservar por mensaje</a>
                     </article>
                     <article class="reading-card featured">
                         <div class="eyebrow">Más tiempo para profundizar</div>
                         <h3>Lectura estándar</h3>
-                        <p class="price">50 €</p>
+                        <p class="price" data-precio-eur="50 €" data-precio-mxn="$800 MXN">50 €</p>
                         <p class="duration">60 minutos de referencia</p>
                         <p>Una lectura para explorar una situación con mayor amplitud, examinar sus distintas dimensiones y profundizar en las preguntas que vayan surgiendo. Dispondrás de más tiempo para desarrollar cada tema y seguir sus matices.</p>
-                        <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20me%20interesa%20la%20Lectura%20est%C3%A1ndar%20de%20tarot%20(50%20%E2%82%AC).%20Quiero%20reservar." data-service="Tarot - Lectura estándar" target="_blank" rel="noopener noreferrer">Reservar por mensaje</a>
+                        <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20me%20interesa%20la%20Lectura%20est%C3%A1ndar%20de%20tarot%20(50%20%E2%82%AC).%20Quiero%20reservar." data-mensaje-eur="Hola, me interesa la Lectura estándar de tarot (50 €). Quiero reservar." data-mensaje-mxn="Hola, me interesa la Lectura estándar de tarot ($800 MXN). Quiero reservar." data-service="Tarot - Lectura estándar" target="_blank" rel="noopener noreferrer">Reservar por mensaje</a>
                     </article>
                     <article class="reading-card">
                         <div class="eyebrow">Un proceso de reflexión</div>
                         <h3>Lectura Lámpade</h3>
-                        <p class="price">100 €</p>
+                        <p class="price" data-precio-eur="100 €" data-precio-mxn="$1,600 MXN">100 €</p>
                         <p class="duration">90 minutos de referencia · Incluye seguimiento</p>
                         <p>Una lectura de enfoque evolutivo y mayéutico en la que los arcanos se convierten en herramientas de reflexión. Más que limitarse a ofrecer respuestas, busca abrir preguntas, examinar patrones y profundizar en tu relación con aquello que deseas explorar.</p>
                         <p>Incluye una lectura breve de seguimiento, que podrás realizar en el momento que mejor te convenga dentro del mes posterior a la sesión inicial.</p>
-                        <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20me%20interesa%20la%20Lectura%20L%C3%A1mpade%20de%20tarot%20(100%20%E2%82%AC).%20Quiero%20reservar." data-service="Tarot - Lectura Lámpade" target="_blank" rel="noopener noreferrer">Reservar por mensaje</a>
+                        <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20me%20interesa%20la%20Lectura%20L%C3%A1mpade%20de%20tarot%20(100%20%E2%82%AC).%20Quiero%20reservar." data-mensaje-eur="Hola, me interesa la Lectura Lámpade de tarot (100 €). Quiero reservar." data-mensaje-mxn="Hola, me interesa la Lectura Lámpade de tarot ($1,600 MXN). Quiero reservar." data-service="Tarot - Lectura Lámpade" target="_blank" rel="noopener noreferrer">Reservar por mensaje</a>
                     </article>
                 </div>
                 <p class="small-note">Las duraciones son orientativas. Las sesiones pueden prolongarse ligeramente cuando sea necesario para cerrar la lectura con naturalidad.</p>
@@ -758,5 +758,79 @@
             });
         })();
     </script>
+
+    <script id="soteira-tarot-geopricing">
+      (function () {
+        'use strict';
+
+        const paisesConPreciosMXN = new Set([
+          'AI', 'AG', 'AR', 'AW', 'BB', 'BL', 'BM', 'BQ', 'BS', 'BZ',
+          'BO', 'BR', 'VG', 'KY', 'CL', 'CO', 'CR', 'CU', 'CW', 'DM',
+          'DO', 'EC', 'SV', 'FK', 'GF', 'GD', 'GL', 'GP', 'GS', 'GT',
+          'GY', 'HT', 'HN', 'JM', 'MQ', 'MX', 'MS', 'NI', 'PA', 'PY',
+          'PE', 'PR', 'KN', 'LC', 'MF', 'PM', 'VC', 'SX', 'SR', 'TT',
+          'TC', 'UY', 'VE', 'VI'
+        ]);
+
+        function aplicarMoneda(moneda) {
+          document.querySelectorAll('[data-precio-eur][data-precio-mxn]').forEach(function (elemento) {
+            elemento.textContent = moneda === 'MXN'
+              ? elemento.dataset.precioMxn
+              : elemento.dataset.precioEur;
+          });
+
+          document.querySelectorAll('[data-mensaje-eur][data-mensaje-mxn]').forEach(function (enlace) {
+            const mensaje = moneda === 'MXN'
+              ? enlace.dataset.mensajeMxn
+              : enlace.dataset.mensajeEur;
+            enlace.href = 'https://wa.me/34612425249?text=' + encodeURIComponent(mensaje);
+          });
+
+          // Actualiza también los datos estructurados cuando la geolocalización está disponible.
+          const schema = document.querySelector('script[type="application/ld+json"]');
+          if (schema) {
+            try {
+              const datos = JSON.parse(schema.textContent);
+              const servicio = datos['@graph'] && datos['@graph'].find(function (item) {
+                return item['@type'] === 'Service' && Array.isArray(item.offers);
+              });
+              if (servicio) {
+                const precios = moneda === 'MXN' ? ['400', '800', '1600'] : ['25', '50', '100'];
+                servicio.offers.forEach(function (oferta, indice) {
+                  if (precios[indice] !== undefined) {
+                    oferta.price = precios[indice];
+                    oferta.priceCurrency = moneda;
+                  }
+                });
+                schema.textContent = JSON.stringify(datos);
+              }
+            } catch (error) {
+              console.warn('No se pudieron actualizar los datos estructurados de precios.', error);
+            }
+          }
+        }
+
+        // EUR es el valor predeterminado seguro: España, otros continentes,
+        // Estados Unidos, Canadá y cualquier error de geolocalización.
+        aplicarMoneda('EUR');
+
+        document.addEventListener('DOMContentLoaded', async function () {
+          try {
+            const respuesta = await fetch('https://ipapi.co/json/', { cache: 'no-store' });
+            if (!respuesta.ok) throw new Error('Geolocalización HTTP ' + respuesta.status);
+            const datos = await respuesta.json();
+            const pais = typeof datos.country_code === 'string'
+              ? datos.country_code.toUpperCase()
+              : '';
+            const moneda = paisesConPreciosMXN.has(pais) ? 'MXN' : 'EUR';
+            aplicarMoneda(moneda);
+          } catch (error) {
+            aplicarMoneda('EUR');
+            console.warn('No se pudo verificar el país; se mantienen los precios en euros.', error);
+          }
+        });
+      })();
+    </script>
+
 </body>
 </html>

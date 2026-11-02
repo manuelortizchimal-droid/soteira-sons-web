@@ -631,7 +631,7 @@
               <div class="eyebrow">Tarot</div>
               <h3>Lecturas de tarot</h3>
               <p>Hay relaciones que te confunden, silencios que pesan y caminos que parecen cerrarse. Una lectura de tarot te invita a explorar lo que estás viviendo desde otra perspectiva.</p>
-              <p class="service-price">Desde 25 €</p>
+              <p class="service-price">Desde <span data-precio-eur="25 €" data-precio-mxn="$400 MXN">25 €</span></p>
               <p><a href="/tarot/" style="color:#C6A66B;text-underline-offset:4px">Explorar las lecturas de tarot →</a></p>
               <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20tarot%20que%20ofrecen" target="_blank" rel="noopener noreferrer" data-service="Tarot">Cuéntanos qué te inquieta</a>
             </div>
@@ -643,7 +643,7 @@
               <div class="eyebrow">Rituales</div>
               <h3>Rituales a medida</h3>
               <p>Soltar lo que pesa, proteger lo que valoras o abrir nuevos caminos. Desde la brujería tradicional, realizamos trabajos y rituales a medida adaptados a lo que tu situación necesite.</p>
-              <p class="service-price">Desde 50 €</p>
+              <p class="service-price">Desde <span data-precio-eur="50 €" data-precio-mxn="$800 MXN">50 €</span></p>
               <p><a href="/rituales/" style="color:#C6A66B;text-underline-offset:4px">Explorar los rituales →</a></p>
               <a class="btn ritual-cta" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20rituales%20que%20ofrecen" target="_blank" rel="noopener noreferrer" data-service="Rituales">Consúltanos tu caso</a>
             </div>
@@ -655,7 +655,7 @@
               <div class="eyebrow">Canalización y mediumnidad</div>
               <h3>Consultas espirituales</h3>
               <p>Sueños que se repiten o la necesidad de conectar con respuestas más allá de lo visible. Realizamos consultas de mediumnidad y canalización para acompañarte en tú proceso.</p>
-              <p class="service-price">Desde 75 €</p>
+              <p class="service-price">Desde <span data-precio-eur="75 €" data-precio-mxn="$1,200 MXN">75 €</span></p>
               <p><a href="/consultas-espirituales/" style="color:#C6A66B;text-underline-offset:4px">Explora las consultas espirituales →</a></p>
               <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20las%20consultas%20espirituales" target="_blank" rel="noopener noreferrer" data-service="Consulta Espiritual">Hablemos de tu consulta</a>
             </div>
@@ -950,6 +950,7 @@
       const banner = document.getElementById('banner-nocturno-movil');
       const enlaceLlamada = document.getElementById('enlace-llamada');
 
+      // El banner permanece oculto hasta confirmar que la visita procede de España o México.
       if (banner) banner.style.display = 'none';
       if (enlaceLlamada) {
         enlaceLlamada.removeAttribute('href');
@@ -959,19 +960,40 @@
         enlaceLlamada.textContent = 'Comprobando disponibilidad…';
       }
 
-      if (!esMovil) return;
-
       let bannerCerrado = false;
-      try { bannerCerrado = sessionStorage.getItem('bannerNocturnoCerrado') === 'true'; } catch (_) {}
+      if (esMovil) {
+        try { bannerCerrado = sessionStorage.getItem('bannerNocturnoCerrado') === 'true'; } catch (_) {}
+      }
 
       try {
+        // La detección se ejecuta en todos los dispositivos porque también determina los precios.
         const respuesta = await fetch('https://ipapi.co/json/', { cache: 'no-store' });
         if (!respuesta.ok) throw new Error(`Geolocalización HTTP ${respuesta.status}`);
         const datos = await respuesta.json();
         const pais = typeof datos.country_code === 'string' ? datos.country_code.toUpperCase() : '';
-
-        if (pais !== 'ES' && pais !== 'MX') return;
         paisDetectado = pais;
+
+        // Latinoamérica y el Caribe: MXN. Estados Unidos, Canadá y el resto del mundo: EUR.
+        // Se incluyen territorios geográficos del Caribe y de América Latina cuando tienen
+        // código de país propio en la respuesta de geolocalización.
+        const paisesConPreciosMXN = new Set([
+          'AI', 'AG', 'AR', 'AW', 'BB', 'BL', 'BM', 'BQ', 'BS', 'BZ',
+          'BO', 'BR', 'VG', 'KY', 'CL', 'CO', 'CR', 'CU', 'CW', 'DM',
+          'DO', 'EC', 'SV', 'FK', 'GF', 'GD', 'GL', 'GP', 'GS', 'GT',
+          'GY', 'HT', 'HN', 'JM', 'MQ', 'MX', 'MS', 'NI', 'PA', 'PY',
+          'PE', 'PR', 'KN', 'LC', 'MF', 'PM', 'VC', 'SX', 'SR', 'TT',
+          'TC', 'UY', 'VE', 'VI'
+        ]);
+        const moneda = paisesConPreciosMXN.has(pais) ? 'MXN' : 'EUR';
+
+        document.querySelectorAll('[data-precio-eur][data-precio-mxn]').forEach(precio => {
+          precio.textContent = moneda === 'MXN'
+            ? precio.dataset.precioMxn
+            : precio.dataset.precioEur;
+        });
+
+        // El banner conserva su regla original: solo México o España y únicamente en móvil.
+        if (!esMovil || (pais !== 'MX' && pais !== 'ES')) return;
 
         const faqEspana = document.getElementById('faq-linea-nocturna');
         const faqMexico = document.getElementById('faq-linea-nocturna-carmen');
@@ -988,7 +1010,9 @@
           else if (paisDetectado === 'ES') evaluarHorarioEspana();
         }, 60 * 1000);
       } catch (error) {
-        console.warn('No se pudo verificar el país; la línea nocturna permanecerá oculta.', error);
+        // Si la geolocalización falla, se conservan los precios EUR definidos en el HTML
+        // y el banner permanece oculto: es el comportamiento seguro por defecto.
+        console.warn('No se pudo verificar el país; se mantienen los precios en euros y el banner permanece oculto.', error);
       }
     });
 
