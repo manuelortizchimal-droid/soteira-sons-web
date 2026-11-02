@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="../favicon.svg">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#0E151D">
+    <meta name="theme-color" content="#080808">
     <title>Lecturas de tarot por teléfono y videollamada | Soteira &amp; Sons</title>
     <meta name="description" content="Lecturas de tarot por teléfono, videollamada o presencial en Santander. Tres modalidades, precios claros y atención personal. Reserva por mensaje.">
     <link rel="canonical" href="https://casasoteira.com/tarot/">
@@ -33,189 +33,322 @@
     <style>
         :root {
             color-scheme: dark;
-            --bg: #0E151D;
-            --panel: #18232F;
-            --gold: #e0b981;
-            --text: #f7efe6;
-            --muted: #cbbcaf;
+            --bg: #080808;
+            --panel: #111110;
+            --gold: #C6A66B;
+            --gold-hover: #D8BB86;
+            --muted: #E8E6E1;
+            --line: #292824;
+            --text: #FFFFFF;
         }
         * { box-sizing: border-box; }
+        html, body { overflow-x: hidden; width: 100%; margin: 0; }
         html { scroll-behavior: smooth; }
-        body {
-            margin: 0;
-            background: radial-gradient(ellipse at 80% 6%, #27152c 0%, #0E151D 54%);
-            color: var(--text);
-            font: 16px/1.7 system-ui, -apple-system, "Segoe UI", sans-serif;
+        body { 
+            background: linear-gradient(180deg, #080808 0%, #0C0C0B 52%, #080808 100%); 
+            color: var(--text); 
+            font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; 
         }
+        
         a { color: inherit; }
-        button, a { outline-offset: 4px; }
-        a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); }
-        .wrap { width: min(1080px, calc(100% - 40px)); margin: auto; }
-        header { border-bottom: 1px solid #57405d; background: #100c12e8; }
-        nav { display: flex; align-items: center; justify-content: space-between; gap: 15px; min-height: 83px; }
-        .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: Georgia, serif; font-size: 1rem; font-weight: 400; letter-spacing: .16em; text-transform: uppercase; }
-        .brand img { width: 44px; height: 44px; }
-        .navlinks { display: flex; align-items: center; gap: 20px; }
-        .navlinks a { text-decoration: none; }
-        .btn {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 47px;
-            padding: 11px 23px;
-            border: 1px solid #dfba83;
-            border-radius: 4px;
-            background: #dfba83;
-            color: #221721;
-            text-decoration: none;
-            font-weight: 700;
+        button, input, textarea, select { font: inherit; }
+        button, a, input, textarea, select { outline-offset: 4px; }
+        button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--gold); }
+        
+        /* Layout */
+        .wrap { width: min(1100px, calc(100% - 40px)); margin: auto; }
+        header { 
+            position: sticky; 
+            top: 0; 
+            z-index: 100; 
+            background: rgba(8, 8, 8, .97); 
+            border-bottom: 1px solid rgba(198, 166, 107, .20); 
+            backdrop-filter: blur(14px); 
+            width: 100%; 
         }
-        .btn:hover { background: #f0cc99; }
-        .ghost { background: transparent; color: #efd4a8; }
-        .ghost:hover { background: #202B38; }
-        .hero { padding: 95px 0 76px; border-bottom: 1px solid #49364c; }
-        .eyebrow { font-size: .79rem; color: #dfba83; text-transform: uppercase; letter-spacing: .16em; font-weight: 700; }
-        .hero h1 { font: clamp(2.9rem, 6vw, 5.4rem)/1.07 Georgia, serif; letter-spacing: -.035em; max-width: 850px; margin: 22px 0; }
-        .hero p { max-width: 720px; color: #e3d6d1; font-size: 1.16rem; }
-        .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 29px; }
-        .section { padding: 72px 0; }
-        .section h2 { font: clamp(2rem, 4vw, 3rem)/1.2 Georgia, serif; margin: 0 0 20px; }
-        .section p { color: #d5c7c4; }
-        .grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 35px; align-items: start; }
-        .panel { border: 1px solid #6a4c6c; background: #18232F; padding: 29px; border-radius: 8px; }
-        .panel h3 { margin-top: 0; color: #f3d6ab; font: 1.45rem Georgia, serif; }
-        .panel li { margin-bottom: 14px; color: #e3d8d1; }
-        .price { font-size: 1.2rem; color: #e9c68f !important; font-weight: 700; }
-        .other { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .other a { border: 1px solid #5c455c; padding: 23px; background: #181119; text-decoration: none; }
-        .other a:hover { border-color: #dfba83; }
-        .faq details { border-bottom: 1px solid #554355; padding: 19px 0; }
-        .faq summary { cursor: pointer; font-weight: 600; }
-        .faq p { margin-bottom: 0; }
-        footer { border-top: 1px solid #514056; padding: 30px 0; color: #cdbcc7; font-size: .88rem; }
-        footer .wrap { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
-        footer a { color: #e5c38d; }
-        @media(max-width: 700px) {
-            .navlinks { gap: 9px; }
-            .navlinks .desktop { display: none; }
-            .hero { padding: 66px 0 54px; }
-            .grid { grid-template-columns: 1fr; }
-            .other { grid-template-columns: 1fr; }
-            .section { padding: 52px 0; }
-            .panel { padding: 22px; }
-        }
-    </style>
+        nav { display: flex; align-items: center; justify-content: space-between; min-height: 70px; gap: 15px; position: relative; }
+        
+        .brand { font-family: Georgia, serif; letter-spacing: .16em; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; color: var(--text); }
+        .brand-logo { width: 38px; height: 38px; object-fit: contain; flex-shrink: 0; display: inline-block; filter: drop-shadow(0px 0px 2px var(--gold)); }
+        .brand-mark { display: none; width: 38px; height: 38px; align-items: center; justify-content: center; border: 1px solid var(--gold); border-radius: 50%; font-family: Georgia, serif; font-size: 18px; color: var(--gold-hover); flex-shrink: 0; }
 
-    <style id="tarot-page-styles">
-        .hero { padding: 78px 0 66px; }
-        .hero h1 { max-width: 800px; font-size: clamp(2.8rem, 6vw, 4.7rem); }
-        .hero .lead { max-width: 750px; font-size: 1.14rem; }
-        .hero-note { color: #e0b981; font-size: .93rem; margin-top: 20px; }
-        .section-intro { max-width: 760px; margin-bottom: 32px; }
+        /* Navegación y enlaces limpios sin subrayado */
+        .navlinks { display: flex; gap: 24px; align-items: center; }
+        .navlinks > a, 
+        .navlinks .dropdown-toggle { 
+            text-decoration: none; 
+            color: var(--muted); 
+            font-size: .9rem; 
+            transition: color 0.2s; 
+            display: inline-flex; 
+            align-items: center;
+            line-height: 1.2;
+        }
+        .navlinks a:hover, 
+        .navlinks .dropdown-toggle:hover { color: var(--gold); text-decoration: none; }
+
+        /* Estilos del Dropdown Escritorio */
+        .dropdown {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+        }
+        .dropdown-toggle {
+            gap: 4px;
+            cursor: pointer;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(12, 12, 11, 0.98);
+            border-left: 2px solid var(--gold);
+            min-width: 210px;
+            max-width: 250px;
+            padding: 6px 0 6px 10px;
+            margin-top: 12px;
+            z-index: 110;
+        }
+        .dropdown-menu a {
+            display: block;
+            padding: 8px 12px;
+            font-size: 0.86rem;
+            color: var(--muted);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .dropdown-menu a:hover {
+            color: var(--gold);
+            background: transparent;
+            text-decoration: none;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        /* Botón alineado en altura con el texto */
+        .btn { 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            background: var(--gold); 
+            color: #10100F; 
+            border: 1px solid var(--gold); 
+            border-radius: 4px; 
+            padding: 9px 18px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            cursor: pointer; 
+            transition: transform .2s, background .2s; 
+            line-height: 1.2;
+        }
+        .btn:hover { transform: translateY(-2px); background: var(--gold-hover); }
+        .navlinks .btn, .navlinks .btn:link, .navlinks .btn:visited { color: #10100F; background: var(--gold); border-color: var(--gold); text-shadow: none; text-decoration: none; }
+        .navlinks .btn:hover { background: var(--gold-hover); color: #10100F; }
+        .btn.ghost, .ghost { background: transparent; color: var(--gold); }
+        .btn.ghost:hover, .ghost:hover { background: rgba(198, 166, 107, .07); }
+
+        .menu-toggle { display: none; background: #111110; border: 1px solid rgba(198, 166, 107, .24); color: var(--gold); font-size: 1.4rem; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
+        
+        .eyebrow { text-transform: uppercase; letter-spacing: .22em; font-size: .75rem; color: var(--gold); font-weight: 700; }
+        h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; line-height: 1.13; word-break: break-word; color: var(--text); }
+        h1 { font-size: clamp(2.2rem, 6vw, 5.4rem); margin: 18px 0; }
+        h2 { font-size: clamp(1.8rem, 4vw, 3.5rem); margin: 14px 0 20px; }
+        h3 { font-size: clamp(1.3rem, 2.1vw, 1.9rem); margin: 12px 0; }
+        em { color: var(--gold); font-style: italic; }
+        p { color: var(--muted); word-break: break-word; }
+
+        /* Hero específico de Tarot */
+        .hero { 
+            position: relative; 
+            min-height: 640px; 
+            display: flex; 
+            align-items: center; 
+            isolation: isolate; 
+            overflow: hidden; 
+            background-color: #080808;
+            background-image:
+              linear-gradient(180deg, rgba(8,8,8,.10) 0%, rgba(8,8,8,.18) 48%, rgba(8,8,8,.76) 83%, #080808 100%),
+              linear-gradient(90deg, rgba(8,8,8,.88) 0%, rgba(8,8,8,.70) 34%, rgba(8,8,8,.24) 69%, rgba(8,8,8,.12) 100%),
+              url("https://images.pexels.com/photos/6178715/pexels-photo-6178715.jpeg?auto=compress&cs=tinysrgb&w=1400");
+            background-position: center, center, 68% 50%;
+            background-size: cover, cover, cover;
+            background-repeat: no-repeat;
+            padding: 95px 0 76px; 
+            border-bottom: 1px solid rgba(198, 166, 107, .20); 
+        }
+        .hero-copy { max-width: 750px; padding: 40px 0; }
+        .hero .lead { max-width: 720px; font-size: 1.16rem; }
+        .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 29px; }
+        .hero-note { color: var(--gold); font-size: .93rem; margin-top: 20px; display: inline-block; border-top: 1px solid rgba(198,166,107,.32); padding-top: 12px; }
+
+        .section { padding: 72px 0; border-color: rgba(198, 166, 107, .10); }
+        .section-intro { max-width: 790px; margin-bottom: 32px; }
+        
         .readings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
-        .reading-card { display: flex; flex-direction: column; padding: 26px; border: 1px solid #654b68; border-radius: 8px; background: linear-gradient(160deg, #1B2836, #101923 72%); min-width: 0; }
-        .reading-card.featured { border-color: #d8b37e; box-shadow: inset 0 3px 0 #d8b37e; }
-        .reading-card h3 { color: #f3d6ab; font: clamp(1.35rem, 2vw, 1.65rem)/1.2 Georgia, serif; margin: 0 0 12px; }
-        .reading-card .price { font-size: 1.45rem; margin: 0; }
-        .duration { color: #cbbcaf; font-size: .9rem; margin: 0 0 20px; }
-        .reading-card p { margin-top: 0; }
+        .reading-card { 
+            display: flex; 
+            flex-direction: column; 
+            padding: 26px; 
+            border: 1px solid rgba(198, 166, 107, .20); 
+            border-radius: 8px; 
+            background: linear-gradient(145deg, #171715 0%, #10100F 56%, #0B0B0A 100%); 
+            min-width: 0; 
+            box-shadow: 0 12px 32px rgba(0,0,0,.20);
+            position: relative;
+        }
+        .reading-card.featured { 
+            background: linear-gradient(145deg, #1B1A17 0%, #111110 58%, #0B0B0A 100%);
+            border-color: var(--gold); 
+            box-shadow: inset 0 3px 0 var(--gold), 0 12px 32px rgba(0,0,0,.22); 
+        }
+        .reading-card h3 { color: #FFFFFF; font: clamp(1.35rem, 2vw, 1.65rem)/1.2 Georgia, serif; margin: 0 0 12px; }
+        .reading-card .price { font-size: 1.45rem; margin: 0; color: var(--gold) !important; font-weight: 700; }
+        .duration { color: var(--muted); font-size: .9rem; margin: 0 0 20px; }
+        .reading-card p { margin-top: 0; color: var(--muted); }
         .reading-card .btn { width: 100%; margin-top: auto; text-align: center; padding-inline: 14px; }
         .reading-card .eyebrow { margin-bottom: 13px; font-size: .7rem; }
-        .small-note { font-size: .92rem; color: #cbbcaf !important; }
-        .mode-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-bottom: 32px; }
-        .mode-card { border-top: 1px solid #98749b; padding: 22px 20px 10px 0; }
-        .mode-card h3 { color: #f3d6ab; font: 1.35rem Georgia, serif; margin: 0 0 10px; }
-        .payment-panel { border: 1px solid #654b68; border-radius: 8px; background: #18232F; padding: 27px; }
-        .payment-panel h3 { color: #f3d6ab; font: 1.5rem Georgia, serif; margin-top: 0; }
-        .cta-panel { padding: 34px; border: 1px solid #98774e; border-radius: 8px; background: linear-gradient(140deg, #18232F, #101923); }
-        .cta-panel h2 { margin-bottom: 12px; }
-        .cta-panel p { max-width: 760px; }
-        .faq details { scroll-margin-top: 24px; }
-        .anchor-target { scroll-margin-top: 24px; }
-        .subtle-anchor-link { display: inline-block; margin-top: 15px; color: #dfba83; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
-        .subtle-anchor-link:hover { text-decoration: underline; }
-        .modes-cta-wrap { margin-top: 35px; text-align: left; }
-        @media(max-width: 850px) { .readings { grid-template-columns: 1fr; } .reading-card { padding: 25px; } .reading-card .btn { width: auto; } .mode-grid { grid-template-columns: 1fr; gap: 8px; } .mode-card { padding: 18px 0; } }
-        @media(max-width: 700px) { .hero { padding: 58px 0 48px; } .hero h1 { font-size: clamp(2.55rem, 11vw, 3.5rem); } .hero .lead { font-size: 1.05rem; } .cta-panel { padding: 23px; } .actions .btn { width: 100%; } }
-    </style>
+        .small-note { font-size: .92rem; color: var(--muted) !important; margin-top: 20px; }
 
-    <style id="tarot-visual-refinement">
-        :root {
-            --bg: #0E151D;
-            --panel: #18232F;
-            --gold: #e4c18b;
-            --muted: #d2c2c9;
+        .mode-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-bottom: 32px; }
+        .mode-card { 
+            border-top: 1px solid rgba(198, 166, 107, .34); 
+            padding: 22px 16px 10px; 
+            background: linear-gradient(155deg, #121214 0%, #0C0C0D 100%);
+            border-radius: 0 0 8px 8px;
+            border-left: 1px solid rgba(198, 166, 107, .15);
+            border-right: 1px solid rgba(198, 166, 107, .15);
+            border-bottom: 1px solid rgba(198, 166, 107, .15);
         }
-        body {
-            background:
-                radial-gradient(ellipse at 78% 8%, rgba(45, 67, 88, .20), transparent 34rem),
-                radial-gradient(ellipse at 8% 42%, rgba(78, 91, 105, .10), transparent 32rem),
-                linear-gradient(180deg, #0E151D 0%, #101923 48%, #0E151D 100%);
-        }
-        header { background: rgba(14, 21, 29, .94); border-bottom-color: rgba(207, 166, 120, .26); backdrop-filter: blur(12px); }
-        .hero {
-            position: relative;
-            isolation: isolate;
-            overflow: hidden;
-            border-bottom-color: rgba(207, 166, 120, .28);
-            background:
-                radial-gradient(ellipse at 83% 35%, rgba(80, 108, 135, .12), transparent 30rem),
-                linear-gradient(110deg, rgba(14, 21, 29, .98), rgba(20, 28, 38, .86) 68%, rgba(24, 35, 47, .82));
-        }
-        .hero::before, .hero::after { content: ""; position: absolute; z-index: -1; pointer-events: none; }
-        .hero::before {
-            width: 410px; height: 410px; right: -85px; top: -125px; border-radius: 50%;
-            border: 1px solid rgba(226, 190, 137, .17);
-            box-shadow: 0 0 0 24px rgba(226, 190, 137, .025), 0 0 0 56px rgba(226, 190, 137, .022), inset 0 0 80px rgba(80, 108, 135, .08);
-        }
-        .hero::after { width: 190px; height: 1px; right: 9%; bottom: 34px; background: linear-gradient(90deg, transparent, rgba(226,190,137,.55), transparent); }
-        .hero h1 { text-wrap: balance; }
-        .eyebrow { color: #e5c28d; }
-        .hero-note { display: inline-block; border-top: 1px solid rgba(226, 190, 137, .28); padding-top: 12px; }
-        .section { position: relative; }
-        .section-intro { max-width: 790px; }
-        .reading-card {
-            position: relative;
-            overflow: hidden;
-            border-color: rgba(192, 201, 210, .24);
-            background: linear-gradient(145deg, rgba(27, 40, 54, .95), rgba(20, 28, 38, .98) 70%);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, .12);
-            transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
-        }
-        .reading-card::before { content: "✧"; position: absolute; top: 12px; right: 17px; color: rgba(226, 190, 137, .55); font-size: 1.2rem; }
-        .reading-card:hover { transform: translateY(-3px); border-color: rgba(226, 190, 137, .78); box-shadow: 0 18px 38px rgba(0, 0, 0, .22); }
-        .reading-card.featured { background: linear-gradient(155deg, rgba(27, 40, 54, .98), rgba(20, 28, 38, .98) 75%); box-shadow: inset 0 3px 0 #d8b37e, 0 16px 38px rgba(0,0,0,.18); }
-        .reading-card .price { color: #f0cf9a !important; }
-        .faq details { border-bottom-color: rgba(192, 201, 210, .22); }
-        .faq summary { padding-right: 12px; }
-        .faq summary::marker { color: #d9b77f; }
-        .cta-panel {
-            position: relative; overflow: hidden;
-            background: radial-gradient(ellipse at 100% 0%, rgba(80, 108, 135, .12), transparent 24rem), linear-gradient(140deg, #18232F, #101923);
+        .mode-card h3 { color: #FFFFFF; font: 1.35rem Georgia, serif; margin: 0 0 10px; }
+        .mode-card p { color: var(--muted); }
+
+        .cta-panel { 
+            padding: 34px; 
+            border: 1px solid rgba(198, 166, 107, .25); 
+            border-radius: 8px; 
+            background: linear-gradient(140deg, #191815 0%, #0B0B0A 88%);
             box-shadow: 0 16px 42px rgba(0,0,0,.16);
         }
-        .cta-panel::after { content: "✧"; position: absolute; right: 26px; top: 13px; font-size: 2rem; color: rgba(226,190,137,.3); pointer-events: none; }
-        .btn { transition: background .18s ease, border-color .18s ease, transform .18s ease; }
-        .btn:hover { transform: translateY(-1px); }
-        .other a { border-radius: 7px; background: linear-gradient(145deg, #1B2836, #101923); }
-        @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .reading-card, .btn { transition: none; } .reading-card:hover, .btn:hover { transform: none; } }
-    </style>
+        .cta-panel h2 { margin-bottom: 12px; }
+        .cta-panel p { max-width: 760px; }
 
-    <style id="soteira-consent-style">
-        #cookie-panel { position: fixed; z-index: 99999; bottom: 18px; left: 18px; right: 18px; max-width: 530px; background: #18232F; color: #f7efe6; border: 1px solid #66798A; border-radius: 12px; padding: 20px; box-shadow: 0 12px 45px #000a; font: 14px/1.5 system-ui, sans-serif; }
+        .faq details { border-bottom: 1px solid rgba(198, 166, 107, .14); padding: 19px 0; scroll-margin-top: 24px; }
+        .faq summary { cursor: pointer; font-weight: 650; color: #FFFFFF; }
+        .faq p { margin-bottom: 0; color: var(--muted); }
+        
+        .subtle-anchor-link { display: inline-block; margin-top: 15px; color: var(--gold); text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+        .subtle-anchor-link:hover { text-decoration: underline; }
+        .modes-cta-wrap { margin-top: 35px; text-align: left; }
+
+        .other { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .other a { 
+            border: 1px solid rgba(198, 166, 107, .20); 
+            padding: 23px; 
+            background: linear-gradient(145deg, #171715 0%, #10100F 56%, #0B0B0A 100%); 
+            text-decoration: none; 
+            border-radius: 7px;
+            box-shadow: 0 12px 32px rgba(0,0,0,.20);
+        }
+        .other a:hover { border-color: var(--gold); }
+
+        footer { border-top: 1px solid rgba(198, 166, 107, .14); padding: 30px 0; color: var(--muted); font-size: .88rem; }
+        footer .wrap { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+        footer a { color: var(--gold); }
+
+        /* Cookies Panel */
+        #cookie-panel { background: #111110; color: #FFFFFF; border: 1px solid rgba(198, 166, 107, .30); position: fixed; z-index: 99999; bottom: 18px; left: 18px; right: 18px; max-width: 530px; border-radius: 12px; padding: 20px; box-shadow: 0 12px 45px #000a; font: 14px/1.5 system-ui, sans-serif; }
         #cookie-panel[hidden], #cookie-options[hidden] { display: none !important; }
         #cookie-panel strong { display: block; font: 21px Georgia, serif; margin-bottom: 7px; }
-        #cookie-panel p { margin: 0 0 13px; color: #D1D8E0; }
-        #cookie-panel a { color: #D8BB86; }
+        #cookie-panel p { margin: 0 0 13px; color: var(--muted); }
+        #cookie-panel a { color: var(--gold); }
         #cookie-panel .cookie-actions { display: flex; flex-wrap: wrap; gap: 9px; }
-        #cookie-panel button, .cookie-manage { cursor: pointer; border-radius: 5px; padding: 9px 14px; border: 1px solid #7E8D9D; background: #202B38; color: #fff; font: inherit; }
-        #cookie-panel button.cookie-primary { background: #e0b981; color: #111820; border-color: #e0b981; font-weight: 700; }
+        #cookie-panel button, .cookie-manage { cursor: pointer; border-radius: 5px; padding: 9px 14px; border: 1px solid rgba(198, 166, 107, .32); background: #1A1A18; color: #fff; font: inherit; }
+        #cookie-panel button.cookie-primary { background: var(--gold); color: #10100F; border-color: var(--gold); font-weight: 700; }
         #cookie-panel label { display: flex; gap: 10px; align-items: center; margin: 12px 0; }
         .cookie-manage { font-size: 12px; padding: 4px 8px; margin-left: 6px; }
-        @media(max-width: 580px) { #cookie-panel { bottom: 8px; left: 8px; right: 8px; padding: 15px; } }
+
+        /* Responsivo */
+        @media(max-width: 850px) { 
+            .readings { grid-template-columns: 1fr; } 
+            .reading-card { padding: 25px; } 
+            .reading-card .btn { width: auto; } 
+            .mode-grid { grid-template-columns: 1fr; gap: 8px; } 
+            .mode-card { padding: 18px 16px; } 
+        }
+
+        @media(max-width: 768px) {
+            .wrap { width: calc(100% - 24px); }
+            nav { gap: 10px; min-height: 60px; }
+            .brand span { display: none; }
+            .navlinks { gap: 12px; }
+            .navlinks a { font-size: 0.82rem; }
+            .navlinks .btn { padding: 8px 14px; font-size: 0.8rem; }
+            .hero { padding: 60px 0; background-position: center, center, 64% center; }
+            .section { padding: 50px 0; }
+            .other { grid-template-columns: 1fr !important; }
+            .cta-panel { padding: 23px; }
+        }
+
+        @media(max-width: 480px) {
+            .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
+            .navlinks {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(17, 17, 16, .97);
+                backdrop-filter: blur(16px);
+                flex-direction: column;
+                padding: 20px;
+                gap: 16px;
+                border-bottom: 1px solid var(--line);
+                box-shadow: 0 15px 30px rgba(0,0,0,0.8);
+                text-align: center;
+            }
+            .navlinks.active { display: flex; }
+            .navlinks a { font-size: 1rem; }
+            .navlinks .btn { width: 100%; justify-content: center; }
+
+            /* Ajustes móviles para que el desplegable abra hacia abajo ordenado y con la misma estética */
+            .dropdown {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+            .dropdown-toggle {
+                font-size: 1rem;
+                color: var(--muted);
+            }
+            .dropdown-menu {
+                position: static;
+                display: none;
+                border-left: none;
+                background: transparent;
+                margin-top: 8px;
+                padding: 0;
+                width: 100%;
+                text-align: center;
+            }
+            .dropdown.active .dropdown-menu {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+            .dropdown-menu a {
+                padding: 0;
+                font-size: 0.95rem;
+                color: var(--gold);
+                text-decoration: none;
+            }
+        }
     </style>
 
-    <!-- 1. Google Tag Manager / Modo de Consentimiento Corregido -->
+    <!-- Google Tag Manager / Modo de Consentimiento Corregido -->
     <script id="soteira-gtm-bootstrap">
         window.dataLayer = window.dataLayer || [];
         window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
@@ -278,86 +411,29 @@
       ]
     }
     </script>
-
-    <style id="tarot-palette-v7">
-      :root {
-        --bg: #080808 !important;
-        --panel: #111110 !important;
-        --gold: #C6A66B !important;
-        --text: #FFFFFF !important;
-        --muted: #E8E6E1 !important;
-      }
-      html, body { background: #080808 !important; color: #FFFFFF !important; }
-      body { background: linear-gradient(180deg, #080808 0%, #0C0C0B 52%, #080808 100%) !important; }
-      header { background: rgba(8,8,8,.97) !important; border-bottom-color: rgba(198,166,107,.20) !important; }
-      .brand { color: #FFFFFF !important; }
-      .brand-logo { background: transparent !important; border: 0 !important; filter: drop-shadow(0 0 2px #C6A66B) !important; }
-      .hero {
-        background-color: #080808 !important;
-        background-image:
-          linear-gradient(180deg, rgba(8,8,8,.10) 0%, rgba(8,8,8,.18) 48%, rgba(8,8,8,.76) 83%, #080808 100%),
-          linear-gradient(90deg, rgba(8,8,8,.88) 0%, rgba(8,8,8,.70) 34%, rgba(8,8,8,.24) 69%, rgba(8,8,8,.12) 100%),
-          url("https://images.pexels.com/photos/6178715/pexels-photo-6178715.jpeg?auto=compress&cs=tinysrgb&w=1400") !important;
-        background-position: center, center, 68% 50% !important;
-        background-size: cover, cover, cover !important;
-        background-repeat: no-repeat !important;
-        border: 0 !important;
-        box-shadow: none !important;
-      }
-      .hero::before, .hero::after { display: none !important; content: none !important; }
-      .hero h1, .section h2, .reading-card h3, .panel h3, .payment-panel h3,
-      .mode-card h3, .cta-panel h2, .faq summary { color: #FFFFFF !important; }
-      .hero p, .section p, .reading-card p, .panel li, .small-note,
-      .duration, footer, .faq p, .mode-card p { color: #E8E6E1 !important; }
-      .eyebrow, .hero-note, .price, footer a { color: #C6A66B !important; }
-      .hero-note { border-top-color: rgba(198,166,107,.32) !important; }
-      .reading-card, .payment-panel, .panel, .card, .cta-panel, .other a,
-      .method-card, .modality-card, .experience-card, .faq-item {
-        background: linear-gradient(145deg, #171715 0%, #10100F 56%, #0B0B0A 100%) !important;
-        border-color: rgba(198,166,107,.20) !important;
-        box-shadow: 0 12px 32px rgba(0,0,0,.20);
-      }
-      .reading-card.featured {
-        background: linear-gradient(145deg, #1B1A17 0%, #111110 58%, #0B0B0A 100%) !important;
-        border-color: #C6A66B !important;
-        box-shadow: inset 0 3px 0 #C6A66B, 0 12px 32px rgba(0,0,0,.22) !important;
-      }
-      .cta-panel { background: linear-gradient(140deg, #191815 0%, #0B0B0A 88%) !important; }
-      .mode-card { border-top-color: rgba(198,166,107,.34) !important; background: linear-gradient(155deg, #121214 0%, #0C0C0D 100%) !important; padding: 22px 16px 10px; }
-      section:not(.hero) { border-color: rgba(198,166,107,.10) !important; }
-      footer { border-top-color: rgba(198,166,107,.18) !important; }
-      .btn { border-color: #C6A66B !important; background: #C6A66B !important; color: #10100F !important; }
-      .btn:hover { background: #D8BB86 !important; }
-      .ghost { background: transparent !important; color: #C6A66B !important; }
-      .ghost:hover { background: rgba(198,166,107,.07) !important; }
-      #cookie-panel { background: #111110 !important; color: #FFFFFF !important; border-color: rgba(198,166,107,.3) !important; }
-      #cookie-panel p { color: #E8E6E1 !important; }
-      #cookie-panel button, .cookie-manage { background: #1A1A18 !important; color: #FFFFFF !important; border-color: rgba(198,166,107,.32) !important; }
-      #cookie-panel button.cookie-primary { background: #C6A66B !important; color: #10100F !important; border-color: #C6A66B !important; }
-      @media (max-width: 700px) {
-        .hero {
-          background-image:
-            linear-gradient(180deg, rgba(8,8,8,.12) 0%, rgba(8,8,8,.30) 48%, rgba(8,8,8,.80) 82%, #080808 100%),
-            linear-gradient(90deg, rgba(8,8,8,.72) 0%, rgba(8,8,8,.28) 100%),
-            url("https://images.pexels.com/photos/6178715/pexels-photo-6178715.jpeg?auto=compress&cs=tinysrgb&w=1400") !important;
-          background-position: center, center, 64% center !important;
-          background-size: cover, cover, cover !important;
-          background-repeat: no-repeat !important;
-          border: 0 !important;
-        }
-      }
-    </style>
 </head>
 <body>
     <header>
         <nav class="wrap" aria-label="Navegación principal">
             <a class="brand" href="../index.html">
-                <img class="brand-logo" alt="Emblema de Soteira &amp; Sons" width="38" height="38" src="../logo.svg"><span>soteira &amp; sons</span>
+                <img class="brand-logo" alt="Emblema de Soteira &amp; Sons" width="38" height="38" src="../logo.svg" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                <div class="brand-mark" style="display:none;">✧</div>
+                <span>SOTEIRA &amp; SONS</span>
             </a>
-            <div class="navlinks">
-                <a class="desktop" href="../index.html#experiencias">Experiencias</a>
-                <a class="desktop" href="../index.html#oraculo">Oráculo</a>
-                <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20tarot." data-service="Tarot" target="_blank" rel="noopener noreferrer">Contáctanos</a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+            <div class="navlinks" id="navlinks">
+                <a href="../index.html">Inicio</a>
+                <!-- Menú desplegable integrado con estética uniforme -->
+                <div class="dropdown" id="experiences-dropdown">
+                    <a href="../index.html#experiencias" class="dropdown-toggle" id="dropdown-toggle-btn">Experiencias ▾</a>
+                    <div class="dropdown-menu">
+                        <a href="./">Tarot</a>
+                        <a href="../rituales/">Rituales a medida</a>
+                        <a href="../consultas-espirituales/">Consultas espirituales</a>
+                    </div>
+                </div>
+                <a href="../index.html#oraculo">Oráculo</a>
+                <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20tarot." data-service="Tarot" target="_blank" rel="noopener noreferrer">Contáctanos</a>
             </div>
         </nav>
     </header>
@@ -365,15 +441,17 @@
     <main>
         <section class="hero">
             <div class="wrap">
-                <div class="eyebrow">Soteira &amp; Sons · Casa ritual</div>
-                <h1>Lecturas de tarot</h1>
-                <p class="lead">Hay preguntas que no consigues olvidar. Una lectura de tarot puede ayudarte a mirar una situación desde otro ángulo, explorar sus matices y descubrir nuevas preguntas a través de los arcanos.</p>
-                <p class="lead">Trabajamos desde una práctica cercana y personal. Puedes realizar tu lectura por teléfono, videollamada o presencialmente en Santander, España.</p>
-                <div class="actions">
-                    <a class="btn" href="#lecturas">Ver las lecturas</a>
-                    <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20por%20mensaje%20para%20una%20lectura%20de%20tarot." data-service="Tarot" target="_blank" rel="noopener noreferrer">Reservar por mensaje</a>
+                <div class="hero-copy">
+                    <div class="eyebrow">Soteira &amp; Sons · Casa ritual</div>
+                    <h1>Lecturas de tarot</h1>
+                    <p class="lead">Hay preguntas que no consigues olvidar. Una lectura de tarot puede ayudarte a mirar una situación desde otro ángulo, explorar sus matices y descubrir nuevas preguntas a través de los arcanos.</p>
+                    <p class="lead">Trabajamos desde una práctica cercana y personal. Puedes realizar tu lectura por teléfono, videollamada o presencialmente en Santander, España.</p>
+                    <div class="actions">
+                        <a class="btn" href="#lecturas">Ver las lecturas</a>
+                        <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20por%20mensaje%20para%20una%20lectura%20de%20tarot." data-service="Tarot" target="_blank" rel="noopener noreferrer">Reservar por mensaje</a>
+                    </div>
+                    <p class="hero-note">Tres modalidades · Desde 25 € · Atención internacional</p>
                 </div>
-                <p class="hero-note">Tres modalidades · Desde 25 € · Atención internacional</p>
             </div>
         </section>
 
@@ -384,7 +462,6 @@
                     <h2>Tres formas de explorar tus preguntas</h2>
                     <p>En cualquiera de las modalidades puedes plantear tantas preguntas o temas como desees durante la sesión. La diferencia está en el tiempo disponible y en la profundidad con la que podemos explorar cada cuestión.</p>
                     
-                    <!-- Enlace intermedio / ancla hacia las modalidades -->
                     <a class="subtle-anchor-link" href="#modalidades">¿Tienes dudas sobre cómo nos conectamos? Conoce las modalidades de lectura ↓</a>
                 </div>
                 <div class="readings">
@@ -443,7 +520,6 @@
                     </article>
                 </div>
                 
-                <!-- Botón final en la zona de modalidades -->
                 <div class="modes-cta-wrap">
                     <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20ya%20he%20visto%20las%20modalidades%20y%20me%20gustar%C3%ADa%20elegir%20la%20m%C3%ADa%20y%20reservar%20por%20mensaje." data-service="Tarot - Modalidades" target="_blank" rel="noopener noreferrer">Elegir mi modalidad y reservar por mensaje</a>
                 </div>
@@ -507,8 +583,8 @@
             <div class="wrap">
                 <h2>Explora otras experiencias</h2>
                 <div class="other">
-                    <a href="../rituales/index.html"><strong>Rituales espirituales</strong><br><span>Conoce esta experiencia →</span></a>
-                    <a href="../consultas-espirituales/index.html"><strong>Consultas espirituales</strong><br><span>Conoce esta experiencia →</span></a>
+                    <a href="../rituales/"><strong>Rituales espirituales</strong><br><span>Conoce esta experiencia →</span></a>
+                    <a href="../consultas-espirituales/"><strong>Consultas espirituales</strong><br><span>Conoce esta experiencia →</span></a>
                     <a href="../index.html"><strong>Inicio</strong><br><span>Descubre Soteira &amp; Sons →</span></a>
                 </div>
             </div>
@@ -541,6 +617,33 @@
             <button type="button" id="cookie-save" hidden>Guardar preferencias</button>
         </div>
     </aside>
+
+    <!-- Scripts del Sitio -->
+    <script>
+        // Menú hamburguesa
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.getElementById('navlinks').classList.toggle('active');
+        });
+
+        // Control del desplegable en móviles (al tocar la palabra Experiencias)
+        const dropdownContainer = document.getElementById('experiences-dropdown');
+        const dropdownToggleBtn = document.getElementById('dropdown-toggle-btn');
+        
+        dropdownToggleBtn.addEventListener('click', (e) => {
+            if (window.innerWidth <= 480) {
+                e.preventDefault();
+                dropdownContainer.classList.toggle('active');
+            }
+        });
+
+        // Cerrar menú al hacer clic en cualquier enlace del menú
+        document.querySelectorAll('.navlinks a:not(.dropdown-toggle)').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navlinks').classList.remove('active');
+                dropdownContainer.classList.remove('active');
+            });
+        });
+    </script>
 
     <script id="soteira-consent-script">
         (function(){
