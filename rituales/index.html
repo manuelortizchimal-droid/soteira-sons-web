@@ -151,7 +151,7 @@
         display: block;
       }
       
-      /* Botones estándar alineados */
+      /* Botones estándar rellenos alineados */
       .btn {
         display: inline-flex;
         justify-content: center;
@@ -169,10 +169,21 @@
         line-height: 1.2;
       }
       .btn:hover { background: #D8BB86 !important; transform: translateY(-1px); }
-      .navlinks .btn, .navlinks .btn:link, .navlinks .btn:visited { color: #10100F; background: var(--gold); border-color: var(--gold); text-shadow: none; text-decoration: none; }
-      .navlinks .btn:hover { background: var(--gold-hover); color: #10100F; }
+      
+      /* Botón sólido específico de la barra de navegación */
+      .navlinks .btn, .navlinks .btn:link, .navlinks .btn:visited { 
+        color: #10100F !important; 
+        background: var(--gold) !important; 
+        border-color: var(--gold) !important; 
+        text-shadow: none; 
+        text-decoration: none; 
+      }
+      .navlinks .btn:hover { 
+        background: var(--gold-hover) !important; 
+        color: #10100F !important; 
+      }
 
-      /* Botón de borde */
+      /* Botón de borde (Ghost) para elementos secundarios */
       .btn.ghost, .ghost {
         background: transparent !important;
         color: #C6A66B !important;
@@ -320,20 +331,24 @@
 
       @media(max-width: 480px) {
         .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
+        header { position: relative; }
         .navlinks {
           display: none;
           position: absolute;
           top: 100%;
           left: 0;
-          width: 100%;
-          background: rgba(17, 17, 16, .97);
+          right: 0;
+          width: 100vw;
+          margin-left: calc(-50vw + 50%);
+          background: rgba(17, 17, 16, .98);
           backdrop-filter: blur(16px);
           flex-direction: column;
-          padding: 20px;
+          padding: 24px 20px;
           gap: 16px;
           border-bottom: 1px solid var(--line);
           box-shadow: 0 15px 30px rgba(0,0,0,0.8);
           text-align: center;
+          box-sizing: border-box;
         }
         .navlinks.active { display: flex; }
 
@@ -392,11 +407,29 @@
         .dropdown-menu a:hover {
           background: transparent;
         }
-        .navlinks .btn { 
-          width: 100%; 
-          justify-content: center; 
-          font-size: 1rem;
-          font-weight: 700;
+
+        /* Corrección de tamaño y color al hover del botón en móvil */
+        .navlinks .btn,
+        .navlinks .btn:link,
+        .navlinks .btn:visited { 
+            display: inline-flex;
+            width: auto; 
+            min-width: 200px;
+            max-width: 100%;
+            margin: 6px auto 0 auto;
+            justify-content: center; 
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #10100F !important;
+            background: var(--gold) !important;
+            border-color: var(--gold) !important;
+        }
+        .navlinks .btn:hover,
+        .navlinks .btn:focus,
+        .navlinks .btn:active { 
+            color: #10100F !important;
+            background: var(--gold-hover) !important;
+            border-color: var(--gold-hover) !important;
         }
       }
     </style>
@@ -495,7 +528,8 @@
                     </div>
                 </div>
                 <a href="../index.html#oraculo">Oráculo</a>
-                <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20rituales%20que%20ofrecen." data-service="Rituales" target="_blank" rel="noopener noreferrer">Contáctanos</a>
+                <!-- CORREGIDO: Se quitó la clase 'ghost' para que el botón aparezca relleno sólido en PC y móvil -->
+                <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20rituales%20que%20ofrecen." data-service="Rituales" target="_blank" rel="noopener noreferrer">Contáctanos</a>
             </div>
         </nav>
     </header>
@@ -599,7 +633,7 @@
                     </div>
                     <div class="step-card">
                         <h3>4. Evidencia y reporte final</h3>
-                        <p>Te enviamos fotografías y/o videos del desarrollo de las velas, los materiales y el altar como prueba de que tu trabajo ha sido ejecutado, junto con las pautas finales recomendadas.</p>
+                        <p>Te enviamos fotografías y/o videos del desarrollo de las velas, los materiales y el altar como prueba de que tu trabajo ha sido ejecutado, junto con las pautas final recomendadas.</p>
                     </div>
                 </div>
                 <div>
