@@ -113,7 +113,6 @@
             z-index: 110;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
-        /* Puente invisible para evitar que el ratón pierda el hover al bajar */
         .dropdown::after {
             content: "";
             position: absolute;
@@ -140,7 +139,7 @@
             display: block;
         }
         
-        /* Botón alineado en altura con el texto */
+        /* Botón alineado */
         .btn { 
             display: inline-flex; 
             align-items: center; 
@@ -150,7 +149,7 @@
             color: #10100F; 
             border: 1px solid var(--gold); 
             border-radius: 4px; 
-            padding: 9px 18px; 
+            padding: 11px 23px; 
             text-decoration: none; 
             font-weight: 700; 
             cursor: pointer; 
@@ -160,8 +159,8 @@
         .btn:hover { transform: translateY(-2px); background: var(--gold-hover); }
         .navlinks .btn, .navlinks .btn:link, .navlinks .btn:visited { color: #10100F; background: var(--gold); border-color: var(--gold); text-shadow: none; text-decoration: none; }
         .navlinks .btn:hover { background: var(--gold-hover); color: #10100F; }
-        .btn.ghost, .ghost { background: transparent; color: var(--gold); }
-        .btn.ghost:hover, .ghost:hover { background: rgba(198, 166, 107, .07); }
+        .btn.ghost, .ghost { background: transparent; color: var(--gold); border-color: rgba(198,166,107,.4); }
+        .btn.ghost:hover, .ghost:hover { background: rgba(198, 166, 107, .07); border-color: var(--gold); color: #FFFFFF; }
 
         .menu-toggle { display: none; background: #111110; border: 1px solid rgba(198, 166, 107, .24); color: var(--gold); font-size: 1.4rem; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
         
@@ -173,7 +172,7 @@
         em { color: var(--gold); font-style: italic; }
         p { color: var(--muted); word-break: break-word; }
 
-        /* Hero específico de Tarot */
+        /* Hero específico de Tarot (Fondo opaco corregido) */
         .hero { 
             position: relative; 
             min-height: 640px; 
@@ -183,21 +182,30 @@
             overflow: hidden; 
             background-color: #080808;
             background-image:
-              linear-gradient(180deg, rgba(8,8,8,.10) 0%, rgba(8,8,8,.18) 48%, rgba(8,8,8,.76) 83%, #080808 100%),
-              linear-gradient(90deg, rgba(8,8,8,.88) 0%, rgba(8,8,8,.70) 34%, rgba(8,8,8,.24) 69%, rgba(8,8,8,.12) 100%),
+              linear-gradient(180deg, rgba(8,8,8,.35) 0%, rgba(8,8,8,.65) 48%, rgba(8,8,8,.92) 83%, #080808 100%),
+              linear-gradient(90deg, rgba(8,8,8,.94) 0%, rgba(8,8,8,.82) 34%, rgba(8,8,8,.40) 69%, rgba(8,8,8,.20) 100%),
               url("https://images.pexels.com/photos/6178715/pexels-photo-6178715.jpeg?auto=compress&cs=tinysrgb&w=1400");
             background-position: center, center, 68% 50%;
             background-size: cover, cover, cover;
             background-repeat: no-repeat;
             padding: 95px 0 76px; 
-            border-bottom: 1px solid rgba(198, 166, 107, .20); 
+            border-bottom: none; 
         }
         .hero-copy { max-width: 750px; padding: 40px 0; }
         .hero .lead { max-width: 720px; font-size: 1.16rem; }
-        .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 29px; }
+        
+        /* Botones en PC: uno al lado del otro (relleno a la izquierda, borde a la derecha) */
+        .actions { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            flex-wrap: wrap; 
+            margin-top: 29px; 
+        }
+
         .hero-note { color: var(--gold); font-size: .93rem; margin-top: 20px; display: inline-block; border-top: 1px solid rgba(198,166,107,.32); padding-top: 12px; }
 
-        .section { padding: 72px 0; border-color: rgba(198, 166, 107, .10); }
+        .section { padding: 72px 0; border-top: 1px solid rgba(198, 166, 107, .10); }
         .section-intro { max-width: 790px; margin-bottom: 32px; }
         
         .readings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
@@ -283,7 +291,7 @@
         #cookie-panel label { display: flex; gap: 10px; align-items: center; margin: 12px 0; }
         .cookie-manage { font-size: 12px; padding: 4px 8px; margin-left: 6px; }
 
-        /* Responsivo */
+        /* Responsivo general */
         @media(max-width: 850px) { 
             .readings { grid-template-columns: 1fr; } 
             .reading-card { padding: 25px; } 
@@ -303,6 +311,15 @@
             .section { padding: 50px 0; }
             .other { grid-template-columns: 1fr !important; }
             .cta-panel { padding: 23px; }
+            
+            /* En móviles: Botones del Hero apilados uno arriba de otro (relleno arriba, ghost abajo) */
+            .hero .actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .hero .actions .btn {
+                width: 100%;
+            }
         }
 
         @media(max-width: 480px) {
@@ -328,7 +345,6 @@
             }
             .navlinks.active { display: flex; }
             
-            /* Unificación total de tipografía, tamaño, grosor y centrado en móvil */
             .navlinks > a, 
             .navlinks .dropdown-toggle {
                 display: block;
@@ -341,7 +357,6 @@
                 padding: 4px 0;
             }
 
-            /* Contenedor dropdown perfectamente centrado y cerrado por defecto en móvil */
             .dropdown {
                 display: flex;
                 flex-direction: column;
@@ -384,7 +399,6 @@
                 background: transparent;
             }
 
-            /* Corrección de tamaño y color al hover del botón en móvil */
             .navlinks .btn,
             .navlinks .btn:link,
             .navlinks .btn:visited { 
@@ -415,7 +429,6 @@
         window.dataLayer = window.dataLayer || [];
         window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
         
-        // Configuración inicial por defecto (denegado)
         window.gtag('consent', 'default', { 
             analytics_storage: 'denied', 
             ad_storage: 'denied', 
@@ -424,7 +437,6 @@
             wait_for_update: 500 
         });
 
-        // Conexión automática con tu banner de cookies actual (soteira_cookie_choice_v1)
         try { 
             if (localStorage.getItem('soteira_cookie_choice_v1') === 'yes') {
                 window.gtag('consent', 'update', { 
@@ -495,7 +507,7 @@
                     </div>
                 </div>
                 <a href="../index.html#oraculo">Oráculo</a>
-                <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20tarot." data-service="Tarot" target="_blank" rel="noopener noreferrer">Contáctanos</a>
+                <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20tarot." data-service="Tarot" target="_blank" rel="noopener noreferrer">Contáctanos</a>
             </div>
         </nav>
     </header>
