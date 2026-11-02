@@ -35,26 +35,33 @@
         --bg: #080808 !important;
         --panel: #111110 !important;
         --gold: #C6A66B !important;
-        --text: #FFFFFF !important;
+        --gold-hover: #D8BB86 !important;
         --muted: #E8E6E1 !important;
+        --line: #292824 !important;
+        --text: #FFFFFF !important;
       }
-      html, body { background: #080808 !important; color: #FFFFFF !important; scroll-behavior: smooth; }
+      html, body { background: #080808 !important; color: #FFFFFF !important; scroll-behavior: smooth; overflow-x: hidden; width: 100%; margin: 0; }
       body {
         background: linear-gradient(180deg, #080808 0%, #0C0C0B 52%, #080808 100%) !important;
-        margin: 0;
         font: 16px/1.7 system-ui, -apple-system, "Segoe UI", sans-serif;
       }
       a { color: inherit; }
-      button, a { outline-offset: 4px; box-sizing: border-box; }
-      a:focus-visible, button:focus-visible { outline: 2px solid var(--gold); }
+      button, input, textarea, select { font: inherit; }
+      button, a, input, textarea, select { outline-offset: 4px; box-sizing: border-box; }
+      a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--gold); }
       .wrap { width: min(1080px, calc(100% - 40px)); margin: auto; }
       
-      /* Cabecera normal */
+      /* Cabecera unificada */
       header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
         background: rgba(8,8,8,.97) !important;
         border-bottom: 1px solid rgba(198,166,107,.20) !important;
+        backdrop-filter: blur(14px);
+        width: 100%;
       }
-      nav { display: flex; align-items: center; justify-content: space-between; gap: 15px; min-height: 83px; }
+      nav { display: flex; align-items: center; justify-content: space-between; gap: 15px; min-height: 70px; position: relative; }
       
       .brand {
         font-family: Georgia, serif !important;
@@ -66,6 +73,7 @@
         gap: 12px !important;
         text-decoration: none;
         color: #FFFFFF !important;
+        flex-shrink: 0;
       }
       .brand-logo {
         width: 38px !important; height: 38px !important;
@@ -73,12 +81,77 @@
         background: transparent !important; border: 0 !important; border-radius: 0 !important;
         filter: drop-shadow(0px 0px 2px #C6A66B) !important;
       }
+      .brand-mark { display: none; width: 38px; height: 38px; align-items: center; justify-content: center; border: 1px solid var(--gold); border-radius: 50%; font-family: Georgia, serif; font-size: 18px; color: var(--gold-hover); flex-shrink: 0; }
+
+      /* Navegación y enlaces limpios sin subrayado */
+      .navlinks { display: flex; align-items: center; gap: 24px; }
+      .navlinks > a, 
+      .navlinks .dropdown-toggle { 
+        text-decoration: none; 
+        color: var(--muted); 
+        font-size: .9rem; 
+        transition: color 0.2s; 
+        display: inline-flex; 
+        align-items: center;
+        line-height: 1.2;
+      }
+      .navlinks a:hover, 
+      .navlinks .dropdown-toggle:hover { color: var(--gold); text-decoration: none; }
+
+      /* Estilos del Dropdown Escritorio con Puente Continuo */
+      .dropdown {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        height: 100%;
+      }
+      .dropdown-toggle {
+        gap: 4px;
+        cursor: pointer;
+        padding: 10px 0;
+      }
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(12, 12, 11, 0.98);
+        border-left: 2px solid var(--gold);
+        min-width: 210px;
+        max-width: 250px;
+        padding: 8px 0;
+        margin-top: 0;
+        z-index: 110;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      }
+      /* Puente invisible para evitar que el ratón pierda el hover al bajar */
+      .dropdown::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 12px;
+        display: block;
+      }
+      .dropdown-menu a {
+        display: block;
+        padding: 8px 16px;
+        font-size: 0.86rem;
+        color: var(--muted);
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .dropdown-menu a:hover {
+        color: var(--gold);
+        background: rgba(198, 166, 107, 0.05);
+        text-decoration: none;
+      }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
       
-      .navlinks { display: flex; align-items: center; gap: 20px; }
-      .navlinks a { text-decoration: none; color: var(--muted); }
-      .navlinks a:hover { color: var(--gold); }
-      
-      /* Botones estándar */
+      /* Botones estándar alineados */
       .btn {
         display: inline-flex;
         justify-content: center;
@@ -93,20 +166,25 @@
         font-weight: 700;
         transition: background .18s ease, transform .18s ease;
         box-sizing: border-box;
+        line-height: 1.2;
       }
       .btn:hover { background: #D8BB86 !important; transform: translateY(-1px); }
-      
+      .navlinks .btn, .navlinks .btn:link, .navlinks .btn:visited { color: #10100F; background: var(--gold); border-color: var(--gold); text-shadow: none; text-decoration: none; }
+      .navlinks .btn:hover { background: var(--gold-hover); color: #10100F; }
+
       /* Botón de borde */
-      .btn.ghost {
+      .btn.ghost, .ghost {
         background: transparent !important;
         color: #C6A66B !important;
         border-color: rgba(198,166,107,.4) !important;
       }
-      .btn.ghost:hover {
+      .btn.ghost:hover, .ghost:hover {
         background: rgba(198,166,107,.07) !important;
         border-color: #C6A66B !important;
         color: #FFFFFF !important;
       }
+
+      .menu-toggle { display: none; background: #111110; border: 1px solid rgba(198, 166, 107, .24); color: var(--gold); font-size: 1.4rem; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
 
       /* Enlaces estilo texto con flecha para avanzar de sección */
       .text-link {
@@ -206,12 +284,99 @@
       @media(max-width: 800px) {
         .grid { grid-template-columns: 1fr; }
       }
-      @media(max-width: 700px) {
-        .navlinks .desktop { display: none; }
+      @media(max-width: 768px) {
+        .wrap { width: calc(100% - 24px); }
+        nav { gap: 10px; min-height: 60px; }
+        .brand span { display: none; }
+        .navlinks { gap: 12px; }
+        .navlinks a { font-size: 0.82rem; }
+        .navlinks .btn { padding: 8px 14px; font-size: 0.8rem; }
         .hero { padding: 66px 0 54px; }
         .other { grid-template-columns: 1fr; }
         .section { padding: 52px 0; }
         .panel { padding: 22px; }
+      }
+
+      @media(max-width: 480px) {
+        .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
+        .navlinks {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: rgba(17, 17, 16, .97);
+          backdrop-filter: blur(16px);
+          flex-direction: column;
+          padding: 20px;
+          gap: 16px;
+          border-bottom: 1px solid var(--line);
+          box-shadow: 0 15px 30px rgba(0,0,0,0.8);
+          text-align: center;
+        }
+        .navlinks.active { display: flex; }
+
+        /* Unificación total de tipografía, tamaño, grosor y centrado en móvil */
+        .navlinks > a, 
+        .navlinks .dropdown-toggle {
+          display: block;
+          width: 100%;
+          text-align: center;
+          font-size: 1rem;
+          font-weight: 400;
+          color: var(--muted);
+          text-decoration: none;
+          padding: 4px 0;
+        }
+
+        /* Contenedor dropdown perfectamente centrado y cerrado por defecto en móvil */
+        .dropdown {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          height: auto;
+        }
+        .dropdown::after { display: none; }
+        .dropdown-toggle {
+          justify-content: center;
+          padding: 4px 0;
+        }
+        .dropdown-menu {
+          position: static;
+          display: none !important;
+          border-left: none;
+          background: transparent;
+          margin-top: 8px;
+          padding: 0;
+          width: 100%;
+          text-align: center;
+          box-shadow: none;
+        }
+        .dropdown.active .dropdown-menu {
+          display: flex !important;
+          flex-direction: column;
+          gap: 12px;
+        }
+        .dropdown-menu a {
+          padding: 0;
+          font-size: 0.95rem;
+          font-weight: 400;
+          color: var(--gold);
+          text-decoration: none;
+          text-align: center;
+          display: block;
+          width: 100%;
+        }
+        .dropdown-menu a:hover {
+          background: transparent;
+        }
+        .navlinks .btn { 
+          width: 100%; 
+          justify-content: center; 
+          font-size: 1rem;
+          font-weight: 700;
+        }
       }
     </style>
 
@@ -294,9 +459,19 @@
             <a class="brand" href="../index.html">
                 <img class="brand-logo" alt="Emblema de Soteira &amp; Sons" width="38" height="38" src="../logo.svg"><span>SOTEIRA &amp; SONS</span>
             </a>
-            <div class="navlinks">
-                <a class="desktop" href="../index.html#experiencias">Experiencias</a>
-                <a class="desktop" href="../index.html#oraculo">Oráculo</a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+            <div class="navlinks" id="navlinks">
+                <a href="../index.html">Inicio</a>
+                <!-- Menú desplegable integrado con estética uniforme -->
+                <div class="dropdown" id="experiences-dropdown">
+                    <a href="../index.html#experiencias" class="dropdown-toggle" id="dropdown-toggle-btn">Experiencias ▾</a>
+                    <div class="dropdown-menu">
+                        <a href="../tarot/">Tarot</a>
+                        <a href="../rituales/">Rituales a medida</a>
+                        <a href="./">Consultas espirituales</a>
+                    </div>
+                </div>
+                <a href="../index.html#oraculo">Oráculo</a>
                 <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20Consulta%20Espiritual." data-service="Consulta Espiritual" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             </div>
         </nav>
@@ -419,6 +594,33 @@
             <button type="button" id="cookie-save" hidden>Guardar preferencias</button>
         </div>
     </aside>
+
+    <!-- Scripts del Sitio -->
+    <script>
+        // Menú hamburguesa
+        document.getElementById('menu-toggle').addEventListener('click', () => {
+            document.getElementById('navlinks').classList.toggle('active');
+        });
+
+        // Control inteligente del desplegable en móviles:
+        const dropdownContainer = document.getElementById('experiences-dropdown');
+        const dropdownToggleBtn = document.getElementById('dropdown-toggle-btn');
+        
+        dropdownToggleBtn.addEventListener('click', (e) => {
+            if (window.innerWidth <= 480) {
+                e.preventDefault(); // Bloquea redirección en móvil
+                dropdownContainer.classList.toggle('active'); // Alterna abierto / cerrado limpiamente
+            }
+        });
+
+        // Cerrar menú al hacer clic en cualquier enlace del menú
+        document.querySelectorAll('.navlinks a:not(.dropdown-toggle)').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navlinks').classList.remove('active');
+                dropdownContainer.classList.remove('active');
+            });
+        });
+    </script>
 
     <script id="soteira-consent-script">
         (function(){
