@@ -41,6 +41,8 @@
         --text: #FFFFFF !important;
       }
       html, body { background: #080808 !important; color: #FFFFFF !important; scroll-behavior: smooth; overflow-x: hidden; width: 100%; margin: 0; }
+      /* Reserva el espacio de la cabecera fija para que no tape el contenido */
+      body { padding-top: 71px; }
       body {
         background: linear-gradient(180deg, #080808 0%, #0C0C0B 52%, #080808 100%) !important;
         font: 16px/1.7 system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -53,8 +55,10 @@
       
       /* Cabecera unificada */
       header {
-        position: sticky;
+        position: fixed;
         top: 0;
+        left: 0;
+        right: 0;
         z-index: 100;
         background: rgba(8,8,8,.97) !important;
         border-bottom: 1px solid rgba(198,166,107,.20) !important;
@@ -285,6 +289,7 @@
         .grid { grid-template-columns: 1fr; }
       }
       @media(max-width: 768px) {
+        body { padding-top: 61px; }
         .wrap { width: calc(100% - 24px); }
         nav { gap: 10px; min-height: 60px; }
         .brand span { display: none; }
@@ -299,7 +304,6 @@
 
       @media(max-width: 480px) {
         .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
-        header { position: relative; }
         .navlinks {
           display: none;
           position: absolute;

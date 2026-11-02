@@ -55,11 +55,12 @@
     
     * { box-sizing: border-box; }
     html, body { overflow-x: hidden; width: 100%; margin: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
     body { 
       background: linear-gradient(180deg, #080808 0%, #0C0C0B 52%, #080808 100%); 
       color: var(--text); 
-      font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif; 
+      font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+      padding-top: 70px;
     }
     
     a { color: inherit; }
@@ -70,8 +71,10 @@
     /* Layout */
     .wrap { width: min(1100px, calc(100% - 40px)); margin: auto; }
     header { 
-      position: sticky; 
-      top: 0; 
+      position: fixed; 
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100; 
       background: rgba(8, 8, 8, .97); 
       border-bottom: 1px solid rgba(198, 166, 107, .20); 
@@ -351,6 +354,8 @@
 
     /* Responsivo */
     @media (max-width: 768px) {
+      body { padding-top: 60px; }
+      html { scroll-padding-top: 70px; }
       .wrap { width: calc(100% - 24px); }
       nav { gap: 10px; min-height: 60px; }
       .brand span { display: none; }

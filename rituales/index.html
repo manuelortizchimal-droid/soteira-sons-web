@@ -44,6 +44,7 @@
       body {
         background: linear-gradient(180deg, #080808 0%, #0C0C0B 52%, #080808 100%) !important;
         font: 16px/1.7 system-ui, -apple-system, "Segoe UI", sans-serif;
+        padding-top: 70px; /* Reserva el espacio de la cabecera fija en escritorio */
       }
       a { color: inherit; }
       button, input, textarea, select { font: inherit; }
@@ -53,9 +54,11 @@
       
       /* Cabecera unificada */
       header {
-        position: sticky;
+        position: fixed;
         top: 0;
-        z-index: 100;
+        left: 0;
+        right: 0;
+        z-index: 1000;
         background: rgba(8,8,8,.97) !important;
         border-bottom: 1px solid rgba(198,166,107,.20) !important;
         backdrop-filter: blur(14px);
@@ -316,6 +319,7 @@
       }
       
       @media(max-width: 768px) {
+        body { padding-top: 60px; } /* La cabecera móvil mide 60px */
         .wrap { width: calc(100% - 24px); }
         nav { gap: 10px; min-height: 60px; }
         .brand span { display: none; }
@@ -331,7 +335,6 @@
 
       @media(max-width: 480px) {
         .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
-        header { position: relative; }
         .navlinks {
           display: none;
           position: absolute;
