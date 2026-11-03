@@ -695,52 +695,20 @@
           <h2>Lo que una conversación puede <em>hacerte mirar distinto.</em></h2>
           <p>La claridad not siempre llega como una respuesta. A veces comienza con una pregunta diferente.</p>
         </div>
-        <div class="review-grid">
+        <div class="review-grid" id="dynamic-reviews-container">
+          <!-- Las reseñas reales se cargarán automáticamente aquí desde reseñas.json -->
           <article class="review">
-            <blockquote>“Llegué con muchas dudas sobre una decisión importante. Durante la lectura surgieron cosas que no había considerado. Me fui con una perspectiva diferente y más claridad para decidir por mí misma.”</blockquote>
+            <blockquote>“Cargando experiencias recientes...”</blockquote>
             <div class="review-person">
-              <span class="review-avatar" aria-hidden="true">CA</span>
-              <div><strong>Carlos A.</strong><small>México</small></div>
-            </div>
-          </article>
-          <article class="review">
-            <blockquote>“Era mi primera lectura y no sabía qué esperar. Me sorprendió cómo las cartas nos llevaron a hablar de situaciones que estaba viviendo. Fue una experiencia muy personal que recomendaría.”</blockquote>
-            <div class="review-person">
-              <span class="review-avatar" aria-hidden="true">VK</span>
-              <div><strong>Verone K.</strong><small>Francia</small></div>
-            </div>
-          </article>
-          <article class="review">
-            <blockquote>“Había tenido algunos sueños que me despertaban mucha curiosidad. Quería explorar su posible significado y encontré una conversación muy interesante. Me gustó que escucharan mi experiencia sin juzgarla.”</blockquote>
-            <div class="review-person">
-              <span class="review-avatar" aria-hidden="true">ML</span>
-              <div><strong>Manuel L.</strong><small>España</small></div>
-            </div>
-          </article>
-          <article class="review" hidden data-extra-review>
-            <blockquote>“No sabía exactamente qué tipo de consulta necesitaba. Me orientaron con mucha paciencia y pude hablar de temas que llevaba tiempo intentando comprender. Sin duda, volvería.”</blockquote>
-            <div class="review-person">
-              <span class="review-avatar" aria-hidden="true">MA</span>
-              <div><strong>Matilde A.</strong><small>España</small></div>
-            </div>
-          </article>
-          <article class="review" hidden data-extra-review>
-            <blockquote>“Realicé un ritual para marcar el cierre de una etapa. Me explicaron el significado de cada elemento y pude vivirlo con una intención muy personal. Fue una experiencia especial para mí.”</blockquote>
-            <div class="review-person">
-              <span class="review-avatar" aria-hidden="true">LV</span>
-              <div><strong>Luisa V.</strong><small>México</small></div>
-            </div>
-          </article>
-          <article class="review" hidden data-extra-review>
-            <blockquote>“Lo que más me gustó fue la dedicación y el ambiente. No fue simplemente realizar un ritual, sino comprender su simbolismo y participar conscientemente en cada paso.”</blockquote>
-            <div class="review-person">
-              <span class="review-avatar" aria-hidden="true">DU</span>
-              <div><strong>Daniel U.</strong><small>España</small></div>
+              <span class="review-avatar" aria-hidden="true">SS</span>
+              <div><strong>Soteira &amp; Sons</strong><small>Casa Ritual</small></div>
             </div>
           </article>
         </div>
-        <button class="btn ghost review-toggle" type="button" id="reviews-toggle" aria-expanded="false">Ver más testimonios</button>
-      </div>
+
+        <div style="margin-top: 30px; text-align: center;">
+          <a class="btn ghost" href="https://tally.so/r/Qo1Ebg" target="_blank" rel="noopener noreferrer">Déjanos tu experiencia →</a>
+        </div>
     </section>
 
     <!-- Contact Section -->
@@ -1090,6 +1058,57 @@
         try{if(localStorage.getItem('soteira_cookie_choice_v1')==='yes'&&typeof window.gtag==='function')window.gtag('event','whatsapp_click',{service_name:service,link_url:link.href,transport_type:'beacon'});}catch(e){}
       });
     })();
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", async function() {
+      const reviewsContainer = document.getElementById('dynamic-reviews-container');
+      if (!reviewsContainer) return;
+
+      try {
+        const response = await fetch('./reseñas.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error('No se pudo cargar el archivo de reseñas.');
+        
+        const reseñas = await response.json();
+
+        if (Array.isArray(reseñas) && reseñas.length > 0) {
+          reviewsContainer.innerHTML = '';
+          
+          // Toma las últimas 3 reseñas y las invierte para ver las más recientes primero
+          const ultimasReseñas = reseñas.slice(-3).reverse();
+
+          ultimasReseñas.forEach(r => {
+            const iniciales = r.nombre
+              ? r.nombre.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase()
+              : 'SS';
+              
+            const estrellasHTML = '<span style="color: var(--gold); margin-bottom: 8px; display: block; font-size: 1.1rem;">' + '★'.repeat(r.estrellas || 5) + '</span>';
+
+            const article = document.createElement('article');
+            article.className = 'review';
+            article.innerHTML = `
+              <div>
+                ${estrellasHTML}
+                <blockquote>“${r.texto}”</blockquote>
+              </div>
+              <div class="review-person">
+                <span class="review-avatar" aria-hidden="true">${iniciales}</span>
+                <div><strong>${r.nombre}</strong><small>${r.ubicacion || 'Casa Ritual'}</small></div>
+              </div>
+            `;
+            reviewsContainer.appendChild(article);
+          });
+        } else {
+          // Si no hay reseñas todavía, muestra un mensaje elegante
+          reviewsContainer.innerHTML = `
+            <article class="review" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+              <blockquote>“Las experiencias compartidas aparecerán aquí muy pronto. Sé el primero en dejarnos tu perspectiva.”</blockquote>
+            </article>
+          `;
+        }
+      } catch (error) {
+        console.warn('Error cargando las reseñas:', error);
+      }
+    });
   </script>
 </body>
 </html>
