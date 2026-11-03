@@ -591,6 +591,7 @@
             <a href="/tarot/">Tarot</a>
             <a href="/rituales/">Rituales a medida</a>
             <a href="/consultas-espirituales/">Consultas espirituales</a>
+            <a href="/linea-nocturna/">Línea Psíquica Nocturna</a>
           </div>
         </div>
         <a href="#oraculo">Oráculo</a>
@@ -740,18 +741,6 @@
       <div class="wrap">
         <div class="eyebrow">Antes de comenzar</div>
         <h2>Lo esencial, <em>sin complicaciones.</em></h2>
-        <!-- FAQ de Carmen (México) - Exclusiva para móviles mediante JS -->
-        <details id="faq-linea-nocturna-carmen" style="display: none;">
-          <summary>¿En qué consiste la Línea Psíquica Nocturna con Carmen?</summary>
-          <p>Es un servicio de canalización y mediumnidad en directo con Carmen, Suma Sacerdotisa Wicca, activo de lunes a viernes de 20:00 a 22:00 h (hora de México).</p>
-          <p style="margin-top: 10px;">Al pulsar el botón de llamada, se conecta con nuestra centralita virtual donde una breve locución de bienvenida te guiará mientras suena nuestra línea directa. Al contestar, Carmen realizará tu lectura para recibir guía espiritual y respuestas cuando más lo necesitas.</p>
-        </details>
-        <!-- FAQ de España - Exclusiva para móviles mediante JS -->
-        <details id="faq-linea-nocturna" style="display: none;">
-          <summary>¿En qué consiste la Línea Psíquica Nocturna con Styxe?</summary>
-          <p>Es un servicio de tarot con atención telefónica inmediata activa todos los días, de 20:00 a 01:00 h (hora de España), pensado para resolver inquietudes urgentes de madrugada sin necesidad de pedir cita previa.</p>
-          <p style="margin-top: 10px;">Al pulsar el botón de llamada, se conecta con nuestra centralita virtual donde una breve locución de bienvenida te guiará mientras suena nuestra línea directa. Al contestar, Styxe realizará tu lectura de cartas en privado y al instante.</p>
-        </details>
         <details>
           <summary>¿Necesito saber algo de tarot?</summary>
           <p>No. Puedes llegar con una pregunta o simplemente con curiosidad. La lectura es un espacio de interpretación simbólica.</p>
@@ -834,16 +823,7 @@
     }
 
     function irAMasInformacion() {
-      let faqItem = null;
-      if (paisDetectado === 'MX') {
-        faqItem = document.getElementById('faq-linea-nocturna-carmen');
-      } else if (paisDetectado === 'ES') {
-        faqItem = document.getElementById('faq-linea-nocturna');
-      }
-      if (faqItem) {
-        faqItem.open = true;
-        faqItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
+      window.location.href = '/linea-nocturna/';
     }
 
     function obtenerMinutosLocales(timeZone) {
@@ -941,9 +921,6 @@
         const pais = typeof datos.country_code === 'string' ? datos.country_code.toUpperCase() : '';
         paisDetectado = pais;
 
-        // Latinoamérica y el Caribe: MXN. Estados Unidos, Canadá y el resto del mundo: EUR.
-        // Se incluyen territorios geográficos del Caribe y de América Latina cuando tienen
-        // código de país propio en la respuesta de geolocalización.
         const paisesConPreciosMXN = new Set([
           'AI', 'AG', 'AR', 'AW', 'BB', 'BL', 'BM', 'BQ', 'BS', 'BZ',
           'BO', 'BR', 'VG', 'KY', 'CL', 'CO', 'CR', 'CU', 'CW', 'DM',
@@ -963,11 +940,6 @@
         // El banner conserva su regla original: solo México o España y únicamente en móvil.
         if (!esMovil || (pais !== 'MX' && pais !== 'ES')) return;
 
-        const faqEspana = document.getElementById('faq-linea-nocturna');
-        const faqMexico = document.getElementById('faq-linea-nocturna-carmen');
-        if (faqEspana) faqEspana.style.display = pais === 'ES' ? 'block' : 'none';
-        if (faqMexico) faqMexico.style.display = pais === 'MX' ? 'block' : 'none';
-
         if (pais === 'MX') evaluarHorarioMexico();
         else evaluarHorarioEspana();
 
@@ -978,8 +950,6 @@
           else if (paisDetectado === 'ES') evaluarHorarioEspana();
         }, 60 * 1000);
       } catch (error) {
-        // Si la geolocalización falla, se conservan los precios EUR definidos en el HTML
-        // y el banner permanece oculto: es el comportamiento seguro por defecto.
         console.warn('No se pudo verificar el país; se mantienen los precios en euros y el banner permanece oculto.', error);
       }
     });
@@ -1073,7 +1043,6 @@
         if (Array.isArray(reseñas) && reseñas.length > 0) {
           reviewsContainer.innerHTML = '';
           
-          // Toma las últimas 3 reseñas y las invierte para ver las más recientes primero
           const ultimasReseñas = reseñas.slice(-3).reverse();
 
           ultimasReseñas.forEach(r => {
@@ -1098,7 +1067,6 @@
             reviewsContainer.appendChild(article);
           });
         } else {
-          // Si no hay reseñas todavía, muestra un mensaje elegante
           reviewsContainer.innerHTML = `
             <article class="review" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
               <blockquote>“Las experiencias compartidas aparecerán aquí muy pronto. Sé el primero en dejarnos tu perspectiva.”</blockquote>
