@@ -320,8 +320,26 @@
             }
             .navlinks.active { display: flex; }
             .dropdown { flex-direction: column; width: 100%; }
-            .dropdown-menu { position: static; display: none !important; width: 100%; text-align: center; }
-            .dropdown.active .dropdown-menu { display: flex !important; flex-direction: column; gap: 12px; }
+            
+            /* Menú móvil optimizado y sin barra lateral izquierda */
+            .dropdown-menu { 
+                position: static; 
+                display: none !important; 
+                width: 100%; 
+                text-align: center; 
+                border-left: none !important; 
+                padding: 0;
+                background: transparent;
+                box-shadow: none;
+            }
+            .dropdown.active .dropdown-menu { 
+                display: flex !important; 
+                flex-direction: column; 
+                gap: 12px; 
+            }
+            .dropdown-menu a {
+                padding: 6px 0;
+            }
         }
     </style>
 
