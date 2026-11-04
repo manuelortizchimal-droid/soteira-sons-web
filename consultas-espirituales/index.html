@@ -478,6 +478,73 @@
       ]
     }
     </script>
+
+<style id="soteira-home-button-system">
+/* Sistema de botones unificado: mismo comportamiento que el HOME */
+.btn:not(.ghost) {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  background: var(--gold, #C6A66B) !important;
+  color: #10100F !important;
+  border: 1px solid var(--gold, #C6A66B) !important;
+  border-radius: 4px !important;
+  padding: 9px 18px !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease !important;
+  line-height: 1.2 !important;
+  box-sizing: border-box;
+}
+.btn:not(.ghost):hover,
+.btn:not(.ghost):focus-visible {
+  transform: translateY(-2px) !important;
+  background: var(--gold-hover, #D8BB86) !important;
+  border-color: var(--gold-hover, #D8BB86) !important;
+  color: #10100F !important;
+}
+.btn.ghost,
+.ghost.btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  background: transparent !important;
+  color: var(--gold, #C6A66B) !important;
+  border: 1px solid rgba(198, 166, 107, .4) !important;
+  border-radius: 4px !important;
+  padding: 9px 18px !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease !important;
+  line-height: 1.2 !important;
+  box-sizing: border-box;
+}
+.btn.ghost:hover,
+.btn.ghost:focus-visible,
+.ghost.btn:hover,
+.ghost.btn:focus-visible {
+  transform: translateY(-2px) !important;
+  background: rgba(198, 166, 107, .07) !important;
+  border-color: var(--gold, #C6A66B) !important;
+  color: var(--gold, #C6A66B) !important;
+}
+/* El botón de contacto del menú conserva siempre el estilo dorado relleno */
+.navlinks .btn:not(.ghost),
+.navlinks .btn:not(.ghost):link,
+.navlinks .btn:not(.ghost):visited,
+.navlinks .btn:not(.ghost):hover,
+.navlinks .btn:not(.ghost):focus,
+.navlinks .btn:not(.ghost):active {
+  color: #10100F !important;
+  text-shadow: none !important;
+  text-decoration: none !important;
+}
+</style>
+
 </head>
 <body>
     <header>
@@ -493,7 +560,7 @@
                     <a href="../index.html#experiencias" class="dropdown-toggle" id="dropdown-toggle-btn">Experiencias ▾</a>
                     <div class="dropdown-menu">
                         <a href="../tarot/">Tarot</a>
-                        <a href="../rituales/">Rituales</a>
+                        <a href="../rituales/">Rituales a medida</a>
                         <a href="./">Consultas espirituales</a>
                         <a href="/linea-nocturna/">Línea Nocturna</a>
                     </div>
