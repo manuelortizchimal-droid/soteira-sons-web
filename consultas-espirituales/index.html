@@ -605,7 +605,7 @@
                         <li><strong>Modalidades disponibles:</strong> Sesión telefónica o en línea para cualquier lugar; opción presencial disponible exclusivamente en Ciudad de México.</li>
                         <li><strong>Enfoque honesto:</strong> Exploramos tus preguntas y vivencias con absoluta confidencialidad y respeto.</li>
                     </ul>
-                    <p class="price">75 €</p>
+                    <p class="price" id="consultation-price">75 €</p>
                     <p class="panel-note">Consulta disponibilidad y agenda tu espacio por mensaje.</p>
                     <a class="btn" style="width: 100%; margin-top: 10px;" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20la%20Consulta%20Espiritual." data-service="Consulta Espiritual" target="_blank" rel="noopener noreferrer">Solicitar información de la consulta</a>
                 </div>
@@ -747,6 +747,59 @@
                 window.dataLayer=window.dataLayer||[];
                 window.dataLayer.push({event:'whatsapp_click',service_name:service,link_url:link.href,link_text:(link.textContent||'').trim().slice(0,100)});
                 try{if(localStorage.getItem('soteira_cookie_choice_v1')==='yes'&&typeof window.gtag==='function')window.gtag('event','whatsapp_click',{service_name:service,link_url:link.href,transport_type:'beacon'});}catch(e){}
+            });
+        })();
+    </script>
+    <script id="soteira-regional-pricing">
+        (function () {
+            'use strict';
+
+            var priceElement = document.getElementById('consultation-price');
+            if (!priceElement) return;
+
+            // El precio predeterminado siempre es 75 €. Solo cambiaremos a MXN
+            // si la geolocalización confirma que la conexión procede de América,
+            // excluyendo expresamente Estados Unidos y Canadá.
+            var EURO_PRICE = '75 €';
+            var MXN_PRICE = '$1,200 MXN';
+            priceElement.textContent = EURO_PRICE;
+
+            var controller = new AbortController();
+            var timeout = setTimeout(function () {
+                controller.abort();
+            }, 5000);
+
+            fetch('https://ipwho.is/', {
+                method: 'GET',
+                headers: { 'Accept': 'application/json' },
+                cache: 'no-store',
+                signal: controller.signal
+            })
+            .then(function (response) {
+                if (!response.ok) throw new Error('No se pudo consultar la ubicación.');
+                return response.json();
+            })
+            .then(function (location) {
+                if (!location || location.success !== true) return;
+
+                var countryCode = String(location.country_code || '').toUpperCase();
+                var continentCode = String(location.continent_code || '').toUpperCase();
+
+                // América del Norte (incluidos Centroamérica y el Caribe) o
+                // América del Sur. Estados Unidos y Canadá conservan el precio en euros.
+                var isInTheAmericas = continentCode === 'NA' || continentCode === 'SA';
+                var isExcludedCountry = countryCode === 'US' || countryCode === 'CA';
+
+                priceElement.textContent = isInTheAmericas && !isExcludedCountry
+                    ? MXN_PRICE
+                    : EURO_PRICE;
+            })
+            .catch(function () {
+                // Si falla la detección, se conserva el precio predeterminado en euros.
+                priceElement.textContent = EURO_PRICE;
+            })
+            .finally(function () {
+                clearTimeout(timeout);
             });
         })();
     </script>
