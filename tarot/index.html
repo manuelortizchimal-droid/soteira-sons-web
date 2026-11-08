@@ -317,13 +317,13 @@
             .other { grid-template-columns: 1fr !important; }
             .cta-panel { padding: 23px; }
             
-            /* En móviles: Botones del Hero apilados uno arriba de otro (relleno arriba, ghost abajo) */
+            /* En móviles: Botones del Hero alineados a la izquierda */
             .hero .actions {
                 flex-direction: column;
-                align-items: stretch;
+                align-items: flex-start;
             }
             .hero .actions .btn {
-                width: 100%;
+                width: auto;
             }
         }
 
@@ -594,8 +594,8 @@
                     <p class="lead">Hay preguntas que no consigues olvidar. Una lectura de tarot puede ayudarte a mirar una situación desde otro ángulo, explorar sus matices y descubrir nuevas preguntas a través de los arcanos.</p>
                     <p class="lead">Trabajamos desde una práctica cercana y personal. Puedes realizar tu lectura por teléfono, videollamada o presencialmente en Santander, España.</p>
                     <div class="actions">
-                        <a class="btn" href="#lecturas">Ver las lecturas</a>
-                        <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20por%20mensaje%20para%20una%20lectura%20de%20tarot." data-service="Tarot" target="_blank" rel="noopener noreferrer">Reservar por mensaje</a>
+                        <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20por%20mensaje%20para%20una%20lectura%20de%20tarot." data-service="Tarot" target="_blank" rel="noopener noreferrer">Reservar por mensaje</a>
+                        <a class="btn ghost" href="#lecturas">Ver las lecturas</a>
                     </div>
                     <p class="hero-note">Tres modalidades · <span data-precio-eur="Desde 25 €" data-precio-mxn="Desde $400 MXN">Desde 25 €</span> · Atención internacional</p>
                 </div>
