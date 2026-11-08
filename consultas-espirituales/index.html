@@ -17,18 +17,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#080808">
-    <title>Consultas espirituales y canalización | Soteira &amp; Sons</title>
-    <meta name="description" content="Consultas espirituales privadas y canalización para explorar experiencias, dudas y símbolos desde una perspectiva personal. Consulta disponibilidad por WhatsApp.">
+    <title>Consultas espirituales, canalización y mediumnidad | Soteira &amp; Sons</title>
+    <meta name="description" content="Consultas espirituales privadas, videncia y canalización con Carmen, Suma Sacerdotisa con más de 30 años de experiencia. Reserva por mensaje.">
     <link rel="canonical" href="https://casasoteira.com/consultas-espirituales/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_MX">
     <meta property="og:site_name" content="Soteira &amp; Sons">
-    <meta property="og:title" content="Consultas espirituales | Soteira &amp; Sons">
-    <meta property="og:description" content="Consultas espirituales privadas y canalización para explorar experiencias, dudas y símbolos desde una perspectiva personal. Consulta disponibilidad por WhatsApp.">
+    <meta property="og:title" content="Consultas espirituales y canalización | Soteira &amp; Sons">
+    <meta property="og:description" content="Consultas espirituales privadas, videncia y canalización con Carmen, Suma Sacerdotisa con más de 30 años de experiencia. Reserva por mensaje.">
     <meta property="og:url" content="https://casasoteira.com/consultas-espirituales/">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Consultas espirituales y canalización | Soteira &amp; Sons">
-    <meta name="twitter:description" content="Consultas espirituales privadas y canalización para explorar experiencias, dudas y símbolos desde una perspectiva personal. Consulta disponibilidad por WhatsApp.">
+    <meta name="twitter:title" content="Consultas espirituales, canalización y mediumnidad | Soteira &amp; Sons">
+    <meta name="twitter:description" content="Consultas espirituales privadas, videncia y canalización con Carmen, Suma Sacerdotisa con más de 30 años de experiencia. Reserva por mensaje.">
 
     <style>
       :root {
@@ -41,7 +41,6 @@
         --text: #FFFFFF !important;
       }
       html, body { background: #080808 !important; color: #FFFFFF !important; scroll-behavior: smooth; overflow-x: hidden; width: 100%; margin: 0; }
-      /* Reserva el espacio de la cabecera fija para que no tape el contenido */
       body { padding-top: 71px; }
       body {
         background: linear-gradient(180deg, #080808 0%, #0C0C0B 52%, #080808 100%) !important;
@@ -128,7 +127,6 @@
         z-index: 110;
         box-shadow: 0 10px 25px rgba(0,0,0,0.5);
       }
-      /* Puente invisible para evitar que el ratón pierda el hover al bajar */
       .dropdown::after {
         content: "";
         position: absolute;
@@ -155,55 +153,45 @@
         display: block;
       }
       
-      /* Botones estándar alineados */
-      .btn {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 47px;
-        padding: 11px 23px;
-        border: 1px solid #C6A66B !important;
-        border-radius: 4px;
-        background: #C6A66B !important;
-        color: #10100F !important;
-        text-decoration: none;
-        font-weight: 700;
-        transition: background .18s ease, transform .18s ease;
-        box-sizing: border-box;
+      /* Estilos originales de botones idénticos al resto de la web */
+      .btn { 
+        display: inline-flex; 
+        align-items: center; 
+        justify-content: center; 
+        text-align: center; 
+        background: var(--gold); 
+        color: #10100F; 
+        border: 1px solid var(--gold); 
+        border-radius: 4px; 
+        padding: 9px 18px; 
+        text-decoration: none; 
+        font-weight: 700; 
+        cursor: pointer; 
+        transition: transform .2s, background .2s; 
         line-height: 1.2;
       }
-      .btn:hover { background: #D8BB86 !important; transform: translateY(-1px); }
+      .btn:hover { transform: translateY(-2px); background: var(--gold-hover); }
       .navlinks .btn, .navlinks .btn:link, .navlinks .btn:visited { color: #10100F; background: var(--gold); border-color: var(--gold); text-shadow: none; text-decoration: none; }
       .navlinks .btn:hover { background: var(--gold-hover); color: #10100F; }
-
-      /* Botón de borde */
-      .btn.ghost, .ghost {
-        background: transparent !important;
-        color: #C6A66B !important;
-        border-color: rgba(198,166,107,.4) !important;
-      }
-      .btn.ghost:hover, .ghost:hover {
-        background: rgba(198,166,107,.07) !important;
-        border-color: #C6A66B !important;
-        color: #FFFFFF !important;
-      }
+      .btn.ghost, .ghost { background: transparent; color: var(--gold); }
+      .btn.ghost:hover, .ghost:hover { background: rgba(198, 166, 107, .07); }
 
       .menu-toggle { display: none; background: #111110; border: 1px solid rgba(198, 166, 107, .24); color: var(--gold); font-size: 1.4rem; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
 
-      /* Enlaces estilo texto con flecha para avanzar de sección */
+      /* Enlaces estilo texto con subrayado y flecha para avanzar de sección */
       .text-link {
         display: inline-flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
         color: #C6A66B;
-        text-decoration: none;
+        text-decoration: underline;
+        text-underline-offset: 4px;
         font-weight: 600;
         margin-top: 20px;
-        border-bottom: 1px solid transparent;
-        transition: border-color .2s ease;
+        transition: color .2s ease;
       }
       .text-link:hover {
-        border-color: #C6A66B;
+        color: #D8BB86;
       }
 
       .hero {
@@ -270,16 +258,15 @@
       }
       .other a:hover { border-color: #C6A66B; }
       .other strong { color: #FFFFFF; font-size: 1.05rem; }
-      .other span { color: #C6A66B; font-size: .88rem; }
+      .other span { color: #C6A66B; font-size: .88rem; text-decoration: underline; text-underline-offset: 3px; }
       
-      /* Footer estructurado */
       footer { border-top: 1px solid rgba(198,166,107,.18); padding: 30px 0; color: #E8E6E1; font-size: .88rem; }
       footer .wrap { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; flex-wrap: wrap; }
       footer .footer-brand { color: #FFFFFF; white-space: nowrap; }
       footer .footer-links { text-align: right; display: flex; flex-direction: column; gap: 6px; margin-left: auto; }
       footer .footer-row { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px 14px; align-items: center; }
-      footer a { color: #C6A66B; text-decoration: none; }
-      footer a:hover { text-decoration: underline; }
+      footer a { color: #C6A66B; text-decoration: underline; text-underline-offset: 3px; }
+      footer a:hover { color: #D8BB86; }
 
       @media(max-width: 900px) {
         footer .footer-links { text-align: left; justify-content: flex-start; margin-left: 0; width: 100%; }
@@ -324,7 +311,6 @@
         }
         .navlinks.active { display: flex; }
 
-        /* Unificación total de tipografía, tamaño, grosor y centrado en móvil */
         .navlinks > a, 
         .navlinks .dropdown-toggle {
           display: block;
@@ -337,13 +323,12 @@
           padding: 4px 0;
         }
 
-        /* Contenedor dropdown perfectamente centrado y cerrado por defecto en móvil */
         .dropdown {
           display: flex;
           flex-direction: column;
           align-items: center;
           width: 100%;
-          height: auto;
+          height auto;
         }
         .dropdown::after { display: none; }
         .dropdown-toggle {
@@ -380,7 +365,6 @@
           background: transparent;
         }
 
-        /* Corrección de tamaño y color al hover del botón en móvil */
         .navlinks .btn,
         .navlinks .btn:link,
         .navlinks .btn:visited { 
@@ -411,7 +395,7 @@
       #cookie-panel[hidden], #cookie-options[hidden] { display: none !important; }
       #cookie-panel strong { display: block; font: 21px Georgia, serif; margin-bottom: 7px; color: #FFFFFF; }
       #cookie-panel p { margin: 0 0 13px; color: #E8E6E1; }
-      #cookie-panel a { color: #C6A66B; }
+      #cookie-panel a { color: #C6A66B; text-decoration: underline; text-underline-offset: 3px; }
       #cookie-panel .cookie-actions { display: flex; flex-wrap: wrap; gap: 9px; }
       #cookie-panel button, .cookie-manage { cursor: pointer; border-radius: 5px; padding: 9px 14px; border: 1px solid rgba(198,166,107,.32); background: #1A1A18; color: #FFFFFF; font: inherit; }
       #cookie-panel button.cookie-primary { background: #C6A66B; color: #10100F; border-color: #C6A66B; font-weight: 700; }
@@ -420,12 +404,11 @@
       @media(max-width: 580px) { #cookie-panel { bottom: 8px; left: 8px; right: 8px; padding: 15px; } }
     </style>
 
-    <!-- 1. Google Tag Manager / Modo de Consentimiento Corregido -->
+    <!-- Google Tag Manager / Modo de Consentimiento -->
     <script id="soteira-gtm-bootstrap">
       window.dataLayer = window.dataLayer || [];
       window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
       
-      // Configuración inicial por defecto (denegado)
       window.gtag('consent', 'default', { 
           analytics_storage: 'denied', 
           ad_storage: 'denied', 
@@ -434,7 +417,6 @@
           wait_for_update: 500 
       });
 
-      // Conexión automática con tu banner de cookies actual (soteira_cookie_choice_v1)
       try { 
           if (localStorage.getItem('soteira_cookie_choice_v1') === 'yes') {
               window.gtag('consent', 'update', { 
@@ -461,90 +443,23 @@
       "@graph": [
         {
           "@type": "WebPage",
-          "name": "Consultas espirituales y canalización | Soteira & Sons",
+          "name": "Consultas espirituales, canalización y mediumnidad | Soteira & Sons",
           "url": "https://casasoteira.com/consultas-espirituales/",
-          "description": "Consultas espirituales privadas y canalización para conversar sobre experiencias, dudas y símbolos desde una perspectiva personal.",
+          "description": "Consultas espirituales privadas, videncia y canalización con Carmen, Suma Sacerdotisa con más de 30 años de experiencia.",
           "inLanguage": "es-MX",
           "isPartOf": {"@type": "WebSite", "name": "Soteira & Sons", "url": "https://casasoteira.com/"}
         },
         {
           "@type": "Service",
-          "name": "Consultas espirituales",
-          "serviceType": "Consultas espirituales y canalización",
+          "name": "Consultas espirituales y canalización",
+          "serviceType": "Consultas espirituales, videncia y mediumnidad",
           "provider": {"@type": "Organization", "name": "Soteira & Sons", "url": "https://casasoteira.com/"},
           "url": "https://casasoteira.com/consultas-espirituales/",
-          "description": "Una consulta espiritual es una conversación personal para explorar preguntas, vivencias y símbolos desde una perspectiva espiritual."
+          "description": "Sesiones de canalización espiritual directa y mediumnidad guiadas por Carmen para orientación, mensajes y conexión simbólica."
         }
       ]
     }
     </script>
-
-<style id="soteira-home-button-system">
-/* Sistema de botones unificado: mismo comportamiento que el HOME */
-.btn:not(.ghost) {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-  background: var(--gold, #C6A66B) !important;
-  color: #10100F !important;
-  border: 1px solid var(--gold, #C6A66B) !important;
-  border-radius: 4px !important;
-  padding: 9px 18px !important;
-  text-decoration: none !important;
-  font-weight: 700 !important;
-  cursor: pointer !important;
-  transition: transform .2s ease, background .2s ease, border-color .2s ease !important;
-  line-height: 1.2 !important;
-  box-sizing: border-box;
-}
-.btn:not(.ghost):hover,
-.btn:not(.ghost):focus-visible {
-  transform: translateY(-2px) !important;
-  background: var(--gold-hover, #D8BB86) !important;
-  border-color: var(--gold-hover, #D8BB86) !important;
-  color: #10100F !important;
-}
-.btn.ghost,
-.ghost.btn {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-  background: transparent !important;
-  color: var(--gold, #C6A66B) !important;
-  border: 1px solid rgba(198, 166, 107, .4) !important;
-  border-radius: 4px !important;
-  padding: 9px 18px !important;
-  text-decoration: none !important;
-  font-weight: 700 !important;
-  cursor: pointer !important;
-  transition: transform .2s ease, background .2s ease, border-color .2s ease !important;
-  line-height: 1.2 !important;
-  box-sizing: border-box;
-}
-.btn.ghost:hover,
-.btn.ghost:focus-visible,
-.ghost.btn:hover,
-.ghost.btn:focus-visible {
-  transform: translateY(-2px) !important;
-  background: rgba(198, 166, 107, .07) !important;
-  border-color: var(--gold, #C6A66B) !important;
-  color: var(--gold, #C6A66B) !important;
-}
-/* El botón de contacto del menú conserva siempre el estilo dorado relleno */
-.navlinks .btn:not(.ghost),
-.navlinks .btn:not(.ghost):link,
-.navlinks .btn:not(.ghost):visited,
-.navlinks .btn:not(.ghost):hover,
-.navlinks .btn:not(.ghost):focus,
-.navlinks .btn:not(.ghost):active {
-  color: #10100F !important;
-  text-shadow: none !important;
-  text-decoration: none !important;
-}
-</style>
-
 </head>
 <body>
     <header>
@@ -555,7 +470,6 @@
             <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
             <div class="navlinks" id="navlinks">
                 <a href="../index.html">Inicio</a>
-                <!-- Menú desplegable integrado con estética uniforme -->
                 <div class="dropdown" id="experiences-dropdown">
                     <a href="../index.html#experiencias" class="dropdown-toggle" id="dropdown-toggle-btn">Experiencias ▾</a>
                     <div class="dropdown-menu">
@@ -575,38 +489,40 @@
         <!-- BLOQUE 1: HERO -->
         <section class="hero">
             <div class="wrap">
-                <div class="eyebrow">SOTEIRA &amp; SONS · CONSULTA ESPIRITUAL</div>
+                <div class="eyebrow">SOTEIRA &amp; SONS · MEDIUMNIDAD, VIDENCIA Y CANALIZACIÓN</div>
                 <h1>Hay cosas que sientes, pero no sabes cómo explicar.</h1>
-                <p>Un sueño que se repite. Una coincidencia que te intriga. O alguien que ya no está en este plano y con quien quedaron palabras pendientes. Hay vínculos que siguen despertando preguntas.</p>
+                <p>Un espacio privado de canalización espiritual y mediumnidad guiado por Carmen. Ya sea para comprender vivencias que no alcanzas a descifrar, escuchar mensajes del otro lado o encontrar claridad en momentos de cambio, te acompañamos desde la honestidad y el respeto absoluto.</p>
                 <div class="actions">
-                    <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20Consulta%20Espiritual." data-service="Consulta Espiritual" target="_blank" rel="noopener noreferrer">Quiero hablar de lo que me inquieta</a>
+                    <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20la%20Consulta%20Espiritual%20con%20Carmen." data-service="Consulta Espiritual" target="_blank" rel="noopener noreferrer">Quiero hablar de lo que me inquieta</a>
                     <a class="btn ghost" href="#experiencia">Conocer la experiencia</a>
                 </div>
-                <span class="hero-note">Sesión en línea o telefónica · Presencial en CDMX · Canalización y guía</span>
+                <span class="hero-note">Atención privada por Carmen · Sesión en línea / telefónica · Presencial en CDMX</span>
             </div>
         </section>
 
-        <!-- BLOQUE 2: ENFOQUE Y EXPERIENCIA -->
+        <!-- BLOQUE 2: AUTORIDAD Y EXPERIENCIA DE CARMEN -->
         <section id="experiencia" class="section">
             <div class="wrap grid">
                 <div>
-                    <div class="eyebrow">Conoce la experiencia</div>
-                    <h2>La voz del otro lado con el rigor y el respeto que merece.</h2>
-                    <p>En las consultas espirituales y de mediumnidad que realiza Carmen abrimos un espacio íntimo de escucha profunda. Ya sea para comprender un sueño recurrente, descifrar vivencias extrañas o buscar orientación ante encrucijadas de vida, trabajamos desde el respeto absoluto a los planos sutiles.</p>
-                    <p>Trabajar con el otro lado requiere honestidad: cuando se busca el contacto con un ser querido fallecido, los espíritus no siempre están disponibles, dispuestos o en condiciones de comunicarse en ese instante. No vendemos certezas fabricadas; ofrecemos un espacio real de canalización, lectura oracular y guía espiritual seria.</p>
-                    <div>
-                        <a class="text-link" href="#faq">Ver las preguntas frecuentes →</a>
-                    </div>
+                    <div class="eyebrow">Quién te acompaña</div>
+                    <h2>Más de 30 años caminando entre la tradición y el respeto al otro lado.</h2>
+                    <p>Las consultas de canalización, videncia y mediumnidad en Soteira & Sons son realizadas exclusivamente por <em style="color: var(--gold); font-style: normal; font-weight: 700;">Carmen</em>, Suma Sacerdotisa con más de tres décadas de experiencia en el trabajo con los planos sutiles.</p>
+                    <p>Su práctica se aleja de la adivinación comercial y las respuestas preconcebidas. Se trata de una escucha profunda y rigurosa para interpretar símbolos, sueños recurrentes, presencias o encrucijadas personales.</p>
+                    <p>Trabajar con el otro lado exige ética: en el caso de la mediumnidad con personas fallecidas, reconocemos que las entidades tienen sus propios tiempos. No prometemos efectos ni contactos forzados; te ofrecemos una canalización honesta, cuidada y libre de juicios.</p>
+                    
+                    <a class="text-link" href="#faq">Ver las preguntas frecuentes →</a>
                 </div>
+                
                 <div class="panel">
-                    <h3>Detalles de la sesión</h3>
+                    <h3>Detalles de la consulta</h3>
                     <ul>
-                        <li><strong>Duración:</strong> De 45 minutos a 1 hora de conversación y canalización íntima.</li>
-                        <li><strong>Modalidades disponibles:</strong> Sesión telefónica o en línea para cualquier lugar; opción presencial disponible exclusivamente en Ciudad de México.</li>
-                        <li><strong>Enfoque honesto:</strong> Exploramos tus preguntas y vivencias con absoluta confidencialidad y respeto.</li>
+                        <li><strong>Atención directa:</strong> Sesión 1 a 1 guiada personalmente por Carmen.</li>
+                        <li><strong>Duración:</strong> De 45 minutos a 1 hora de conversación íntima.</li>
+                        <li><strong>Modalidades:</strong> Sesión por llamada o videollamada para cualquier país; opción presencial disponible en Ciudad de México.</li>
+                        <li><strong>Confidencialidad:</strong> Un espacio seguro donde abordar vivencias complejas con total respeto.</li>
                     </ul>
                     <p class="price" id="consultation-price">75 €</p>
-                    <p class="panel-note">Consulta disponibilidad y agenda tu espacio por mensaje.</p>
+                    <p class="panel-note">Consulta disponibilidad de agenda por mensaje antes de reservar.</p>
                     <a class="btn" style="width: 100%; margin-top: 10px;" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20solicitar%20informaci%C3%B3n%20sobre%20la%20Consulta%20Espiritual." data-service="Consulta Espiritual" target="_blank" rel="noopener noreferrer">Solicitar información de la consulta</a>
                 </div>
             </div>
@@ -615,38 +531,38 @@
         <!-- BLOQUE 3: PREGUNTAS FRECUENTES -->
         <section id="faq" class="section faq">
             <div class="wrap">
-                <div class="eyebrow">Dudas habituales</div>
-                <h2>Preguntas frecuentes</h2>
+                <div class="eyebrow">Lo que debes saber</div>
+                <h2>Preguntas frecuentes sobre la sesión</h2>
                 
                 <details>
-                    <summary>¿En la consulta se tiene que contactar obligatoriamente a una persona fallecida?</summary>
-                    <p>No. La sesión no se limita a la mediumnidad. Muchas consultas se abordan desde una perspectiva oracular: interpretando símbolos, mensajes de los guías o información clave que necesitas comprender en tu vida actual sin requerir el contacto con una entidad o persona fallecida.</p>
+                    <summary>¿Qué diferencia hay entre una lectura de tarot y esta consulta?</summary>
+                    <p>Mientras que el tarot utiliza las cartas como espejo simbólico, esta consulta con Carmen se centra en la canalización directa, la interpretación de señales o sueños, la videncia y la apertura de espacio para la mediumnidad si la situación lo requiere.</p>
                 </details>
 
                 <details>
-                    <summary>¿Es posible buscar el contacto con alguien que ya falleció?</summary>
-                    <p>Sí, se puede abrir el espacio para intentarlo. Sin embargo, actuamos con total transparencia: los espíritus tienen sus propios tiempos y libre albedrío, por lo que no siempre están disponibles, dispuestos o en condiciones de comunicarse en el momento de la sesión.</p>
+                    <summary>¿Es seguro buscar el contacto con alguien que ya falleció?</summary>
+                    <p>Sí. Carmen trabaja bajo los principios y protecciones de la alta tradición espiritual, garantizando un entorno seguro y protegido. No obstante, actuamos con total transparencia: los espíritus tienen libre albedrío y solo se comunican si están dispuestos y en condiciones de hacerlo.</p>
                 </details>
 
                 <details>
-                    <summary>¿La sesión es en línea o presencial?</summary>
-                    <p>Ofrecemos sesiones a distancia (por llamada o en línea) con total efectividad para consultantes en cualquier parte del mundo. Si te encuentras en la Ciudad de México, también existe la opción de coordinar la sesión de forma presencial.</p>
+                    <summary>¿Necesito preparar algo o tener experiencia previa?</summary>
+                    <p>No necesitas experiencia alguna ni traer una lista de preguntas rígida. Puedes llegar simplemente con la corazonada o inquietud que estés viviendo; Carmen irá guiando la conversación con naturalidad.</p>
                 </details>
 
                 <details>
-                    <summary>¿Tengo que contar algo muy personal antes de la sesión?</summary>
-                    <p>No estás obligado a revelar más de lo que desees. Tú decides hasta dónde profundizar en un entorno de absoluta confianza y respeto.</p>
+                    <summary>¿Cómo funcionan las sesiones en línea o por teléfono?</summary>
+                    <p>La distancia física no interfiere en la canalización espiritual. Las sesiones por videollamada o teléfono tienen exactamente la misma claridad y profundidad que las presenciales.</p>
                 </details>
 
-                <details>
-                    <summary>¿Es una terapia o atención médica?</summary>
-                    <p>No. Es una experiencia espiritual y de canalización simbólica que en ningún caso sustituye la atención psicológica, médica o profesional.</p>
-                </details>
+                <div class="actions" style="margin-top: 35px;">
+                    <a class="btn ghost" href="#otras-experiencias">Explorar otros servicios</a>
+                    <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20tengo%20una%20duda%20sobre%20la%20consulta%20espiritual%20con%20Carmen." data-service="Consulta Espiritual - FAQ" target="_blank" rel="noopener noreferrer">Resolver mis dudas por mensaje</a>
+                </div>
             </div>
         </section>
 
-        <!-- OTRAS EXPERIENCIAS -->
-        <section class="section">
+        <!-- BLOQUE 4: OTRAS EXPERIENCIAS -->
+        <section id="otras-experiencias" class="section">
             <div class="wrap">
                 <h2>Explora otras experiencias</h2>
                 <div class="other">
@@ -691,23 +607,20 @@
 
     <!-- Scripts del Sitio -->
     <script>
-        // Menú hamburguesa
         document.getElementById('menu-toggle').addEventListener('click', () => {
             document.getElementById('navlinks').classList.toggle('active');
         });
 
-        // Control inteligente del desplegable en móviles:
         const dropdownContainer = document.getElementById('experiences-dropdown');
         const dropdownToggleBtn = document.getElementById('dropdown-toggle-btn');
         
         dropdownToggleBtn.addEventListener('click', (e) => {
             if (window.innerWidth <= 480) {
-                e.preventDefault(); // Bloquea redirección en móvil
-                dropdownContainer.classList.toggle('active'); // Alterna abierto / cerrado limpiamente
+                e.preventDefault();
+                dropdownContainer.classList.toggle('active');
             }
         });
 
-        // Cerrar menú al hacer clic en cualquier enlace del menú
         document.querySelectorAll('.navlinks a:not(.dropdown-toggle)').forEach(link => {
             link.addEventListener('click', () => {
                 document.getElementById('navlinks').classList.remove('active');
@@ -750,24 +663,19 @@
             });
         })();
     </script>
+
     <script id="soteira-regional-pricing">
         (function () {
             'use strict';
-
             var priceElement = document.getElementById('consultation-price');
             if (!priceElement) return;
 
-            // El precio predeterminado siempre es 75 €. Solo cambiaremos a MXN
-            // si la geolocalización confirma que la conexión procede de América,
-            // excluyendo expresamente Estados Unidos y Canadá.
             var EURO_PRICE = '75 €';
             var MXN_PRICE = '$1,200 MXN';
             priceElement.textContent = EURO_PRICE;
 
             var controller = new AbortController();
-            var timeout = setTimeout(function () {
-                controller.abort();
-            }, 5000);
+            var timeout = setTimeout(function () { controller.abort(); }, 5000);
 
             fetch('https://ipwho.is/', {
                 method: 'GET',
@@ -781,21 +689,14 @@
             })
             .then(function (location) {
                 if (!location || location.success !== true) return;
-
                 var countryCode = String(location.country_code || '').toUpperCase();
                 var continentCode = String(location.continent_code || '').toUpperCase();
-
-                // América del Norte (incluidos Centroamérica y el Caribe) o
-                // América del Sur. Estados Unidos y Canadá conservan el precio en euros.
                 var isInTheAmericas = continentCode === 'NA' || continentCode === 'SA';
                 var isExcludedCountry = countryCode === 'US' || countryCode === 'CA';
 
-                priceElement.textContent = isInTheAmericas && !isExcludedCountry
-                    ? MXN_PRICE
-                    : EURO_PRICE;
+                priceElement.textContent = isInTheAmericas && !isExcludedCountry ? MXN_PRICE : EURO_PRICE;
             })
             .catch(function () {
-                // Si falla la detección, se conserva el precio predeterminado en euros.
                 priceElement.textContent = EURO_PRICE;
             })
             .finally(function () {
