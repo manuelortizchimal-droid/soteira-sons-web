@@ -18,14 +18,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#080808">
   
-  <!-- Título SEO optimizado (62 caracteres para no cortarse en Google) -->
+  <!-- Título SEO optimizado -->
   <title>Soteira &amp; Sons | Casa Ritual, Tarot y Consultas Espirituales</title>
   
-  <!-- Meta Descripción SEO (Atractiva para el clic) -->  
+  <!-- Meta Descripción SEO -->  
   <meta name="description" content="Casa ritual de atención cercana. Lecturas de tarot, consultas espirituales, videncia y rituales a medida. Descubre tus respuestas y escríbenos hoy.">
   <link rel="canonical" href="https://casasoteira.com/">
 
-  <!-- Open Graph (WhatsApp, Facebook, Instagram) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_MX">
   <meta property="og:site_name" content="Soteira &amp; Sons">
@@ -39,7 +39,7 @@
   <meta name="twitter:title" content="Soteira &amp; Sons | Casa Ritual, Tarot y Consultas Espirituales">
   <meta name="twitter:description" content="Casa ritual de atención cercana. Lecturas de tarot, consultas espirituales, videncia y rituales a medida.">
 
-  <!-- Estilos Unificados y Optimizados -->
+  <!-- Estilos -->
   <style>
     :root {
       color-scheme: dark;
@@ -103,74 +103,26 @@
     .navlinks a:hover, 
     .navlinks .dropdown-toggle:hover { color: var(--gold); text-decoration: none; }
 
-    /* Estilos del Dropdown Escritorio con Puente Continuo */
-    .dropdown {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      height: 100%;
-    }
-    .dropdown-toggle {
-      gap: 4px;
-      cursor: pointer;
-      padding: 10px 0;
-    }
+    /* Dropdown */
+    .dropdown { position: relative; display: inline-flex; align-items: center; height: 100%; }
+    .dropdown-toggle { gap: 4px; cursor: pointer; padding: 10px 0; }
     .dropdown-menu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: rgba(12, 12, 11, 0.98);
-      border-left: 2px solid var(--gold);
-      min-width: 210px;
-      max-width: 250px;
-      padding: 8px 0;
-      margin-top: 0;
-      z-index: 110;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      display: none; position: absolute; top: 100%; left: 0;
+      background: rgba(12, 12, 11, 0.98); border-left: 2px solid var(--gold);
+      min-width: 210px; max-width: 250px; padding: 8px 0; margin-top: 0;
+      z-index: 110; box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     }
-    .dropdown::after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      height: 12px;
-      display: block;
-    }
-    .dropdown-menu a {
-      display: block;
-      padding: 8px 16px;
-      font-size: 0.86rem;
-      color: var(--muted);
-      text-decoration: none;
-      white-space: nowrap;
-    }
-    .dropdown-menu a:hover {
-      color: var(--gold);
-      background: rgba(198, 166, 107, 0.05);
-      text-decoration: none;
-    }
-    .dropdown:hover .dropdown-menu {
-      display: block;
-    }
+    .dropdown::after { content: ""; position: absolute; top: 100%; left: 0; width: 100%; height: 12px; display: block; }
+    .dropdown-menu a { display: block; padding: 8px 16px; font-size: 0.86rem; color: var(--muted); text-decoration: none; white-space: nowrap; }
+    .dropdown-menu a:hover { color: var(--gold); background: rgba(198, 166, 107, 0.05); text-decoration: none; }
+    .dropdown:hover .dropdown-menu { display: block; }
     
-    /* Botón alineado en altura con el texto */
+    /* Botones */
     .btn { 
-      display: inline-flex; 
-      align-items: center; 
-      justify-content: center; 
-      text-align: center; 
-      background: var(--gold); 
-      color: #10100F; 
-      border: 1px solid var(--gold); 
-      border-radius: 4px; 
-      padding: 9px 18px; 
-      text-decoration: none; 
-      font-weight: 700; 
-      cursor: pointer; 
-      transition: transform .2s, background .2s; 
-      line-height: 1.2;
+      display: inline-flex; align-items: center; justify-content: center; text-align: center; 
+      background: var(--gold); color: #10100F; border: 1px solid var(--gold); 
+      border-radius: 4px; padding: 9px 18px; text-decoration: none; 
+      font-weight: 700; cursor: pointer; transition: transform .2s, background .2s; line-height: 1.2;
     }
     .btn:hover { transform: translateY(-2px); background: var(--gold-hover); }
     .navlinks .btn, .navlinks .btn:link, .navlinks .btn:visited { color: #10100F; background: var(--gold); border-color: var(--gold); text-shadow: none; text-decoration: none; }
@@ -180,15 +132,12 @@
 
     .menu-toggle { display: none; background: #111110; border: 1px solid rgba(198, 166, 107, .24); color: var(--gold); font-size: 1.4rem; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
     
-    /* Modificación SEO: .eyebrow mantiene estética pero puede usarse en H1/H2 */
+    /* Tipografía SEO adaptada */
     .eyebrow { text-transform: uppercase; letter-spacing: .22em; font-size: .75rem; color: var(--gold); font-weight: 700; margin: 0 0 12px 0; display: block; font-family: system-ui, -apple-system, sans-serif; line-height: 1.4; }
-    
-    /* Las etiquetas de diseño poético se comportan visualmente como h1 y h2 */
     .title-h1, .title-h2, h3 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; line-height: 1.13; word-break: break-word; color: var(--text); }
     .title-h1 { font-size: clamp(2.2rem, 6vw, 5.4rem); margin: 18px 0; }
     .title-h2 { font-size: clamp(1.8rem, 4vw, 3.5rem); margin: 14px 0 20px; }
     h3 { font-size: clamp(1.3rem, 2.1vw, 1.9rem); margin: 12px 0; }
-    
     em { color: var(--gold); font-style: italic; }
     p { color: var(--muted); word-break: break-word; }
 
@@ -203,7 +152,6 @@
     /* Secciones Generales */
     .section { padding: 80px 0; border-color: rgba(198, 166, 107, .10); }
     .section-head { max-width: 690px; margin-bottom: 42px; }
-    
     .services { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
     .review-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
     
@@ -226,15 +174,56 @@
     .service-body p { flex: 1; }
     .service-price { margin: 12px 0 16px; font-size: 1rem; font-weight: 600; letter-spacing: .02em; color: var(--gold); }
 
-    /* Oráculo */
+    /* Oráculo Soteira - Diseño Mejorado */
     .oraculo { background: radial-gradient(ellipse at 50% 30%, #151512 0%, #0C0C0B 48%, #080808 78%); text-align: center; border-block: 1px solid rgba(198, 166, 107, .14); }
-    .oracle-box { width: min(640px, 100%); margin: 35px auto 0; border: 1px solid rgba(198, 166, 107, .20); padding: 35px 20px; background: rgba(8, 8, 8, .82); min-height: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 12px 32px rgba(0,0,0,.20); }
-    .oracle-mark { font-size: 2.4rem; color: var(--gold); line-height: 1; }
-    .oracle-message { font: italic clamp(1.2rem, 3vw, 2rem)/1.45 Georgia, serif; color: #FFFFFF; margin: 20px 0; }
-    .oracle-actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-    .oracle-followup { font-family: Georgia, serif; color: var(--gold); font-size: 1.14rem; margin: 22px 0 0; }
+    .oracle-box { width: min(720px, 100%); margin: 40px auto 0; border: 1px solid rgba(198, 166, 107, .20); padding: 50px 30px; background: rgba(8, 8, 8, .85); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 15px 40px rgba(0,0,0,.40); position: relative; overflow: hidden; }
     
-    /* Testimonios */
+    /* Cartas Dinámicas del Oráculo */
+    .oracle-cards-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; width: 100%; transition: opacity 0.5s ease; }
+    .tarot-card-btn {
+      width: 105px; height: 165px;
+      background: linear-gradient(150deg, #171715 0%, #080808 100%);
+      border: 1px solid rgba(198, 166, 107, 0.4);
+      border-radius: 6px;
+      color: var(--gold);
+      font-size: 1.8rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      position: relative;
+    }
+    .tarot-card-btn::before {
+      content: ''; position: absolute; inset: 4px; border: 1px dashed rgba(198, 166, 107, 0.2); border-radius: 3px; pointer-events: none;
+    }
+    .tarot-card-btn:hover {
+      transform: translateY(-12px) scale(1.02);
+      border-color: var(--gold);
+      box-shadow: 0 15px 35px rgba(198, 166, 107, 0.15);
+    }
+    .tarot-card-btn.selected {
+      transform: translateY(-20px) scale(1.05) rotateY(90deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Contenedor de Resultado */
+    .oracle-result-container {
+      width: 100%; text-align: center;
+      animation: mysticFadeIn 0.8s ease forwards;
+    }
+    @keyframes mysticFadeIn {
+      0% { opacity: 0; transform: scale(0.95) translateY(10px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .oracle-arcana-name { font-family: Georgia, serif; font-size: 1.15rem; letter-spacing: 0.25em; color: var(--gold); text-transform: uppercase; margin-bottom: 22px; display: flex; align-items: center; justify-content: center; gap: 15px; }
+    .oracle-arcana-name::before, .oracle-arcana-name::after { content: '✧'; font-size: 0.8rem; opacity: 0.5; }
+    .oracle-eco { font: italic clamp(1.2rem, 3vw, 1.8rem)/1.45 Georgia, serif; color: #FFFFFF; margin: 0 0 25px 0; }
+    .oracle-sombra { color: var(--muted); font-size: 1.05rem; max-width: 580px; margin: 0 auto 20px auto; font-family: system-ui, sans-serif; }
+    .oracle-hilo { color: #8A8882; font-size: 0.9rem; max-width: 540px; margin: 0 auto 35px auto; }
+    .oracle-actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    
+    /* Testimonios y Contacto */
     .testimonials { background: radial-gradient(ellipse at 50% 0%, #141412 0%, #0C0C0B 56%, #080808 82%); border-top: 1px solid rgba(198, 166, 107, .14); }
     .testimonials .section-head { margin-bottom: 24px; }
     .review { padding: 27px 25px; border: 1px solid rgba(198, 166, 107, .20); background: rgba(17, 17, 16, .92); display: flex; flex-direction: column; min-height: 235px; box-shadow: 0 12px 32px rgba(0,0,0,.20); }
@@ -243,12 +232,10 @@
     .review-avatar { display: grid; place-items: center; flex-shrink: 0; width: 39px; height: 39px; border-radius: 50%; background: #1A1A18; color: var(--gold-hover); font: 1rem Georgia, serif; }
     .review-person strong { display: block; font-size: .88rem; color: var(--muted); }
     .review-person small { display: block; color: var(--muted); font-size: .77rem; }
-    .review[hidden] { display: none !important; }
-    .review-toggle { margin-top: 23px; }
-
+    
     .whatsapp-options { display: grid; gap: 12px; margin: 24px 0; }
     .whatsapp-options .btn { width: 100%; }
-    .whatsapp-other { color: var(--gold); text-align: center; padding: 8px; text-underline-offset: 4px; }
+    .whatsapp-other { color: var(--gold); text-align: center; padding: 8px; text-underline-offset: 4px; display: block;}
     
     .faq, details, footer, .catalogue-hint { border-color: rgba(198, 166, 107, .14); }
     .faq { border-top: 1px solid rgba(198, 166, 107, .14); }
@@ -267,135 +254,31 @@
     .catalogue-hint a { color: var(--gold); text-underline-offset: 4px; font-weight: 600; }
     .catalogue-hint small { display: block; color: var(--muted); margin-top: 9px; }
 
-    /* BANNER NOCTURNO ADAPTATIVO */
-    #banner-nocturno-movil {
-      display: none;
-      z-index: 99999;
-      box-sizing: border-box;
-      font-family: inherit;
-    }
-
-    /* ESTILO ESCRITORIO / TABLET: Tarjeta rectangular flotante en la esquina inferior derecha */
+    /* BANNER NOCTURNO ADAPTATIVO (Mantenido intacto) */
+    #banner-nocturno-movil { display: none; z-index: 99999; box-sizing: border-box; font-family: inherit; }
     @media (min-width: 769px) {
-      #banner-nocturno-movil {
-        position: fixed;
-        bottom: 24px;
-        right: 24px;
-        width: 360px;
-        background: linear-gradient(145deg, #171715 0%, #111110 60%, #0C0C0B 100%);
-        color: #FFFFFF;
-        padding: 24px;
-        border: 1px solid rgba(198, 166, 107, 0.35);
-        border-radius: 8px;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.85);
-        display: none;
-        flex-direction: column;
-        gap: 14px;
-      }
+      #banner-nocturno-movil { position: fixed; bottom: 24px; right: 24px; width: 360px; background: linear-gradient(145deg, #171715 0%, #111110 60%, #0C0C0B 100%); color: #FFFFFF; padding: 24px; border: 1px solid rgba(198, 166, 107, 0.35); border-radius: 8px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.85); display: none; flex-direction: column; gap: 14px; }
       #banner-nocturno-movil .banner-eyebrow { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--gold); font-weight: 700; padding-right: 24px; }
       #banner-nocturno-movil .banner-titulo { font-family: Georgia, "Times New Roman", serif; font-size: 1.25rem; line-height: 1.25; color: #FFFFFF; margin: 0; font-weight: 400; padding-right: 24px; }
       #banner-nocturno-movil .banner-titulo em { color: var(--gold); font-style: italic; }
       #banner-nocturno-movil .banner-descripcion { font-size: 0.9rem; line-height: 1.5; color: var(--muted); margin: 0; }
       #banner-nocturno-movil .banner-acciones { display: flex; flex-direction: column; gap: 10px; width: 100%; margin-top: 4px; }
-      #banner-nocturno-movil .btn-info-nocturno {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        background: var(--gold);
-        color: #10100F;
-        border: 1px solid var(--gold);
-        border-radius: 4px;
-        text-decoration: none;
-        font-size: 0.85rem;
-        font-weight: 700;
-        text-align: center;
-        padding: 11px 16px;
-        box-sizing: border-box;
-        transition: background .18s ease, transform .18s ease;
-      }
+      #banner-nocturno-movil .btn-info-nocturno { display: inline-flex; align-items: center; justify-content: center; width: 100%; background: var(--gold); color: #10100F; border: 1px solid var(--gold); border-radius: 4px; text-decoration: none; font-size: 0.85rem; font-weight: 700; text-align: center; padding: 11px 16px; box-sizing: border-box; transition: background .18s ease, transform .18s ease; }
       #banner-nocturno-movil .btn-info-nocturno:hover { background: var(--gold-hover); transform: translateY(-1px); }
       #banner-nocturno-movil .btn-llamar-nocturno { display: none !important; }
       #banner-nocturno-movil .cerrar-banner { position: absolute; right: 14px; top: 12px; background: transparent; border: none; color: var(--muted); font-size: 22px; cursor: pointer; line-height: 1; padding: 4px; }
       #banner-nocturno-movil .cerrar-banner:hover { color: var(--gold); }
     }
-
-    /* ESTILO MÓVIL: Banner superior flotante más compacto que NO desplaza la página */
     @media (max-width: 768px) {
-      #banner-nocturno-movil {
-        position: fixed;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        max-width: 100vw;
-        background: rgba(17, 17, 16, 0.97);
-        backdrop-filter: blur(12px);
-        color: #FFFFFF;
-        padding: 10px 14px;
-        border-bottom: 1px solid var(--gold);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
-        display: none;
-        flex-direction: column;
-        gap: 4px;
-      }
+      #banner-nocturno-movil { position: fixed; top: 60px; left: 0; width: 100%; max-width: 100vw; background: rgba(17, 17, 16, 0.97); backdrop-filter: blur(12px); color: #FFFFFF; padding: 10px 14px; border-bottom: 1px solid var(--gold); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8); display: none; flex-direction: column; gap: 4px; }
       #banner-nocturno-movil .banner-eyebrow { font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); font-weight: 700; padding-right: 20px; line-height: 1.2; }
       #banner-nocturno-movil .banner-titulo { font-family: Georgia, "Times New Roman", serif; font-size: 0.95rem; line-height: 1.2; color: #FFFFFF; margin: 1px 0; font-weight: 400; padding-right: 20px; }
       #banner-nocturno-movil .banner-titulo em { color: var(--gold); font-style: italic; }
-      #banner-nocturno-movil .banner-descripcion { font-size: 0.72rem; line-height: 1.3; color: var(--muted); margin: 0 0 4px 0; word-break: break-word; display: block; }
+      #banner-nocturno-movil .banner-descripcion { font-size: 0.72rem; line-height: 1.3; color: var(--muted); margin: 0 0 4px 0; display: block; }
       #banner-nocturno-movil .banner-acciones { display: flex; flex-direction: row; gap: 6px; width: 100%; align-items: center; }
-
-      #banner-nocturno-movil .btn-llamar-nocturno.activo {
-        flex: 1;
-        background: var(--gold);
-        color: #10100F;
-        border: 1px solid var(--gold);
-        border-radius: 3px;
-        text-decoration: none;
-        font-size: 0.72rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        text-align: center;
-        padding: 6px 8px;
-        box-sizing: border-box;
-        pointer-events: auto;
-        box-shadow: 0 2px 10px rgba(217, 180, 122, 0.25);
-      }
-
-      #banner-nocturno-movil .btn-llamar-nocturno.inactivo {
-        flex: 1;
-        background: #080808;
-        color: var(--gold);
-        border: 1px solid var(--gold);
-        border-radius: 3px;
-        text-decoration: none;
-        font-size: 0.72rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        text-align: center;
-        padding: 6px 8px;
-        box-sizing: border-box;
-        pointer-events: none;
-        opacity: 0.9;
-      }
-
-      #banner-nocturno-movil .btn-info-nocturno {
-        flex: 1;
-        background: transparent;
-        color: var(--muted);
-        padding: 6px 8px;
-        border: 1px solid rgba(198, 166, 107, 0.3);
-        border-radius: 3px;
-        text-decoration: none;
-        font-size: 0.72rem;
-        font-weight: 600;
-        text-align: center;
-        box-sizing: border-box;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-
+      #banner-nocturno-movil .btn-llamar-nocturno.activo { flex: 1; background: var(--gold); color: #10100F; border: 1px solid var(--gold); border-radius: 3px; text-decoration: none; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; text-align: center; padding: 6px 8px; box-sizing: border-box; pointer-events: auto; }
+      #banner-nocturno-movil .btn-llamar-nocturno.inactivo { flex: 1; background: #080808; color: var(--gold); border: 1px solid var(--gold); border-radius: 3px; text-decoration: none; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; text-align: center; padding: 6px 8px; box-sizing: border-box; pointer-events: none; opacity: 0.9; }
+      #banner-nocturno-movil .btn-info-nocturno { flex: 1; background: transparent; color: var(--muted); padding: 6px 8px; border: 1px solid rgba(198, 166, 107, 0.3); border-radius: 3px; text-decoration: none; font-size: 0.72rem; font-weight: 600; text-align: center; box-sizing: border-box; cursor: pointer; }
       #banner-nocturno-movil .btn-info-nocturno:hover { color: var(--gold); border-color: var(--gold); }
       #banner-nocturno-movil .cerrar-banner { position: absolute; right: 10px; top: 8px; background: transparent; border: none; color: var(--muted); font-size: 20px; cursor: pointer; line-height: 1; padding: 2px; }
       #banner-nocturno-movil .cerrar-banner:hover { color: var(--gold); }
@@ -418,208 +301,36 @@
       .navlinks a { font-size: 0.82rem; }
       .navlinks .btn { padding: 8px 14px; font-size: 0.8rem; }
       .hero-copy { padding: 60px 0; }
-      .hero:after {
-        background: linear-gradient(90deg, rgba(8,8,8,.78) 0%, rgba(8,8,8,.38) 100%), linear-gradient(180deg, rgba(8,8,8,.16) 0%, rgba(8,8,8,.28) 48%, #080808 100%);
-      }
+      .hero:after { background: linear-gradient(90deg, rgba(8,8,8,.78) 0%, rgba(8,8,8,.38) 100%), linear-gradient(180deg, rgba(8,8,8,.16) 0%, rgba(8,8,8,.28) 48%, #080808 100%); }
       .section { padding: 50px 0; }
       .services, .review-grid { grid-template-columns: 1fr !important; }
       .contact-grid { grid-template-columns: 1fr !important; gap: 35px; }
       .form { padding: 24px 18px; }
     }
-
     @media (max-width: 480px) {
       .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
-      .navlinks {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        width: 100vw;
-        margin-left: calc(-50vw + 50%);
-        background: rgba(17, 17, 16, .98);
-        backdrop-filter: blur(16px);
-        flex-direction: column;
-        padding: 24px 20px;
-        gap: 16px;
-        border-bottom: 1px solid var(--line);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.8);
-        text-align: center;
-        box-sizing: border-box;
-      }
+      .navlinks { display: none; position: absolute; top: 100%; left: 0; right: 0; width: 100vw; margin-left: calc(-50vw + 50%); background: rgba(17, 17, 16, .98); backdrop-filter: blur(16px); flex-direction: column; padding: 24px 20px; gap: 16px; border-bottom: 1px solid var(--line); box-shadow: 0 15px 30px rgba(0,0,0,0.8); text-align: center; box-sizing: border-box; }
       .navlinks.active { display: flex; }
-      
-      .navlinks > a, 
-      .navlinks .dropdown-toggle {
-        display: block;
-        width: 100%;
-        text-align: center;
-        font-size: 1rem;
-        font-weight: 400;
-        color: var(--muted);
-        text-decoration: none;
-        padding: 4px 0;
-      }
-
-      .dropdown {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        height: auto;
-      }
+      .navlinks > a, .navlinks .dropdown-toggle { display: block; width: 100%; text-align: center; font-size: 1rem; font-weight: 400; color: var(--muted); text-decoration: none; padding: 4px 0; }
+      .dropdown { display: flex; flex-direction: column; align-items: center; width: 100%; height: auto; }
       .dropdown::after { display: none; }
-      .dropdown-toggle {
-        justify-content: center;
-        padding: 4px 0;
-      }
-      .dropdown-menu {
-        position: static;
-        display: none !important;
-        border-left: none;
-        background: transparent;
-        margin-top: 8px;
-        padding: 0;
-        width: 100%;
-        text-align: center;
-        box-shadow: none;
-      }
-      .dropdown.active .dropdown-menu {
-        display: flex !important;
-        flex-direction: column;
-        gap: 12px;
-      }
-      .dropdown-menu a {
-        padding: 0;
-        font-size: 0.95rem;
-        font-weight: 400;
-        color: var(--gold);
-        text-decoration: none;
-        text-align: center;
-        display: block;
-        width: 100%;
-      }
-      .dropdown-menu a:hover {
-        background: transparent;
-      }
-
-      .navlinks .btn,
-      .navlinks .btn:link,
-      .navlinks .btn:visited { 
-        display: inline-flex;
-        width: auto; 
-        min-width: 200px;
-        max-width: 100%;
-        margin: 6px auto 0 auto;
-        justify-content: center; 
-        font-size: 0.95rem;
-        font-weight: 700;
-        color: #10100F !important;
-        background: var(--gold) !important;
-        border-color: var(--gold) !important;
-      }
-      .navlinks .btn:hover,
-      .navlinks .btn:focus,
-      .navlinks .btn:active { 
-        color: #10100F !important;
-        background: var(--gold-hover) !important;
-        border-color: var(--gold-hover) !important;
-      }
+      .dropdown-toggle { justify-content: center; padding: 4px 0; }
+      .dropdown-menu { position: static; display: none !important; border-left: none; background: transparent; margin-top: 8px; padding: 0; width: 100%; text-align: center; box-shadow: none; }
+      .dropdown.active .dropdown-menu { display: flex !important; flex-direction: column; gap: 12px; }
+      .dropdown-menu a { padding: 0; font-size: 0.95rem; font-weight: 400; color: var(--gold); text-decoration: none; text-align: center; display: block; width: 100%; }
+      .navlinks .btn, .navlinks .btn:link, .navlinks .btn:visited { display: inline-flex; width: auto; min-width: 200px; max-width: 100%; margin: 6px auto 0 auto; justify-content: center; font-size: 0.95rem; font-weight: 700; color: #10100F !important; background: var(--gold) !important; border-color: var(--gold) !important; }
+      .navlinks .btn:hover, .navlinks .btn:focus, .navlinks .btn:active { color: #10100F !important; background: var(--gold-hover) !important; border-color: var(--gold-hover) !important; }
     }
   </style>
 
-  <!-- Google Tag Manager / Modo de Consentimiento Corregido -->
+  <!-- Google Tag Manager Scripts -->
   <script id="soteira-gtm-bootstrap">
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
-    
-    window.gtag('consent', 'default', { 
-      analytics_storage: 'denied', 
-      ad_storage: 'denied', 
-      ad_user_data: 'denied', 
-      ad_personalization: 'denied', 
-      wait_for_update: 500 
-    });
-
-    try { 
-      if (localStorage.getItem('soteira_cookie_choice_v1') === 'yes') {
-        window.gtag('consent', 'update', { 
-          analytics_storage: 'granted', 
-          ad_storage: 'denied', 
-          ad_user_data: 'denied', 
-          ad_personalization: 'denied' 
-        }); 
-      } 
-    } catch(e) {}
-
+    window.gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', wait_for_update: 500 });
+    try { if (localStorage.getItem('soteira_cookie_choice_v1') === 'yes') { window.gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' }); } } catch(e) {}
     window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
-    (function() { 
-      var s = document.createElement('script'); 
-      s.async = true; 
-      s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N86DC88D'; 
-      document.head.appendChild(s); 
-    })();
-  </script>
-
-  <!-- Schema JSON-LD -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Soteira & Sons",
-      "url": "https://casasoteira.com/",
-      "logo": "https://casasoteira.com/favicon.svg",
-      "image": "https://images.pexels.com/photos/6178715/pexels-photo-6178715.jpeg",
-      "description": "Casa ritual especializada en lecturas de tarot telefónico y online, atención nocturna urgente sin cita previa, canalización espiritual con médium Carmen, rituales de intención y productos esotéricos.",
-      "email": "contacto@casasoteira.com",
-      "areaServed": [
-        { "@type": "AdministrativeArea", "name": "Mundial / Online" },
-        { "@type": "City", "name": "Santander" },
-        { "@type": "City", "name": "Ciudad de México" }
-      ],
-      "sameAs": [
-        { "@type": "WebSite", "name": "Instagram", "url": "https://www.instagram.com/casasoteira/" },
-        { "@type": "WebSite", "name": "Facebook", "url": "https://www.facebook.com/SoteiraSons" }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Catálogo Casa Ritual",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Lecturas de Tarot y Tarot Nocturno Urgente",
-              "description": "Consultas de tarot telefónico y online. Atención continua, videncia por teléfono y servicio de tarot nocturno sin cita previa."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Canalizaciones Espirituales y Mediumnidad",
-              "description": "Sesiones de canalización espiritual directa con la médium Carmen para orientación, mensajes y conexión simbólica."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Rituales Espirituales Personalizados",
-              "description": "Rituales de intención para protección, apertura de caminos y trabajo energético personal."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Tienda Esotérica y Productos Rituales",
-              "description": "Línea de productos artesanales: velas de intención, aceites esenciales, baños rituales y elementos espirituales."
-            }
-          }
-        ]
-      }
-    }
+    (function() { var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N86DC88D'; document.head.appendChild(s); })();
   </script>
 </head>
 <body>
@@ -639,7 +350,7 @@
           <a href="#experiencias" class="dropdown-toggle" id="dropdown-toggle-btn">Experiencias ▾</a>
           <div class="dropdown-menu">
             <a href="/tarot/">Tarot</a>
-            <a href="/rituales/">Rituales</a>
+            <a href="/rituales/">Rituales a medida</a>
             <a href="/consultas-espirituales/">Consultas espirituales</a>
             <a href="/linea-nocturna/">Línea Nocturna</a>
           </div>
@@ -650,17 +361,14 @@
     </nav>
   </header>
 
-  <!-- Main Content -->
   <main>
     <!-- Hero Section -->
     <section class="hero" id="inicio">
       <div class="wrap">
         <div class="hero-copy">
-          <!-- H1 Oculto a simple vista como "ceja", pero vital para Google -->
           <h1 class="eyebrow">Casa ritual · Tarot, rituales y consulta espiritual</h1>
-          <!-- Diseño poético visual idéntico al antiguo H1 -->
           <div class="title-h1">Hay cosas que no puedes explicar. <em>Y preguntas que no consigues olvidar.</em></div>
-          <p>Un espacio de atención cercana y confidencial donde Styxe y Carmen te acompañan a través del tarot, los rituales y la consulta espiritual para mirar de frente aquello que necesitas comprender o transformar.</p>
+          <p>Un espacio de atención cercana y confidencial donde Styxe y Carmen te acompañan a través del tarot, los rituales a medida y la consulta espiritual para mirar de frente aquello que necesitas comprender o transformar.</p>
           <div class="actions">
           <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20servicios%20que%20ofrecen" target="_blank" rel="noopener noreferrer">Habla con nosotros</a>
           <a class="btn ghost" href="#experiencias">Conoce nuestros servicios</a>
@@ -673,44 +381,47 @@
     <section class="section" id="experiencias">
       <div class="wrap">
         <div class="section-head">
-          <h2 class="eyebrow">Servicios de Tarot, Rituales a medida y Consulta espiritual</h2>
+          <h2 class="eyebrow">Servicios de Tarot, Rituales y Consultas Espirituales</h2>
           <div class="title-h2">¿Qué es eso que <em>hoy te mueve?</em></div>
           <p>Una lectura de cartas para mirar tus preguntas. Un ritual para dar intención a un cambio. O una canalización con Carmen en un espacio privado para hablar de lo que estás viviendo.</p>
         </div>
         <div class="services">
+          <!-- Tarot -->
           <article class="service" id="tarot">
-            <div class="visual tarot" role="img" aria-label="Cartas de tarot y velas en un ambiente oscuro"><span>01 · Los arcanos te hablan</span></div>
+            <div class="visual tarot" role="img" aria-label="Cartas de tarot y velas"><span>01 · Los arcanos te hablan</span></div>
             <div class="service-body">
               <div class="eyebrow">Tarot</div>
               <h3>Lecturas de tarot</h3>
               <p>Hay relaciones que te confunden, silencios que pesan y caminos que parecen cerrarse. Una lectura de tarot te invita a explorar lo que estás viviendo desde otra perspectiva.</p>
               <p class="service-price">Desde <span data-precio-eur="25 €" data-precio-mxn="$400 MXN">25 €</span></p>
-              <p><a href="/tarot/" style="color:#C6A66B;text-underline-offset:4px">Explorar las lecturas de tarot →</a></p>
-              <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20tarot%20que%20ofrecen" target="_blank" rel="noopener noreferrer" data-service="Tarot">Cuéntanos qué te inquieta</a>
+              <p><a href="/tarot/" style="color:#C6A66B;text-underline-offset:4px">Explorar las lecturas →</a></p>
+              <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20las%20lecturas%20de%20tarot" target="_blank" rel="noopener noreferrer" data-service="Tarot">Cuéntanos qué te inquieta</a>
             </div>
           </article>
           
+          <!-- Rituales -->
           <article class="service" id="rituales">
-            <div class="visual ritual" role="img" aria-label="Atmósfera ceremonial para rituales de intención"><span>02 · Intención y transformación</span></div>
+            <div class="visual ritual" role="img" aria-label="Ceremonial y rituales"><span>02 · Intención y foco</span></div>
             <div class="service-body">
               <div class="eyebrow">Rituales</div>
               <h3>Rituales a medida</h3>
               <p>Soltar lo que pesa, proteger lo que valoras o abrir nuevos caminos. Desde la brujería tradicional, realizamos trabajos y rituales a medida adaptados a lo que tu situación necesite.</p>
               <p class="service-price">Desde <span data-precio-eur="50 €" data-precio-mxn="$800 MXN">50 €</span></p>
-              <p><a href="/rituales/" style="color:#C6A66B;text-underline-offset:4px">Explorar los rituales →</a></p>
-              <a class="btn ritual-cta" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20rituales%20que%20ofrecen" target="_blank" rel="noopener noreferrer" data-service="Rituales">Consúltanos tu caso</a>
+              <p><a href="/rituales/" style="color:#C6A66B;text-underline-offset:4px">Explorar rituales a medida →</a></p>
+              <a class="btn ritual-cta" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20rituales%20a%20medida" target="_blank" rel="noopener noreferrer" data-service="Rituales">Consúltanos tu caso</a>
             </div>
           </article>
 
+          <!-- Consultas Espirituales -->
           <article class="service" id="consulta">
-            <div class="visual consulta" role="img" aria-label="Dos personas en una consulta espiritual privada, a la luz de las velas"><span>03 · Un espacio para ti</span></div>
+            <div class="visual consulta" role="img" aria-label="Consulta espiritual privada"><span>03 · Un espacio para ti</span></div>
             <div class="service-body">
               <div class="eyebrow">Canalización y mediumnidad</div>
               <h3>Consultas espirituales</h3>
-              <p>Sueños que se repiten o la necesidad de conectar con respuestas más allá de lo visible. Realizamos consultas de mediumnidad y canalización para acompañarte en tú proceso.</p>
+              <p>Sueños que se repiten o la necesidad de conectar con respuestas más allá de lo visible. Realizamos consultas espirituales para acompañarte en tu proceso íntimo.</p>
               <p class="service-price">Desde <span data-precio-eur="75 €" data-precio-mxn="$1,200 MXN">75 €</span></p>
-              <p><a href="/consultas-espirituales/" style="color:#C6A66B;text-underline-offset:4px">Explora las consultas espirituales →</a></p>
-              <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20las%20consultas%20espirituales" target="_blank" rel="noopener noreferrer" data-service="Consulta Espiritual">Hablemos de tu consulta</a>
+              <p><a href="/consultas-espirituales/" style="color:#C6A66B;text-underline-offset:4px">Explorar las consultas →</a></p>
+              <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20la%20consulta%20espiritual" target="_blank" rel="noopener noreferrer" data-service="Consulta Espiritual">Hablemos de tu consulta</a>
             </div>
           </article>
         </div>
@@ -722,21 +433,34 @@
       </div>
     </section>
 
-    <!-- Oracle Section -->
+    <!-- Oracle Section Evolucionada -->
     <section class="section oraculo" id="oraculo">
       <div class="wrap">
-        <h2 class="eyebrow">El oráculo de Soteira</h2>
+        <h2 class="eyebrow">El Oráculo del Tarot</h2>
         <div class="title-h2">Hay una pregunta que <em>solo tú conoces.</em></div>
-        <p>Piensa en ella. No tienes que decirla en voz alta. Revela una frase y observa qué despierta en ti.</p>
+        <p>Concéntrate en ella. No tienes que decirla en voz alta. Elige una carta por intuición y observa qué respuesta despierta en ti.</p>
+        
         <div class="oracle-box" aria-live="polite">
-          <div class="oracle-mark" aria-hidden="true">✧</div>
-          <p class="oracle-message" id="oracle-message">Tu pregunta es el comienzo.</p>
-          <div class="oracle-actions">
-            <button class="btn" id="draw" type="button">Revelar una frase</button>
-            <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20una%20experiencia%20espiritual" target="_blank" rel="noopener noreferrer">Quiero explorar mi pregunta</a>
+          <!-- FASE 1: Las 3 Cartas -->
+          <div id="oracle-cards-container" class="oracle-cards-container">
+            <button class="tarot-card-btn" type="button" aria-label="Elegir carta izquierda">✧</button>
+            <button class="tarot-card-btn" type="button" aria-label="Elegir carta central">✧</button>
+            <button class="tarot-card-btn" type="button" aria-label="Elegir carta derecha">✧</button>
+          </div>
+
+          <!-- FASE 2: La Revelación (Oculta por defecto) -->
+          <div id="oracle-result-container" class="oracle-result-container" hidden>
+            <div class="oracle-arcana-name" id="oracle-arcana-name">El Arcano</div>
+            <p class="oracle-eco" id="oracle-eco">El mensaje resonará aquí.</p>
+            <p class="oracle-sombra" id="oracle-sombra">La sombra interior.</p>
+            <p class="oracle-hilo" id="oracle-hilo">El camino a seguir.</p>
+            
+            <div class="oracle-actions">
+              <a class="btn" id="oracle-whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer">Explorar esta inquietud</a>
+              <button class="btn ghost" id="oracle-reset-btn" type="button">Devolver la carta al mazo</button>
+            </div>
           </div>
         </div>
-        <p class="oracle-followup" id="oracle-followup" hidden>¿Qué fue lo primero que vino a tu mente? Si deseas explorar tu pregunta, elige una experiencia.</p>
       </div>
     </section>
 
@@ -757,7 +481,6 @@
             </div>
           </article>
         </div>
-
         <div style="margin-top: 30px; text-align: center;">
           <a class="btn ghost" href="https://tally.so/r/Qo1Ebg" target="_blank" rel="noopener noreferrer">Déjanos tu experiencia →</a>
         </div>
@@ -770,16 +493,16 @@
         <div>
           <h2 class="eyebrow">Contacto Soteira & Sons</h2>
           <div class="title-h2">Tu búsqueda puede <em>comenzar aquí.</em></div>
-          <p>¿Te llama una lectura de tarot, un ritual o una consulta espiritual privada? Escríbenos por mensaje y descubre qué experiencia conecta con lo que buscas.</p>
+          <p>¿Te llama una lectura de tarot, un ritual a medida o una consulta espiritual privada? Escríbenos por mensaje y descubre qué experiencia conecta con lo que buscas.</p>
           <p class="note">Antes de reservar, te explicaremos cómo funciona cada experiencia, su disponibilidad y su precio.</p>
         </div>
         <div class="form whatsapp-panel">
           <div class="eyebrow">Contacto directo</div>
           <h3>Hay preguntas que merecen una conversación.</h3>
-          <p>Elige tu experiencia y habla directamente con Soteira & Sons por mensaje. Sin formularios ni pasos innecesarios.</p>
+          <p>Elige tu experiencia y habla directamente con nosotros por mensaje. Sin formularios automáticos.</p>
           <div class="whatsapp-options">
-            <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20servicios%20de%20tarot%20que%20ofrecen" target="_blank" rel="noopener noreferrer">Lecturas de tarot</a>
-            <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20rituales%20que%20ofrecen" target="_blank" rel="noopener noreferrer">Rituales a medida</a>
+            <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20las%20lecturas%20de%20tarot" target="_blank" rel="noopener noreferrer">Lecturas de tarot</a>
+            <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20los%20rituales%20a%20medida" target="_blank" rel="noopener noreferrer">Rituales a medida</a>
             <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20las%20consultas%20espirituales" target="_blank" rel="noopener noreferrer">Consulta espiritual</a>
             <a class="whatsapp-other" href="https://wa.me/34612425249?text=Hola%2C%20encontr%C3%A9%20Soteira%20%26%20Sons%20y%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20sobre%20sus%20experiencias%20y%20orientaci%C3%B3n%20para%20elegir" target="_blank" rel="noopener noreferrer">Todavía no sé cuál elegir →</a>
           </div>
@@ -791,14 +514,14 @@
     <!-- FAQ Section -->
     <section class="section faq" id="preguntas">
       <div class="wrap">
-        <h2 class="eyebrow">Preguntas frecuentes sobre tarot y rituales</h2>
+        <h2 class="eyebrow">Preguntas frecuentes</h2>
         <div class="title-h2">Lo esencial, <em>sin complicaciones.</em></div>
         <details>
           <summary>¿Necesito saber algo de tarot?</summary>
           <p>No. Puedes llegar con una pregunta o simplemente con curiosidad. La lectura es un espacio de interpretación simbólica.</p>
         </details>
         <details>
-          <summary>¿En qué consiste un ritual?</summary>
+          <summary>¿En qué consiste un ritual a medida?</summary>
           <p>Los rituales combinan tradición, simbolismo e intención personal. Te explicamos su enfoque y desarrollo antes de contratar; no se prometen resultados sobrenaturales.</p>
         </details>
         <details>
@@ -807,19 +530,19 @@
         </details>
         <details>
           <summary>¿Cómo solicito información?</summary>
-          <p>Pulsa «Contáctanos» o el botón de la experiencia que te interesa. Irás directamente a nuestro WhatsApp oficial, con un mensaje listo para enviar. Ahí podrás consultar precios, disponibilidad y cómo reservar.</p>
+          <p>Pulsa «Contáctanos» o el botón de la experiencia que te interesa. Irás directamente a nuestro WhatsApp oficial, con un mensaje listo para enviar.</p>
         </details>
       </div>
     </section>
   </main>
 
-  <!-- Footer Unificado -->
+  <!-- Footer -->
   <footer>
     <div class="wrap">
       <span>SOTEIRA &amp; SONS &middot; CASA RITUAL</span>
       <span>
-        <a href="https://www.instagram.com/casasoteira/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Casa Soteira">Instagram &middot; @casasoteira</a> &middot; 
-        <a href="https://www.facebook.com/SoteiraSons" target="_blank" rel="noopener noreferrer" aria-label="Facebook de Casa Soteira">Facebook &middot; Soteira &amp; Sons</a> &middot; 
+        <a href="https://www.instagram.com/casasoteira/" target="_blank" rel="noopener noreferrer">Instagram &middot; @casasoteira</a> &middot; 
+        <a href="https://www.facebook.com/SoteiraSons" target="_blank" rel="noopener noreferrer">Facebook &middot; Soteira &amp; Sons</a> &middot; 
         <a href="mailto:contacto@casasoteira.com">contacto@casasoteira.com</a> &middot; 
         <a href="privacidad.html">Aviso de privacidad</a> &middot; 
         <button type="button" class="cookie-manage" data-cookie-manage>Cookies</button>
@@ -827,235 +550,19 @@
     </div>
   </footer>
 
-  <!-- BANNER NOCTURNO ADAPTATIVO -->
+  <!-- BANNER NOCTURNO -->
   <div id="banner-nocturno-movil">
     <button class="cerrar-banner" onclick="cerrarBannerMovil()" aria-label="Cerrar banner">&times;</button>
-    <span class="banner-eyebrow" id="banner-eyebrow-text">Línea Psíquica Nocturna • Atención directa | 20:00 - 01:00</span>
+    <span class="banner-eyebrow" id="banner-eyebrow-text">Línea Psíquica Nocturna • 20:00 - 01:00</span>
     <h3 class="banner-titulo" id="titulo-banner">¿Dudas que <em>no te dejan dormir?</em></h3>
-    <p class="banner-descripcion" id="texto-estado">Llama ahora para una lectura de tarot urgente con Styxe. Sin citas, sin espera y con atención cercana.</p>
-    
+    <p class="banner-descripcion" id="texto-estado">Atención urgente. Sin citas y con atención cercana.</p>
     <div class="banner-acciones">
       <a id="enlace-llamada" class="btn-llamar-nocturno inactivo" aria-disabled="true" tabindex="-1">Comprobando disponibilidad…</a>
       <button type="button" class="btn-info-nocturno" onclick="irAMasInformacion()">Más información</button>
     </div>
   </div>
 
-  <!-- Scripts del Sitio -->
-  <script>
-    // Menú hamburguesa
-    document.getElementById('menu-toggle').addEventListener('click', () => {
-      document.getElementById('navlinks').classList.toggle('active');
-    });
-
-    // Control inteligente del desplegable en móviles:
-    const dropdownContainer = document.getElementById('experiences-dropdown');
-    const dropdownToggleBtn = document.getElementById('dropdown-toggle-btn');
-    
-    dropdownToggleBtn.addEventListener('click', (e) => {
-      if (window.innerWidth <= 480) {
-        e.preventDefault();
-        dropdownContainer.classList.toggle('active');
-      }
-    });
-
-    // Cerrar menú general al hacer clic en cualquier enlace final del menú
-    document.querySelectorAll('.navlinks a:not(.dropdown-toggle)').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('navlinks').classList.remove('active');
-        dropdownContainer.classList.remove('active');
-      });
-    });
-
-    let paisDetectado = '';
-
-    function ajustarEspacioBannerMovil() {
-      const header = document.getElementById('main-header');
-      header.style.top = '0px';
-      const esMovil = window.matchMedia('(max-width: 768px)').matches;
-      document.body.style.paddingTop = esMovil ? '60px' : '70px';
-    }
-
-    function cerrarBannerMovil() {
-      const banner = document.getElementById('banner-nocturno-movil');
-      if (banner) banner.style.display = 'none';
-      ajustarEspacioBannerMovil();
-      try { sessionStorage.setItem('bannerNocturnoCerrado', 'true'); } catch (_) {}
-    }
-
-    function irAMasInformacion() {
-      window.location.href = '/linea-nocturna/';
-    }
-
-    function obtenerMinutosLocales(timeZone) {
-      const formatter = new Intl.DateTimeFormat('en-GB', {
-        timeZone,
-        hour: '2-digit',
-        minute: '2-digit',
-        hourCycle: 'h23'
-      });
-      const partes = formatter.format(new Date()).split(':').map(Number);
-      return partes[0] * 60 + partes[1];
-    }
-
-    function obtenerDiaLocal(timeZone) {
-      return new Intl.DateTimeFormat('en-US', {
-        timeZone,
-        weekday: 'short'
-      }).format(new Date());
-    }
-
-    function actualizarBotonLlamada(numero, estaEnHorario) {
-      const enlace = document.getElementById('enlace-llamada');
-      if (!enlace) return;
-
-      if (estaEnHorario) {
-        enlace.setAttribute('href', `tel:${numero}`);
-        enlace.setAttribute('aria-disabled', 'false');
-        enlace.removeAttribute('tabindex');
-        enlace.className = 'btn-llamar-nocturno activo';
-        enlace.textContent = 'Llamar ahora';
-      } else {
-        enlace.removeAttribute('href');
-        enlace.setAttribute('aria-disabled', 'true');
-        enlace.setAttribute('tabindex', '-1');
-        enlace.className = 'btn-llamar-nocturno inactivo';
-        enlace.textContent = 'Fuera de horario';
-      }
-    }
-
-    function evaluarHorarioEspana() {
-      const zona = 'Europe/Madrid';
-      const minutos = obtenerMinutosLocales(zona);
-      const estaEnHorario = minutos >= 20 * 60 || minutos < 60;
-
-      document.getElementById('banner-eyebrow-text').textContent = 'Línea Psíquica Nocturna • 20:00 - 01:00';
-      document.getElementById('titulo-banner').innerHTML = '¿Dudas que <em>no te dejan dormir?</em>';
-      document.getElementById('texto-estado').textContent = estaEnHorario
-        ? 'Lectura de tarot urgente con Styxe.'
-        : 'Horario: Todos los días de 20:00 a 01:00.';
-
-      actualizarBotonLlamada('+34942943237', estaEnHorario);
-      return estaEnHorario;
-    }
-
-    function evaluarHorarioMexico() {
-      const zona = 'America/Mexico_City';
-      const minutos = obtenerMinutosLocales(zona);
-      const dia = obtenerDiaLocal(zona);
-      const diasLaborables = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
-      const estaEnHorario = diasLaborables.includes(dia) && (minutos >= 20 * 60 || minutos < 60);
-
-      document.getElementById('banner-eyebrow-text').textContent = 'Línea Psíquica Nocturna • L–V 20:00 - 01:00';
-      document.getElementById('titulo-banner').innerHTML = '¿Dudas que <em>no te dejan dormir?</em>';
-      document.getElementById('texto-estado').textContent = estaEnHorario
-        ? 'Canalización y mediumnidad con Carmen.'
-        : 'Horario: L-V de 20:00 a 01:00 (CDMX).';
-
-      actualizarBotonLlamada('+525598164634', estaEnHorario);
-      return estaEnHorario;
-    }
-
-    window.addEventListener('DOMContentLoaded', async () => {
-      const esMovil = window.matchMedia('(max-width: 768px)').matches;
-      const banner = document.getElementById('banner-nocturno-movil');
-      const enlaceLlamada = document.getElementById('enlace-llamada');
-
-      if (banner) banner.style.display = 'none';
-      if (enlaceLlamada) {
-        enlaceLlamada.removeAttribute('href');
-        enlaceLlamada.setAttribute('aria-disabled', 'true');
-        enlaceLlamada.setAttribute('tabindex', '-1');
-        enlaceLlamada.className = 'btn-llamar-nocturno inactivo';
-        enlaceLlamada.textContent = 'Comprobando…';
-      }
-
-      let bannerCerrado = false;
-      try { bannerCerrado = sessionStorage.getItem('bannerNocturnoCerrado') === 'true'; } catch (_) {}
-
-      try {
-        const respuesta = await fetch('https://ipapi.co/json/', { cache: 'no-store' });
-        if (!respuesta.ok) throw new Error(`Geolocalización HTTP ${respuesta.status}`);
-        const datos = await respuesta.json();
-        const pais = typeof datos.country_code === 'string' ? datos.country_code.toUpperCase() : '';
-        paisDetectado = pais;
-
-        const paisesConPreciosMXN = new Set([
-          'AI', 'AG', 'AR', 'AW', 'BB', 'BL', 'BM', 'BQ', 'BS', 'BZ',
-          'BO', 'BR', 'VG', 'KY', 'CL', 'CO', 'CR', 'CU', 'CW', 'DM',
-          'DO', 'EC', 'SV', 'FK', 'GF', 'GD', 'GL', 'GP', 'GS', 'GT',
-          'GY', 'HT', 'HN', 'JM', 'MQ', 'MX', 'MS', 'NI', 'PA', 'PY',
-          'PE', 'PR', 'KN', 'LC', 'MF', 'PM', 'VC', 'SX', 'SR', 'TT',
-          'TC', 'UY', 'VE', 'VI'
-        ]);
-        const moneda = paisesConPreciosMXN.has(pais) ? 'MXN' : 'EUR';
-
-        document.querySelectorAll('[data-precio-eur][data-precio-mxn]').forEach(precio => {
-          precio.textContent = moneda === 'MXN'
-            ? precio.dataset.precioMxn
-            : precio.dataset.precioEur;
-        });
-
-        if (pais !== 'MX' && pais !== 'ES') return;
-
-        let enHorario = false;
-        if (pais === 'MX') enHorario = evaluarHorarioMexico();
-        else enHorario = evaluarHorarioEspana();
-
-        if (banner && !bannerCerrado && enHorario) {
-          banner.style.display = 'flex';
-          ajustarEspacioBannerMovil();
-        } else if (banner) {
-          banner.style.display = 'none';
-        }
-
-        window.setInterval(() => {
-          let activoActual = false;
-          if (paisDetectado === 'MX') activoActual = evaluarHorarioMexico();
-          else if (paisDetectado === 'ES') activoActual = evaluarHorarioEspana();
-
-          if (banner && !bannerCerrado) {
-            if (activoActual && banner.style.display === 'none') {
-              banner.style.display = 'flex';
-            } else if (!activoActual && banner.style.display === 'flex') {
-              banner.style.display = 'none';
-            }
-          }
-        }, 60 * 1000);
-      } catch (error) {
-        console.warn('No se pudo verificar el país; se mantienen los precios en euros y el banner permanece oculto.', error);
-      }
-    });
-
-    window.addEventListener('resize', ajustarEspacioBannerMovil);
-
-    // Lógica del Oráculo y Testimonios
-    (()=>{
-      const messages=["No confundas lo que deseas con lo que sucede.","Hay silencios que también son decisiones.","No toda espera es una promesa.","Lo que evitas mirar sigue ocupando espacio.","A veces la duda es una respuesta incómoda.","La nostalgia no cambia los hechos.","Una disculpa no siempre repara una herida.","No todo regreso significa un nuevo comienzo.","Lo que no preguntas también te condiciona.","El miedo puede disfrazarse de intuición.","Hay verdades que duelen menos que la certidumbre.","No puedes sostener un vínculo por dos personas.","A veces insistes donde ya no hay reciprocidad.","Lo que callas puede estar decidiendo por ti.","No toda coincidencia es una señal.","El deseo no convierte una sospecha en certeza.","Hay despedidas que nunca tendrán explicación.","Esperar también tiene un costo.","No todo lo que perdiste era para quedarse.","La costumbre puede parecer amor.","Una respuesta ambigua también dice algo.","No confundas intensidad con profundidad.","Hay preguntas que nacen del miedo a perder.","Tu recuerdo no es la persona completa.","No puedes cambiar lo que otro no reconoce.","A veces el cierre no llega de afuera.","Lo pendiente pesa cuando no se nombra.","La culpa no siempre indica responsabilidad.","No toda oportunidad merece un sí.","El tiempo no resuelve lo que sigues evitando.","Una promesa vale menos que un hecho repetido.","No toda ausencia es abandonment.","La certeza absoluta puede ser otra forma de miedo.","Hay relaciones que se sostienen solo en la esperanza.","Una decisión aplazada sigue siendo una decisión.","El pasado no responde por el presente.","No todo pensamiento necesita convertirse en acción.","La intuición también necesita preguntas honestas.","El silencio puede proteger o separar.","A veces buscas permiso para elegir lo que sabes.","No confundas señales con pruebas.","Una herida puede alterar la forma de mirar.","El apego puede parecer destino.","Lo que idealizas también oculta detalles.","Not toda pérdida tiene un mensaje secreto.","La paz no siempre llega con una explicación.","El amor no borra los límites.","Hay respuestas que preferimos no escuchar.","El recuerdo no puede confirmar una presencia.","No toda puerta cerrada es un castigo.","A veces el problema no es elegir, sino renunciar.","Lo desconocido no tiene por qué ser una amenaza.","Una pregunta mal hecha puede esconder la verdadera.","No confundas esperanza con garantía.","La duda crece donde faltan conversaciones.","No todas las despedidas son definitivas en la memoria.","Una verdad incómoda puede abrir otro camino.","No puedes recuperar el tiempo, sí decidir qué sigue.","Hay palabras pendientes que puedes escribir para ti.","La ausencia no anula lo que fue vivido."];
-      let last=-1;
-      const btn=document.getElementById('draw');
-      btn.addEventListener('click',()=>{
-        let i=Math.floor(Math.random()*(messages.length-1));
-        if(i>=last)i++;
-        last=i;
-        document.getElementById('oracle-message').textContent=messages[i];
-        document.getElementById('oracle-followup').hidden=false;
-        btn.textContent='Revelar otra frase';
-      });
-
-      const reviewsToggle=document.getElementById('reviews-toggle');
-      if(reviewsToggle) {
-        reviewsToggle.addEventListener('click',()=>{
-          const extra=document.querySelectorAll('[data-extra-review]');
-          const show=reviewsToggle.getAttribute('aria-expanded')!=='true';
-          extra.forEach(el=>el.hidden=!show);
-          reviewsToggle.setAttribute('aria-expanded',String(show));
-          reviewsToggle.textContent=show?'Mostrar menos':'Ver más testimonios';
-        });
-      }
-    })();
-  </script>
-
-  <!-- Panel de Consentimiento de Cookies -->
+  <!-- Panel Cookies -->
   <aside id="cookie-panel" aria-label="Preferencias de cookies" role="dialog" aria-modal="false" hidden>
     <strong>Tu privacidad importa</strong>
     <p>Usamos cookies opcionales de analítica para entender cómo se visita nuestra web. Puedes aceptarlas o rechazarlas sin afectar tu navegación. <a href="/privacidad.html#cookies">Más información</a>.</p>
@@ -1068,14 +575,243 @@
     </div>
   </aside>
 
-  <!-- Scripts de analítica y eventos de WhatsApp -->
+  <!-- Scripts Funcionales Base -->
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', () => document.getElementById('navlinks').classList.toggle('active'));
+    const dropdownContainer = document.getElementById('experiences-dropdown');
+    document.getElementById('dropdown-toggle-btn').addEventListener('click', (e) => { if (window.innerWidth <= 480) { e.preventDefault(); dropdownContainer.classList.toggle('active'); }});
+    document.querySelectorAll('.navlinks a:not(.dropdown-toggle)').forEach(link => link.addEventListener('click', () => { document.getElementById('navlinks').classList.remove('active'); dropdownContainer.classList.remove('active'); }));
+
+    let paisDetectado = '';
+    function ajustarEspacioBannerMovil() { document.getElementById('main-header').style.top = '0px'; document.body.style.paddingTop = window.matchMedia('(max-width: 768px)').matches ? '60px' : '70px'; }
+    function cerrarBannerMovil() { const banner = document.getElementById('banner-nocturno-movil'); if (banner) banner.style.display = 'none'; ajustarEspacioBannerMovil(); try { sessionStorage.setItem('bannerNocturnoCerrado', 'true'); } catch (_) {} }
+    function irAMasInformacion() { window.location.href = '/linea-nocturna/'; }
+    function obtenerMinutosLocales(tz) { const f = new Intl.DateTimeFormat('en-GB', { timeZone: tz, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }); const p = f.format(new Date()).split(':').map(Number); return p[0] * 60 + p[1]; }
+    function obtenerDiaLocal(tz) { return new Intl.DateTimeFormat('en-US', { timeZone: tz, weekday: 'short' }).format(new Date()); }
+    function actualizarBotonLlamada(num, activo) { const e = document.getElementById('enlace-llamada'); if (!e) return; if (activo) { e.setAttribute('href', `tel:${num}`); e.setAttribute('aria-disabled', 'false'); e.removeAttribute('tabindex'); e.className = 'btn-llamar-nocturno activo'; e.textContent = 'Llamar ahora'; } else { e.removeAttribute('href'); e.setAttribute('aria-disabled', 'true'); e.setAttribute('tabindex', '-1'); e.className = 'btn-llamar-nocturno inactivo'; e.textContent = 'Fuera de horario'; } }
+    
+    function evaluarHorarioEspana() { const min = obtenerMinutosLocales('Europe/Madrid'); const activo = min >= 20 * 60 || min < 60; document.getElementById('banner-eyebrow-text').textContent = 'Línea Nocturna • 20:00 - 01:00'; document.getElementById('titulo-banner').innerHTML = '¿Dudas que <em>no te dejan dormir?</em>'; document.getElementById('texto-estado').textContent = activo ? 'Lectura urgente de tarot.' : 'Horario: 20:00 a 01:00 (ES).'; actualizarBotonLlamada('+34942943237', activo); return activo; }
+    function evaluarHorarioMexico() { const min = obtenerMinutosLocales('America/Mexico_City'); const dia = obtenerDiaLocal('America/Mexico_City'); const activo = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].includes(dia) && (min >= 20 * 60 || min < 60); document.getElementById('banner-eyebrow-text').textContent = 'Línea Nocturna • L–V 20:00 - 01:00'; document.getElementById('titulo-banner').innerHTML = '¿Dudas que <em>no te dejan dormir?</em>'; document.getElementById('texto-estado').textContent = activo ? 'Consulta espiritual directa.' : 'Horario: L-V de 20:00 a 01:00 (CDMX).'; actualizarBotonLlamada('+525598164634', activo); return activo; }
+
+    window.addEventListener('DOMContentLoaded', async () => {
+      const banner = document.getElementById('banner-nocturno-movil');
+      const enlaceLlamada = document.getElementById('enlace-llamada');
+      if (banner) banner.style.display = 'none';
+      if (enlaceLlamada) { enlaceLlamada.removeAttribute('href'); enlaceLlamada.className = 'btn-llamar-nocturno inactivo'; enlaceLlamada.textContent = 'Comprobando…'; }
+      let bannerCerrado = false; try { bannerCerrado = sessionStorage.getItem('bannerNocturnoCerrado') === 'true'; } catch (_) {}
+      try {
+        const respuesta = await fetch('https://ipapi.co/json/', { cache: 'no-store' });
+        if (!respuesta.ok) throw new Error('IP HTTP error');
+        paisDetectado = (await respuesta.json()).country_code?.toUpperCase() || '';
+        const mxnSet = new Set(['AI','AG','AR','AW','BB','BL','BM','BQ','BS','BZ','BO','BR','VG','KY','CL','CO','CR','CU','CW','DM','DO','EC','SV','FK','GF','GD','GL','GP','GS','GT','GY','HT','HN','JM','MQ','MX','MS','NI','PA','PY','PE','PR','KN','LC','MF','PM','VC','SX','SR','TT','TC','UY','VE','VI']);
+        const moneda = mxnSet.has(paisDetectado) ? 'MXN' : 'EUR';
+        document.querySelectorAll('[data-precio-eur][data-precio-mxn]').forEach(p => p.textContent = moneda === 'MXN' ? p.dataset.precioMxn : p.dataset.precioEur);
+        if (paisDetectado !== 'MX' && paisDetectado !== 'ES') return;
+        let enHorario = paisDetectado === 'MX' ? evaluarHorarioMexico() : evaluarHorarioEspana();
+        if (banner && !bannerCerrado && enHorario) { banner.style.display = 'flex'; ajustarEspacioBannerMovil(); }
+        window.setInterval(() => {
+          let activo = paisDetectado === 'MX' ? evaluarHorarioMexico() : (paisDetectado === 'ES' ? evaluarHorarioEspana() : false);
+          if (banner && !bannerCerrado) banner.style.display = activo ? 'flex' : 'none';
+        }, 60000);
+      } catch (e) { console.warn('Geo fallo, ocultando banner.', e); }
+    });
+    window.addEventListener('resize', ajustarEspacioBannerMovil);
+
+    document.addEventListener("DOMContentLoaded", async function() {
+      const c = document.getElementById('dynamic-reviews-container');
+      if (!c) return;
+      try {
+        const res = await fetch('./reseñas.json', { cache: 'no-store' });
+        if (!res.ok) throw new Error('Reseñas error');
+        const data = await res.json();
+        if (Array.isArray(data) && data.length > 0) {
+          c.innerHTML = '';
+          data.slice(-3).reverse().forEach(r => {
+            const ini = r.nombre ? r.nombre.split(' ').map(n=>n[0]).join('').substring(0,2).toUpperCase() : 'SS';
+            const estrellas = '<span style="color: var(--gold); margin-bottom: 8px; display: block; font-size: 1.1rem;">' + '★'.repeat(r.estrellas||5) + '</span>';
+            const art = document.createElement('article'); art.className = 'review';
+            art.innerHTML = `<div>${estrellas}<blockquote>“${r.texto}”</blockquote></div><div class="review-person"><span class="review-avatar" aria-hidden="true">${ini}</span><div><strong>${r.nombre}</strong><small>${r.ubicacion||'Casa Ritual'}</small></div></div>`;
+            c.appendChild(art);
+          });
+        } else { c.innerHTML = `<article class="review" style="grid-column: 1 / -1; text-align: center; padding: 40px;"><blockquote>“Las experiencias compartidas aparecerán aquí pronto.”</blockquote></article>`; }
+      } catch (e) { console.warn('No reseñas', e); }
+    });
+  </script>
+
+  <!-- MOTOR DEL ORÁCULO: 22 ARCANOS MAYORES x 3 MATICES -->
+  <script>
+    (() => {
+      const tarotDB = [
+        { nombre: "0 · El Loco", variaciones: [
+          { eco: "No todo salto es una caída; algunos son el inicio del vuelo.", sombra: "¿A qué le dices 'no' por miedo a perder una seguridad que ya no te llena?", hilo: "El vértigo es natural antes de moverse. Si necesitas claridad antes de dar el paso, hablemos." },
+          { eco: "Huir sin dirección no es libertad, es solo otra forma de escapar.", sombra: "¿De qué dolor estás huyendo bajo el disfraz de buscar un 'nuevo comienzo'?", hilo: "El tarot puede ayudarte a ver de qué estás escapando realmente. Escríbenos." },
+          { eco: "La fe ciega requiere más valentía que cualquier certeza absoluta.", sombra: "¿En qué momento dejaste que el cinismo apagara tu capacidad de creer en lo imposible?", hilo: "A veces solo necesitas un espacio seguro para volver a confiar. Estamos aquí para escucharte." }
+        ]},
+        { nombre: "I · El Mago", variaciones: [
+          { eco: "Tienes sobre la mesa todo lo que necesitas, pero sigues esperando un permiso.", sombra: "¿Qué excusa utilizas para no asumir el poder de cambiar tu propia situación?", hilo: "La magia comienza con tu voluntad. Si sientes un bloqueo, un ritual puede ayudarte a enfocarla." },
+          { eco: "Saber que puedes hacerlo no sirve de nada si nunca comienzas.", sombra: "¿Cuánto tiempo vas a vivir del potencial de lo que 'podrías' llegar a ser?", hilo: "Canalizar la energía exige foco. Si no sabes por dónde empezar, te orientamos." },
+          { eco: "La palabra crea realidades, pero también construye laberintos.", sombra: "¿A quién estás intentando convencer de una verdad que ni tú mismo te crees?", hilo: "La claridad mental es el primer paso. Una lectura puede despejarte el humo." }
+        ]},
+        { nombre: "II · La Sacerdotisa", variaciones: [
+          { eco: "El silencio no está vacío, está lleno de respuestas que te niegas a escuchar.", sombra: "¿Qué es eso que tu intuición ya te gritó, pero tu mente sigue intentando justificar?", hilo: "A veces necesitamos un espejo para aceptar lo que ya sabemos. Las cartas no mienten." },
+          { eco: "Guardar un secreto demasiado tiempo termina convirtiéndolo en un peso.", sombra: "¿Qué emoción estás reprimiendo por miedo a la reacción de los demás?", hilo: "Hablar libera. Si buscas un espacio confidencial y sin juicios, escríbenos." },
+          { eco: "Lo que ocurre en la sombra influye directamente en lo que ves en la luz.", sombra: "¿Estás ignorando las señales sutiles solo porque no encajan en tu lógica?", hilo: "Lo invisible también requiere atención. Una consulta espiritual puede darte esa perspectiva." }
+        ]},
+        { nombre: "III · La Emperatriz", variaciones: [
+          { eco: "Nada florece en un terreno que no se cuida ni se nutre.", sombra: "¿Estás exigiendo frutos de una relación o proyecto al que dejaste de ponerle atención?", hilo: "Si sientes desconexión con tu abundancia, podemos buscar dónde se cortó el flujo." },
+          { eco: "Cuidar a los demás hasta vaciarte no es amor, es sacrificio innecesario.", sombra: "¿Por qué crees que tu valor depende únicamente de lo útil que eres para otros?", hilo: "Recuperar el amor propio es un trabajo profundo. Las cartas pueden guiar tu sanación." },
+          { eco: "La creación siempre requiere un periodo de gestación oscuro e incómodo.", sombra: "¿Estás abortando tus propios procesos por pura impaciencia y miedo al resultado?", hilo: "Los tiempos del espíritu no son los del reloj. Hablemos si sientes ansiedad por el futuro." }
+        ]},
+        { nombre: "IV · El Emperador", variaciones: [
+          { eco: "La estructura protege, pero la rigidez absoluta asfixia.", sombra: "¿Qué estás intentando controlar obsesivamente por miedo a que el caos te alcance?", hilo: "Encontrar el equilibrio entre sostener y soltar no es fácil. Si necesitas recuperar tu centro, hablemos." },
+          { eco: "Construir muros te defiende de los ataques, pero también aísla del calor.", sombra: "¿A quién dejaste afuera cuando juraste que nadie volvería a lastimarte?", hilo: "Sanar implica volver a abrir puertas con sabiduría. Un ritual de apertura puede ayudarte." },
+          { eco: "Asumir la autoridad de tu vida implica dejar de culpar al pasado.", sombra: "¿De quién sigues esperando validación para empezar a gobernar tus propias decisiones?", hilo: "Tomar las riendas requiere fuerza emocional. El tarot puede confirmar que estás listo." }
+        ]},
+        { nombre: "V · El Sumo Sacerdote", variaciones: [
+          { eco: "No todas las tradiciones te pertenecen; algunas son jaulas heredadas.", sombra: "¿Estás actuando por deseo propio, o para cumplir con lo que 'se espera' de ti?", hilo: "Cuestionar tus creencias es el primer paso hacia la libertad. Estamos aquí para escucharte." },
+          { eco: "Buscar un maestro afuera a veces retrasa escuchar al maestro adentro.", sombra: "¿A quién le has cedido el poder de decirte lo que está bien y lo que está mal en tu vida?", hilo: "Las respuestas espirituales verdaderas resuenan, no se imponen. Exploremos juntos." },
+          { eco: "El compromiso real no es con el otro, es con la verdad compartida.", sombra: "¿Estás forzando una conexión o un pacto que en el fondo sabes que no es auténtico?", hilo: "Aclarar tus compromisos trae paz. Una consulta puede iluminar esos vínculos." }
+        ]},
+        { nombre: "VI · Los Enamorados", variaciones: [
+          { eco: "No puedes elegir sin renunciar a algo. Esa es la naturaleza del compromiso.", sombra: "¿Qué decisión estás evitando tomar para no tener que lidiar con la pérdida de la otra opción?", hilo: "Elegir desde el corazón exige valor. Si hay dualidad y duda en ti, el tarot puede mostrar ambas rutas." },
+          { eco: "Buscamos en el otro el reflejo de lo que no nos atrevemos a mirar en nosotros.", sombra: "¿Qué herida propia estás intentando curar a través de la atención de alguien más?", hilo: "Las relaciones son espejos. Si un vínculo te duele demasiado, podemos mirar qué te está mostrando." },
+          { eco: "La tentación no es el desvío, a veces es la verdadera prueba de lo que deseas.", sombra: "¿Te mantienes en lo 'correcto' porque te hace feliz, o por miedo a ser juzgado?", hilo: "Explorar tus deseos sin culpa es sanador. Una lectura privada puede darte claridad." }
+        ]},
+        { nombre: "VII · El Carro", variaciones: [
+          { eco: "El movimiento sin dirección es solo desgaste de energía.", sombra: "¿Hacia dónde estás corriendo realmente, o de qué estás huyendo tan deprisa?", hilo: "Retomar las riendas requiere saber hacia dónde vas. Podemos ayudarte a definir ese norte." },
+          { eco: "Querer dominar fuerzas opuestas a la fuerza terminará por romperte.", sombra: "¿Qué contradicción interna estás ignorando mientras finges que todo está bajo control?", hilo: "Alinear mente y emoción es clave para avanzar. Hablemos de lo que te detiene." },
+          { eco: "El triunfo rápido rara vez deja tiempo para disfrutar del paisaje.", sombra: "¿Estás tan obsesionado con llegar a la meta que olvidaste por qué iniciaste el viaje?", hilo: "Hacer una pausa no es retroceder. Una consulta puede darte perspectiva en tu avance." }
+        ]},
+        { nombre: "VIII · La Justicia", variaciones: [
+          { eco: "Tarde o temprano, la balanza siempre encuentra su nivel.", sombra: "¿Qué acción del pasado estás intentando ignorar, esperando que no tenga consecuencias?", hilo: "El karma y la causa no son castigos, son lecciones. Entender tu situación actual cambia todo." },
+          { eco: "Una disculpa no pedida no puede borrar el daño causado.", sombra: "¿A quién estás perdonando prematuramente solo para evitar el conflicto?", hilo: "La verdadera paz requiere mirar los hechos de frente. Si sientes injusticia, el tarot puede hablarte." },
+          { eco: "Juzgarte a ti mismo con crueldad no es un acto de responsabilidad.", sombra: "¿En qué tribunal interior te condenaste a cadena perpetua sin derecho a defensa?", hilo: "El perdón propio es el ritual más poderoso. Podemos acompañarte en ese cierre." }
+        ]},
+        { nombre: "IX · El Ermitaño", variaciones: [
+          { eco: "Buscar respuestas en el ruido de los demás solo te alejará de tu propia luz.", sombra: "¿De qué tienes miedo de darte cuenta si te quedas completamente a solas y en silencio?", hilo: "La introspección no tiene por qué ser solitaria. Una consulta espiritual es una compañía en la cueva." },
+          { eco: "El aislamiento prolongado se convierte en escondite, no en santuario.", sombra: "¿Te estás protegiendo del mundo, o te estás rindiendo frente a él?", hilo: "Volver a salir requiere valor. Si necesitas un guía para el camino de vuelta, escríbenos." },
+          { eco: "La sabiduría que no se comparte termina por oxidarse.", sombra: "¿Qué lección dolorosa aprendiste que te niegas a aceptar porque cambiaría tu vida entera?", hilo: "Darle sentido a lo que has vivido es sanador. Hablemos de tus descubrimientos." }
+        ]},
+        { nombre: "X · La Rueda de la Fortuna", variaciones: [
+          { eco: "Resistirse al cambio es como intentar detener el viento con las manos.", sombra: "¿A qué ciclo que ya terminó te sigues aferrando por pura costumbre o nostalgia?", hilo: "Todo gira. Si sientes que estás atrapado en la parte baja de la rueda, miremos cómo avanzar." },
+          { eco: "No llames mala suerte a las consecuencias lógicas de tus actos repetidos.", sombra: "¿Qué patrón tóxico sigues repitiendo esperando que esta vez termine diferente?", hilo: "Romper un patrón requiere verlo desde afuera. Un ritual o lectura te dará la perspectiva." },
+          { eco: "El giro a tu favor exige que estés preparado para recibirlo.", sombra: "¿Estás realmente listo para que las cosas te salgan bien, o te asusta el éxito?", hilo: "Aceptar la abundancia es un aprendizaje. Si te sientes bloqueado, hablemos." }
+        ]},
+        { nombre: "XI · La Fuerza", variaciones: [
+          { eco: "El dominio real no se logra con violencia, sino con compasión inquebrantable.", sombra: "¿Qué bestia interna (ira, miedo, adicción) estás reprimiendo en lugar de comprender?", hilo: "La verdadera fortaleza es mirar de frente a los propios monstruos. No tienes que hacerlo sin ayuda." },
+          { eco: "Aguantar dolor en silencio no te hace más fuerte, te hace insensible.", sombra: "¿Hasta qué punto estás confundiendo el amor o el deber con el masoquismo?", hilo: "Reconocer el agotamiento es el primer paso para sanarlo. Estamos aquí si necesitas hablar." },
+          { eco: "Tu instinto no es tu enemigo; es la brújula que tu mente quiere callar.", sombra: "¿Qué te está gritando tu cuerpo que sigues intentando acallar con distracciones?", hilo: "Conectar con tu intuición visceral es poderoso. Una consulta puede validar lo que ya sientes." }
+        ]},
+        { nombre: "XII · El Colgado", variaciones: [
+          { eco: "A veces, la única forma de avanzar es detenerse por completo y mirar todo al revés.", sombra: "¿Qué sacrificio te estás negando a hacer, bloqueando así tu propia transformación?", hilo: "La pausa impuesta siempre trae una lección. Las cartas te pueden mostrar qué debes aprender." },
+          { eco: "Esperar a alguien que no te ha pedido que lo esperes es una inmolación vacía.", sombra: "¿Te estás colgando del recuerdo de alguien para no hacerte cargo de tu propio futuro?", hilo: "Soltar la cuerda duele, pero te devuelve a la tierra. Si necesitas soltar, hablemos." },
+          { eco: "La impotencia momentánea precede a las revelaciones más profundas.", sombra: "¿Dejaste de luchar porque te rendiste, o porque finalmente comprendiste que no tenías el control?", hilo: "Rendirse a la situación no es debilidad. Una lectura puede ayudarte a fluir con el proceso." }
+        ]},
+        { nombre: "XIII · La Muerte", variaciones: [
+          { eco: "Lo que se pudre debe ser cortado para que algo nuevo pueda nacer.", sombra: "¿A qué cadáver emocional, relación o versión antigua de ti le sigues dando respiración?", hilo: "Los cierres duelen, pero liberan. Si necesitas un ritual de corte o despedida, escríbenos." },
+          { eco: "El miedo al final hace que arruinemos el presente.", sombra: "¿Estás boicoteando algo hermoso hoy porque sabes que en el futuro podría terminar?", hilo: "Transitar el duelo de lo que aún no muere desgasta el alma. Una consulta puede traerte paz." },
+          { eco: "La verdadera transformación duele hasta los huesos, pero te devuelve la vida.", sombra: "¿Qué parte de tu ego debe morir para que la versión auténtica de ti pueda salir?", hilo: "Renacer requiere valor y compañía. Si el cambio te abruma, el tarot puede mostrarte el sol detrás." }
+        ]},
+        { nombre: "XIV · La Templanza", variaciones: [
+          { eco: "La impaciencia arruina la mezcla. La alquimia toma su tiempo exacto.", sombra: "¿Dónde estás forzando las cosas por ansiedad, en lugar de dejar que se integren naturalmeente?", hilo: "Recuperar la paz mental es un arte sutil. Una consulta puede ayudarte a volver a tu centro." },
+          { eco: "Evitar los extremos te mantiene a salvo, pero a veces te apaga el fuego.", sombra: "¿Has confundido la paz y la armonía con la apatía de no atreverte a sentir intensamente?", hilo: "Equilibrar el agua y el fuego es vital. Si perdiste la pasión, podemos mirar cómo recuperarla." },
+          { eco: "Las heridas no sanan porque las ignores, sanan cuando las curas con paciencia.", sombra: "¿Qué dolor antiguo sigue sangrando cada vez que alguien toca una herida similar?", hilo: "La sanación espiritual es un flujo constante. Si sientes que la herida no cierra, contáctanos." }
+        ]},
+        { nombre: "XV · El Diablo", variaciones: [
+          { eco: "La jaula en la que vives tiene la puerta completamente abierta.", sombra: "¿A qué hábito, vínculo tóxico o excusa le has dado el poder de mantenerte atado?", hilo: "Reconocer las propias sombras es el primer paso para quitarles peso. Si quieres romperlas, escríbenos." },
+          { eco: "La obsesión es una sed que nunca se sacia con la fuente equivocada.", sombra: "¿Qué vacío inmenso intentas llenar persiguiendo a una persona que no puede dártelo?", hilo: "Mirar de frente el deseo sin culpa puede desarmarlo. El tarot te ayuda a ver qué hay detrás de tu necesidad." },
+          { eco: "Negar tu lado oscuro solo hace que te domine desde el subconsciente.", sombra: "¿A quién le echas la culpa de las tentaciones que en realidad tú mismo fuiste a buscar?", hilo: "Asumir la totalidad de lo que somos empodera. Si hay temas difíciles de hablar, somos un espacio seguro." }
+        ]},
+        { nombre: "XVI · La Torre", variaciones: [
+          { eco: "Lo que se derrumba bruscamente es aquello que nunca tuvo cimientos reales.", sombra: "¿Qué verdad dolorosa intentabas sostener, sabiendo en el fondo que era mentira?", hilo: "Después de la caída, el terreno queda despejado. Te acompañamos a mirar las ruinas sin miedo." },
+          { eco: "La iluminación duele cuando la estabas evitando con todas tus fuerzas.", sombra: "¿Por qué sigues enfadado con el rayo que destruyó la prisión en la que vivías?", hilo: "El impacto inicial siempre aturde. Una consulta espiritual puede darte perspectiva en medio del caos." },
+          { eco: "No puedes volver a armar algo cuyas piezas ya no encajan.", sombra: "¿Cuánto tiempo vas a perder intentando pegar los fragmentos de algo que ya cumplió su ciclo?", hilo: "Construir algo nuevo requiere dejar ir lo roto. Un ritual puede ayudarte a limpiar el espacio." }
+        ]},
+        { nombre: "XVII · La Estrella", variaciones: [
+          { eco: "Incluso en la noche más oscura, el agua sigue fluyendo y las guías siguen ahí.", sombra: "¿En qué momento permitiste que el cinismo y la herida apagaran tu capacidad de tener fe?", hilo: "La sanación está disponible. Si buscas orientación y esperanza para volver a confiar, hablemos." },
+          { eco: "Mirar demasiado al cielo puede hacer que te tropieces en la tierra.", sombra: "¿Estás usando la 'espiritualidad' o el destino como excusa para no actuar en tu vida real?", hilo: "Las señales requieren acciones concretas. Las cartas te dirán cuál es tu siguiente paso terrenal." },
+          { eco: "Ser vulnerable no es mostrar debilidad, es desnudarse de protecciones falsas.", sombra: "¿De qué sirve que te ofrezcan agua si te niegas rotundamente a admitir que tienes sed?", hilo: "Abrirse a recibir es un aprendizaje profundo. Si te cuesta permitirte ayuda, estamos aquí." }
+        ]},
+        { nombre: "XVIII · La Luna", variaciones: [
+          { eco: "No todo lo que ves en las sombras es un monstruo; a veces es tu reflejo.", sombra: "¿Qué paranoia, ilusión o miedo subconsciente estás dejando que tome decisiones por ti?", hilo: "La niebla confunde y los sueños inquietan. Una consulta espiritual puede traer luz a la oscuridad." },
+          { eco: "Los secretos guardados terminan infectando las intuiciones más puras.", sombra: "¿Qué intuición poderosa estás silenciando porque la respuesta que te da te aterra?", hilo: "El tarot es especialista en revelar lo que el subconsciente esconde. Atrévete a preguntar." },
+          { eco: "Navegar en lo incierto requiere confiar más en el instinto que en los ojos.", sombra: "¿Por qué sigues buscando garantías lógicas en una situación puramente emocional?", hilo: "A veces la única brújula es lo que sientes. Hablemos de eso que no puedes explicar." }
+        ]},
+        { nombre: "XIX · El Sol", variaciones: [
+          { eco: "La claridad absoluta no deja espacio para seguir justificando las excusas.", sombra: "¿Ahora que sabes exactamente cuál es la verdad, qué vas a hacer al respecto?", hilo: "Aceptar la realidad y la energía de cambio requiere valor. Si necesitas un impulso, cuenta con nosotros." },
+          { eco: "Quemarse por acercarse demasiado a la luz también es una forma de ceguera.", sombra: "¿Estás forzando una positividad falsa para no lidiar con un problema real que tienes?", hilo: "La alegría genuina nace de integrar todas las partes. El tarot no juzga, te muestra el mapa completo." },
+          { eco: "Renacer como un niño implica recuperar la capacidad de asombro.", sombra: "¿Hace cuánto tiempo que no haces algo simplemente porque te hace sentir vivo?", hilo: "Recuperar la vitalidad es un proceso hermoso. Un ritual de apertura puede volver a encenderte." }
+        ]},
+        { nombre: "XX · El Juicio", variaciones: [
+          { eco: "El llamado es claro. Fingir sordera o despiste ya no es una opción.", sombra: "¿Qué parte de ti necesita perdón interior, y a qué vieja culpa sigues atado?", hilo: "El renacimiento espiritual exige rendir cuentas con uno mismo. Una sesión puede darte esa paz." },
+          { eco: "Perdonar no es olvidar, es quitarle al recuerdo su poder destructivo.", sombra: "¿A quién sigues castigando mentalmente, sin darte cuenta de que el veneno lo bebes tú?", hilo: "Soltar cargas del pasado requiere trabajo. Podemos acompañarte en un ritual de perdón y cierre." },
+          { eco: "Despertar implica dejar atrás a los que prefieren seguir durmiendo.", sombra: "¿Estás frenando tu propia evolución por miedo a dejar atrás a tu entorno actual?", hilo: "El crecimiento a veces implica cambiar de etapa. Si el tránsito te da miedo, estamos para escucharte." }
+        ]},
+        { nombre: "XXI · El Mundo", variaciones: [
+          { eco: "Todo el viaje te preparó para este momento de completitud. Respira hondo.", sombra: "¿Por qué te resistes a celebrar tus logros y cerrar este capítulo con gratitud?", hilo: "El final de un ciclo es el inicio inminente del siguiente. Si estás listo para cruzar el umbral, hablemos." },
+          { eco: "Dar vueltas en círculo no significa que estés cerrando un ciclo.", sombra: "¿Estás repitiendo la misma lección porque te niegas a aceptar la graduación?", hilo: "Para avanzar hay que integrar lo aprendido. Una lectura de cierre puede darte el empuje final." },
+          { eco: "Eres el centro de tu propia realidad, pero no eres el centro de los demás.", sombra: "¿En qué momento olvidaste que el universo es vasto y tus problemas son solo una parte de él?", hilo: "Tomar perspectiva sana el alma. Una consulta espiritual puede devolverte al flujo natural." }
+        ]}
+      ];
+
+      const cardsContainer = document.getElementById('oracle-cards-container');
+      const resultContainer = document.getElementById('oracle-result-container');
+      const arcanaName = document.getElementById('oracle-arcana-name');
+      const ecoText = document.getElementById('oracle-eco');
+      const sombraText = document.getElementById('oracle-sombra');
+      const hiloText = document.getElementById('oracle-hilo');
+      const whatsappBtn = document.getElementById('oracle-whatsapp-btn');
+      const resetBtn = document.getElementById('oracle-reset-btn');
+      const baseWhatsAppUrl = "https://wa.me/34612425249?text=";
+
+      cardsContainer.addEventListener('click', (e) => {
+        const btn = e.target.closest('.tarot-card-btn');
+        if(!btn) return;
+        
+        // Animación de la carta seleccionada
+        btn.classList.add('selected');
+        const otros = Array.from(cardsContainer.children).filter(el => el !== btn);
+        otros.forEach(el => el.style.opacity = '0');
+        
+        setTimeout(() => {
+          // Lógica aleatoria (1 de 22 Arcanos, 1 de 3 Matices)
+          const arcanoElegido = tarotDB[Math.floor(Math.random() * tarotDB.length)];
+          const matizElegido = arcanoElegido.variaciones[Math.floor(Math.random() * arcanoElegido.variaciones.length)];
+          
+          // Renderizar textos
+          arcanaName.textContent = arcanoElegido.nombre;
+          ecoText.textContent = matizElegido.eco;
+          sombraText.textContent = matizElegido.sombra;
+          hiloText.textContent = matizElegido.hilo;
+          
+          // Generar CTA personalizado para WhatsApp
+          const arcanoLimpio = arcanoElegido.nombre.split('·')[1].trim();
+          const mensajeSutil = `Hola, el Oráculo me reveló la carta de ${arcanoLimpio} y me gustaría recibir información para una consulta.`;
+          whatsappBtn.href = baseWhatsAppUrl + encodeURIComponent(mensajeSutil);
+          
+          // Mostrar resultado
+          cardsContainer.style.display = 'none';
+          resultContainer.hidden = false;
+        }, 400); // Esperar a que la animación CSS termine
+      });
+
+      resetBtn.addEventListener('click', () => {
+        resultContainer.hidden = true;
+        Array.from(cardsContainer.children).forEach(el => {
+          el.classList.remove('selected');
+          el.style.opacity = '1';
+        });
+        cardsContainer.style.display = 'flex';
+      });
+
+    })();
+  </script>
+
+  <!-- Consent Scripts & Events -->
   <script id="soteira-consent-script">
     (function(){
-      'use strict';
-      var KEY='soteira_cookie_choice_v1';
-      function apply(allowed){
-        window.gtag('consent','update',{analytics_storage:allowed?'granted':'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
-      }
+      'use strict'; var KEY='soteira_cookie_choice_v1';
+      function apply(allowed){ window.gtag('consent','update',{analytics_storage:allowed?'granted':'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'}); }
       function readChoice(){try{var v=localStorage.getItem(KEY);return v==='yes'?true:v==='no'?false:null}catch(e){return null}}
       function saveChoice(v){var prior=readChoice();try{localStorage.setItem(KEY,v?'yes':'no')}catch(e){}apply(v);document.getElementById('cookie-panel').hidden=true;if(prior!==v)location.reload()}
       function ready(){
@@ -1090,7 +826,6 @@
       if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ready);else ready();
     })();
   </script>
-
   <script id="soteira-whatsapp-events">
     (function(){
       document.addEventListener('click',function(event){
@@ -1102,55 +837,6 @@
         try{if(localStorage.getItem('soteira_cookie_choice_v1')==='yes'&&typeof window.gtag==='function')window.gtag('event','whatsapp_click',{service_name:service,link_url:link.href,transport_type:'beacon'});}catch(e){}
       });
     })();
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", async function() {
-      const reviewsContainer = document.getElementById('dynamic-reviews-container');
-      if (!reviewsContainer) return;
-
-      try {
-        const response = await fetch('./reseñas.json', { cache: 'no-store' });
-        if (!response.ok) throw new Error('No se pudo cargar el archivo de reseñas.');
-        
-        const reseñas = await response.json();
-
-        if (Array.isArray(reseñas) && reseñas.length > 0) {
-          reviewsContainer.innerHTML = '';
-          
-          const ultimasReseñas = reseñas.slice(-3).reverse();
-
-          ultimasReseñas.forEach(r => {
-            const iniciales = r.nombre
-              ? r.nombre.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase()
-              : 'SS';
-              
-            const estrellasHTML = '<span style="color: var(--gold); margin-bottom: 8px; display: block; font-size: 1.1rem;">' + '★'.repeat(r.estrellas || 5) + '</span>';
-
-            const article = document.createElement('article');
-            article.className = 'review';
-            article.innerHTML = `
-              <div>
-                ${estrellasHTML}
-                <blockquote>“${r.texto}”</blockquote>
-              </div>
-              <div class="review-person">
-                <span class="review-avatar" aria-hidden="true">${iniciales}</span>
-                <div><strong>${r.nombre}</strong><small>${r.ubicacion || 'Casa Ritual'}</small></div>
-              </div>
-            `;
-            reviewsContainer.appendChild(article);
-          });
-        } else {
-          reviewsContainer.innerHTML = `
-            <article class="review" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
-              <blockquote>“Las experiencias compartidas aparecerán aquí muy pronto. Sé el primero en dejarnos tu perspectiva.”</blockquote>
-            </article>
-          `;
-        }
-      } catch (error) {
-        console.warn('Error cargando las reseñas:', error);
-      }
-    });
   </script>
 </body>
 </html>
