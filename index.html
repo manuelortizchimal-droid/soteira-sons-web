@@ -61,6 +61,7 @@
       color: var(--text); 
       font: 16px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
       padding-top: 70px;
+      transition: padding-top 0.25s ease;
     }
     
     a { color: inherit; }
@@ -80,6 +81,7 @@
       border-bottom: 1px solid rgba(198, 166, 107, .20); 
       backdrop-filter: blur(14px); 
       width: 100%; 
+      transition: top 0.25s ease;
     }
     nav { display: flex; align-items: center; justify-content: space-between; min-height: 70px; gap: 15px; position: relative; }
     
@@ -128,7 +130,6 @@
       z-index: 110;
       box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     }
-    /* Puente invisible para evitar que el ratón pierda el hover al bajar */
     .dropdown::after {
       content: "";
       position: absolute;
@@ -263,88 +264,139 @@
     .catalogue-hint a { color: var(--gold); text-underline-offset: 4px; font-weight: 600; }
     .catalogue-hint small { display: block; color: var(--muted); margin-top: 9px; }
 
-    /* Banner Nocturno */
+    /* BANNER NOCTURNO ADAPTATIVO */
     #banner-nocturno-movil {
       display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      max-width: 100vw;
-      background: #111110;
-      color: #FFFFFF;
-      padding: 16px;
-      box-sizing: border-box;
       z-index: 99999;
-      border-bottom: 1px solid var(--gold);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
-      flex-direction: column;
-      gap: 8px;
+      box-sizing: border-box;
       font-family: inherit;
     }
 
-    #banner-nocturno-movil .banner-eyebrow { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--gold); font-weight: 700; padding-right: 24px; line-height: 1.3; }
-    #banner-nocturno-movil .banner-titulo { font-family: Georgia, "Times New Roman", serif; font-size: 1.1rem; line-height: 1.25; color: #FFFFFF; margin: 2px 0; font-weight: 400; padding-right: 24px; }
-    #banner-nocturno-movil .banner-titulo em { color: var(--gold); font-style: italic; }
-    #banner-nocturno-movil .banner-descripcion { font-size: 0.8rem; line-height: 1.4; color: var(--muted); margin: 0 0 6px 0; word-break: break-word; }
-    #banner-nocturno-movil .banner-acciones { display: flex; flex-direction: column; gap: 8px; width: 100%; }
-
-    #banner-nocturno-movil .btn-llamar-nocturno.activo {
-      width: 100%;
-      background: var(--gold);
-      color: #10100F;
-      border: 1px solid var(--gold);
-      border-radius: 4px;
-      text-decoration: none;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      text-align: center;
-      padding: 10px 12px;
-      box-sizing: border-box;
-      pointer-events: auto;
-      box-shadow: 0 4px 15px rgba(217, 180, 122, 0.25);
+    /* ESTILO ESCRITORIO / TABLET: Tarjeta rectangular flotante en la esquina inferior derecha */
+    @media (min-width: 769px) {
+      #banner-nocturno-movil {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        width: 360px;
+        background: linear-gradient(145deg, #171715 0%, #111110 60%, #0C0C0B 100%);
+        color: #FFFFFF;
+        padding: 24px;
+        border: 1px solid rgba(198, 166, 107, 0.35);
+        border-radius: 8px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.85);
+        display: none;
+        flex-direction: column;
+        gap: 14px;
+      }
+      #banner-nocturno-movil .banner-eyebrow { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--gold); font-weight: 700; padding-right: 24px; }
+      #banner-nocturno-movil .banner-titulo { font-family: Georgia, "Times New Roman", serif; font-size: 1.25rem; line-height: 1.25; color: #FFFFFF; margin: 0; font-weight: 400; padding-right: 24px; }
+      #banner-nocturno-movil .banner-titulo em { color: var(--gold); font-style: italic; }
+      #banner-nocturno-movil .banner-descripcion { font-size: 0.9rem; line-height: 1.5; color: var(--muted); margin: 0; }
+      #banner-nocturno-movil .banner-acciones { display: flex; flex-direction: column; gap: 10px; width: 100%; margin-top: 4px; }
+      #banner-nocturno-movil .btn-info-nocturno {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background: var(--gold);
+        color: #10100F;
+        border: 1px solid var(--gold);
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-align: center;
+        padding: 11px 16px;
+        box-sizing: border-box;
+        transition: background .18s ease, transform .18s ease;
+      }
+      #banner-nocturno-movil .btn-info-nocturno:hover { background: var(--gold-hover); transform: translateY(-1px); }
+      #banner-nocturno-movil .btn-llamar-nocturno { display: none !important; }
+      #banner-nocturno-movil .cerrar-banner { position: absolute; right: 14px; top: 12px; background: transparent; border: none; color: var(--muted); font-size: 22px; cursor: pointer; line-height: 1; padding: 4px; }
+      #banner-nocturno-movil .cerrar-banner:hover { color: var(--gold); }
     }
 
-    #banner-nocturno-movil .btn-llamar-nocturno.inactivo {
-      width: 100%;
-      background: #080808;
-      color: var(--gold);
-      border: 1px solid var(--gold);
-      border-radius: 4px;
-      text-decoration: none;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      text-align: center;
-      padding: 10px 12px;
-      box-sizing: border-box;
-      pointer-events: none;
-      opacity: 0.9;
-    }
+    /* ESTILO MÓVIL: Banner superior original completo pero que desplaza la web hacia abajo para no taparla */
+    @media (max-width: 768px) {
+      #banner-nocturno-movil {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-width: 100vw;
+        background: #111110;
+        color: #FFFFFF;
+        padding: 16px;
+        border-bottom: 1px solid var(--gold);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+        display: none;
+        flex-direction: column;
+        gap: 8px;
+      }
+      #banner-nocturno-movil .banner-eyebrow { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--gold); font-weight: 700; padding-right: 24px; line-height: 1.3; }
+      #banner-nocturno-movil .banner-titulo { font-family: Georgia, "Times New Roman", serif; font-size: 1.1rem; line-height: 1.25; color: #FFFFFF; margin: 2px 0; font-weight: 400; padding-right: 24px; }
+      #banner-nocturno-movil .banner-titulo em { color: var(--gold); font-style: italic; }
+      #banner-nocturno-movil .banner-descripcion { font-size: 0.8rem; line-height: 1.4; color: var(--muted); margin: 0 0 6px 0; word-break: break-word; display: block; }
+      #banner-nocturno-movil .banner-acciones { display: flex; flex-direction: column; gap: 8px; width: 100%; }
 
-    #banner-nocturno-movil .btn-info-nocturno {
-      width: 100%;
-      background: transparent;
-      color: var(--muted);
-      padding: 8px 10px;
-      border: 1px solid transparent;
-      border-radius: 4px;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      font-size: 0.75rem;
-      font-weight: 400;
-      text-align: center;
-      box-sizing: border-box;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
+      #banner-nocturno-movil .btn-llamar-nocturno.activo {
+        width: 100%;
+        background: var(--gold);
+        color: #10100F;
+        border: 1px solid var(--gold);
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        text-align: center;
+        padding: 10px 12px;
+        box-sizing: border-box;
+        pointer-events: auto;
+        box-shadow: 0 4px 15px rgba(217, 180, 122, 0.25);
+      }
 
-    #banner-nocturno-movil .btn-info-nocturno:hover { color: var(--gold); }
-    #banner-nocturno-movil .cerrar-banner { position: absolute; right: 12px; top: 10px; background: transparent; border: none; color: var(--muted); font-size: 22px; cursor: pointer; line-height: 1; padding: 4px; }
-    #banner-nocturno-movil .cerrar-banner:hover { color: var(--gold); }
+      #banner-nocturno-movil .btn-llamar-nocturno.inactivo {
+        width: 100%;
+        background: #080808;
+        color: var(--gold);
+        border: 1px solid var(--gold);
+        border-radius: 4px;
+        text-decoration: none;
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        text-align: center;
+        padding: 10px 12px;
+        box-sizing: border-box;
+        pointer-events: none;
+        opacity: 0.9;
+      }
+
+      #banner-nocturno-movil .btn-info-nocturno {
+        width: 100%;
+        background: transparent;
+        color: var(--muted);
+        padding: 8px 10px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        font-size: 0.75rem;
+        font-weight: 400;
+        text-align: center;
+        box-sizing: border-box;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      #banner-nocturno-movil .btn-info-nocturno:hover { color: var(--gold); }
+      #banner-nocturno-movil .cerrar-banner { position: absolute; right: 12px; top: 10px; background: transparent; border: none; color: var(--muted); font-size: 22px; cursor: pointer; line-height: 1; padding: 4px; }
+      #banner-nocturno-movil .cerrar-banner:hover { color: var(--gold); }
+    }
 
     /* Cookies Panel */
     #cookie-panel { background: #111110; color: #FFFFFF; border: 1px solid rgba(198, 166, 107, .30); position: fixed; z-index: 99999; bottom: 18px; left: 18px; right: 18px; max-width: 530px; border-radius: 12px; padding: 20px; box-shadow: 0 12px 45px #000a; font: 14px/1.5 system-ui, sans-serif; }
@@ -352,7 +404,7 @@
     #cookie-panel button, .cookie-manage { background: #1A1A18; color: #FFFFFF; border: 1px solid rgba(198, 166, 107, .32); }
     #cookie-panel button.cookie-primary { background: var(--gold); color: #10100F; border-color: var(--gold); font-weight: 700; }
 
-    /* Responsivo */
+    /* Responsivo General */
     @media (max-width: 768px) {
       body { padding-top: 60px; }
       html { scroll-padding-top: 70px; }
@@ -394,7 +446,6 @@
       }
       .navlinks.active { display: flex; }
       
-      /* Unificación total de tipografía, tamaño, grosor y centrado en móvil */
       .navlinks > a, 
       .navlinks .dropdown-toggle {
         display: block;
@@ -407,7 +458,6 @@
         padding: 4px 0;
       }
 
-      /* Contenedor dropdown perfectamente centrado y cerrado por defecto en móvil */
       .dropdown {
         display: flex;
         flex-direction: column;
@@ -450,7 +500,6 @@
         background: transparent;
       }
 
-      /* Corrección de tamaño y color al hover del botón en móvil */
       .navlinks .btn,
       .navlinks .btn:link,
       .navlinks .btn:visited { 
@@ -481,7 +530,6 @@
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function() { window.dataLayer.push(arguments); };
     
-    // Configuración inicial por defecto (denegado)
     window.gtag('consent', 'default', { 
       analytics_storage: 'denied', 
       ad_storage: 'denied', 
@@ -490,7 +538,6 @@
       wait_for_update: 500 
     });
 
-    // Conexión automática con tu banner de cookies actual (soteira_cookie_choice_v1)
     try { 
       if (localStorage.getItem('soteira_cookie_choice_v1') === 'yes') {
         window.gtag('consent', 'update', { 
@@ -575,7 +622,7 @@
 <body>
 
   <!-- Header -->
-  <header>
+  <header id="main-header">
     <nav class="wrap" aria-label="Navegación principal">
       <a class="brand" href="#inicio">
         <img class="brand-logo" alt="Emblema de Soteira &amp; Sons" width="38" height="38" src="./logo.svg" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
@@ -697,7 +744,6 @@
           <p>La claridad not siempre llega como una respuesta. A veces comienza con una pregunta diferente.</p>
         </div>
         <div class="review-grid" id="dynamic-reviews-container">
-          <!-- Las reseñas reales se cargarán automáticamente aquí desde reseñas.json -->
           <article class="review">
             <blockquote>“Cargando experiencias recientes...”</blockquote>
             <div class="review-person">
@@ -710,6 +756,7 @@
         <div style="margin-top: 30px; text-align: center;">
           <a class="btn ghost" href="https://tally.so/r/Qo1Ebg" target="_blank" rel="noopener noreferrer">Déjanos tu experiencia →</a>
         </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
@@ -775,7 +822,7 @@
     </div>
   </footer>
 
-  <!-- BANNER SUPERIOR NOCTURNO -->
+  <!-- BANNER NOCTURNO ADAPTATIVO -->
   <div id="banner-nocturno-movil">
     <button class="cerrar-banner" onclick="cerrarBannerMovil()" aria-label="Cerrar banner">&times;</button>
     <span class="banner-eyebrow" id="banner-eyebrow-text">Línea Psíquica Nocturna • Atención directa | 20:00 - 01:00</span>
@@ -801,8 +848,8 @@
     
     dropdownToggleBtn.addEventListener('click', (e) => {
       if (window.innerWidth <= 480) {
-        e.preventDefault(); // Bloquea redirección en móvil
-        dropdownContainer.classList.toggle('active'); // Alterna abierto / cerrado
+        e.preventDefault();
+        dropdownContainer.classList.toggle('active');
       }
     });
 
@@ -816,9 +863,25 @@
 
     let paisDetectado = '';
 
+    function ajustarEspacioBannerMovil() {
+      const banner = document.getElementById('banner-nocturno-movil');
+      const header = document.getElementById('main-header');
+      const esMovil = window.matchMedia('(max-width: 768px)').matches;
+
+      if (esMovil && banner && banner.style.display !== 'none' && getComputedStyle(banner).display !== 'none') {
+        const bannerHeight = banner.offsetHeight;
+        header.style.top = bannerHeight + 'px';
+        document.body.style.paddingTop = (60 + bannerHeight) + 'px';
+      } else {
+        header.style.top = '0px';
+        document.body.style.paddingTop = esMovil ? '60px' : '70px';
+      }
+    }
+
     function cerrarBannerMovil() {
       const banner = document.getElementById('banner-nocturno-movil');
       if (banner) banner.style.display = 'none';
+      ajustarEspacioBannerMovil();
       try { sessionStorage.setItem('bannerNocturnoCerrado', 'true'); } catch (_) {}
     }
 
@@ -898,7 +961,6 @@
       const banner = document.getElementById('banner-nocturno-movil');
       const enlaceLlamada = document.getElementById('enlace-llamada');
 
-      // El banner permanece oculto hasta confirmar que la visita procede de España o México.
       if (banner) banner.style.display = 'none';
       if (enlaceLlamada) {
         enlaceLlamada.removeAttribute('href');
@@ -909,12 +971,9 @@
       }
 
       let bannerCerrado = false;
-      if (esMovil) {
-        try { bannerCerrado = sessionStorage.getItem('bannerNocturnoCerrado') === 'true'; } catch (_) {}
-      }
+      try { bannerCerrado = sessionStorage.getItem('bannerNocturnoCerrado') === 'true'; } catch (_) {}
 
       try {
-        // La detección se ejecuta en todos los dispositivos porque también determina los precios.
         const respuesta = await fetch('https://ipapi.co/json/', { cache: 'no-store' });
         if (!respuesta.ok) throw new Error(`Geolocalización HTTP ${respuesta.status}`);
         const datos = await respuesta.json();
@@ -937,13 +996,15 @@
             : precio.dataset.precioEur;
         });
 
-        // El banner conserva su regla original: solo México o España y únicamente en móvil.
-        if (!esMovil || (pais !== 'MX' && pais !== 'ES')) return;
+        if (pais !== 'MX' && pais !== 'ES') return;
 
         if (pais === 'MX') evaluarHorarioMexico();
         else evaluarHorarioEspana();
 
-        if (banner && !bannerCerrado) banner.style.display = 'flex';
+        if (banner && !bannerCerrado) {
+          banner.style.display = esMovil ? 'flex' : 'flex';
+          ajustarEspacioBannerMovil();
+        }
 
         window.setInterval(() => {
           if (paisDetectado === 'MX') evaluarHorarioMexico();
@@ -953,6 +1014,8 @@
         console.warn('No se pudo verificar el país; se mantienen los precios en euros y el banner permanece oculto.', error);
       }
     });
+
+    window.addEventListener('resize', ajustarEspacioBannerMovil);
 
     // Lógica del Oráculo y Testimonios
     (()=>{
