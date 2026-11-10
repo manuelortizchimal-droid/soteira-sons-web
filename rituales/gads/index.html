@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="es">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7929G6ND99"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-7929G6ND99');
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="shortcut icon" href="../../favicon.svg">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b0b0a">
+    
+    <title>Rituales y Trabajos a Medida | Soteira &amp; Sons</title>
+    
+    <meta name="description" content="Rituales, amuletos y trabajos de alta magia personalizados. Desde protecciones sencillas hasta procesos ceremoniales complejos con total confidencialidad.">
+    <meta name="robots" content="noindex,nofollow">
+    
+    <!-- Importación de tipografías editoriales y góticas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #0b0b0a;
+            --panel: #141412;
+            --gold: #C6A66B;
+            --gold-hover: #D8BB86;
+            --gold-dim: rgba(198, 166, 107, 0.2);
+            --muted: #E8E6E1;
+            --line: rgba(198, 166, 107, 0.25);
+            --text: #FFFFFF;
+        }
+        * { box-sizing: border-box; }
+        html, body { overflow-x: hidden; width: 100%; margin: 0; }
+        html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+        
+        body { 
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(198,166,107,0.04) 0%, transparent 60%),
+                linear-gradient(180deg, #0b0b0a 0%, #080807 100%);
+            color: var(--text); 
+            font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+            padding-top: 70px;
+        }
+        
+        a { color: inherit; }
+        button, input, textarea, select { font: inherit; }
+        button, a, input, textarea, select { outline-offset: 4px; }
+        button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--gold); }
+        
+        .wrap { width: min(1140px, calc(100% - 48px)); margin: auto; }
+        header { 
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100; 
+            background: rgba(11, 11, 10, .94); border-bottom: 1px solid var(--line); 
+            backdrop-filter: blur(16px); width: 100%; 
+        }
+        nav { display: flex; align-items: center; justify-content: space-between; min-height: 70px; gap: 15px; position: relative; }
+        
+        .brand { font-family: Georgia, serif; letter-spacing: .18em; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; color: var(--text); }
+        .brand-logo { width: 38px; height: 38px; object-fit: contain; flex-shrink: 0; display: inline-block; filter: drop-shadow(0px 0px 3px rgba(198,166,107,0.4)); }
+
+        .btn { 
+            display: inline-flex; align-items: center; justify-content: center; text-align: center; 
+            background: var(--gold); color: #0b0b0a; border: 1px solid var(--gold); 
+            border-radius: 2px; padding: 12px 24px; text-decoration: none; 
+            font-weight: 700; letter-spacing: 0.05em; cursor: pointer; transition: transform .25s ease, background .25s ease, box-shadow .25s ease; line-height: 1.2; box-sizing: border-box;
+        }
+        .btn:hover, .btn:focus-visible { 
+            transform: translateY(-2px); background: var(--gold-hover); border-color: var(--gold-hover); 
+            box-shadow: 0 6px 22px rgba(198,166,107,0.3); color: #0b0b0a; 
+        }
+        .btn.ghost, .ghost { 
+            background: transparent; color: var(--gold); border: 1px solid rgba(198,166,107,0.45); 
+        }
+        .btn.ghost:hover, .ghost:hover { 
+            background: rgba(198, 166, 107, .08); border-color: var(--gold); color: var(--gold); 
+        }
+        
+        .eyebrow { text-transform: uppercase; letter-spacing: .3em; font-size: .72rem; color: var(--gold); font-weight: 700; margin: 0 0 10px 0; display: block; font-family: system-ui, -apple-system, sans-serif; line-height: 1.4; }
+        
+        .title-h1 { font-family: 'Cinzel', Georgia, serif; font-weight: 600; line-height: 1.2; word-break: break-word; color: var(--text); font-size: clamp(2.2rem, 4.8vw, 3.8rem); margin: 12px 0 8px; letter-spacing: 0.03em; max-width: 900px; text-transform: uppercase; }
+        
+        .title-h2 { font-family: 'Cinzel', Georgia, serif; font-size: clamp(2rem, 4.5vw, 3.3rem); margin: 12px 0 20px; letter-spacing: 0.02em; font-weight: 600; text-transform: uppercase; }
+        h3 { font-family: 'Cinzel', Georgia, serif; font-size: clamp(1.4rem, 2.2vw, 1.8rem); margin: 12px 0; font-weight: 600; }
+        p { color: var(--muted); word-break: break-word; margin-bottom: 14px; font-family: system-ui, -apple-system, sans-serif; }
+
+        /* HERO FIJO */
+        .hero { 
+            position: relative; min-height: calc(100vh - 70px); display: flex; align-items: center; isolation: isolate; overflow: hidden; 
+            background-color: #0b0b0a; padding: 70px 0;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0; z-index: -2;
+            background: url("../../ritual-soteira.jpg") center 55% / cover no-repeat;
+            filter: brightness(0.68) contrast(1.08) saturate(85%);
+        }
+        .hero::after {
+            content: ''; position: absolute; inset: 0; z-index: -1;
+            background: 
+                linear-gradient(90deg, rgba(11,11,10,0.94) 0%, rgba(11,11,10,0.82) 48%, rgba(11,11,10,0.35) 78%, transparent 100%),
+                linear-gradient(180deg, rgba(11,11,10,0.4) 0%, transparent 25%, rgba(11,11,10,0.92) 100%);
+        }
+        .hero-copy { max-width: 840px; padding: 20px 0; position: relative; z-index: 2;}
+        .hero .lead { max-width: 700px; font-size: 1.15rem; color: #f4f2ec; margin-bottom: 22px; text-shadow: 0 2px 10px rgba(0,0,0,0.6); line-height: 1.6;}
+        .actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
+        .hero-note { color: var(--gold); font-size: .88rem; margin-top: 22px; display: inline-block; border-top: 1px solid rgba(198,166,107,0.3); padding-top: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; text-shadow: 0 1px 5px rgba(0,0,0,0.8);}
+
+        .section { padding: 90px 0; position: relative; }
+        .section-intro { max-width: 820px; margin-bottom: 50px; }
+
+        /* Cuadrícula de 3 Tarjetas (Áreas de Intervención) */
+        .areas-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; align-items: stretch; margin-top: 35px; }
+        .area-card { 
+            display: flex; flex-direction: column; padding: 38px 28px; 
+            background: linear-gradient(165deg, #151513 0%, #0d0d0c 100%);
+            border: 1px solid var(--line); border-radius: 3px; position: relative; overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5); transition: all 0.4s ease;
+        }
+        .area-card::before {
+            content: ''; position: absolute; inset: 12px;
+            border: 1px solid rgba(198, 166, 107, 0.12); pointer-events: none; z-index: 2;
+        }
+        .area-card:hover { 
+            border-color: rgba(198, 166, 107, 0.5); transform: translateY(-6px); 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.7), 0 0 30px rgba(198,166,107,0.1); 
+        }
+        .area-card > * { position: relative; z-index: 3; }
+        .area-card h3 { color: #FFFFFF; text-align: center; font-size: 1.4rem; margin: 0 0 8px; }
+        .area-card .sub-area { color: var(--gold); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.15em; text-align: center; margin-bottom: 18px; display: block; font-weight: 600; font-family: 'Cinzel', Georgia, serif; }
+        .area-card p.desc { margin-top: 0; color: var(--muted); flex-grow: 1; text-align: center; font-size: 0.94rem; line-height: 1.55;}
+
+        /* Cuadrícula de 3 Columnas (Principios de la Casa: Carmen y Styx) */
+        .principles-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; align-items: stretch; margin-top: 35px; }
+        .principle-card { 
+            padding: 32px 26px; background: linear-gradient(150deg, #131311 0%, #0a0a09 100%); 
+            border: 1px solid var(--line); border-radius: 3px; position: relative;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
+        }
+        .principle-card h3 { color: #FFFFFF; font-family: 'Cinzel', Georgia, serif; font-size: 1.25rem; margin: 0 0 10px; font-weight: 600; text-align: center; }
+        .principle-card p { color: var(--muted); line-height: 1.55; font-size: 0.94rem; margin: 0; text-align: center; }
+
+        .image-break {
+            padding: 100px 20px; position: relative; overflow: hidden;
+            background: linear-gradient(rgba(11,11,10,0.7), rgba(11,11,10,0.88)), url("../../ritual-soteira.jpg") center 45%/cover fixed no-repeat;
+            border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+            text-align: center; display: flex; align-items: center; justify-content: center;
+        }
+        .image-break .quote-box {
+            border: 1px solid rgba(198,166,107,0.35); padding: 40px 35px; background: rgba(11,11,10,0.78); backdrop-filter: blur(8px);
+            max-width: 820px; box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+        }
+        .image-break .quote { 
+            font-family: 'Cinzel', Georgia, serif; font-size: clamp(1.3rem, 2.8vw, 2rem); 
+            color: var(--gold); font-style: italic; margin: 0; line-height: 1.4; text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            letter-spacing: 0.02em; text-transform: none !important;
+        }
+
+        .cta-panel { 
+            padding: 45px; border: 1px solid rgba(198, 166, 107, 0.3); border-radius: 3px; 
+            background: linear-gradient(145deg, #161512 0%, #090908 100%); 
+            box-shadow: 0 20px 50px rgba(0,0,0,.5); text-align: center; position: relative; overflow: hidden;
+        }
+        .cta-panel h2 { margin-bottom: 12px; }
+        .cta-panel p { max-width: 620px; margin: 0 auto 25px; }
+        .cta-panel .actions { justify-content: center; margin-top: 0;}
+
+        footer { border-top: 1px solid var(--line); padding: 30px 0; color: var(--muted); font-size: .88rem; background: #070706;}
+        footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; align-items: center;}
+        footer a { color: var(--gold); text-decoration: none; transition: color 0.2s;}
+        footer a:hover { color: #fff;}
+
+        @media(max-width: 950px) { 
+            .areas-grid { grid-template-columns: 1fr; gap: 22px; }
+            .principles-grid { grid-template-columns: 1fr; gap: 22px; }
+        }
+
+        @media(max-width: 768px) { 
+            html { scroll-padding-top: 60px; } body { padding-top: 60px; } 
+            .wrap { width: calc(100% - 26px); } 
+            nav { gap: 10px; min-height: 60px; } .brand span { display: none; } 
+            .hero { min-height: calc(100vh - 60px); padding: 50px 0; } 
+            .section { padding: 80px 0; } 
+            .cta-panel { padding: 35px 20px; } 
+            .hero .actions, .cta-panel .actions { flex-direction: column; align-items: stretch; } 
+            .hero .actions .btn, .cta-panel .actions .btn { width: 100%; } 
+            .image-break { padding: 80px 15px; }
+            .image-break .quote-box { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="wrap" aria-label="Navegación principal">
+            <a class="brand" href="/">
+                <img class="brand-logo" alt="Emblema de Soteira &amp; Sons" width="38" height="38" src="../../logo.svg">
+                <span>SOTEIRA &amp; SONS</span>
+            </a>
+            <div style="margin-left: auto;">
+                <a class="btn ghost" style="padding: 8px 18px; font-size: 0.9rem;" href="https://wa.me/34612425249?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20sobre%20un%20ritual." data-service="Rituales Ads" target="_blank" rel="noopener noreferrer">Reservar por WhatsApp</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="wrap">
+                <div class="hero-copy">
+                    <span class="eyebrow">SOTEIRA &amp; SONS · TRABAJOS Y ALTA MAGIA</span>
+                    <h1 class="title-h1">Rituales y Trabajos a Medida</h1>
+                    <p style="font-family: Georgia, serif; color: var(--gold); font-size: 1.15rem; font-style: italic; letter-spacing: 0.04em; margin: -4px 0 16px;">Magia, protecciones y alta ritualística</p>
+                    <p class="lead">Realizamos todo tipo de trabajos a medida para cualquier intención: desde amuletos y limpiezas sencillas hasta procesos ceremoniales complejos e itinerarios avanzados. Sin intermediarios, con total confidencialidad y un seguimiento riguroso.</p>
+                    <div class="actions">
+                        <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20quiero%20consultar%20sobre%20un%20ritual%20a%20medida." data-service="Rituales Ads" target="_blank" rel="noopener noreferrer">CONSULTAR MI RITUAL POR WHATSAPP</a>
+                        <a class="btn ghost" href="#areas">Ver áreas de trabajo</a>
+                    </div>
+                    <p class="hero-note">Atención personalizada · Seguimiento incluido · <span data-precio-eur="Desde 25 €" data-precio-mxn="Desde $400 MXN">Desde 25 €</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 1: ÁREAS DE INTERVENCIÓN -->
+        <section class="section anchor-target" id="areas">
+            <div class="wrap">
+                <div class="section-intro">
+                    <span class="eyebrow">Áreas de intervención</span>
+                    <h2 class="title-h2">¿Qué tipo de trabajo necesitas?</h2>
+                    <p>Cada caso es único y se diseña a medida. Estas son las tres grandes líneas en las que centramos nuestra labor:</p>
+                </div>
+                
+                <div class="areas-grid">
+                    <!-- TARJETA 1 -->
+                    <article class="area-card">
+                        <h3>Protección y defensa</h3>
+                        <span class="sub-area">Limpiezas y blindaje</span>
+                        <p class="desc">Para cuando sientes bloqueo, pesadez o la necesidad de neutralizar energías densas, cortar envidias y establecer un escudo protector firme sobre ti o tu entorno.</p>
+                    </article>
+                    
+                    <!-- TARJETA 2 -->
+                    <article class="area-card">
+                        <h3>Apertura de caminos y atracción</h3>
+                        <span class="sub-area">Dinero y oportunidades</span>
+                        <p class="desc">Para desbloquear situaciones laborales estancadas, atraer nuevas oportunidades profesionales, fluidez económica y propiciar la prosperidad que buscas.</p>
+                    </article>
+
+                    <!-- TARJETA 3 -->
+                    <article class="area-card">
+                        <h3>Amor y vínculos</h3>
+                        <span class="sub-area">Relaciones y armonía</span>
+                        <p class="desc">Para sanar tensiones en el ámbito de pareja o familiar, restaurar el entendimiento mutuo y armonizar los lazos afectivos importantes de tu vida.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: PRINCIPIOS Y GARANTÍAS DE LA CASA (Carmen y Styx) -->
+        <section class="section" style="padding-top: 0;">
+            <div class="wrap">
+                <div class="section-intro">
+                    <span class="eyebrow">Rigor y compromiso</span>
+                    <h2 class="title-h2">Nuestra forma de trabajar</h2>
+                    <p>Garantizamos una atención ética, artesanal y enfocada exclusivamente en resultados sólidos.</p>
+                </div>
+
+                <div class="principles-grid">
+                    <article class="principle-card">
+                        <h3>Cero gabinetes masivos</h3>
+                        <p>Atención directa, cercana y estrictamente personal por Carmen y Styx, cuidando cada detalle de forma artesanal.</p>
+                    </article>
+                    <article class="principle-card">
+                        <h3>Confidencialidad absoluta</h3>
+                        <p>Discreción total en cada proceso y un seguimiento riguroso y personalizado durante los días que dure el trabajo.</p>
+                    </article>
+                    <article class="principle-card">
+                        <h3>Enfoque honesto</h3>
+                        <p>Priorizamos el equilibrio y la evolución real, adaptando siempre los medios y los materiales a la ética de la alta magia.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FRANJA FOTOGRÁFICA INMERSIVA -->
+        <section class="image-break">
+            <div class="wrap">
+                <div class="quote-box">
+                    <p class="quote">"La magia es el arte de alinear la voluntad con los hilos invisibles de la realidad."</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top: 20px;">
+            <div class="wrap">
+                <div class="cta-panel">
+                    <span class="eyebrow">Da el primer paso</span>
+                    <h2 class="title-h2" style="margin-bottom: 12px; margin-top: 0;">¿Qué situación deseas transformar hoy?</h2>
+                    <p>Las vías están abiertas. Escríbenos por WhatsApp para definir juntos qué opción se adapta mejor a tu caso y te guiamos en el proceso sin compromiso.</p>
+                    <div class="actions">
+                        <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20quiero%20consultar%20sobre%20un%20ritual%20a%20medida." data-service="Rituales Ads" target="_blank" rel="noopener noreferrer">ABRIR CONSULTA POR WHATSAPP</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+          <span>SOTEIRA &amp; SONS &middot; CASA RITUAL &middot; RITUALES</span>
+          <span>
+            <a href="mailto:contacto@casasoteira.com">contacto@casasoteira.com</a> &middot; 
+            <a href="/privacidad.html">Privacidad</a>
+          </span>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE GEOPRICING -->
+    <script id="soteira-rituales-geopricing">
+      (function () { 
+        'use strict'; 
+        const paisesConPreciosMXN = new Set(['AI','AG','AR','AW','BB','BL','BM','BQ','BS','BZ','BO','BR','VG','KY','CL','CO','CR','CU','CW','DM','DO','EC','SV','FK','GF','GD','GL','GP','GS','GT','GY','HT','HN','JM','MQ','MX','MS','NI','PA','PY','PE','PR','KN','LC','MF','PM','VC','SX','SR','TT','TC','UY','VE','VI']); 
+        
+        function aplicarMoneda(moneda) { 
+            document.querySelectorAll('[data-precio-eur][data-precio-mxn]').forEach(function (elemento) { 
+                elemento.textContent = moneda === 'MXN' ? elemento.dataset.precioMxn : elemento.dataset.precioEur; 
+            }); 
+            document.querySelectorAll('[data-mensaje-eur][data-mensaje-mxn]').forEach(function (enlace) { 
+                const mensaje = moneda === 'MXN' ? enlace.dataset.mensajeMxn : enlace.dataset.mensajeEur; 
+                enlace.href = 'https://wa.me/34612425249?text=' + encodeURIComponent(mensaje); 
+            }); 
+        } 
+
+        aplicarMoneda('EUR'); 
+
+        document.addEventListener('DOMContentLoaded', async function () { 
+            try { 
+                const respuesta = await fetch('https://ipapi.co/json/', { cache: 'no-store' }); 
+                if (!respuesta.ok) throw new Error('Geo HTTP ' + respuesta.status); 
+                const datos = await respuesta.json(); 
+                const pais = typeof datos.country_code === 'string' ? datos.country_code.toUpperCase() : ''; 
+                const moneda = paisesConPreciosMXN.has(pais) ? 'MXN' : 'EUR'; 
+                aplicarMoneda(moneda); 
+            } catch (error) { 
+                aplicarMoneda('EUR'); 
+            } 
+        }); 
+      })();
+    </script>
+</body>
+</html>
