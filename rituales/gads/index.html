@@ -150,25 +150,111 @@
     .principle-card h3 { color: #FFFFFF; font-family: 'Cinzel', Georgia, serif; font-size: 1.25rem; margin: 0 0 10px; font-weight: 600; text-align: center; }
     .principle-card p { color: var(--muted); line-height: 1.55; font-size: 0.94rem; margin: 0; text-align: center; }
 
-    /* SECCIÓN DE RESEÑAS */
-    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 35px; }
-    .review-card {
-        padding: 28px 24px;
-        background: linear-gradient(155deg, #141412 0%, #0a0a09 100%);
-        border: 1px solid var(--line);
-        border-radius: 3px;
+    /* SECCIÓN DE TESTIMONIOS (CARRUSEL CON FLECHAS) */
+    .testimonial-carousel-wrapper {
+        max-width: 900px;
+        margin: 40px auto 0;
         position: relative;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .testimonial-carousel {
+        width: 100%;
+        max-width: 740px;
+        position: relative;
+        text-align: center;
+        min-height: 140px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        align-items: center;
+        justify-content: center;
     }
-    .review-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
-    .review-author { font-family: 'Cinzel', Georgia, serif; font-weight: 600; font-size: 1.05rem; color: #fff; }
-    .review-service { display: inline-block; color: var(--gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; margin-bottom: 12px; font-family: 'Cinzel', Georgia, serif; }
-    .review-text { color: var(--muted); font-size: 0.92rem; line-height: 1.55; font-style: italic; margin: 0; }
-    .review-stars { color: var(--gold); font-size: 0.9rem; letter-spacing: 2px; }
+    .testimonial-slide {
+        display: none;
+        animation: fadeIn 0.8s ease-in-out forwards;
+        width: 100%;
+    }
+    .testimonial-slide.active {
+        display: block;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    .testimonial-quote {
+        font-family: Georgia, serif;
+        font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+        color: #f4f2ec;
+        font-style: italic;
+        line-height: 1.6;
+        margin: 0 0 16px 0;
+        text-transform: none !important;
+    }
+    .testimonial-author {
+        font-size: 0.85rem;
+        color: var(--gold);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        font-family: 'Cinzel', Georgia, serif;
+        font-weight: 600;
+    }
+    
+    /* Botones de flecha para el carrusel */
+    .carousel-btn {
+        background: transparent;
+        border: 1px solid rgba(198, 166, 107, 0.3);
+        color: var(--gold);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+        z-index: 10;
+    }
+    .carousel-btn:hover {
+        background: rgba(198, 166, 107, 0.1);
+        border-color: var(--gold);
+        transform: scale(1.05);
+    }
+    .carousel-btn svg {
+        width: 18px;
+        height: 18px;
+        fill: currentColor;
+    }
 
+    .testimonial-dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 25px;
+    }
+    .testimonial-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(198, 166, 107, 0.25);
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .testimonial-dot.active {
+        background: var(--gold);
+        transform: scale(1.2);
+    }
+    
+    .testimonial-container-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* FRANJA FOTOGRÁFICA INMERSIVA (Texto normal forzado) */
     .image-break {
         padding: 100px 20px; position: relative; overflow: hidden;
         background: linear-gradient(rgba(11,11,10,0.7), rgba(11,11,10,0.88)), url("../../ritual-soteira.jpg") center 45%/cover fixed no-repeat;
@@ -180,9 +266,15 @@
         max-width: 820px; box-shadow: 0 25px 50px rgba(0,0,0,0.6);
     }
     .image-break .quote { 
-        font-family: 'Cinzel', Georgia, serif; font-size: clamp(1.3rem, 2.8vw, 2rem); 
-        color: var(--gold); font-style: italic; margin: 0; line-height: 1.4; text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-        letter-spacing: 0.02em; text-transform: none !important;
+        font-family: Georgia, serif !important; 
+        font-size: clamp(1.2rem, 2.4vw, 1.8rem); 
+        color: var(--gold); 
+        font-style: italic; 
+        margin: 0; 
+        line-height: 1.4; 
+        text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        letter-spacing: 0.02em; 
+        text-transform: none !important; 
     }
 
     .cta-panel { 
@@ -202,7 +294,6 @@
     @media(max-width: 950px) { 
         .areas-grid { grid-template-columns: 1fr; gap: 22px; }
         .principles-grid { grid-template-columns: 1fr; gap: 22px; }
-        .reviews-grid { grid-template-columns: 1fr; }
     }
 
     @media(max-width: 768px) { 
@@ -216,6 +307,7 @@
         .hero .actions .btn, .cta-panel .actions .btn { width: 100%; } 
         .image-break { padding: 80px 15px; }
         .image-break .quote-box { padding: 30px 20px; }
+        .carousel-btn { width: 36px; height: 36px; }
     }
 </style>
 </head>
@@ -320,7 +412,7 @@
         </div>
     </section>
 
-    <!-- FRANJA FOTOGRÁFICA INMERSIVA -->
+    <!-- FRANJA FOTOGRÁFICA INMERSIVA (Cita en texto normal forzado) -->
     <section class="image-break">
         <div class="wrap">
             <div class="quote-box">
@@ -329,74 +421,55 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE RESEÑAS -->
+    <!-- SECCIÓN DE TESTIMONIOS (CARRUSEL CON FLECHAS) -->
     <section class="section">
         <div class="wrap">
-            <div class="section-intro">
+            <div class="section-intro" style="text-align: center; margin-left: auto; margin-right: auto;">
                 <span class="eyebrow">Testimonios y confianza</span>
                 <h2 class="title-h2">Lo que dicen quienes han confiado en nosotros</h2>
                 <p>Experiencias reales de personas que transformaron su situación a través de nuestros trabajos espirituales.</p>
             </div>
 
-            <div class="reviews-grid">
-                <!-- Reseña 1 -->
-                <div class="review-card">
-                    <div>
-                        <div class="review-header">
-                            <span class="review-author">Valeria R. (CDMX)</span>
-                            <div class="review-stars">★★★★★</div>
+            <div class="testimonial-container-block">
+                <div class="testimonial-carousel-wrapper">
+                    <button class="carousel-btn" id="prevBtn" aria-label="Anterior testimonio">
+                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </button>
+
+                    <div class="testimonial-carousel" id="testimonialCarousel">
+                        <div class="testimonial-slide active">
+                            <p class="testimonial-quote">"El cambio en la relación fue perceptible a los pocos días. Me guiaron con total profesionalismo desde el primer momento."</p>
+                            <span class="testimonial-author">— Valeria R.</span>
                         </div>
-                        <span class="review-service">Ritual de Amor y Armonización</span>
-                        <p class="review-text">"Estábamos atravesando una crisis muy fuerte de distanciamiento con mi pareja. Carmen y Styxe me guiaron con total profesionalismo desde el primer momento y el cambio en la relación fue perceptible a los pocos días. Estoy profundamente agradecida."</p>
+                        <div class="testimonial-slide">
+                            <p class="testimonial-quote">"La paz y la fluidez regresaron rápido. Se nota que no es un gabinete masivo, la atención es sumamente personal."</p>
+                            <span class="testimonial-author">— Alejandro M.</span>
+                        </div>
+                        <div class="testimonial-slide">
+                            <p class="testimonial-quote">"Tras el trabajo de apertura de caminos, en menos de dos semanas se destrabaron dos contratos importantes."</p>
+                            <span class="testimonial-author">— Mariana G.</span>
+                        </div>
+                        <div class="testimonial-slide">
+                            <p class="testimonial-quote">"No te prometen imposibles, trabajan con rigor y eso se refleja en los resultados. Son excelentes personas."</p>
+                            <span class="testimonial-author">— Carla S.</span>
+                        </div>
+                        <div class="testimonial-slide">
+                            <p class="testimonial-quote">"Desde el primer mensaje por WhatsApp la asesoría fue clara, transparente y muy respetuosa."</p>
+                            <span class="testimonial-author">— Héctor L.</span>
+                        </div>
                     </div>
+
+                    <button class="carousel-btn" id="nextBtn" aria-label="Siguiente testimonio">
+                        <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                    </button>
                 </div>
 
-                <!-- Reseña 2 -->
-                <div class="review-card">
-                    <div>
-                        <div class="review-header">
-                            <span class="review-author">Alejandro M.</span>
-                            <div class="review-stars">★★★★★</div>
-                        </div>
-                        <span class="review-service">Limpieza y Protección Energética</span>
-                        <p class="review-text">"Sentía la energía de mi hogar y mi negocio completamente estancada y pesada. La limpieza energética que hicieron fue impecable; la paz y la fluidez regresaron rápido. Se nota que no es un gabinete masivo, la atención es sumamente personal."</p>
-                    </div>
-                </div>
-
-                <!-- Reseña 3 -->
-                <div class="review-card">
-                    <div>
-                        <div class="review-header">
-                            <span class="review-author">Mariana G. (CDMX)</span>
-                            <div class="review-stars">★★★★★</div>
-                        </div>
-                        <span class="review-service">Apertura de Caminos y Dinero</span>
-                        <p class="review-text">"Tenía meses con proyectos detenidos y sin ver claridad económica. Tras el trabajo de apertura de caminos, en menos de dos semanas se destrabaron dos contratos importantes. Recomiendo totalmente su ética y discreción."</p>
-                    </div>
-                </div>
-
-                <!-- Reseña 4 -->
-                <div class="review-card">
-                    <div>
-                        <div class="review-header">
-                            <span class="review-author">Carla S.</span>
-                            <div class="review-stars">★★★★★</div>
-                        </div>
-                        <span class="review-service">Armonización de Vínculos</span>
-                        <p class="review-text">"El seguimiento diario y la forma en que explican todo el proceso da una tranquilidad enorme. No te prometen imposibles, trabajan con rigor y eso se refleja en los resultados. Son excelentes personas."</p>
-                    </div>
-                </div>
-
-                <!-- Reseña 5 -->
-                <div class="review-card">
-                    <div>
-                        <div class="review-header">
-                            <span class="review-author">Héctor L. (CDMX)</span>
-                            <div class="review-stars">★★★★★</div>
-                        </div>
-                        <span class="review-service">Limpieza y Blindaje</span>
-                        <p class="review-text">"Excelente atención por parte de Carmen y Styxe. Desde el primer mensaje por WhatsApp la asesoría fue clara, transparente y muy respetuosa. Sin duda volveré a acudir a su casa ritual cuando lo necesite."</p>
-                    </div>
+                <div class="testimonial-dots" id="testimonialDots">
+                    <button class="testimonial-dot active" data-index="0" aria-label="Ver testimonio 1"></button>
+                    <button class="testimonial-dot" data-index="1" aria-label="Ver testimonio 2"></button>
+                    <button class="testimonial-dot" data-index="2" aria-label="Ver testimonio 3"></button>
+                    <button class="testimonial-dot" data-index="3" aria-label="Ver testimonio 4"></button>
+                    <button class="testimonial-dot" data-index="4" aria-label="Ver testimonio 5"></button>
                 </div>
             </div>
         </div>
@@ -426,6 +499,60 @@
       </span>
     </div>
 </footer>
+
+<script>
+    // Script funcional para el carrusel con flechas, puntos y temporizador
+    document.addEventListener("DOMContentLoaded", function() {
+        const slides = document.querySelectorAll(".testimonial-slide");
+        const dots = document.querySelectorAll(".testimonial-dot");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        let currentIndex = 0;
+        let slideInterval;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove("active"));
+            dots.forEach(dot => dot.classList.remove("active"));
+            
+            currentIndex = (index + slides.length) % slides.length;
+            slides[currentIndex].classList.add("active");
+            dots[currentIndex].classList.add("active");
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+
+        // Cambio automático cada 5 segundos
+        slideInterval = setInterval(nextSlide, 5000);
+
+        // Controles de flechas
+        nextBtn.addEventListener("click", () => {
+            nextSlide();
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+
+        prevBtn.addEventListener("click", () => {
+            prevSlide();
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        });
+
+        // Permitir clic en los indicadores
+        dots.forEach((dot, index) => {
+            dot.addEventListener("click", () => {
+                showSlide(index);
+                clearInterval(slideInterval);
+                slideInterval = setInterval(nextSlide, 5000);
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
