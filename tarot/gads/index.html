@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="es">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7929G6ND99"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-7929G6ND99');
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="shortcut icon" href="../../favicon.svg">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b0b0a">
+    
+    <title>Lecturas de Tarot | Soteira &amp; Sons</title>
+    
+    <meta name="description" content="Lecturas de tarot personalizadas online y telefónicas. Resuelve tus dudas hoy mismo sin rodeos, con total confidencialidad y atención cercana.">
+    <meta name="robots" content="noindex,nofollow">
+    
+    <!-- Importación de tipografías editoriales y góticas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #0b0b0a;
+            --panel: #141412;
+            --gold: #C6A66B;
+            --gold-hover: #D8BB86;
+            --gold-dim: rgba(198, 166, 107, 0.2);
+            --muted: #E8E6E1;
+            --line: rgba(198, 166, 107, 0.25);
+            --text: #FFFFFF;
+        }
+        * { box-sizing: border-box; }
+        html, body { overflow-x: hidden; width: 100%; margin: 0; }
+        html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+        
+        body { 
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(198,166,107,0.04) 0%, transparent 60%),
+                linear-gradient(180deg, #0b0b0a 0%, #080807 100%);
+            color: var(--text); 
+            font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif;
+            padding-top: 70px;
+        }
+        
+        a { color: inherit; }
+        button, input, textarea, select { font: inherit; }
+        button, a, input, textarea, select { outline-offset: 4px; }
+        button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 2px solid var(--gold); }
+        
+        .wrap { width: min(1140px, calc(100% - 48px)); margin: auto; }
+        header { 
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100; 
+            background: rgba(11, 11, 10, .94); border-bottom: 1px solid var(--line); 
+            backdrop-filter: blur(16px); width: 100%; 
+        }
+        nav { display: flex; align-items: center; justify-content: space-between; min-height: 70px; gap: 15px; position: relative; }
+        
+        .brand { font-family: Georgia, serif; letter-spacing: .18em; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; color: var(--text); }
+        .brand-logo { width: 38px; height: 38px; object-fit: contain; flex-shrink: 0; display: inline-block; filter: drop-shadow(0px 0px 3px rgba(198,166,107,0.4)); }
+
+        .btn { 
+            display: inline-flex; align-items: center; justify-content: center; text-align: center; 
+            background: var(--gold); color: #0b0b0a; border: 1px solid var(--gold); 
+            border-radius: 2px; padding: 12px 24px; text-decoration: none; 
+            font-weight: 700; letter-spacing: 0.05em; cursor: pointer; transition: transform .25s ease, background .25s ease, box-shadow .25s ease; line-height: 1.2; box-sizing: border-box;
+        }
+        .btn:hover, .btn:focus-visible { 
+            transform: translateY(-2px); background: var(--gold-hover); border-color: var(--gold-hover); 
+            box-shadow: 0 6px 22px rgba(198,166,107,0.3); color: #0b0b0a; 
+        }
+        .btn.ghost, .ghost { 
+            background: transparent; color: var(--gold); border: 1px solid rgba(198,166,107,0.45); 
+        }
+        .btn.ghost:hover, .ghost:hover { 
+            background: rgba(198, 166, 107, .08); border-color: var(--gold); color: var(--gold); 
+        }
+        
+        .eyebrow { text-transform: uppercase; letter-spacing: .3em; font-size: .72rem; color: var(--gold); font-weight: 700; margin: 0 0 10px 0; display: block; font-family: system-ui, -apple-system, sans-serif; line-height: 1.4; }
+        
+        .title-h1 { font-family: 'Cinzel', Georgia, serif; font-weight: 600; line-height: 1.2; word-break: break-word; color: var(--text); font-size: clamp(2.2rem, 4.8vw, 3.8rem); margin: 12px 0 8px; letter-spacing: 0.03em; max-width: 900px; text-transform: uppercase; }
+        
+        .title-h2 { font-family: 'Cinzel', Georgia, serif; font-size: clamp(2rem, 4.5vw, 3.3rem); margin: 12px 0 20px; letter-spacing: 0.02em; font-weight: 600; text-transform: uppercase; }
+        h3 { font-family: 'Cinzel', Georgia, serif; font-size: clamp(1.4rem, 2.2vw, 1.8rem); margin: 12px 0; font-weight: 600; }
+        p { color: var(--muted); word-break: break-word; margin-bottom: 14px; font-family: system-ui, -apple-system, sans-serif; }
+
+        /* HERO FIJO Y AMPLIADO: Garantiza que ocupe todo el espacio de la pantalla sin comprimirse ni solapar la sección inferior */
+        .hero { 
+            position: relative; min-height: calc(100vh - 70px); display: flex; align-items: center; isolation: isolate; overflow: hidden; 
+            background-color: #0b0b0a; padding: 70px 0;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0; z-index: -2;
+            background: url("../../tarot.jpg") center 55% / cover no-repeat;
+            filter: brightness(0.68) contrast(1.08) saturate(85%);
+        }
+        .hero::after {
+            content: ''; position: absolute; inset: 0; z-index: -1;
+            background: 
+                linear-gradient(90deg, rgba(11,11,10,0.94) 0%, rgba(11,11,10,0.82) 48%, rgba(11,11,10,0.35) 78%, transparent 100%),
+                linear-gradient(180deg, rgba(11,11,10,0.4) 0%, transparent 25%, rgba(11,11,10,0.92) 100%);
+        }
+        .hero-copy { max-width: 840px; padding: 20px 0; position: relative; z-index: 2;}
+        .hero .lead { max-width: 700px; font-size: 1.15rem; color: #f4f2ec; margin-bottom: 22px; text-shadow: 0 2px 10px rgba(0,0,0,0.6); line-height: 1.6;}
+        .actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
+        .hero-note { color: var(--gold); font-size: .88rem; margin-top: 22px; display: inline-block; border-top: 1px solid rgba(198,166,107,0.3); padding-top: 12px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; text-shadow: 0 1px 5px rgba(0,0,0,0.8);}
+
+        .section { padding: 90px 0; position: relative; }
+        .section-intro { max-width: 820px; margin-bottom: 50px; }
+        
+        .readings { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; align-items: stretch; margin-top: 35px; }
+        
+        .reading-card { 
+            display: flex; flex-direction: column; padding: 38px 28px; 
+            background: linear-gradient(165deg, #151513 0%, #0d0d0c 100%);
+            border: 1px solid var(--line); border-radius: 3px; position: relative; overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5); 
+            transition: all 0.4s ease;
+        }
+        
+        .reading-card::before {
+            content: ''; position: absolute; inset: 12px;
+            border: 1px solid rgba(198, 166, 107, 0.12); pointer-events: none; z-index: 2;
+        }
+        .reading-card::after {
+            content: attr(data-roman); position: absolute; top: -10px; right: 5px;
+            font-family: 'Cinzel', Georgia, serif; font-size: 8rem; color: rgba(198, 166, 107, 0.035);
+            line-height: 1; pointer-events: none; z-index: 0;
+        }
+
+        .reading-card:hover { 
+            border-color: rgba(198, 166, 107, 0.5); transform: translateY(-6px); 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.7), 0 0 30px rgba(198,166,107,0.1); 
+        }
+
+        .reading-card.featured { 
+            background: linear-gradient(165deg, #1b1915 0%, #0e0d0b 100%);
+            border-color: rgba(198, 166, 107, 0.6); 
+            box-shadow: inset 0 2px 0 var(--gold), 0 25px 50px rgba(0,0,0,0.7);
+        }
+        .reading-card.featured::before { border-color: rgba(198, 166, 107, 0.3); }
+
+        .reading-card > * { position: relative; z-index: 3; }
+        .arcanum-header { text-align: center; margin-bottom: 24px; border-bottom: 1px solid rgba(198, 166, 107, 0.15); padding-bottom: 16px; }
+        .arcanum-header .roman { display: block; font-family: 'Cinzel', Georgia, serif; font-size: 1.8rem; color: var(--gold); line-height: 1; margin-bottom: 4px; font-weight: 600; }
+        .arcanum-header .arcanum-name { font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--muted); opacity: 0.85; font-family: 'Cinzel', Georgia, serif; }
+        
+        .reading-card h3 { color: #FFFFFF; text-align: center; font-size: 1.5rem; margin: 0 0 8px; }
+        .reading-card .price { font-size: 1.5rem; text-align: center; margin: 0; color: var(--gold) !important; font-weight: 700; font-family: 'Cinzel', Georgia, serif;}
+        
+        .duration-container { text-align: center; margin: 6px 0 18px; }
+        .duration { color: var(--muted); font-size: .88rem; margin: 0; display: block; font-family: system-ui, -apple-system, sans-serif; }
+        .duration-sub { color: #8A8882; font-size: 0.76rem; font-style: italic; margin-top: 3px; display: block; }
+
+        .reading-card p.desc { margin-top: 0; color: var(--muted); flex-grow: 1; text-align: center; font-size: 0.94rem; line-height: 1.55;}
+        .reading-card .btn { width: 100%; margin-top: 22px; padding: 11px 0;}
+        .small-note { font-size: .88rem; color: #8A8882 !important; margin-top: 28px; text-align: center; font-style: italic;}
+
+        .image-break {
+            padding: 100px 20px; position: relative; overflow: hidden;
+            background: linear-gradient(rgba(11,11,10,0.7), rgba(11,11,10,0.88)), url("../../tarot.jpg") center 45%/cover fixed no-repeat;
+            border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+            text-align: center; display: flex; align-items: center; justify-content: center;
+        }
+        .image-break .quote-box {
+            border: 1px solid rgba(198,166,107,0.35); padding: 40px 35px; background: rgba(11,11,10,0.78); backdrop-filter: blur(8px);
+            max-width: 820px; box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+        }
+        .image-break .quote { 
+            font-family: 'Cinzel', Georgia, serif; font-size: clamp(1.3rem, 2.8vw, 2rem); 
+            color: var(--gold); font-style: italic; margin: 0; line-height: 1.4; text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            letter-spacing: 0.02em; text-transform: none !important;
+        }
+
+        .mode-container { position: relative; margin-top: 40px; }
+        .mode-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; position: relative; z-index: 1; }
+        .mode-card { 
+            display: flex; flex-direction: column;
+            padding: 32px 26px; background: linear-gradient(150deg, #131311 0%, #0a0a09 100%); 
+            border: 1px solid var(--line); border-radius: 3px; position: relative;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4); transition: transform 0.3s ease;
+        }
+        .mode-card:hover { transform: translateY(-4px); border-color: rgba(198, 166, 107, 0.4); }
+        .mode-number { 
+            font-family: 'Cinzel', Georgia, serif; font-size: 1.1rem; color: var(--gold); 
+            width: 46px; height: 46px; display: inline-flex; align-items: center; justify-content: center;
+            background: #0b0b0a; border: 1px solid var(--line); border-radius: 50%; margin-bottom: 16px; font-weight: 600;
+        }
+        .mode-card h3 { color: #FFFFFF; font-family: 'Cinzel', Georgia, serif; font-size: 1.35rem; margin: 0 0 6px; font-weight: 600; }
+        .mode-card .sub-mode { color: var(--gold); font-size: 0.9rem; margin-bottom: 14px; display: block; font-style: italic; font-family: Georgia, serif; }
+        .mode-card p { color: var(--muted); line-height: 1.55; font-size: 0.94rem; margin: 0; flex-grow: 1; }
+
+        .cta-panel { 
+            padding: 45px; border: 1px solid rgba(198, 166, 107, 0.3); border-radius: 3px; 
+            background: linear-gradient(145deg, #161512 0%, #090908 100%); 
+            box-shadow: 0 20px 50px rgba(0,0,0,.5); text-align: center; position: relative; overflow: hidden;
+        }
+        .cta-panel h2 { margin-bottom: 12px; }
+        .cta-panel p { max-width: 620px; margin: 0 auto 25px; }
+        .cta-panel .actions { justify-content: center; margin-top: 0;}
+
+        footer { border-top: 1px solid var(--line); padding: 30px 0; color: var(--muted); font-size: .88rem; background: #070706;}
+        footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; align-items: center;}
+        footer a { color: var(--gold); text-decoration: none; transition: color 0.2s;}
+        footer a:hover { color: #fff;}
+
+        @media(max-width: 950px) { 
+            .readings { grid-template-columns: 1fr; gap: 28px; } 
+            .mode-grid { grid-template-columns: 1fr; gap: 22px; }
+        }
+
+        @media(max-width: 768px) { 
+            html { scroll-padding-top: 60px; } body { padding-top: 60px; } 
+            .wrap { width: calc(100% - 26px); } 
+            nav { gap: 10px; min-height: 60px; } .brand span { display: none; } 
+            .hero { min-height: calc(100vh - 60px); padding: 50px 0; } 
+            .section { padding: 80px 0; } 
+            .reading-card { padding: 32px 20px; }
+            .cta-panel { padding: 35px 20px; } 
+            .hero .actions, .cta-panel .actions { flex-direction: column; align-items: stretch; } 
+            .hero .actions .btn, .cta-panel .actions .btn { width: 100%; } 
+            .image-break { padding: 80px 15px; }
+            .image-break .quote-box { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="wrap" aria-label="Navegación principal">
+            <a class="brand" href="/">
+                <img class="brand-logo" alt="Emblema de Soteira &amp; Sons" width="38" height="38" src="../../logo.svg">
+                <span>SOTEIRA &amp; SONS</span>
+            </a>
+            <div style="margin-left: auto;">
+                <a class="btn ghost" style="padding: 8px 18px; font-size: 0.9rem;" href="https://wa.me/34612425249?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20una%20lectura%20de%20tarot." data-service="Tarot Ads" target="_blank" rel="noopener noreferrer">Reservar por WhatsApp</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="wrap">
+                <div class="hero-copy">
+                    <span class="eyebrow">SOTEIRA &amp; SONS · LOS ARCANOS TE HABLAN</span>
+                    <h1 class="title-h1">Lecturas de Tarot</h1>
+                    <p style="font-family: Georgia, serif; color: var(--gold); font-size: 1.15rem; font-style: italic; letter-spacing: 0.04em; margin: -4px 0 16px;">Atención online y telefónica</p>
+                    <p class="lead">Resuelve tus dudas hoy mismo con una tirada personalizada. Sin rodeos, con total confidencialidad y una atención cercana y directa, sin intermediarios.</p>
+                    <div class="actions">
+                        <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20quiero%20mi%20lectura%20de%20tarot%20ahora." data-service="Tarot Ads" target="_blank" rel="noopener noreferrer">QUIERO MI LECTURA DE TAROT AHORA</a>
+                        <a class="btn ghost" href="#lecturas">Ver opciones y precios</a>
+                    </div>
+                    <p class="hero-note">Respuesta rápida · Tres modalidades · <span data-precio-eur="Desde 25 €" data-precio-mxn="Desde $400 MXN">Desde 25 €</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section anchor-target" id="lecturas">
+            <div class="wrap">
+                <div class="section-intro">
+                    <span class="eyebrow">Tipos de tiradas</span>
+                    <h2 class="title-h2">Elige tu lectura ideal</h2>
+                    <p>Selecciona la modalidad que mejor se adapte a tu consulta actual. Si tienes dudas sobre cuál elegir, escríbenos directamente por WhatsApp.</p>
+                </div>
+                
+                <div class="readings">
+                    <!-- TARJETA 1: Lectura Breve -->
+                    <article class="reading-card" data-roman="X">
+                        <div class="arcanum-header">
+                            <span class="roman">X</span>
+                            <span class="arcanum-name">La Rueda de la Fortuna</span>
+                        </div>
+                        <h3>Lectura breve</h3>
+                        <p class="price" data-precio-eur="25 €" data-precio-mxn="$400 MXN">25 €</p>
+                        <div class="duration-container">
+                            <span class="duration">20 minutos de referencia</span>
+                            <span class="duration-sub">Flexibilidad de 5 a 10 min extra si queda algún tema en el tintero</span>
+                        </div>
+                        <p class="desc">Ideal para explorar una pregunta, una situación o un tema concreto de forma rápida y directa.</p>
+                        <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20me%20interesa%20elegir%20la%20Lectura%20Breve%20de%20tarot." data-mensaje-eur="Hola, me interesa elegir la Lectura Breve de tarot (25 €)." data-mensaje-mxn="Hola, me interesa elegir la Lectura Breve de tarot ($400 MXN)." data-service="Tarot - Breve Ads" target="_blank" rel="noopener noreferrer">Elegir Lectura Breve</a>
+                    </article>
+                    
+                    <!-- TARJETA 2: Lectura Estándar (Destacada) -->
+                    <article class="reading-card featured" data-roman="I">
+                        <div class="arcanum-header">
+                            <span class="roman">I</span>
+                            <span class="arcanum-name">El Mago</span>
+                        </div>
+                        <h3>Lectura estándar</h3>
+                        <p class="price" data-precio-eur="50 €" data-precio-mxn="$800 MXN">50 €</p>
+                        <div class="duration-container">
+                            <span class="duration">60 minutos de referencia</span>
+                            <span class="duration-sub">Flexibilidad de 5 a 10 min extra si queda algún tema en el tintero</span>
+                        </div>
+                        <p class="desc">Para examinar una situación compleja en profundidad, explorar distintas dimensiones y resolver todas las dudas que surjan.</p>
+                        <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20me%20interesa%20elegir%20la%20Lectura%20Est%C3%A1ndar%20de%20tarot." data-mensaje-eur="Hola, me interesa elegir la Lectura Estándar de tarot (50 €)." data-mensaje-mxn="Hola, me interesa elegir la Lectura Estándar de tarot ($800 MXN)." data-service="Tarot - Estándar Ads" target="_blank" rel="noopener noreferrer">Elegir Lectura Estándar</a>
+                    </article>
+
+                    <!-- TARJETA 3: Lectura Lámpade -->
+                    <article class="reading-card" data-roman="IX">
+                        <div class="arcanum-header">
+                            <span class="roman">IX</span>
+                            <span class="arcanum-name">El Ermitaño</span>
+                        </div>
+                        <h3>Lectura Lámpade</h3>
+                        <p class="price" data-precio-eur="100 €" data-precio-mxn="$1,600 MXN">100 €</p>
+                        <div class="duration-container">
+                            <span class="duration">90 min. · Incluye seguimiento</span>
+                            <span class="duration-sub">Flexibilidad de 5 a 10 min extra si queda algún tema en el tintero</span>
+                        </div>
+                        <p class="desc">Enfoque profundo y evolutivo para transformar patrones. Incluye una lectura breve de seguimiento al mes.</p>
+                        <a class="btn ghost" href="https://wa.me/34612425249?text=Hola%2C%20me%20interesa%20elegir%20la%20Lectura%20L%C3%A1mpade%20de%20tarot." data-mensaje-eur="Hola, me interesa elegir la Lectura Lámpade de tarot (100 €)." data-mensaje-mxn="Hola, me interesa elegir la Lectura Lámpade de tarot ($1,600 MXN)." data-service="Tarot - Lámpade Ads" target="_blank" rel="noopener noreferrer">Elegir Lectura Lámpade</a>
+                    </article>
+                </div>
+                <p class="small-note">¿Dudas sobre cuál elegir? Escríbenos una línea por WhatsApp y te recomendamos la tirada exacta.</p>
+            </div>
+        </section>
+
+        <!-- FRANJA FOTOGRÁFICA INMERSIVA -->
+        <section class="image-break">
+            <div class="wrap">
+                <div class="quote-box">
+                    <p class="quote">"No hay cartas buenas ni malas, solo verdades que necesitan ser miradas."</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="modalidades">
+            <div class="wrap">
+                <div class="section-intro">
+                    <span class="eyebrow">Conexión Global y Local</span>
+                    <h2 class="title-h2">¿Cómo realizamos la sesión?</h2>
+                </div>
+                
+                <div class="mode-container">
+                    <div class="mode-grid" id="grid-modalidades">
+                        <article class="mode-card">
+                            <span class="mode-number">01</span>
+                            <h3>Llamada telefónica</h3>
+                            <span class="sub-mode">La intimidad de la voz</span>
+                            <p>Mediante llamada o WhatsApp. Te enviaré fotografías de las cartas durante la sesión para que puedas verlas mientras hablamos.</p>
+                        </article>
+                        <article class="mode-card">
+                            <span class="mode-number">02</span>
+                            <h3>Videollamada</h3>
+                            <span class="sub-mode">Desde cualquier lugar</span>
+                            <p>Sigue la lectura en directo viendo cómo las cartas van saliendo sobre el tablero en tiempo real.</p>
+                        </article>
+                        <article class="mode-card" id="card-presencial" style="display: none;">
+                            <span class="mode-number">03</span>
+                            <h3>Presencial</h3>
+                            <span class="sub-mode">Santander, España</span>
+                            <p>Una lectura cara a cara en nuestro espacio para quienes prefieren la cercanía física.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top: 10px;">
+            <div class="wrap">
+                <div class="cta-panel">
+                    <span class="eyebrow">Da el primer paso</span>
+                    <h2 class="title-h2" style="margin-bottom: 12px; margin-top: 0;">¿Qué te gustaría explorar hoy?</h2>
+                    <p>Las cartas están listas sobre la mesa. Reserva tu espacio de forma rápida y confidencial por mensaje.</p>
+                    <div class="actions">
+                        <a class="btn" href="https://wa.me/34612425249?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20mi%20lectura%20de%20tarot." data-service="Tarot Ads" target="_blank" rel="noopener noreferrer">RESERVAR MI LECTURA POR WHATSAPP</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+          <span>SOTEIRA &amp; SONS &middot; CASA RITUAL &middot; TAROT</span>
+          <span>
+            <a href="mailto:contacto@casasoteira.com">contacto@casasoteira.com</a> &middot; 
+            <a href="/privacidad.html">Privacidad</a>
+          </span>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE GEOPRICING Y GEOLOCALIZACIÓN CONDICIONAL DE PRESENCIAL -->
+    <script id="soteira-tarot-geopricing">
+      (function () { 
+        'use strict'; 
+        const paisesConPreciosMXN = new Set(['AI','AG','AR','AW','BB','BL','BM','BQ','BS','BZ','BO','BR','VG','KY','CL','CO','CR','CU','CW','DM','DO','EC','SV','FK','GF','GD','GL','GP','GS','GT','GY','HT','HN','JM','MQ','MX','MS','NI','PA','PY','PE','PR','KN','LC','MF','PM','VC','SX','SR','TT','TC','UY','VE','VI']); 
+        
+        function aplicarMoneda(moneda) { 
+            document.querySelectorAll('[data-precio-eur][data-precio-mxn]').forEach(function (elemento) { 
+                elemento.textContent = moneda === 'MXN' ? elemento.dataset.precioMxn : elemento.dataset.precioEur; 
+            }); 
+            document.querySelectorAll('[data-mensaje-eur][data-mensaje-mxn]').forEach(function (enlace) { 
+                const mensaje = moneda === 'MXN' ? enlace.dataset.mensajeMxn : enlace.dataset.mensajeEur; 
+                enlace.href = 'https://wa.me/34612425249?text=' + encodeURIComponent(mensaje); 
+            }); 
+        } 
+
+        aplicarMoneda('EUR'); 
+
+        document.addEventListener('DOMContentLoaded', async function () { 
+            try { 
+                const respuesta = await fetch('https://ipapi.co/json/', { cache: 'no-store' }); 
+                if (!respuesta.ok) throw new Error('Geo HTTP ' + respuesta.status); 
+                const datos = await respuesta.json(); 
+                const pais = typeof datos.country_code === 'string' ? datos.country_code.toUpperCase() : ''; 
+                
+                // Divisa
+                const moneda = paisesConPreciosMXN.has(pais) ? 'MXN' : 'EUR'; 
+                aplicarMoneda(moneda); 
+
+                // Mostrar tarjeta presencial solo si es España con flex para mantener el diseño idéntico
+                if (pais === 'ES') {
+                    const cardPresencial = document.getElementById('card-presencial');
+                    if (cardPresencial) {
+                        cardPresencial.style.display = 'flex';
+                    }
+                }
+            } catch (error) { 
+                aplicarMoneda('EUR'); 
+            } 
+        }); 
+      })();
+    </script>
+</body>
+</html>
